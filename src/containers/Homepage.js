@@ -88,7 +88,7 @@ const Homepage = () => {
                                     <div class="p-4">
                                         <h1
                                             class="font-jost hover:cursor-pointer mt-2 text-gray-900 font-semibold text-md tracking-tight text-center">
-                                            Ketua Dewan Pembina - Indra Uno
+                                            Ketua Dewan Pembina - Indra Uno Maulana
                                         </h1>
                                     </div>
                                     <div class="absolute top-1/2 w-full flex justify-between z-20">
