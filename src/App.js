@@ -11,6 +11,7 @@ import Seventop from "./containers/Seventop";
 import Marchendise from "./containers/Marchendise";
 import Pelatihan from "./containers/Pelatihan";
 import Pendampingan from "./containers/Pendampingan";
+import Faq from "./containers/Faq";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/marchendise" element={<Marchendise />} />
           <Route path="/pendampingan" element={<Pendampingan />} />
           <Route path="/pelatihan" element={<Pelatihan />} />
+          <Route path="/faq" element={<Faq />} />
         </Routes>
       </BrowserRouter>
     </>
