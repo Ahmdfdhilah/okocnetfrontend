@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-no-target-blank */
-import React from "react";
+import { useState } from "react";
 import sandiaga from "../asset/img/sandiaga-uno-ok.png";
 import iim from "../asset/img/IimRusyamsi-Styled.png";
 import indra from "../asset/img/indra-uno-styled.png";
@@ -40,6 +40,21 @@ import Footer from "../components/Footer";
 import Bg from "../asset/img/blob-scene-haikei.svg"
 
 const Homepage = () => {
+    const [currentItemIndex, setCurrentItemIndex] = useState(0);
+
+    const items = [
+        { src: sandiaga, alt: 'Slide 1' },
+        { src: iim, alt: 'Slide 2' },
+        { src: indra, alt: 'Slide 3' }
+    ];
+
+    const goToNextItem = () => {
+        setCurrentItemIndex((prevIndex) => (prevIndex + 1) % items.length);
+    };
+
+    const goToPrevItem = () => {
+        setCurrentItemIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
+    };
 
     return (
         <>
@@ -59,101 +74,33 @@ const Homepage = () => {
                 </div>
             </section>
 
-            <div id="about" class="mt-[8em] w-full flex justify-center items-center bg-white pt-16 pb-20 lg:pb-48">
+            <div id="about" class="mt-[7em] w-full flex justify-center items-center bg-white pt-16 pb-20 lg:pb-48">
                 <div class="w-3/4 about-container flex flex-col lg:flex-row justify-center items-center bg-detik-milk">
-                    <div class="relative flex w-full justify-center lg:justify-end flex-shrink-0 md:w-5/12 pr-0 lg:pr-4 text-justify">
-                        <div class="flex items-center justify-center w-full h-full py-10 sm:py-8 px-4">
-
-                            <div class="sandiaga-slide">
-                                <input class="sr-only peer" type="radio" name="carousel" id="carousel-1" />
-
-                                <div class="w-full lg:w-96 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg  transition-all duration-300 opacity-0 peer-checked:opacity-100 peer-checked:z-10 z-0">
-                                    <img class="rounded-t-lg w-full lg:w-96" src={sandiaga} alt="" />
-                                    <div class="p-4">
-                                        <h1
-                                            class="hover:cursor-pointer mt-2 text-gray-900 font-semibold text-md font-jost tracking-tight text-center">
-                                            Founder - Sandiaga Uno
-                                        </h1>
+                    <div className="w-[100%] mx-auto p-2">
+                        <div className="relative rounded-lg overflow-hidden" data-carousel="static">
+                            <div className="relative h-78" data-carousel-inner>
+                                {items.map((item, index) => (
+                                    <div key={index} className={`duration-700 ease-in-out ${currentItemIndex === index ? 'block' : 'hidden'}`} data-carousel-item>
+                                        <img src={item.src} className="object-cover w-full h-full" alt={item.alt} />
+                                        {item.text && (
+                                            <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl font-semibold text-white md:text-2xl dark:text-gray-800">
+                                                {item.text}
+                                            </span>
+                                        )}
                                     </div>
-                                    <div class="absolute top-1/2 w-full flex justify-between z-20">
-                                        <label for="carousel-3"
-                                            class="inline-block text-red-600 cursor-pointer -translate-x-5 bg-white rounded-full shadow-md active:translate-y-0.5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20"
-                                                fill="currentColor">
-                                                <path fill-rule="evenodd"
-                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </label>
-                                        <label for="carousel-2"
-                                            class="inline-block text-red-600 cursor-pointer translate-x-5 bg-white rounded-full shadow-md active:translate-y-0.5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20"
-                                                fill="currentColor">
-                                                <path fill-rule="evenodd"
-                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </label>
-                                    </div>
-                                </div>
+                                ))}
+
                             </div>
-
-                            <div class="indra-uno-slide">
-                                <input class="sr-only peer" type="radio" name="carousel" id="carousel-2" />
-                                <div
-                                    class="w-full lg:w-96 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg transition-all duration-300 opacity-0 peer-checked:opacity-100 peer-checked:z-10 z-0">
-                                    <img class="rounded-t-lg w-full lg:w-96" src={indra} alt="" />
-                                    <div class="p-4">
-                                        <h1
-                                            class="font-jost hover:cursor-pointer mt-2 text-gray-900 font-semibold text-md tracking-tight text-center">
-                                            Ketua Dewan Pembina - Indra Uno
-                                        </h1>
-                                    </div>
-                                    <div class="absolute top-1/2 w-full flex justify-between z-20">
-                                        <label for="carousel-1"
-                                            class="inline-block text-red-600 cursor-pointer -translate-x-5 bg-white rounded-full shadow-md active:translate-y-0.5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20"
-                                                fill="currentColor">
-                                                <path fill-rule="evenodd"
-                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="iim-rusyamsi-slide">
-                                <input class="sr-only peer" type="radio" name="carousel" id="carousel-3" />
-                                <div
-                                    class="w-full lg:w-96 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg transition-all duration-300 opacity-0 peer-checked:opacity-100 peer-checked:z-10 z-0">
-                                    <img class="rounded-t-lg w-full lg:w-96"
-                                        src={iim}
-                                        alt="" />
-                                    <div class="py-4 px-8">
-                                        <h1 class="hover:cursor-pointer mt-2 text-gray-900 font-semibold text-md text-center font-jost tracking-tight">
-                                            Ketua Umum - Iim Rusyamsi
-                                        </h1>
-                                    </div>
-                                    <div class="absolute top-1/2 w-full flex justify-end z-20">
-
-
-                                        {/* Kanan */}
-                                        <label for="carousel-1"
-                                            class="inline-block text-red-600 cursor-pointer translate-x-5 bg-white rounded-full shadow-md active:translate-y-0.5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20"
-                                                fill="currentColor">
-                                                <path fill-rule="evenodd"
-                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
+                            <button type="button" className="flex absolute top-1/2 left-0 z-40 items-center justify-center w-10 h-10 bg-black rounded-full hover:bg-gray-300 focus:outline-none transition" data-carousel-prev onClick={goToPrevItem}>
+                                <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6 12H18M6 12L11 7M6 12L11 17" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                            </button>
+                            <button type="button" className="flex absolute bottom-[7rem] right-3 z-40 items-center justify-center w-10 h-10 bg-black rounded-full hover:bg-gray-300 focus:outline-none transition" data-carousel-next onClick={goToNextItem}>
+                                <svg width="28px" height="28px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                            </button>
                         </div>
                     </div>
-                    <div class="pt-40 lg:mt-0 flex flex-col flex-grow pl-0 lg:pl-4 lg:pt-0">
+
+                    <div class="ml-10 pt-40 lg:mt-0 flex flex-col flex-grow pl-0 lg:pl-4 lg:pt-0">
                         <div class="pb-5">
                             <h3 id="about-headline"
                                 class="text-center lg:text-left font-poppins text-sm leading-9 lg:text-5xl font-bold-700 text-slate-700">

@@ -7,7 +7,7 @@ import OkOceGan from "../asset/img/galeri/okoce-gan.jpeg";
 import Sandiaga from "../asset/img/galeri/sandiaga.jpeg";
 import OkOce from "../asset/img/logo-okoce.webp";
 import Gerakan from "../asset/img/gerakan-sosial.webp";
-import Mesjid from "../asset/img/Placeholder image.png";
+import Mesjid from "../asset/img/Placeholder image .png";
 import Desapreneur from "../asset/img/Placeholder image-1.png";
 import EmakKece from "../asset/img/Placeholder image-4.png";
 import Brand from "../asset/img/Placeholder image-3.png";
