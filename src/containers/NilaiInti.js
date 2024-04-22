@@ -1,11 +1,8 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 const NilaiInti = () => {
     return (
         <>
-            <Navbar />
             <div class="mt-[6rem] bg-gray-300 w-full h-[20rem] grid justify-center content-center">
                 <h1 class="font-extrabold text-4xl text-center">Nilai Inti Ok Oce Indonesia</h1>
                 <p class="text-center mt-6">Gerakan Ok OCE Indonesia mengadvokasi pertumbuhan ekonomi yang didorong oleh kreativitas dan kolaborasi. <br /> Dengan mengutamakan inovasi, kerjasama antarindividu, dan keterlibatan penuh dalam berbagai sektor ekonomi, <br /> Ok OCE membuka pintu bagi kemajuan yang berkelanjutan dan inklusif bagi seluruh masyarakat Indonesia.</p>
@@ -36,7 +33,6 @@ const NilaiInti = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
         </>
     );
 }

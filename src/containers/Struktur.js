@@ -1,7 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import Sandiaga from "../asset/img/pengurus/sandiaga-uno-scaled.webp";
 import Indra from "../asset/img/pengurus/indra-uno-scaled.webp";
 import Victor from "../asset/img/pengurus/victor-aritonang-scaled.webp";
@@ -34,7 +32,7 @@ import Ane from "../asset/img/pengurus/anne.webp";
 const Struktur = () => {
     return (
         <>
-            <Navbar />
+
             <div class="mt-[6rem] bg-gray-400 w-full h-[20rem] grid justify-center content-center">
                 <h1 class="font-extrabold text-4xl text-center">Struktur Organisasi <br /> Ok Oce Indonesia </h1>
                 <p class="text-center mt-6">These are the great people behind the success of OK OCE Indonesia </p>
@@ -276,8 +274,6 @@ const Struktur = () => {
                     </div>
                 </div>
             </div>
-
-            <Footer />
         </>
     );
 }

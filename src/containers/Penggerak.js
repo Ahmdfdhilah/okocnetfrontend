@@ -1,8 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import Perwira from "../asset/img/logo_perwira.png";
 import Gan from "../asset/img/logo_ok-oce-gan-gebrakan-anak-negeri.png";
 import Skies from "../asset/img/logo_skies-indonesia.png";
@@ -21,7 +19,6 @@ import Forever from "../asset/img/logo_ok-oce-forever.jpg";
 const Penggerak = () => {
     return (
         <>
-            <Navbar />
             <div class="mt-[6rem] bg-gray-300 w-full h-[22rem] grid justify-center content-center">
                 <h1 class="font-extrabold text-4xl text-center">Penggerak <br /> Ok Oce Indonesia</h1>
                 <p class="text-center mt-6 font-medium">Penggerak OK OCE sebagai layer kedua dalam bangunan gerakan sosial penciptaan lapangan kerja <br /> berbasis wirausaha tersebar diberbagai daerah di seluruh Indonesia.</p>
@@ -163,7 +160,6 @@ const Penggerak = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
         </>
     );
 }

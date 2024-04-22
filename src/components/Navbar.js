@@ -234,7 +234,6 @@ function Navbar() {
 
 
 
-
                     <div class="flex justify-center w-full hidden md:inline-flex md:flex-row md:items-center">
                         <ul class="flex flex-col text-base bg-gray-50 md:items-center md:space-x-6 md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-white md:dark:bg-white dark:border-gray-700 tracking-wide">
                             <li onMouseEnter={handleDropdownShow} onMouseLeave={handleDropdownHide}>
@@ -295,10 +294,10 @@ function Navbar() {
                                 <div class={"absolute z-100 font-normal divide-y divide-gray-100 rounded-lg top-[4.3rem] w-44 drop-shadow-lg dark:bg-white dark:divide-gray-600 " + (PeluangDropdownVisible ? '' : 'hidden')}>
                                     <ul className="py-2 text-sm text-black dark:text-black" aria-labelledby="dropdownPeluangNavbarLink">
                                         <li>
-                                            <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peluang Usaha</a>
+                                            <a href="/peluangusaha" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peluang Usaha</a>
                                         </li>
                                         <li>
-                                            <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peluang Kerja</a>
+                                            <a href="/peluangkerja" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peluang Kerja</a>
                                         </li>
                                         <li>
                                             <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Magang</a>
