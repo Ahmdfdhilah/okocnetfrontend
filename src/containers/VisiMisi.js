@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../asset/img/Header visimisi.png"
-import visi from "../asset/img/visimisiContent.jpg"
+import Header from "@img/Header visimisi.png"
+import visi from "@img/visimisiContent.jpg"
 
 const VisiMisi = () => {
     return (
