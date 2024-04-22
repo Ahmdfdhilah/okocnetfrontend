@@ -184,7 +184,7 @@ function Navbar() {
                                 <div class={"absolute z-100 font-normal divide-y divide-gray-100 rounded-lg top-[17rem] w-44 dark:bg-gray-400 dark:divide-gray-500 " + (programDropdownVisible ? '' : 'hidden')}>
                                     <ul className="py-2 text-sm text-black dark:text-black" aria-labelledby="dropdownProgramNavbarLink">
                                         <li>
-                                            <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Brand Lokal OK</a>
+                                            <a href="/lokalbrand" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Brand Lokal OK</a>
                                         </li>
                                         <li>
                                             <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Modal Berkah</a>
@@ -341,7 +341,7 @@ function Navbar() {
                                 <div class={"absolute z-100 font-normal divide-y divide-gray-100 rounded-lg top-[4.3rem] w-44 drop-shadow-lg dark:bg-white dark:divide-gray-600 " + (programDropdownVisible ? '' : 'hidden')}>
                                     <ul className="py-2 text-sm text-black dark:text-black" aria-labelledby="dropdownProgramNavbarLink">
                                         <li>
-                                            <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Brand Lokal OK</a>
+                                            <a href="/lokalbrand" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Brand Lokal OK</a>
                                         </li>
                                         <li>
                                             <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Modal Berkah</a>
