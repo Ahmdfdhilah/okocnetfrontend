@@ -2,8 +2,6 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/alt-text */
 import { useState } from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import BiruBig from "../asset/img/merchandise/OK-01/kaos-ok-oce-logo-besar-biru-scaled.webp";
 import MerahBig from "../asset/img/merchandise/OK-01/kaos-ok-oce-logo-besar-merah-scaled.webp";
 import HitamBig from "../asset/img/merchandise/OK-01/kaos-ok-oce-logo-besar-hitam-scaled.webp";
@@ -47,7 +45,6 @@ const Marchendise = () => {
     };
     return (
         <>
-            <Navbar />
             <div class="mt-[6rem] bg-gray-400 w-full h-[20rem] grid justify-center content-center">
                 <h1 class="font-extrabold text-3xl text-center">Ok Oce Official <br /> <span class="text-5xl">Merchandise</span></h1>
             </div>
@@ -185,7 +182,6 @@ const Marchendise = () => {
                     {/* <!-- CARDS --> */}
                 </div>
             </div>
-            <Footer />
         </>
     )
 }

@@ -1,7 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import Seven from "../asset/img/7top-rb.webp";
 import Seven2 from "../asset/img/7-TOP-OK-OCE-1-768x768.webp";
 
@@ -13,7 +11,6 @@ const contentClasses = "max-w-[500px] text-base p-6 flex flex-col items-center j
 const Seventop = () => {
     return (
         <>
-            <Navbar />
             <div class="flex justify-center mt-[10rem] mb-20">
                 <img src={Seven} class="object-cover flex justify-center items-center" alt="7 Top Ok Oce" />
             </div>
@@ -69,7 +66,6 @@ const Seventop = () => {
             <div class="flex justify-center mt-[10rem] mb-20">
                 <img src={Seven2} class="object-cover flex justify-center items-center" alt="7 Top Ok Oce" />
             </div>
-            <Footer />
         </>
     );
 }

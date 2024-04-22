@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Header from "../asset/img/headerPeluang.png";
+import Header from "../asset/img/HeaderKerja.png";
 
 const accordionContentClasses = 'p-20 border-t border-zinc-200';
 const accordionButtonClasses = 'flex items-center justify-between w-full text-zinc-500 border-t border-zinc-200 pt-3';
 
-const PeluangUsaha = () => {
+const PeluangKerja = () => {
     const [isAccordionOpen, setIsAccordionOpen] = useState(false);
     const [isAccordionOpen2, setIsAccordionOpen2] = useState(false);
     const [isAccordionOpen3, setIsAccordionOpen3] = useState(false);
@@ -23,8 +23,8 @@ const PeluangUsaha = () => {
         <>
             <section class="mt-[4em] bg-center bg-no-repeat" style={{ backgroundImage: `url(${Header})`, width: `100%`, height: `100%`, backgroundSize: `cover` }}>
                 <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
-                    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Yuk, Mulai Gabung dan Dapatkan Hasil Tambahan dengan daftar </h1>
-                    <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Fondasi kami, idemu, bersama-sama kita maju dan berkembang untuk menciptakan masa depan bersama. </p>
+                    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Yuk, Mulai Gabung dan Dapatkan Hasil Tambahan dengan daftar</h1>
+                    <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Fondasi kami, idemu, bersama-sama kita maju dan berkembang untuk menciptakan masa depan bersama.</p>
                 </div>
             </section>
 
@@ -265,7 +265,7 @@ const PeluangUsaha = () => {
                 </div>
             </div>
         </>
-    );
+    )
 }
 
-export default PeluangUsaha;
+export default PeluangKerja;

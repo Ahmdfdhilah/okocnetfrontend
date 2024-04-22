@@ -35,8 +35,6 @@ import Indivara from "../asset/img/mitra-kerjasama/alternatives/indivara-2.png";
 import Jnj from "../asset/img/mitra-kerjasama/alternatives/jnj-group-2.png";
 import Okocetv from "../asset/img/okoce-tv.webp";
 import Youtube from "../components/Youtube";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import Bg from "../asset/img/blob-scene-haikei.svg"
 
 const Homepage = () => {
@@ -58,7 +56,6 @@ const Homepage = () => {
 
     return (
         <>
-            <Navbar />
             <section class="mt-[4em] bg-center bg-no-repeat" style={{ backgroundImage: `url(${Bg})`, width: `100%`, height: `100%`, backgroundSize: `cover` }}>
                 <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
                     <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Gerakan Sosial Untuk Indonesia!</h1>
@@ -432,7 +429,6 @@ const Homepage = () => {
                     </section>
                 </div>
             </div>
-            <Footer />
         </>
     );
 };

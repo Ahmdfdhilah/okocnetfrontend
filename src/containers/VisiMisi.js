@@ -1,13 +1,11 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import Header from "../asset/img/Header visimisi.png"
 import visi from "../asset/img/visimisiContent.jpg"
 
 const VisiMisi = () => {
     return (
         <>
-            <Navbar />
+
             <div class="w-full flex justify-center">
                 <img src={Header} class="relative object-cover block w-full h-auto md:w-screen md:h-[40rem]" alt="header" />
             </div>
@@ -21,7 +19,6 @@ const VisiMisi = () => {
                     <img src={visi} alt="" />
                 </div>
             </div>
-            <Footer />
         </>
     );
 }
