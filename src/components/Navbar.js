@@ -237,49 +237,49 @@ function Navbar() {
                     <div class="flex justify-center w-full hidden md:inline-flex md:flex-row md:items-center">
                         <ul class="flex flex-col text-base bg-gray-50 md:items-center md:space-x-6 md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-white md:dark:bg-white dark:border-gray-700 tracking-wide">
                             <li onMouseEnter={handleDropdownShow} onMouseLeave={handleDropdownHide}>
-                                <button id="dropdownNavbarLink" class="uppercase w-full py-2 px-3 text-black hover:bg-red-600 rounded-lg md:hover:bg-red-600 md:border-0 md:hover:text-blue-700 md:w-auto dark:text-black md:dark:hover:text-white dark:focus:text-black dark:hover:bg-red-600 md:dark:hover:bg-red-600">Tentang Kami</button>
+                                <button id="dropdownNavbarLink" class="uppercase w-full py-2 px-3 text-black hover:bg-red-600 rounded-lg md:hover:bg-red-600 md:border-0 md:hover:text-blue-700 md:w-auto text-black md:hover:text-white focus:text-black hover:bg-red-600 md:hover:bg-red-600">Tentang Kami</button>
 
                                 {/*Dropdown menu */}
-                                <div className={"absolute z-100 font-normal divide-y divide-gray-100 rounded-lg top-[4.3rem] w-44 drop-shadow-lg dark:bg-white dark:divide-gray-600 " + (dropdownVisible ? '' : 'hidden')}>
-                                    <ul className="py-2 text-sm text-black dark:text-black" aria-labelledby="dropdownLargeButton">
+                                <div className={"absolute z-100 font-normal divide-y rounded-lg top-[4.3rem] w-44 drop-shadow-lg bg-white divide-gray-600 " + (dropdownVisible ? '' : 'hidden')}>
+                                    <ul className="py-2 text-sm text-black" aria-labelledby="dropdownLargeButton">
                                         <li>
-                                            <Link to="/sejarah" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                            <Link to="/sejarah" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 text-black hover:text-white focus:text-black">
                                                 Sejarah
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link to="/visimisi" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                            <Link to="/visimisi" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 text-black hover:text-white focus:text-black">
                                                 Visi dan Misi
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link to="/nilaiinti" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                            <Link to="/nilaiinti" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 text-black hover:text-white focus:text-black">
                                                 Nilai Inti
                                             </Link>
                                         </li>
-                                        <Link to="/struktur" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                        <Link to="/struktur" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 text-black hover:text-white focus:text-black">
                                             Struktur Pengurus
                                         </Link>
                                         <li>
-                                            <Link to="/penggerak" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                            <Link to="/penggerak" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 text-black hover:text-white focus:text-black">
                                                 Penggerak
                                             </Link>
                                         </li>
-                                        <Link to="/anniversary" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                        <Link to="/anniversary" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 text-black hover:text-white focus:text-black">
                                             Anniversary
                                         </Link>
                                     </ul>
                                 </div>
                             </li>
                             <li>
-                                <a href="/7top" class="uppercase block py-2 px-3 text-gray-900 rounded hover:bg-red-600 rounded-lg md:hover:bg-red-600 md:border-0 md:hover:text-blue-700 md:w-auto dark:text-black md:dark:hover:text-white dark:focus:text-black dark:hover:bg-red-600 md:dark:hover:bg-red-600">7 Top</a>
+                                <a href="/7top" class="uppercase block py-2 px-3 rounded hover:bg-red-600 rounded-lg md:border-0 md:w-auto text-black hover:text-white focus:text-black hover:bg-red-600">7 Top</a>
                             </li>
 
                             <li onMouseEnter={handleEtalaseDropdownShow} onMouseLeave={handleEtalaseDropdownHide}>
-                                <button id="dropdownEtalaseNavbarLink" className="uppercase flex items-center justify-between w-full py-2 px-3 text-black hover:bg-red-600 rounded-lg md:hover:bg-red-600 md:border-0 md:hover:text-blue-700 md:w-auto dark:text-black md:dark:hover:text-white dark:focus:text-black dark:hover:bg-red-600 md:dark:hover:bg-red-600">Etalase</button>
+                                <button id="dropdownEtalaseNavbarLink" className="uppercase w-full py-2 px-3 text-black hover:bg-red-600 rounded-lg md:hover:bg-red-600 md:border-0 md:hover:text-blue-700 md:w-auto text-black md:hover:text-white focus:text-black hover:bg-red-600 md:hover:bg-red-600">Etalase</button>
 
                                 {/*Dropdown menu */}
-                                <div class={"absolute z-100 font-normal divide-y divide-gray-100 rounded-lg top-[4.3rem] w-44 drop-shadow-lg dark:bg-white dark:divide-gray-600 " + (EtalaseDropdownVisible ? '' : 'hidden')}>
+                                <div class={"absolute z-100 font-normal divide-y divide-gray-100 rounded-lg top-[4.3rem] w-44 drop-shadow-lg bg-white divide-gray-600 " + (EtalaseDropdownVisible ? '' : 'hidden')}>
                                     <ul className="py-2 text-sm text-black dark:text-black" aria-labelledby="dropdownEtalaseNavbarLink">
                                         <li>
                                             <a href="/marchendise" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Marchendise</a>
@@ -289,9 +289,9 @@ function Navbar() {
                             </li>
 
                             <li onMouseEnter={handlePeluangDropdownShow} onMouseLeave={handlePeluangDropdownHide}>
-                                <button id="dropdownPeluangNavbarLink" className="uppercase flex items-center justify-between w-full py-2 px-3 text-black hover:bg-red-600 rounded-lg md:hover:bg-red-600 md:border-0 md:hover:text-blue-700 md:w-auto dark:text-black md:dark:hover:text-white dark:focus:text-black dark:hover:bg-red-600 md:dark:hover:bg-red-600">Peluang</button>
+                                <button id="dropdownPeluangNavbarLink" className="uppercase w-full py-2 px-3 text-black hover:bg-red-600 rounded-lg md:hover:bg-red-600 md:border-0 md:hover:text-blue-700 md:w-auto text-black md:hover:text-white focus:text-black hover:bg-red-600 md:hover:bg-red-600">Peluang</button>
                                 {/*Dropdown menu */}
-                                <div class={"absolute z-100 font-normal divide-y divide-gray-100 rounded-lg top-[4.3rem] w-44 drop-shadow-lg dark:bg-white dark:divide-gray-600 " + (PeluangDropdownVisible ? '' : 'hidden')}>
+                                <div class={"absolute z-100 font-normal divide-y divide-gray-100 rounded-lg top-[4.3rem] w-44 drop-shadow-lg bg-white divide-gray-600 " + (PeluangDropdownVisible ? '' : 'hidden')}>
                                     <ul className="py-2 text-sm text-black dark:text-black" aria-labelledby="dropdownPeluangNavbarLink">
                                         <li>
                                             <a href="/peluangusaha" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peluang Usaha</a>
@@ -300,7 +300,7 @@ function Navbar() {
                                             <a href="/peluangkerja" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peluang Kerja</a>
                                         </li>
                                         <li>
-                                            <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Magang</a>
+                                            <a href="/magang" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Magang</a>
                                         </li>
                                         <li>
                                             <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Trainer</a>
@@ -312,7 +312,7 @@ function Navbar() {
                                             <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mitra Kerjasama</a>
                                         </li>
                                         <li>
-                                            <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Donasi</a>
+                                            <a href="/donasi" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Donasi</a>
                                         </li>
                                         {/* Add more submenu items here */}
                                     </ul>
@@ -320,9 +320,9 @@ function Navbar() {
                             </li>
 
                             <li onMouseEnter={handleEventDropdownShow} onMouseLeave={handleEventDropdownHide}>
-                                <button id="dropdownEventNavbarLink" className="uppercase flex items-center justify-between w-full py-2 px-3 text-black hover:bg-red-600 rounded-lg md:hover:bg-red-600 md:border-0 md:hover:text-blue-700 md:w-auto dark:text-black md:dark:hover:text-white dark:focus:text-black dark:hover:bg-red-600 md:dark:hover:bg-red-600">Event</button>
+                                <button id="dropdownEventNavbarLink" className="uppercase w-full py-2 px-3 text-black hover:bg-red-600 rounded-lg md:hover:bg-red-600 md:border-0 md:hover:text-blue-700 md:w-auto text-black md:hover:text-white focus:text-black hover:bg-red-600 md:hover:bg-red-600">Event</button>
                                 {/*Dropdown menu */}
-                                <div class={"absolute z-100 font-normal divide-y divide-gray-100 rounded-lg top-[4.3rem] w-44 drop-shadow-lg dark:bg-white dark:divide-gray-600 " + (EventDropdownVisible ? '' : 'hidden')}>
+                                <div class={"absolute z-100 font-normal divide-y divide-gray-100 rounded-lg top-[4.3rem] w-44 drop-shadow-lg bg-white divide-gray-600 " + (EventDropdownVisible ? '' : 'hidden')}>
                                     <ul className="py-2 text-sm text-black dark:text-black" aria-labelledby="dropdownEventNavbarLink">
                                         <li>
                                             <a href="" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Daftar Acara</a>
@@ -335,10 +335,10 @@ function Navbar() {
                             </li>
 
                             <li onMouseEnter={handleProgramDropdownShow} onMouseLeave={handleProgramDropdownHide}>
-                                <button id="dropdownProgramNavbarLink" className="uppercase flex items-center justify-between w-full py-2 px-3 text-black hover:bg-red-600 rounded-lg md:hover:bg-red-600 md:border-0 md:hover:text-blue-700 md:w-auto dark:text-black md:dark:hover:text-white dark:focus:text-black dark:hover:bg-red-600 md:dark:hover:bg-red-600">Program</button>
+                                <button id="dropdownProgramNavbarLink" className="uppercase w-full py-2 px-3 text-black hover:bg-red-600 rounded-lg md:hover:bg-red-600 md:border-0 md:hover:text-blue-700 md:w-auto text-black md:hover:text-white focus:text-black hover:bg-red-600 md:hover:bg-red-600">Program</button>
 
                                 {/*Dropdown menu */}
-                                <div class={"absolute z-100 font-normal divide-y divide-gray-100 rounded-lg top-[4.3rem] w-44 drop-shadow-lg dark:bg-white dark:divide-gray-600 " + (programDropdownVisible ? '' : 'hidden')}>
+                                <div class={"absolute z-100 font-normal divide-y divide-gray-100 rounded-lg top-[4.3rem] w-44 drop-shadow-lg bg-white divide-gray-600 " + (programDropdownVisible ? '' : 'hidden')}>
                                     <ul className="py-2 text-sm text-black dark:text-black" aria-labelledby="dropdownProgramNavbarLink">
                                         <li>
                                             <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Brand Lokal OK</a>
@@ -370,9 +370,9 @@ function Navbar() {
                             </li>
 
                             <li onMouseEnter={handleInformasiDropdownShow} onMouseLeave={handleInformasiDropdownHide}>
-                                <button id="dropdownInformasiNavbarLink" className="uppercase flex items-center justify-between w-full py-2 px-3 text-black hover:bg-red-600 rounded-lg md:hover:bg-red-600 md:border-0 md:hover:text-blue-700 md:w-auto dark:text-black md:dark:hover:text-white dark:focus:text-black dark:hover:bg-red-600 md:dark:hover:bg-red-600">Informasi</button>
+                                <button id="dropdownInformasiNavbarLink" className="uppercase w-full py-2 px-3 text-black hover:bg-red-600 rounded-lg md:hover:bg-red-600 md:border-0 md:hover:text-blue-700 md:w-auto text-black md:hover:text-white focus:text-black hover:bg-red-600 md:hover:bg-red-600">Informasi</button>
                                 {/*Dropdown menu */}
-                                <div class={"absolute z-100 font-normal divide-y divide-gray-100 rounded-lg top-[4.3rem] w-44 drop-shadow-lg dark:bg-white dark:divide-gray-600 " + (InformasiDropdownVisible ? '' : 'hidden')}>
+                                <div class={"absolute z-100 font-normal divide-y divide-gray-100 rounded-lg top-[4.3rem] w-44 drop-shadow-lg bg-white divide-gray-600 " + (InformasiDropdownVisible ? '' : 'hidden')}>
                                     <ul className="py-2 text-sm text-black dark:text-black" aria-labelledby="dropdownEventNavbarLink">
                                         <li>
                                             <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">FAQ</a>
@@ -385,7 +385,7 @@ function Navbar() {
                             </li>
                         </ul>
                         <div class="ml-[3rem]">
-                            <a class="text-white bg-blue-700 mr-6 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" href="https://www.ecsys.okoce.net/">Masuk</a>
+                            <a class="text-white mr-6 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-4 py-2 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800" href="https://www.ecsys.okoce.net/">Masuk</a>
                             <a class="text-white bg-blue-700 mr-6 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" href="https://www.ecsys.okoce.net/register">Daftar</a>
                         </div>
                     </div>
