@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Header from "../asset/img/HeaderKerja.png";
+import Header from "@img/HeaderKerja.png";
 
 const accordionContentClasses = 'p-20 border-t border-zinc-200';
 const accordionButtonClasses = 'flex items-center justify-between w-full text-zinc-500 border-t border-zinc-200 pt-3';
