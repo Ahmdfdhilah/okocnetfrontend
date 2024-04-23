@@ -2,14 +2,14 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/alt-text */
 import { useState } from "react";
-import BiruBig from "../asset/img/merchandise/OK-01/kaos-ok-oce-logo-besar-biru-scaled.webp";
-import MerahBig from "../asset/img/merchandise/OK-01/kaos-ok-oce-logo-besar-merah-scaled.webp";
-import HitamBig from "../asset/img/merchandise/OK-01/kaos-ok-oce-logo-besar-hitam-scaled.webp";
-import Kaos1a from "../asset/img/merchandise/OK-02/Kaos-01-scaled.webp";
-import Kaos1b from "../asset/img/merchandise/OK-02/IMG-20220225-WA0013.png";
-import Kaos1c from "../asset/img/merchandise/OK-02/IMG-20220225-WA0007.png";
-import Kaos1d from "../asset/img/merchandise/OK-02/IMG-20220225-WA0010.png";
-import Kaos1e from "../asset/img/merchandise/OK-02/IMG-20220225-WA0011.png";
+import BiruBig from "@img/merchandise/OK-01/kaos-ok-oce-logo-besar-biru-scaled.webp";
+import MerahBig from "@img/merchandise/OK-01/kaos-ok-oce-logo-besar-merah-scaled.webp";
+import HitamBig from "@img/merchandise/OK-01/kaos-ok-oce-logo-besar-hitam-scaled.webp";
+import Kaos1a from "@img/merchandise/OK-02/Kaos-01-scaled.webp";
+import Kaos1b from "@img/merchandise/OK-02/IMG-20220225-WA0013.png";
+import Kaos1c from "@img/merchandise/OK-02/IMG-20220225-WA0007.png";
+import Kaos1d from "@img/merchandise/OK-02/IMG-20220225-WA0010.png";
+import Kaos1e from "@img/merchandise/OK-02/IMG-20220225-WA0011.png";
 
 const Marchendise = () => {
     const [currentItemIndex, setCurrentItemIndex] = useState(0);
