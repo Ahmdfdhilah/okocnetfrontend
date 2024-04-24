@@ -1,6 +1,5 @@
 import React from "react";
-import Masjidpemberdaya1 from "../asset/img/masjidpemberdaya/Masjidpemberdaya.png";
-
+import Masjidpemberdaya1 from "@img/masjidpemberdaya/Masjidpemberdaya.png";
 
 const Masjidpemberdaya = () => {
     return (

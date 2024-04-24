@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Modalberkah1 from "../asset/img/modalberkah/modalberkah.png";
+import Modalberkah1 from "@img/modalberkah/modalberkah.png";
 
 
 const Modalberkah = () => {

@@ -5,31 +5,30 @@ import Footer from "../components/Footer";
 import Youtube from "../components/Youtube";
 /*TES GAMBAR */
 
-import Lokalbrand1 from "../asset/img/lokalbrand/lokalbrand1.PNG";
-import Lokalbrand2 from "../asset/img/lokalbrand/lokalbrand2.PNG";
-import Lokalbrand3 from "../asset/img/lokalbrand/lokalbrand3.PNG";
-import Lokalbrand4 from "../asset/img/lokalbrand/lokalbrand4.PNG";
-import Lokalbrand5 from "../asset/img/lokalbrand/lokalbrand5.PNG";
-import Lokalbrand6 from "../asset/img/lokalbrand/lokalbrand6.PNG";
-import Lokalbrand7 from "../asset/img/lokalbrand/lokalbrand7.PNG";
-import Lokalbrand8 from "../asset/img/lokalbrand/lokalbrand8.PNG";
-import Lokalbrand9 from "../asset/img/lokalbrand/lokalbrand9.PNG";
-import Lokalbrand10 from "../asset/img/lokalbrand/lokalbrand10.PNG";
-import Lokalbrand11 from "../asset/img/lokalbrand/lokalbrand11.PNG";
-import Lokalbrand12 from "../asset/img/lokalbrand/lokalbrand12.PNG";
-import Lokalbrand13 from "../asset/img/lokalbrand/lokalbrand13.PNG";
-import Lokalbrand14 from "../asset/img/lokalbrand/lokalbrand14.PNG";
-import Lokalbrand15 from "../asset/img/lokalbrand/lokalbrand15.PNG";
-import Lokalbrand16 from "../asset/img/lokalbrand/lokalbrand16.PNG";
-import Lokalbrand17 from "../asset/img/lokalbrand/lokalbrand17.PNG";
-import Lokalbrand18 from "../asset/img/lokalbrand/lokalbrand18.PNG";
-import Lokalbrand19 from "../asset/img/lokalbrand/lokalbrand19.PNG";
-import Lokalbrand20 from "../asset/img/lokalbrand/lokalbrand20.PNG";
-import Lokalbrand21 from "../asset/img/lokalbrand/lokalbrand21.PNG";
-import Lokalbrand22 from "../asset/img/lokalbrand/lokalbrand22.PNG";
-import Lokalbrand23 from "../asset/img/lokalbrand/lokalbrand23.PNG";
-import Lokalbrand24 from "../asset/img/lokalbrand/lokalbrand24.PNG";
-
+import Lokalbrand1 from "@img/lokalbrand/lokalbrand1.PNG";
+import Lokalbrand2 from "@img/lokalbrand/lokalbrand2.PNG";
+import Lokalbrand3 from "@img/lokalbrand/lokalbrand3.PNG";
+import Lokalbrand4 from "@img/lokalbrand/lokalbrand4.PNG";
+import Lokalbrand5 from "@img/lokalbrand/lokalbrand5.PNG";
+import Lokalbrand6 from "@img/lokalbrand/lokalbrand6.PNG";
+import Lokalbrand7 from "@img/lokalbrand/lokalbrand7.PNG";
+import Lokalbrand8 from "@img/lokalbrand/lokalbrand8.PNG";
+import Lokalbrand9 from "@img/lokalbrand/lokalbrand9.PNG";
+import Lokalbrand10 from "@img/lokalbrand/lokalbrand10.PNG";
+import Lokalbrand11 from "@img/lokalbrand/lokalbrand11.PNG";
+import Lokalbrand12 from "@img/lokalbrand/lokalbrand12.PNG";
+import Lokalbrand13 from "@img/lokalbrand/lokalbrand13.PNG";
+import Lokalbrand14 from "@img/lokalbrand/lokalbrand14.PNG";
+import Lokalbrand15 from "@img/lokalbrand/lokalbrand15.PNG";
+import Lokalbrand16 from "@img/lokalbrand/lokalbrand16.PNG";
+import Lokalbrand17 from "@img/lokalbrand/lokalbrand17.PNG";
+import Lokalbrand18 from "@img/lokalbrand/lokalbrand18.PNG";
+import Lokalbrand19 from "@img/lokalbrand/lokalbrand19.PNG";
+import Lokalbrand20 from "@img/lokalbrand/lokalbrand20.PNG";
+import Lokalbrand21 from "@img/lokalbrand/lokalbrand21.PNG";
+import Lokalbrand22 from "@img/lokalbrand/lokalbrand22.PNG";
+import Lokalbrand23 from "@img/lokalbrand/lokalbrand23.PNG";
+import Lokalbrand24 from "@img/lokalbrand/lokalbrand24.PNG";
 
 
 
