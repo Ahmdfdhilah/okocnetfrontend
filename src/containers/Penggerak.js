@@ -1,20 +1,20 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import Perwira from "../asset/img/logo_perwira.png";
-import Gan from "../asset/img/logo_ok-oce-gan-gebrakan-anak-negeri.png";
-import Skies from "../asset/img/logo_skies-indonesia.png";
-import Espas from "../asset/img/logo_ok-oce-espas-indonesia.jpeg";
-import Adma from "../asset/img/logo_ok-oce-adil-makmur-adma.jpg";
-import Yogya from "../asset/img/logo_ok-oce-wonderful-yogyakarta.jpeg";
-import Express from "../asset/img/logo_ok-oce-xpress.png";
-import Wanita from "../asset/img/logo_wanita-cerdas-dan-tangguh.png";
-import Seeker from "../asset/img/logo_seeker-revolution-organizer.jpg";
-import Academy from "../asset/img/logo_hr-academy.png";
-import Buana from "../asset/img/logo_ok-oce-buana-m16.jpeg";
-import Makmur from "../asset/img/logo_ok-oce-ina-makmur.jpeg";
-import Stii from "../asset/img/logo_ok-oce-stii.png";
-import Forever from "../asset/img/logo_ok-oce-forever.jpg";
+import Perwira from "@img/logo_perwira.png";
+import Gan from "@img/logo_ok-oce-gan-gebrakan-anak-negeri.png";
+import Skies from "@img/logo_skies-indonesia.png";
+import Espas from "@img/logo_ok-oce-espas-indonesia.jpeg";
+import Adma from "@img/logo_ok-oce-adil-makmur-adma.jpg";
+import Yogya from "@img/logo_ok-oce-wonderful-yogyakarta.jpeg";
+import Express from "@img/logo_ok-oce-xpress.png";
+import Wanita from "@img/logo_wanita-cerdas-dan-tangguh.png";
+import Seeker from "@img/logo_seeker-revolution-organizer.jpg";
+import Academy from "@img/logo_hr-academy.png";
+import Buana from "@img/logo_ok-oce-buana-m16.jpeg";
+import Makmur from "@img/logo_ok-oce-ina-makmur.jpeg";
+import Stii from "@img/logo_ok-oce-stii.png";
+import Forever from "@img/logo_ok-oce-forever.jpg";
 
 const Penggerak = () => {
     return (

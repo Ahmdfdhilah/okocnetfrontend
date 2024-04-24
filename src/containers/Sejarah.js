@@ -1,14 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-undef */
 import React, { useState, useEffect } from "react";
-import OkOceGan from "../asset/img/galeri/okoce-gan.jpeg";
-import Sandiaga from "../asset/img/galeri/sandiaga.jpeg";
-import OkOce from "../asset/img/logo-okoce.webp";
-import Gerakan from "../asset/img/gerakan-sosial.webp";
-import Mesjid from "../asset/img/Placeholder image .png";
-import Desapreneur from "../asset/img/Placeholder image-1.png";
-import EmakKece from "../asset/img/Placeholder image-4.png";
-import Brand from "../asset/img/Placeholder image-3.png";
+import OkOceGan from "@img/galeri/okoce-gan.jpeg";
+import Sandiaga from "@img/galeri/sandiaga.jpeg";
+import OkOce from "@img/logo-okoce.webp";
+import Gerakan from "@img/gerakan-sosial.webp";
+import Mesjid from "@img/Placeholder image .png";
+import Desapreneur from "@img/Placeholder image-1.png";
+import EmakKece from "@img/Placeholder image-4.png";
+import Brand from "@img/Placeholder image-3.png";
 
 const Sejarah = () => {
 

@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import Seven from "../asset/img/7top-rb.webp";
-import Seven2 from "../asset/img/7-TOP-OK-OCE-1-768x768.webp";
+import Seven from "@img/7top-rb.webp";
+import Seven2 from "@img/7-TOP-OK-OCE-1-768x768.webp";
 
 const cardClasses = "mb-10 w-[50rem] h-[10rem] mx-auto flex items-center bg-zinc-100 rounded-lg shadow-lg";
 const titleClasses = "h-[10rem] w-[300px] bg-blue-700 p-4 flex items-center justify-center text-center text-2xl text-white drop-shadow-lg font-bold rounded-lg";

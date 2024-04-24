@@ -2,40 +2,47 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-no-target-blank */
 import { useState } from "react";
-import sandiaga from "../asset/img/sandiaga-uno-ok.png";
-import iim from "../asset/img/IimRusyamsi-Styled.png";
-import indra from "../asset/img/indra-uno-styled.png";
-import facebook from "../asset/img/facebook.png";
-import instagram from "../asset/img/instagram.png";
-import twitter from "../asset/img/twitter.webp";
-import whatsapp from "../asset/img/whatsapp.png";
-import map from "../asset/img/map.png";
-import Top7 from "../asset/img/7top-rb.webp";
-import Pelatihan from "../asset/img/Pelatihan.png";
-import Pendaftaran from "../asset/img/Pendaftaran.png";
-import Pendampingan from "../asset/img/Pendampingan.png";
-import Perizinan from "../asset/img/Perizinan.png";
-import Pemasaran from "../asset/img/Pemasaran.png";
-import Pelaporan from "../asset/img/Laporan Keuangan.png";
-import Permodalan from "../asset/img/Permodalan.png";
-import Calendar from "../components/Calendar";
-import News1 from "../asset/img/news-1.webp";
-import Berita1 from "../asset/img/galeri/sandiaga-n-friends.jpeg";
-import Azindo from "../asset/img/mitra-kerjasama/az-indonesia.png";
-import Cetak from "../asset/img/mitra-kerjasama/cetakkemasan.png";
-import Eduv from "../asset/img/mitra-kerjasama/eduversal.png";
-import Inotek from "../asset/img/mitra-kerjasama/inotek.png";
-import Kkindo from "../asset/img/mitra-kerjasama/kk-indonesia.png";
-import Pajakonline from "../asset/img/mitra-kerjasama/pajakonline.png";
-import Smeshub from "../asset/img/mitra-kerjasama/smeshub.png";
-import Travel from "../asset/img/mitra-kerjasama/travelbook.png";
-import Wgs from "../asset/img/mitra-kerjasama/wgshub.png";
-import Ekles from "../asset/img/mitra-kerjasama/alternatives/ekles-2.png";
-import Indivara from "../asset/img/mitra-kerjasama/alternatives/indivara-2.png";
-import Jnj from "../asset/img/mitra-kerjasama/alternatives/jnj-group-2.png";
-import Okocetv from "../asset/img/okoce-tv.webp";
-import Youtube from "../components/Youtube";
-import Bg from "../asset/img/blob-scene-haikei.svg"
+
+// - img
+import sandiaga from "@img/sandiaga-uno-ok.png";
+import iim from "@img/IimRusyamsi-Styled.png";
+import indra from "@img/indra-uno-styled.png";
+import facebook from "@img/facebook.png";
+import instagram from "@img/instagram.png";
+import twitter from "@img/twitter.webp";
+import whatsapp from "@img/whatsapp.png";
+import map from "@img/map.png";
+import Top7 from "@img/7top-rb.webp";
+import Pelatihan from "@img/Pelatihan.png";
+import Pendaftaran from "@img/Pendaftaran.png";
+import Pendampingan from "@img/Pendampingan.png";
+import Perizinan from "@img/Perizinan.png";
+import Pemasaran from "@img/Pemasaran.png";
+import Pelaporan from "@img/Laporan Keuangan.png";
+import Permodalan from "@img/Permodalan.png";
+import News1 from "@img/news-1.webp";
+import Okocetv from "@img/okoce-tv.webp";
+import Bg from "@img/blob-scene-haikei.svg";
+// - component
+import Youtube from "@components/Youtube";
+import Calendar from "@components/Calendar";
+// - galeri
+import Berita1 from "@galeri/sandiaga-n-friends.jpeg";
+// - mitra-kerjasama
+import Azindo from "@mitra-kerjasama/az-indonesia.png";
+import Cetak from "@mitra-kerjasama/cetakkemasan.png";
+import Eduv from "@mitra-kerjasama/eduversal.png";
+import Inotek from "@mitra-kerjasama/inotek.png";
+import Kkindo from "@mitra-kerjasama/kk-indonesia.png";
+import Pajakonline from "@mitra-kerjasama/pajakonline.png";
+import Smeshub from "@mitra-kerjasama/smeshub.png";
+import Travel from "@mitra-kerjasama/travelbook.png";
+import Wgs from "@mitra-kerjasama/wgshub.png";
+import Ekles from "@mitra-kerjasama/alternatives/ekles-2.png";
+import Indivara from "@mitra-kerjasama/alternatives/indivara-2.png";
+import Jnj from "@mitra-kerjasama/alternatives/jnj-group-2.png";
+
+
 
 const Homepage = () => {
     const [currentItemIndex, setCurrentItemIndex] = useState(0);
