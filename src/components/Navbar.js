@@ -187,13 +187,13 @@ function Navbar() {
                                             <a href="/lokalbrand" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Brand Lokal OK</a>
                                         </li>
                                         <li>
-                                            <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Modal Berkah</a>
+                                            <a href="/modalberkah" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Modal Berkah</a>
                                         </li>
                                         <li>
                                             <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Emak Kece</a>
                                         </li>
                                         <li>
-                                            <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Masjid Pemberdaya</a>
+                                            <a href="masjidpemberdaya" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Masjid Pemberdaya</a>
                                         </li>
                                         <li>
                                             <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Desapreneur</a>
@@ -344,13 +344,13 @@ function Navbar() {
                                             <a href="/lokalbrand" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Brand Lokal OK</a>
                                         </li>
                                         <li>
-                                            <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Modal Berkah</a>
+                                            <a href="/modalberkah" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Modal Berkah</a>
                                         </li>
                                         <li>
                                             <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Emak Kece</a>
                                         </li>
                                         <li>
-                                            <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Masjid Pemberdaya</a>
+                                            <a href="masjidpemberdaya" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Masjid Pemberdaya</a>
                                         </li>
                                         <li>
                                             <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Desapreneur</a>

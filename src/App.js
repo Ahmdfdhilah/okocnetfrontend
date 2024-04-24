@@ -16,6 +16,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PeluangKerja from "./containers/PeluangKerja";
 import LokalBrand from "./containers/LokalBrand";
+import Modalberkah from "./containers/Modalberkah";
+import Masjidpemberdaya from "./containers/Masjidpemberdaya";
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
           <Route path="/peluangusaha" element={<PeluangUsaha />} />
           <Route path="/peluangkerja" element={<PeluangKerja />} />
           <Route path="/lokalbrand" element={<LokalBrand />} />
+          <Route path="/modalberkah" element={<Modalberkah />} />
+          <Route path="/masjidpemberdaya" element={<Masjidpemberdaya />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -4,20 +4,35 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Youtube from "../components/Youtube";
 /*TES GAMBAR */
-import Perwira from "../asset/img/logo_perwira.png";
-import Gan from "../asset/img/logo_ok-oce-gan-gebrakan-anak-negeri.png";
-import Skies from "../asset/img/logo_skies-indonesia.png";
-import Espas from "../asset/img/logo_ok-oce-espas-indonesia.jpeg";
-import Adma from "../asset/img/logo_ok-oce-adil-makmur-adma.jpg";
-import Yogya from "../asset/img/logo_ok-oce-wonderful-yogyakarta.jpeg";
-import Express from "../asset/img/logo_ok-oce-xpress.png";
-import Wanita from "../asset/img/logo_wanita-cerdas-dan-tangguh.png";
-import Seeker from "../asset/img/logo_seeker-revolution-organizer.jpg";
-import Academy from "../asset/img/logo_hr-academy.png";
-import Buana from "../asset/img/logo_ok-oce-buana-m16.jpeg";
-import Makmur from "../asset/img/logo_ok-oce-ina-makmur.jpeg";
-import Stii from "../asset/img/logo_ok-oce-stii.png";
-import Forever from "../asset/img/logo_ok-oce-forever.jpg";
+
+import Lokalbrand1 from "../asset/img/lokalbrand/lokalbrand1.PNG";
+import Lokalbrand2 from "../asset/img/lokalbrand/lokalbrand2.PNG";
+import Lokalbrand3 from "../asset/img/lokalbrand/lokalbrand3.PNG";
+import Lokalbrand4 from "../asset/img/lokalbrand/lokalbrand4.PNG";
+import Lokalbrand5 from "../asset/img/lokalbrand/lokalbrand5.PNG";
+import Lokalbrand6 from "../asset/img/lokalbrand/lokalbrand6.PNG";
+import Lokalbrand7 from "../asset/img/lokalbrand/lokalbrand7.PNG";
+import Lokalbrand8 from "../asset/img/lokalbrand/lokalbrand8.PNG";
+import Lokalbrand9 from "../asset/img/lokalbrand/lokalbrand9.PNG";
+import Lokalbrand10 from "../asset/img/lokalbrand/lokalbrand10.PNG";
+import Lokalbrand11 from "../asset/img/lokalbrand/lokalbrand11.PNG";
+import Lokalbrand12 from "../asset/img/lokalbrand/lokalbrand12.PNG";
+import Lokalbrand13 from "../asset/img/lokalbrand/lokalbrand13.PNG";
+import Lokalbrand14 from "../asset/img/lokalbrand/lokalbrand14.PNG";
+import Lokalbrand15 from "../asset/img/lokalbrand/lokalbrand15.PNG";
+import Lokalbrand16 from "../asset/img/lokalbrand/lokalbrand16.PNG";
+import Lokalbrand17 from "../asset/img/lokalbrand/lokalbrand17.PNG";
+import Lokalbrand18 from "../asset/img/lokalbrand/lokalbrand18.PNG";
+import Lokalbrand19 from "../asset/img/lokalbrand/lokalbrand19.PNG";
+import Lokalbrand20 from "../asset/img/lokalbrand/lokalbrand20.PNG";
+import Lokalbrand21 from "../asset/img/lokalbrand/lokalbrand21.PNG";
+import Lokalbrand22 from "../asset/img/lokalbrand/lokalbrand22.PNG";
+import Lokalbrand23 from "../asset/img/lokalbrand/lokalbrand23.PNG";
+import Lokalbrand24 from "../asset/img/lokalbrand/lokalbrand24.PNG";
+
+
+
+
 
 const LokalBrand = () => {
     return (
@@ -44,241 +59,241 @@ const LokalBrand = () => {
                         {/* <!-- Replace this with your grid items --> */}
                         
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand1} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">beutaree art creation</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak OK OCE KREASI
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand2} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Pempek 99</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak OK OCE Perwira
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand3} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Kuring Slera</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak OK OCE Qalam
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand4} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Ai Florist</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak OK OCE Ina Makmur
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand5} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Asih Frozeen Food</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak OK OCE Forever
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand6} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Rayaku</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak OK OCE Ikrema
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand7} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Susu Kacang 777</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak HR Academy
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand8} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Berlinda</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak Mak Fau
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand9} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Wanajaya</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    DPW Lampung
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand10} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Sambal Tabur Mamiku</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak OK OCE ADMA
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand11} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">D Bajang's Coffee</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak OK OCE Andalan
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand12} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Cineurasa</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak OK OCE Buana
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand13} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Raginang Ceu Mimin</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak OK OCE CSS
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand14} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Kyoma Kitchin</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak OK OCE Kabupaten
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand15} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Kopi Buah Kabar Gembira</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak OK OCE KK Indonesia
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand16} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Sarah Kreatif</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak OK OCE STII
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand17} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Batik Tosarian</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak OK OCE UNIROW
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand18} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Aza Walet Indonesia</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak OK OCE Export
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand19} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Kempling kitchen</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak Seeker Revolution
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand20} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Lemon x</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak OK OCE SKIES
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand21} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Tunas Crochet</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak Universitas Muhammadiyah
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand22} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Nukiwari</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak UPI
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand23} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Cemilan Kriuk</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak OK OCE GAN
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex flex-col items-center">
-                            <img src={Academy} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
+                            <img src={Lokalbrand24} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
                             <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Blog Title</div>
+                                <div class="font-bold text-xl mb-2">Dapur Yasmin</div>
                                 <p class="text-gray-700 text-base">
-                                    This is a simple blog card example using Tailwind CSS. You can replace this text with your own blog content.
+                                    Penggerak OK OCE ESPAS
                                 </p>
                             </div>
                         </div>
