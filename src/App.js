@@ -18,6 +18,7 @@ import Footer from "@components/Footer";
 import PeluangKerja from "./containers/PeluangKerja";
 import Donasi from "./containers/Donasi";
 import Magang from "./containers/Magang";
+import Testimoni from "./containers/Testimoni";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path="/peluangkerja" element={<PeluangKerja />} />
           <Route path="/donasi" element={<Donasi />} />
           <Route path="/magang" element={<Magang />} />
+          <Route path="/testimoni" element={<Testimoni />} />
           721aeab151ff510c569fa57d879c028136574547
         </Routes>
         <Footer />
