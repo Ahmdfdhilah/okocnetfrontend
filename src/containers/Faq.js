@@ -12,21 +12,21 @@ const Faq = () => {
       isOpen: false,
     },
     {
-      question: "What is Windows VPS?",
+      question: "Apa Misi Okoce Indonesia?",
       answer:
-        "With a Windows VPS server, you will get a Remote Desktop connection within a few minutes. You can run Windows applications such as IIS, SQL, Microsoft Exchange or any software like Docking",
+        "Pendiri OK OCE, Sandiaga Uno, mempunyai misi ekonomi yang mengutamakan rakyat, adil, makmur, berkualitas dan berwawasan lingkungan; mendorong penciptaan wirausaha baru melalui gerakan OK OCE dengan membangun pusat kewirausahaan di tingkat Kabupaten untuk memperkuat produk-produk UMKM; serta menciptakan lapangan kerja sebanyak-banyaknya dengan mengutamakan tenaga kerja lokal. ",
       isOpen: false,
     },
     {
-      question: "Payment Options",
+      question: "Apa Saja Kurikulum 7 Top Okoce Indonesia?",
       answer:
-        "Unlike most other providers you don’t have to pay with just Credit Card or PayPal. You can also",
+        "1. Pendaftaran 2. Pelatihan 3. Pendampingan 4. Perizinan. 5. Pemasaran. 6. Pencatatan Keuangan. 7. Permodalan",
       isOpen: false,
     },
     {
-      question: "Why FutureRDP?",
+      question: "Apa saja Produk Merek Okoce?",
       answer:
-        "Germany, Netherlands, and Canada. We have a range of different solutions for different purposes such as SSD VPS and Storage servers. All servers are equipped with RAID10 only SSD drives and FREE DDoS Protection!",
+        "Produk yang sudah menggunakan merek OK OCE antara lain : air mineral dalam kemasan (OK OCE Air Mineral), sabun cuci muka (OK OCE Beauty), OK OCE Xpress, OK OCE Engine Power dan lainnya. Juga ada hampir seratus produk perusahaan swasta yang bergabung dengan OK OCE untuk mendapatkan dukungan penggunaannya di jejaring OK OCE",
       isOpen: false,
     },
   ]);
@@ -86,8 +86,6 @@ const Faq = () => {
             <Youtube src="https://www.youtube.com/embed/avA0_NJK5mU" />
           </div>
         </div>
-
-        <Footer />
       </div>
     </>
   );

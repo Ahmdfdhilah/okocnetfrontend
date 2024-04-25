@@ -12,11 +12,18 @@ import Marchendise from "./containers/Marchendise";
 import Pelatihan from "./containers/Pelatihan";
 import Pendampingan from "./containers/Pendampingan";
 import Faq from "./containers/Faq";
+import PeluangUsaha from "./containers/PeluangUsaha";
+import Navbar from "@components/Navbar";
+import Footer from "@components/Footer";
+import PeluangKerja from "./containers/PeluangKerja";
+import Donasi from "./containers/Donasi";
+import Magang from "./containers/Magang";
 
 function App() {
   return (
     <>
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/sejarah" element={<Sejarah />} />
@@ -30,7 +37,13 @@ function App() {
           <Route path="/pendampingan" element={<Pendampingan />} />
           <Route path="/pelatihan" element={<Pelatihan />} />
           <Route path="/faq" element={<Faq />} />
+          <Route path="/peluangusaha" element={<PeluangUsaha />} />
+          <Route path="/peluangkerja" element={<PeluangKerja />} />
+          <Route path="/donasi" element={<Donasi />} />
+          <Route path="/magang" element={<Magang />} />
+          721aeab151ff510c569fa57d879c028136574547
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );

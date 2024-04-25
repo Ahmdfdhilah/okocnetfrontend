@@ -1,13 +1,10 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Foto1 from "../asset/img/promo.png";
-import Top from "../asset/img/7top-rb.webp";
+import Foto1 from "@img/promo.png";
+import Top from "@img/7top-rb.webp";
 
 const Pelatihan = () => {
     return (
         <>
-            <Navbar />
             <div className="self-stretch max-md:max-w-full pt-60 font-jost flex justify-center bg-white">
                 <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                     <div className="flex flex-col w-[18%] max-md:ml-0 max-md:w-full">
@@ -193,8 +190,6 @@ const Pelatihan = () => {
                     </div>
                 </div>
             </div>
-
-            <Footer />
         </>
     );
 }
