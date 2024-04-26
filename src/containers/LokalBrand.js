@@ -1,8 +1,7 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Youtube from "../components/Youtube";
+import Youtube from "@components/Youtube";
 /*TES GAMBAR */
 
 import Lokalbrand1 from "@img/lokalbrand/lokalbrand1.PNG";
@@ -31,12 +30,9 @@ import Lokalbrand23 from "@img/lokalbrand/lokalbrand23.PNG";
 import Lokalbrand24 from "@img/lokalbrand/lokalbrand24.PNG";
 
 
-
-
 const LokalBrand = () => {
     return (
         <>
-            <Navbar />
             <div class="mt-[6rem] bg-gray-400 w-full h-[20rem] grid justify-center content-center flex flex-col items-center">
                 <h1 class="font-extrabold text-4xl text-center">BRAND LOKAL OK</h1>
                 <p class="text-center mt-6">MEMILIKI PRODUK 100% BUATAN INDONESIA NAMUN BELUM MAKSIMAL PENJUALANNYA<br />PROGRAM PENDAMPINGAN BAGI PELAKU USAHA UNTUK DAPAT TUMBUH BERSAMA. KATEGORI ULTRA MIKRO & MIKRO UNTUK SCALEUP KE KECIL SAMPAI MENENGAH<br /><span class="text-red-600 font-bold">YUK DAFTAR 100% GRATIS.</span></p>
@@ -301,7 +297,6 @@ const LokalBrand = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
         </>
     );
 }
