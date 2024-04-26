@@ -16,9 +16,12 @@ import PeluangUsaha from "./containers/PeluangUsaha";
 import Navbar from "@components/Navbar";
 import Footer from "@components/Footer";
 import PeluangKerja from "./containers/PeluangKerja";
+import LokalBrand from "./containers/LokalBrand";
+import Modalberkah from "./containers/Modalberkah";
+import Masjidpemberdaya from "./containers/Masjidpemberdaya";
 import Donasi from "./containers/Donasi";
 import Magang from "./containers/Magang";
-import Testimoni from "./containers/Testimoni";
+import Emakkece from "./containers/Emakkece";
 
 function App() {
   return (
@@ -40,9 +43,12 @@ function App() {
           <Route path="/faq" element={<Faq />} />
           <Route path="/peluangusaha" element={<PeluangUsaha />} />
           <Route path="/peluangkerja" element={<PeluangKerja />} />
+          <Route path="/lokalbrand" element={<LokalBrand />} />
+          <Route path="/modalberkah" element={<Modalberkah />} />
+          <Route path="/masjidpemberdaya" element={<Masjidpemberdaya />} />
           <Route path="/donasi" element={<Donasi />} />
           <Route path="/magang" element={<Magang />} />
-          <Route path="/testimoni" element={<Testimoni />} />
+          <Route path="/emakkece" element={<Emakkece />} />
         </Routes>
         <Footer />
       </BrowserRouter>
