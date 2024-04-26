@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Youtube from "../components/Youtube";
+import Navbar from "@components/Navbar";
+import Youtube from "@components/Youtube";
 
 const Faq = () => {
   const [accordions, setAccordions] = useState([
