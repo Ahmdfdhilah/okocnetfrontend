@@ -1,202 +1,139 @@
-import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Foto1 from "../asset/img/promo.png";
+import React from "react";
 import Top from "../asset/img/7top-rb.webp";
+import Usaha from "../asset/img/7 top/pendampingan/inkubasi.png";
+import Chat from "../asset/img/7 top/pendampingan/chat.png";
+import Kolaborator from "../asset/img/7 top/pendampingan/kolaborator.png";
+import Az from "../asset/img/7 top/pendampingan/az-indonesia.png";
+import Ck from "../asset/img/7 top/pendampingan/cetakkemasan.png";
+import Edu from "../asset/img/7 top/pendampingan/eduversal.png";
+import Ekles from "../asset/img/7 top/pendampingan/ekles-2.png";
+import Indivara from "../asset/img/7 top/pendampingan/indivara-2.png";
+import Inotek from "../asset/img/7 top/pendampingan/inotek.png";
+import Jnj from "../asset/img/7 top/pendampingan/jnj-group-2.png";
+import Wgs from "../asset/img/7 top/pendampingan/wgshub.png";
+import Kk from "../asset/img/7 top/pendampingan/kk-indonesia.png";
+import Smeshub from "../asset/img/7 top/pendampingan/smeshub.png";
+import Pajak from "../asset/img/7 top/pendampingan/pajakonline.png";
+import Travel from "../asset/img/7 top/pendampingan/travelbook.png";
 
-const Pelatihan = () => {
+
+
+
+const Pendampingan = () => {
     return (
         <>
             <Navbar />
-            <div className="self-stretch max-md:max-w-full pt-60 font-jost flex justify-center bg-white">
+            <div className="pl-40 pt-60 bg-white max-md:pl-5">
                 <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                     <div className="flex flex-col w-[18%] max-md:ml-0 max-md:w-full">
                         <img
                             loading="lazy"
                             srcSet={Top}
                             alt=""
-                            className="grow shrink-0 max-w-full aspect-[0.79] w-[221px] max-md:mt-10"
+                            className="grow shrink-0 max-w-full aspect-[0.79] w-[271px] max-md:mt-10"
                         />
                     </div>
                     <div className="flex flex-col ml-5 w-[82%] max-md:ml-0 max-md:w-full">
                         <div className="flex flex-col self-stretch p-8 my-auto w-full text-white bg-sky-700 max-md:px-5 max-md:mt-10 max-md:max-w-full">
                             <div className="text-5xl font-bold leading-[57.6px] max-md:max-w-full max-md:text-4xl">
-                                Pendampingan
+                            Pendampingan
                             </div>
                             <div className="mt-4 text-lg leading-7 max-md:max-w-full">
-                                Peserta akan didampingi oleh pendamping UMKM dan mengikuti Program Mentoring.
+                            Peserta akan didampingi oleh pendamping UMKM dan mengikuti Program Mentoring.
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="pelatihan-body" class="w-full pt-40 font-jost flex justify-center bg-white">
-                <div class="w-full lg:w-3/4">
+            <div className="flex flex-col items-center px-16 pt-20 bg-white max-md:px-5">
+                <div className="flex flex-col w-full max-w-[1096px] max-md:max-w-full">
+                    <div className="self-center text-4xl font-bold leading-10 text-center text-black">
+                    Pendampingan
+                    </div>
+                    <div className="mt-8 text-lg leading-7 text-center text-black max-md:max-w-full">
+                    Melalui OK OCE, usaha Sobat akan mendapatkan fasilitas pendampingan Oleh Mentor OK OCE dalam kegiatan pemasaran, permodalan, laporan keuangan, 
+                    konsultasi ide-ide kreatif dan inovatif, perubahan mindset kewirausahaan, mencari penyelesaian permasalahan usaha, hingga pembentukan karakter 
+                    untuk menjadi UMKM Naik Kelas. Fasilitas tersebut dapat diakses melalui sistem OK OCE pada kolom Inkubasi Usaha, Chat Mentor, maupun Kolaborator.
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid place-items-center bg-white m-6 pb-10">
+                <div class="p-10 grid grid-cols-3 gap-20 justify-items-center">
                     <div>
-                        <h1 class="text-center text-4xl font-bold text-okoce-blue">Pendampingan</h1>
-                    </div>
-
-                    <div class="py-5 px-3 w-full mx-auto">
-                        <p class="text-lg text-center text-slate-700">
-                            Melalui OK OCE, usaha Sobat akan mendapatkan fasilitas pendampingan Oleh Mentor OK OCE dalam kegiatan pemasaran, permodalan,
-                            laporan keuangan, konsultasi ide-ide kreatif dan inovatif, perubahan mindset kewirausahaan, mencari penyelesaian permasalahan usaha,
-                            hingga pembentukan karakter untuk menjadi UMKM Naik Kelas. Fasilitas tersebut dapat diakses melalui sistem OK OCE pada kolom Inkubasi Usaha, Chat Mentor, maupun Kolaborator.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex items-center justify-center min-h-screen container mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="rounded-xl shadow-lg">
-                        <div class="p-5 flex flex-col">
-                            <div class="rounded-xl overflow-hidden">
-                                <img src={Foto1} alt="" />
-                            </div>
-                            <h5 class="text-2xl md:text-3xl font-medium mt-3">Kolaborasi UKM Strategi Marketing Digital</h5>
-                            <p class="text-slate-500 text-lg mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center bg-blue-400 text-blue-700 py-2 rounded-lg font semibold mt-4 hover:bg-blue-300 focus:scale-95 transition-all duration-200 ease-out">Daftar</a>
+                        <img class="h-auto max-h-[10rem]" src={Usaha} alt="" />
+                        <div className="mt-2 text-lg leading-7 text-center text-black max-md:max-w-full">
+                            Inkubasi Usaha
                         </div>
                     </div>
-
-
-                    <div class="rounded-xl shadow-lg">
-                        <div class="p-5 flex flex-col">
-                            <div class="rounded-xl overflow-hidden">
-                                <img src={Foto1} alt="" />
-                            </div>
-                            <h5 class="text-2xl md:text-3xl font-medium mt-3">Kolaborasi UKM Strategi Marketing Digital</h5>
-                            <p class="text-slate-500 text-lg mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center bg-blue-400 text-blue-700 py-2 rounded-lg font semibold mt-4 hover:bg-blue-300 focus:scale-95 transition-all duration-200 ease-out">Daftar</a>
-                        </div>
-                    </div>
-
-
-                    <div class="rounded-xl shadow-lg">
-                        <div class="p-5 flex flex-col">
-                            <div class="rounded-xl overflow-hidden">
-                                <img src={Foto1} alt="" />
-                            </div>
-                            <h5 class="text-2xl md:text-3xl font-medium mt-3">Kolaborasi UKM Strategi Marketing Digital</h5>
-                            <p class="text-slate-500 text-lg mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center bg-blue-400 text-blue-700 py-2 rounded-lg font semibold mt-4 hover:bg-blue-300 focus:scale-95 transition-all duration-200 ease-out">Daftar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="pelatihan-body" class="w-full pt-10 pb-10 font-poppins flex justify-center bg-white">
-                <div class="w-full lg:w-3/4">
                     <div>
-                        <h1 class="text-center text-4xl font-bold text-okoce-blue">Materi Pelatihan</h1>
-                    </div>
-
-                    <div class="py-5 px-3 w-full mx-auto">
-                        <p class="text-lg text-center text-slate-700">
-                            Informasi penting seputar UMKM, bisa Sobat dapatkan disini juga lho! Yuk cari tahu lebih lanjut
-                            mengenai informasi yang Sobat butuhkan disini!
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="flex items-center justify-center container mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <div class="pr-0 md:pr-10 pb-10 md:pb-0 flex">
-                        <div id="pelatihan-card" class="card card-compact w-60 bg-base-100 shadow-xl rounded-none">
-                            <div class="bg-pengelolaan-keuangan h-40 bg-cover bg-center rounded-none"></div>
-                            <div class="card-body rounded-none bg-white">
-                                <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center font-bold text-slate-700 p-5 flex flex-col">
-                                    Materi Pengelolaan Keuangan
-                                </a>
-                            </div>
+                        <img class="h-auto max-h-[10rem]" src={Chat} alt="" />
+                        <div className="mt-2 text-lg leading-7 text-center text-black max-md:max-w-full">
+                            Chat Mentor
                         </div>
                     </div>
-                    <div class="pr-0 md:pr-10 pb-10 md:pb-0 flex">
-                        <div id="pelatihan-card" class="card card-compact w-60 bg-base-100 shadow-xl rounded-none">
-                            <div class="bg-keuangan-perbankan h-40 bg-cover bg-center rounded-none"></div>
-                            <div class="card-body rounded-none bg-white">
-                                <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center font-bold text-slate-700 p-5 flex flex-col">
-                                    Keuangan Perbankan
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pr-0 md:pr-10 pb-10 md:pb-0 flex">
-                        <div id="pelatihan-card" class="card card-compact w-60 bg-base-100 shadow-xl rounded-none">
-                            <div class="bg-pengelolaan-keuangan h-40 bg-cover bg-center rounded-none"></div>
-                            <div class="card-body rounded-none bg-white">
-                                <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center font-bold text-slate-700 p-5 flex flex-col">
-                                    Materi Pengelolaan Keuangan
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pr-0 md:pr-10 pb-10 md:pb-0 flex">
-                        <div id="pelatihan-card" class="card card-compact w-60 bg-base-100 shadow-xl rounded-none">
-                            <div class="bg-keuangan-perbankan h-40 bg-cover bg-center rounded-none"></div>
-                            <div class="card-body rounded-none bg-white">
-                                <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center font-bold text-slate-700 p-5 flex flex-col">
-                                    Keuangan Perbankan
-                                </a>
-                            </div>
+                    <div>
+                        <img class="h-auto max-h-[10rem]" src={Kolaborator} alt="" />
+                        <div className="mt-2 text-lg leading-7 text-center text-black max-md:max-w-full">
+                            Kolaborator
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="flex items-center justify-center">
-                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 py-20">
-                    <div class="pr-0 md:pr-10 pb-10 md:pb-0 flex">
-                        <div id="pelatihan-card" class="card card-compact w-60 bg-base-100 shadow-xl rounded-none">
-                            <div class="bg-pengelolaan-keuangan h-40 bg-cover bg-center rounded-none"></div>
-                            <div class="card-body rounded-none bg-white">
-                                <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center font-bold text-slate-700 p-5 flex flex-col">
-                                    Materi Pengelolaan Keuangan
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pr-0 md:pr-10 pb-10 md:pb-0 flex">
-                        <div id="pelatihan-card" class="card card-compact w-60 bg-base-100 shadow-xl rounded-none">
-                            <div class="bg-keuangan-perbankan h-40 bg-cover bg-center rounded-none"></div>
-                            <div class="card-body rounded-none bg-white">
-                                <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center font-bold text-slate-700 p-5 flex flex-col">
-                                    Keuangan Perbankan
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pr-0 md:pr-10 pb-10 md:pb-0 flex">
-                        <div id="pelatihan-card" class="card card-compact w-60 bg-base-100 shadow-xl rounded-none">
-                            <div class="bg-pengelolaan-keuangan h-40 bg-cover bg-center rounded-none"></div>
-                            <div class="card-body rounded-none bg-white">
-                                <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center font-bold text-slate-700 p-5 flex flex-col">
-                                    Materi Pengelolaan Keuangan
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pr-0 md:pr-10 pb-10 md:pb-0 flex">
-                        <div id="pelatihan-card" class="card card-compact w-60 bg-base-100 shadow-xl rounded-none">
-                            <div class="bg-keuangan-perbankan h-40 bg-cover bg-center rounded-none"></div>
-                            <div class="card-body rounded-none bg-white">
-                                <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center font-bold text-slate-700 p-5 flex flex-col">
-                                    Keuangan Perbankan
-                                </a>
-                            </div>
-                        </div>
+            <div className="flex flex-col items-center px-16 pt-20 bg-white max-md:px-5">
+                <div className="flex flex-col w-full max-w-[1096px] max-md:max-w-full">
+                    <div className="self-center text-4xl font-bold leading-10 text-center text-black">
+                    Para Kolaborator
                     </div>
                 </div>
             </div>
 
+            <div class="p-10 grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
+                        <div>
+                            <img class="h-auto max-w-full" src={Az} alt="" />
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full" src={Ck} alt="" />
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full" src={Edu} alt="" />
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full" src={Ekles} alt="" />
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full" src={Indivara} alt="" />
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full" src={Inotek} alt="" />
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full" src={Jnj} alt="" />
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full" src={Kk} alt="" />
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full" src={Smeshub} alt="" />
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full" src={Pajak} alt="" />
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full" src={Travel} alt="" />
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full" src={Wgs} alt="" />
+                        </div>
+                    </div>
             <Footer />
+
         </>
     );
 }
 
-export default Pelatihan;
+export default Pendampingan;

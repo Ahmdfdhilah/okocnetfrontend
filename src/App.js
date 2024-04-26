@@ -11,6 +11,9 @@ import Seventop from "./containers/Seventop";
 import Marchendise from "./containers/Marchendise";
 import Pelatihan from "./containers/Pelatihan";
 import Pendampingan from "./containers/Pendampingan";
+import Perizinan from "./containers/Perizinan";
+import Pemasaran from "./containers/Pemasaran";
+import PelaporanKeuangan from "./containers/PelaporanKeuangan";
 
 function App() {
   return (
@@ -28,6 +31,9 @@ function App() {
           <Route path="/marchendise" element={<Marchendise />} />
           <Route path="/pendampingan" element={<Pendampingan />} />
           <Route path="/pelatihan" element={<Pelatihan />} />
+          <Route path="/perizinan" element={<Perizinan />} />
+          <Route path="/pemasaran" element={<Pemasaran />} />
+          <Route path="/pelaporankeuangan" element={<PelaporanKeuangan />} />
         </Routes>
       </BrowserRouter>
     </>
