@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import Header from "../asset/img/headertestimoni.png";
+import Header from "@img/headertestimoni.png";
+import Testi1 from "@img/testi1.jpg";
+import Testi2 from "@img/testi2.jpg";
+import Testi3 from "@img/testi3.jpg";
+import Testi4 from "@img/testi4.jpg";
+import Testi5 from "@img/testi5.jpg";
+import Testi6 from "@img/testi6.jpg";
 
 const Testimoni = () => {
   return (
@@ -40,20 +46,13 @@ const Testimoni = () => {
                 <div className="flex items-center">
                   <img
                     className="h-10 w-10 rounded-full mr-4"
-                    src="https://randomuser.me/api/portraits/women/81.jpg"
+                    src={Testi1}
                     alt="Testimonial"
                   />
                   <div>
                     <p className="font-semibold text-gray-800">Jane Doe</p>
                     <p className="text-xs text-gray-600">CEO, Company XYZ</p>
                   </div>
-                </div>
-                <div>
-                  <a
-                    href="#"
-                    className="text-xs font-semibold text-blue-500 hover:text-blue-700">
-                    Lihat lebih banyak
-                  </a>
                 </div>
               </div>
             </div>
@@ -70,20 +69,13 @@ const Testimoni = () => {
                 <div className="flex items-center">
                   <img
                     className="h-10 w-10 rounded-full mr-4"
-                    src="https://randomuser.me/api/portraits/men/91.jpg"
+                    src={Testi2}
                     alt="Testimonial"
                   />
                   <div>
                     <p className="font-semibold text-gray-800">John Smith</p>
                     <p className="text-xs text-gray-600">CTO, Tech Solutions</p>
                   </div>
-                </div>
-                <div>
-                  <a
-                    href="#"
-                    className="text-xs font-semibold text-blue-500 hover:text-blue-700">
-                    Lihat lebih banyak
-                  </a>
                 </div>
               </div>
             </div>
@@ -100,20 +92,13 @@ const Testimoni = () => {
                 <div className="flex items-center">
                   <img
                     className="h-10 w-10 rounded-full mr-4"
-                    src="https://randomuser.me/api/portraits/women/54.jpg"
+                    src={Testi3}
                     alt="Testimonial"
                   />
                   <div>
                     <p className="font-semibold text-gray-800">Emily Johnson</p>
                     <p className="text-xs text-gray-600">COO, Startup ABC</p>
                   </div>
-                </div>
-                <div>
-                  <a
-                    href="#"
-                    className="text-xs font-semibold text-blue-500 hover:text-blue-700">
-                    Lihat lebih banyak
-                  </a>
                 </div>
               </div>
             </div>
@@ -130,7 +115,7 @@ const Testimoni = () => {
                 <div className="flex items-center">
                   <img
                     className="h-10 w-10 rounded-full mr-4"
-                    src="https://randomuser.me/api/portraits/men/56.jpg"
+                    src={Testi4}
                     alt="Testimonial"
                   />
                   <div>
@@ -139,13 +124,6 @@ const Testimoni = () => {
                       Manager, Company ABC
                     </p>
                   </div>
-                </div>
-                <div>
-                  <a
-                    href="#"
-                    className="text-xs font-semibold text-blue-500 hover:text-blue-700">
-                    Lihat lebih banyak
-                  </a>
                 </div>
               </div>
             </div>
@@ -162,7 +140,7 @@ const Testimoni = () => {
                 <div className="flex items-center">
                   <img
                     className="h-10 w-10 rounded-full mr-4"
-                    src="https://randomuser.me/api/portraits/women/12.jpg"
+                    src={Testi5}
                     alt="Testimonial"
                   />
                   <div>
@@ -171,13 +149,6 @@ const Testimoni = () => {
                       Marketing Manager, XYZ Inc.
                     </p>
                   </div>
-                </div>
-                <div>
-                  <a
-                    href="#"
-                    className="text-xs font-semibold text-blue-500 hover:text-blue-700">
-                    Lihat lebih banyak
-                  </a>
                 </div>
               </div>
             </div>
@@ -194,7 +165,7 @@ const Testimoni = () => {
                 <div className="flex items-center">
                   <img
                     className="h-10 w-10 rounded-full mr-4"
-                    src="https://randomuser.me/api/portraits/men/45.jpg"
+                    src={Testi6}
                     alt="Testimonial"
                   />
                   <div>
@@ -203,13 +174,6 @@ const Testimoni = () => {
                       Founder, Startup XYZ
                     </p>
                   </div>
-                </div>
-                <div>
-                  <a
-                    href="#"
-                    className="text-xs font-semibold text-blue-500 hover:text-blue-700">
-                    Lihat lebih banyak
-                  </a>
                 </div>
               </div>
             </div>
