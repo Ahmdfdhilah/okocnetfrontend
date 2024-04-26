@@ -43,7 +43,6 @@ function App() {
           <Route path="/donasi" element={<Donasi />} />
           <Route path="/magang" element={<Magang />} />
           <Route path="/testimoni" element={<Testimoni />} />
-          721aeab151ff510c569fa57d879c028136574547
         </Routes>
         <Footer />
       </BrowserRouter>
