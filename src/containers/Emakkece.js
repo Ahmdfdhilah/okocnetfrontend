@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import PELAKSANA1 from "@img/emakkece/PELAKSANA1.png";
 import PELAKSANA2 from "@img/emakkece/PELAKSANA2.png";

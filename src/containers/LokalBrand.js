@@ -33,7 +33,7 @@ import Lokalbrand24 from "@img/lokalbrand/lokalbrand24.PNG";
 const LokalBrand = () => {
     return (
         <>
-            <div class="mt-[6rem] bg-gray-400 w-full h-[20rem] grid justify-center content-center flex flex-col items-center">
+            <div class="mt-[6rem] bg-gray-400 w-full h-[20rem] grid justify-center content-center flex-col items-center">
                 <h1 class="font-extrabold text-4xl text-center">BRAND LOKAL OK</h1>
                 <p class="text-center mt-6">MEMILIKI PRODUK 100% BUATAN INDONESIA NAMUN BELUM MAKSIMAL PENJUALANNYA<br />PROGRAM PENDAMPINGAN BAGI PELAKU USAHA UNTUK DAPAT TUMBUH BERSAMA. KATEGORI ULTRA MIKRO & MIKRO UNTUK SCALEUP KE KECIL SAMPAI MENENGAH<br /><span class="text-red-600 font-bold">YUK DAFTAR 100% GRATIS.</span></p>
                 <div class="mt-6 flex flex-col items-center">
@@ -49,7 +49,7 @@ const LokalBrand = () => {
             </div>
             {/* <!-- component --> */}
             <div class="mt-[3rem] mb-[3rem] flex items-center justify-center">
-                <div class="container w-4/5 mx-auto mx-auto p-4">
+                <div class="container w-4/5 mx-auto p-4">
                     <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-8">
                         {/* <!-- Replace this with your grid items --> */}
                         
