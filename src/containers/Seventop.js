@@ -11,60 +11,62 @@ const contentClasses = "max-w-[500px] text-base p-6 flex flex-col items-center j
 const Seventop = () => {
     return (
         <>
-            <div class="flex justify-center mt-[10rem] mb-20">
-                <img src={Seven} class="object-cover flex justify-center items-center" alt="7 Top Ok Oce" />
-            </div>
-            <div className={cardClasses}>
-                <div className={titleClasses}>Pendaftaran</div>
-                <div className={contentClasses}>
-                    Peserta wajib mendaftar di website OKOCE.NET, serta memilih komunitas wirausaha yang akan membina. <br /> <br />
-                    <a class="text-blue-500 font-medium">Pelajari Selengkapnya &gt;</a>
+            <div class="max-w-5xl mx-auto mt-40">
+                <div class="flex justify-center mb-20">
+                    <img src={Seven} class="object-cover flex justify-center items-center" alt="7 Top Ok Oce" />
                 </div>
-            </div>
-            <div className={cardClasses}>
-                <div className={titleClasses2}>Pelatihan</div>
-                <div className={contentClasses}>
-                    Peserta akan dilatih berdasarkan kurikulum OK OCE dan akan digabungkan ke kelompok inkubasi melalui komunitas penggerak. <br /><br />
-                    <a class="text-blue-500 font-medium">Pelajari Selengkapnya &gt;</a>
+                <div className={cardClasses}>
+                    <div className={titleClasses}>Pendaftaran</div>
+                    <div className={contentClasses}>
+                        Peserta wajib mendaftar di website OKOCE.NET, serta memilih komunitas wirausaha yang akan membina. <br /> <br />
+                        <a class="text-blue-500 font-medium">Pelajari Selengkapnya &gt;</a>
+                    </div>
                 </div>
-            </div>
-            <div className={cardClasses}>
-                <div className={titleClasses}>Pendampingan</div>
-                <div className={contentClasses}>
-                    Peserta akan didampingi oleh pendamping UMKM dan mengikuti Program Mentoring. <br /><br />
-                    <a class="text-blue-500 font-medium">Pelajari Selengkapnya &gt;</a>
+                <div className={cardClasses}>
+                    <div className={titleClasses2}>Pelatihan</div>
+                    <div className={contentClasses}>
+                        Peserta akan dilatih berdasarkan kurikulum OK OCE dan akan digabungkan ke kelompok inkubasi melalui komunitas penggerak. <br /><br />
+                        <a class="text-blue-500 font-medium">Pelajari Selengkapnya &gt;</a>
+                    </div>
                 </div>
-            </div>
-            <div className={cardClasses}>
-                <div className={titleClasses2}>Perizinan</div>
-                <div className={contentClasses}>
-                    Peserta akan dijelaskan proses perizinan sesuai kebutuhannya. <br /><br />
-                    <a class="text-blue-500 font-medium">Pelajari Selengkapnya &gt;</a>
+                <div className={cardClasses}>
+                    <div className={titleClasses}>Pendampingan</div>
+                    <div className={contentClasses}>
+                        Peserta akan didampingi oleh pendamping UMKM dan mengikuti Program Mentoring. <br /><br />
+                        <a class="text-blue-500 font-medium">Pelajari Selengkapnya &gt;</a>
+                    </div>
                 </div>
-            </div>
-            <div className={cardClasses}>
-                <div className={titleClasses}>Pemasaran</div>
-                <div className={contentClasses}>
-                    Peserta akan mengikuti proses kurasi dan akan diberikan akses pemasaran dan penjualan yang lebih luas, baik online maupun offline. <br /><br />
-                    <a class="text-blue-500 font-medium">Pelajari Selengkapnya &gt;</a>
+                <div className={cardClasses}>
+                    <div className={titleClasses2}>Perizinan</div>
+                    <div className={contentClasses}>
+                        Peserta akan dijelaskan proses perizinan sesuai kebutuhannya. <br /><br />
+                        <a class="text-blue-500 font-medium">Pelajari Selengkapnya &gt;</a>
+                    </div>
                 </div>
-            </div>
-            <div className={cardClasses}>
-                <div className={titleClasses2}>Pelaporan Keuangan</div>
-                <div className={contentClasses}>
-                    Peserta akan diajarkan dan didampingi cara membuat laporan keuangan untuk menghitung untung rugi. <br /> <br />
-                    <a class="text-blue-500 font-medium">Pelajari Selengkapnya &gt;</a>
+                <div className={cardClasses}>
+                    <div className={titleClasses}>Pemasaran</div>
+                    <div className={contentClasses}>
+                        Peserta akan mengikuti proses kurasi dan akan diberikan akses pemasaran dan penjualan yang lebih luas, baik online maupun offline. <br /><br />
+                        <a class="text-blue-500 font-medium">Pelajari Selengkapnya &gt;</a>
+                    </div>
                 </div>
-            </div>
-            <div className={cardClasses}>
-                <div className={titleClasses}>Permodalan</div>
-                <div className={contentClasses}>
-                    Peserta akan didampingi untuk mendapatkan akses permodalan sesuai dengan kebutuhan usahanya.<br /> <br />
-                    <a class="text-blue-500 font-medium">Pelajari Selengkapnya &gt;</a>
+                <div className={cardClasses}>
+                    <div className={titleClasses2}>Pelaporan Keuangan</div>
+                    <div className={contentClasses}>
+                        Peserta akan diajarkan dan didampingi cara membuat laporan keuangan untuk menghitung untung rugi. <br /> <br />
+                        <a class="text-blue-500 font-medium">Pelajari Selengkapnya &gt;</a>
+                    </div>
                 </div>
-            </div>
-            <div class="flex justify-center mt-[10rem] mb-20">
-                <img src={Seven2} class="object-cover flex justify-center items-center" alt="7 Top Ok Oce" />
+                <div className={cardClasses}>
+                    <div className={titleClasses}>Permodalan</div>
+                    <div className={contentClasses}>
+                        Peserta akan didampingi untuk mendapatkan akses permodalan sesuai dengan kebutuhan usahanya.<br /> <br />
+                        <a class="text-blue-500 font-medium">Pelajari Selengkapnya &gt;</a>
+                    </div>
+                </div>
+                <div class="flex justify-center mt-[6rem] pb-20">
+                    <img src={Seven2} class="object-cover flex justify-center items-center max-w-xl" alt="7 Top Ok Oce" />
+                </div>
             </div>
         </>
     );
