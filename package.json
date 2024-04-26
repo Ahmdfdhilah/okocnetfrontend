@@ -13,11 +13,16 @@
     "alias": "^0.0.5",
     "date-fns": "^3.6.0",
     "dayjs": "^1.11.10",
+<<<<<<< HEAD
     "flowbite": "^2.3.0",
     "flowbite-react": "^0.9.0",
+=======
+    "leaflet": "^1.9.4",
+>>>>>>> df5772900b2974b95a494d50a54a69b4c3d11f5e
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
+    "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"

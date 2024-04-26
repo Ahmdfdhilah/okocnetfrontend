@@ -76,8 +76,9 @@ function Navbar() {
     return (
         <>
             <nav class="border-b border-gray">
-                <div class="bg-white fixed top-0 z-50 w-full flex items-center justify-between mx-auto p-2 max-h-24 shadow-md">
-                    <a href="/" class="flex items-center">
+                {/* {Navbar Mobile} */}
+                <div class="bg-white fixed top-0 z-50 w-full flex items-center justify-between mx-auto p-2 max-h-24 shadow-lg">
+                    <a href="/" class="ml-8 ">
                         <img src="https://okoce.net/wp-content/uploads/2021/03/logo-okoce-01.png" class="h-[6rem]" alt="Ok Oce Logo" />
                     </a>
                     <button data-collapse-toggle="navbar-multi-level" type="button" class="md:hidden inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-multi-level" aria-expanded={isDropdownVisible ? "true" : "false"} onClick={toggleDropdown}>
@@ -232,9 +233,8 @@ function Navbar() {
                     </div>
 
 
-
-
-                    <div class="flex justify-center w-full hidden md:inline-flex md:flex-row md:items-center">
+                    {/* {Navbar Laptop} */}
+                    <div class="hidden flex justify-center w-full lg:inline-flex lg:flex-row lg:items-center">
                         <ul class="flex flex-col text-base bg-gray-50 md:items-center md:space-x-6 md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-white md:dark:bg-white dark:border-gray-700 tracking-wide">
                             <li onMouseEnter={handleDropdownShow} onMouseLeave={handleDropdownHide}>
                                 <button id="dropdownNavbarLink" class="uppercase w-full py-2 px-3 text-black hover:bg-red-600 rounded-lg md:hover:bg-red-600 md:border-0 md:hover:text-blue-700 md:w-auto text-black md:hover:text-white focus:text-black hover:bg-red-600 md:hover:bg-red-600">Tentang Kami</button>
