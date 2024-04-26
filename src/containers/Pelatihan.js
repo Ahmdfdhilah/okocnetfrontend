@@ -1,13 +1,10 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import Foto1 from "../asset/img/promo.png";
 import Top from "../asset/img/7top-rb.webp";
 
 const Pelatihan = () => {
     return (
         <>
-            <Navbar />
             <div className="pl-40 pt-60 bg-white max-md:pl-5">
                 <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                     <div className="flex flex-col w-[18%] max-md:ml-0 max-md:w-full">
@@ -21,17 +18,17 @@ const Pelatihan = () => {
                     <div className="flex flex-col ml-5 w-[82%] max-md:ml-0 max-md:w-full">
                         <div className="flex flex-col self-stretch p-8 my-auto w-full text-white bg-sky-700 max-md:px-5 max-md:mt-10 max-md:max-w-full">
                             <div className="text-5xl font-bold leading-[57.6px] max-md:max-w-full max-md:text-4xl">
-                            Perizinan
+                            Pelatihan
                             </div>
                             <div className="mt-4 text-lg leading-7 max-md:max-w-full">
-                            Peserta akan dijelaskan proses perizinan sesuai kebutuhannya.
+                            Peserta akan dilatih berdasarkan kurikulum OK OCE dan akan digabungkan ke kelompok inkubasi melalui komunitas penggerak.
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="pelatihan-body" class="w-full pt-40 font-jost flex justify-center bg-white">
+            <div id="pelatihan-body" class="w-full pt-20 font-jost flex justify-center bg-white">
                 <div class="w-full lg:w-3/4">
                     <div>
                         <h1 class="text-center text-4xl font-bold text-okoce-blue">Agenda Pelatihan</h1>
@@ -192,8 +189,6 @@ const Pelatihan = () => {
                     </div>
                 </div>
             </div>
-
-            <Footer />
         </>
     );
 }

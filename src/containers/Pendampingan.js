@@ -1,5 +1,3 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import React from "react";
 import Top from "../asset/img/7top-rb.webp";
 import Usaha from "../asset/img/7 top/pendampingan/inkubasi.png";
@@ -24,7 +22,6 @@ import Travel from "../asset/img/7 top/pendampingan/travelbook.png";
 const Pendampingan = () => {
     return (
         <>
-            <Navbar />
             <div className="pl-40 pt-60 bg-white max-md:pl-5">
                 <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                     <div className="flex flex-col w-[18%] max-md:ml-0 max-md:w-full">
@@ -130,8 +127,6 @@ const Pendampingan = () => {
                             <img class="h-auto max-w-full" src={Wgs} alt="" />
                         </div>
                     </div>
-            <Footer />
-
         </>
     );
 }
