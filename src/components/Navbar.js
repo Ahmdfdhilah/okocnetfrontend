@@ -190,7 +190,7 @@ function Navbar() {
                                             <a href="/modalberkah" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Modal Berkah</a>
                                         </li>
                                         <li>
-                                            <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Emak Kece</a>
+                                            <a href="/emakkece" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Emak Kece</a>
                                         </li>
                                         <li>
                                             <a href="masjidpemberdaya" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Masjid Pemberdaya</a>
@@ -347,7 +347,7 @@ function Navbar() {
                                             <a href="/modalberkah" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Modal Berkah</a>
                                         </li>
                                         <li>
-                                            <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Emak Kece</a>
+                                            <a href="/emakkece" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Emak Kece</a>
                                         </li>
                                         <li>
                                             <a href="masjidpemberdaya" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Masjid Pemberdaya</a>

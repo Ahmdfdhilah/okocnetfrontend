@@ -20,6 +20,7 @@ import Modalberkah from "./containers/Modalberkah";
 import Masjidpemberdaya from "./containers/Masjidpemberdaya";
 import Donasi from "./containers/Donasi";
 import Magang from "./containers/Magang";
+import Emakkece from "./containers/Emakkece";
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
           <Route path="/masjidpemberdaya" element={<Masjidpemberdaya />} />
           <Route path="/donasi" element={<Donasi />} />
           <Route path="/magang" element={<Magang />} />
+          <Route path="/emakkece" element={<Emakkece />} />
         </Routes>
         <Footer />
       </BrowserRouter>
