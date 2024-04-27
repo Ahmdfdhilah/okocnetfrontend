@@ -21,6 +21,7 @@ import Masjidpemberdaya from "./containers/Masjidpemberdaya";
 import Donasi from "./containers/Donasi";
 import Magang from "./containers/Magang";
 import Emakkece from "./containers/Emakkece";
+import Mastermentor from "./containers/Mastermentor";
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
           <Route path="/donasi" element={<Donasi />} />
           <Route path="/magang" element={<Magang />} />
           <Route path="/emakkece" element={<Emakkece />} />
+          <Route path="/mastermentor" element={<Mastermentor />} />
         </Routes>
         <Footer />
       </BrowserRouter>

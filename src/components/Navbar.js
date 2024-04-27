@@ -203,7 +203,7 @@ function Navbar() {
                                             <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">The Mentor</a>
                                         </li>
                                         <li>
-                                            <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Master Mentor</a>
+                                            <a href="/mastermentor" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Master Mentor</a>
                                         </li>
                                         <li>
                                             <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Digitalisasi</a>
@@ -359,7 +359,7 @@ function Navbar() {
                                             <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">The Mentor</a>
                                         </li>
                                         <li>
-                                            <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Master Mentor</a>
+                                            <a href="/mastermentor" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Master Mentor</a>
                                         </li>
                                         <li>
                                             <a href="#" className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Digitalisasi</a>
