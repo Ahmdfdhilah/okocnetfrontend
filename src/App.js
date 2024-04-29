@@ -11,6 +11,7 @@ import Seventop from "./containers/Seventop";
 import Marchendise from "./containers/Marchendise";
 import Pelatihan from "./containers/Pelatihan";
 import Pendampingan from "./containers/Pendampingan";
+import Faq from "./containers/Faq";
 import PeluangUsaha from "./containers/PeluangUsaha";
 import Navbar from "@components/Navbar";
 import Footer from "@components/Footer";
@@ -22,7 +23,6 @@ import Donasi from "./containers/Donasi";
 import Magang from "./containers/Magang";
 import Emakkece from "./containers/Emakkece";
 import Mastermentor from "./containers/Mastermentor";
-
 
 function App() {
   return (
@@ -41,6 +41,7 @@ function App() {
           <Route path="/marchendise" element={<Marchendise />} />
           <Route path="/pendampingan" element={<Pendampingan />} />
           <Route path="/pelatihan" element={<Pelatihan />} />
+          <Route path="/faq" element={<Faq />} />
           <Route path="/peluangusaha" element={<PeluangUsaha />} />
           <Route path="/peluangkerja" element={<PeluangKerja />} />
           <Route path="/lokalbrand" element={<LokalBrand />} />
