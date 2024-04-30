@@ -1,5 +1,5 @@
 import React from "react";
-import Top from "../asset/img/7top-rb.webp";
+import Top from "@img/7top-rb.webp";
 
 const Permodalan = () => {
     return (

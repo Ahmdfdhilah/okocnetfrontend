@@ -54,7 +54,7 @@ const Seventop = () => {
                     <div className={titleClasses2}>Pelaporan Keuangan</div>
                     <div className={contentClasses}>
                         Peserta akan diajarkan dan didampingi cara membuat laporan keuangan untuk menghitung untung rugi. <br /> <br />
-                        <a href="/pelaporan-keuangan" class="text-blue-500 font-medium">Pelajari Selengkapnya &gt;</a>
+                        <a href="/pelaporankeuangan" class="text-blue-500 font-medium">Pelajari Selengkapnya &gt;</a>
                     </div>
                 </div>
                 <div className={cardClasses}>

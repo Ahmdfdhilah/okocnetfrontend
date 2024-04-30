@@ -1,20 +1,20 @@
 import React from "react";
-import Top from "../asset/img/7top-rb.webp";
-import Usaha from "../asset/img/7 top/pendampingan/inkubasi.png";
-import Chat from "../asset/img/7 top/pendampingan/chat.png";
-import Kolaborator from "../asset/img/7 top/pendampingan/kolaborator.png";
-import Az from "../asset/img/7 top/pendampingan/az-indonesia.png";
-import Ck from "../asset/img/7 top/pendampingan/cetakkemasan.png";
-import Edu from "../asset/img/7 top/pendampingan/eduversal.png";
-import Ekles from "../asset/img/7 top/pendampingan/ekles-2.png";
-import Indivara from "../asset/img/7 top/pendampingan/indivara-2.png";
-import Inotek from "../asset/img/7 top/pendampingan/inotek.png";
-import Jnj from "../asset/img/7 top/pendampingan/jnj-group-2.png";
-import Wgs from "../asset/img/7 top/pendampingan/wgshub.png";
-import Kk from "../asset/img/7 top/pendampingan/kk-indonesia.png";
-import Smeshub from "../asset/img/7 top/pendampingan/smeshub.png";
-import Pajak from "../asset/img/7 top/pendampingan/pajakonline.png";
-import Travel from "../asset/img/7 top/pendampingan/travelbook.png";
+import Top from "@img/7top-rb.webp";
+import Usaha from "@img/7 top/pendampingan/inkubasi.png";
+import Chat from "@img/7 top/pendampingan/chat.png";
+import Kolaborator from "@img/7 top/pendampingan/kolaborator.png";
+import Az from "@img/7 top/pendampingan/az-indonesia.png";
+import Ck from "@img/7 top/pendampingan/cetakkemasan.png";
+import Edu from "@img/7 top/pendampingan/eduversal.png";
+import Ekles from "@img/7 top/pendampingan/ekles-2.png";
+import Indivara from "@img/7 top/pendampingan/indivara-2.png";
+import Inotek from "@img/7 top/pendampingan/inotek.png";
+import Jnj from "@img/7 top/pendampingan/jnj-group-2.png";
+import Wgs from "@img/7 top/pendampingan/wgshub.png";
+import Kk from "@img/7 top/pendampingan/kk-indonesia.png";
+import Smeshub from "@img/7 top/pendampingan/smeshub.png";
+import Pajak from "@img/7 top/pendampingan/pajakonline.png";
+import Travel from "@img/7 top/pendampingan/travelbook.png";
 
 
 

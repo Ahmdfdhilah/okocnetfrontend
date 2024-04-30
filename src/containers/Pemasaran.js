@@ -1,11 +1,11 @@
 import React from "react";
-import Top from "../asset/img/7top-rb.webp";
-import Halal from "../asset/img/7 top/perizinan/izin-sertifikasi-halal.png"
-import Berusaha from "../asset/img/7 top/perizinan/nomer-izin-berusaha.png"
-import Kosmetik from "../asset/img/7 top/perizinan/izin-sertifikasi-kosmetik.png"
-import Pangan from "../asset/img/7 top/perizinan/izin-sertifikasi-pangan.png"
-import Haki from "../asset/img/7 top/perizinan/haki.png"
-import Pkrt from "../asset/img/7 top/perizinan/sertifikasi-pkrt.png"
+import Top from "@img/7top-rb.webp";
+import Halal from "@img/7 top/perizinan/izin-sertifikasi-halal.png"
+import Berusaha from "@img/7 top/perizinan/nomer-izin-berusaha.png"
+import Kosmetik from "@img/7 top/perizinan/izin-sertifikasi-kosmetik.png"
+import Pangan from "@img/7 top/perizinan/izin-sertifikasi-pangan.png"
+import Haki from "@img/7 top/perizinan/haki.png"
+import Pkrt from "@img/7 top/perizinan/sertifikasi-pkrt.png"
 
 
 

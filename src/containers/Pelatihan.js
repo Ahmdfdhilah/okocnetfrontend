@@ -1,6 +1,6 @@
 import React from "react";
-import Foto1 from "../asset/img/promo.png";
-import Top from "../asset/img/7top-rb.webp";
+import Foto1 from "@img/promo.png";
+import Top from "@img/7top-rb.webp";
 
 const Pelatihan = () => {
     return (

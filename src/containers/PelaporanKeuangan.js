@@ -1,12 +1,12 @@
 import React from "react";
-import Top from "../asset/img/7top-rb.webp";
-import Wtp from "../asset/img/wtp-e1685866203725 1.png"
-import Image1 from "../asset/img/7 top/pelaporankeuangan/image 8.png"
-import Laba from "../asset/img/7 top/pelaporankeuangan/laba.png"
-import Neraca from "../asset/img/7 top/pelaporankeuangan/neraca.png"
-import Kas from "../asset/img/7 top/pelaporankeuangan/kas.png"
-import Catatan from "../asset/img/7 top/pelaporankeuangan/catatan.png"
-import Pajak from "../asset/img/7 top/pelaporankeuangan/pajak.png"
+import Top from "@img/7top-rb.webp";
+import Wtp from "@img/wtp-e1685866203725 1.png"
+import Image1 from "@img/7 top/pelaporankeuangan/image 8.png"
+import Laba from "@img/7 top/pelaporankeuangan/laba.png"
+import Neraca from "@img/7 top/pelaporankeuangan/neraca.png"
+import Kas from "@img/7 top/pelaporankeuangan/kas.png"
+import Catatan from "@img/7 top/pelaporankeuangan/catatan.png"
+import Pajak from "@img/7 top/pelaporankeuangan/pajak.png"
 
 
 
