@@ -21,14 +21,7 @@ import Modalberkah from "./containers/Modalberkah";
 import Masjidpemberdaya from "./containers/Masjidpemberdaya";
 import Donasi from "./containers/Donasi";
 import Magang from "./containers/Magang";
-<<<<<<< HEAD
-import Perizinan from "./containers/Perizinan";
-import Pemasaran from "./containers/Pemasaran";
-import PelaporanKeuangan from "./containers/PelaporanKeuangan";
-import Permodalan from "./containers/Permodalan";
-=======
 import Emakkece from "./containers/Emakkece";
->>>>>>> 004643e0779f294ab83e1a274d911fdee8767be4
 
 function App() {
   return (
@@ -55,18 +48,11 @@ function App() {
           <Route path="/masjidpemberdaya" element={<Masjidpemberdaya />} />
           <Route path="/donasi" element={<Donasi />} />
           <Route path="/magang" element={<Magang />} />
-<<<<<<< HEAD
-          <Route path="/perizinan" element={<Perizinan />} />
-          <Route path="/pemasaran" element={<Pemasaran />} />
-          <Route path="/pelaporan-keuangan" element={<PelaporanKeuangan />} />
-          <Route path="/permodalan" element={<Permodalan />} />
-=======
           <Route path="/emakkece" element={<Emakkece />} />
->>>>>>> 004643e0779f294ab83e1a274d911fdee8767be4
         </Routes>
         <Footer />
       </BrowserRouter>
-      
+
     </>
   );
 }
