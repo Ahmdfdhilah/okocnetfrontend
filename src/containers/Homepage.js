@@ -219,18 +219,26 @@ const Homepage = () => {
                             <img class="h-[10em] sm:mx-auto object-cover mx-auto" src={Pendampingan} />
                         </div>
                     </a>
-                    <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
-                        <img class="md:h-[10em] object-cover mx-auto" src={Perizinan} />
-                    </div>
-                    <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
-                        <img class="md:h-[10em] object-cover mx-auto" src={Pemasaran} />
-                    </div>
-                    <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
-                        <img class="md:h-[10em] object-cover mx-auto" src={Pelaporan} />
-                    </div>
-                    <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
-                        <img class="md:h-[10em] object-cover mx-auto" src={Permodalan} />
-                    </div>
+                    <a href="/perizinan">
+                        <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
+                            <img class="md:h-[10em] object-cover mx-auto" src={Perizinan} />
+                        </div>
+                    </a>
+                    <a href="/pemasaran">
+                        <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
+                            <img class="md:h-[10em] object-cover mx-auto" src={Pemasaran} />
+                        </div>
+                    </a>
+                    <a href="/pelaporankeuangan">
+                        <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
+                            <img class="md:h-[10em] object-cover mx-auto" src={Pelaporan} />
+                        </div>
+                    </a>
+                    <a href="/permodalan">
+                        <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
+                            <img class="md:h-[10em] object-cover mx-auto" src={Permodalan} />
+                        </div>
+                    </a>
                 </div>
             </div>
 
