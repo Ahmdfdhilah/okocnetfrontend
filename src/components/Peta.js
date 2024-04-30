@@ -23,7 +23,8 @@ const Peta = () => {
                     layer.bindTooltip(() => {
                         const name = feature.properties.NAME_1; // Ubah menjadi properti yang sesuai dengan data GeoJSON Anda
                         const user = feature.properties.USER; // Ubah menjadi properti yang sesuai dengan data GeoJSON Anda
-                        return `<div><strong>${name}</strong></div><div>${user}</div>`;
+                        const penggerak = feature.properties.GROUP; // Ubah menjadi properti yang sesuai dengan data GeoJSON Anda
+                        return `<div><strong>${name}</strong></div><div>${penggerak}</div><div>${user}</div>`;
                     });
                     layer.on({
                         mouseover: (e) => {

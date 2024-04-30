@@ -83,27 +83,10 @@ const Marchendise = () => {
                             <div class="flex flex-wrap">
                                 <a href="https://wa.me/6282210109142?text=Hallo%20Saya%20tertarik%20dengan%20Merchandise%20OK-02" class="flex-auto text-xl font-semibold">Kaos Gerakan Sosial OK OCE</a>
                                 <div class="text-xl font-semibold text-gray-500">Rp. 105.000,-</div>
-                                <div class="flex-none w-full mt-2 text-sm font-medium text-gray-500">Sisa stok: 16</div>
-                            </div>
-                            <div>
-                                <p class="text-justify py-3 lg:py-0">Kaos OK OCE, dengan logo OK OCE Besar di bagian dada, dan logo OKOCE.NET di bagian punggung belakang.  Dibuat menggunakan bahan kaos cotton combed soft 30s. Tersedia dalam bentuk lengan pendek warna ( Hitam, Merah, Biru )</p>
-                            </div>
-                            <div class="flex items-baseline mt-4 mb-6 text-gray-700">
-                                <div class="flex space-x-2">
-                                    <label class="text-center">
-                                        <input type="radio" class="flex items-center justify-center w-6 h-6 bg-gray-100 rounded-lg" name="size" value="xs" />XS</label>
-
-                                    <label class="text-center">
-                                        <input type="radio" class="flex items-center justify-center w-6 h-6" name="size" value="s" />S</label>
-
-                                    <label class="text-center">
-                                        <input type="radio" class="flex items-center justify-center w-6 h-6" name="size" value="m" />M</label>
-
-                                    <label class="text-center">
-                                        <input type="radio" class="flex items-center justify-center w-6 h-6" name="size" value="l" />L</label>
-
-                                    <label class="text-center">
-                                        <input type="radio" class="flex items-center justify-center w-6 h-6" name="size" value="xl" />XL</label>
+                                <div class="flex-none w-full mt-2 text-sm font-medium text-gray-500">Sisa stok: 16
+                                </div>
+                                <div class="mt-8">
+                                    <p class="text-justify">Kaos OK OCE, dengan logo OK OCE Besar di bagian dada, dan logo OKOCE.NET di bagian punggung belakang.  Dibuat menggunakan bahan kaos cotton combed soft 30s. Tersedia dalam bentuk lengan pendek warna ( Hitam, Merah, Biru )</p>
                                 </div>
                             </div>
                             <div class="flex mb-4 text-sm font-medium">
@@ -150,28 +133,11 @@ const Marchendise = () => {
                             <div class="flex flex-wrap">
                                 <a href="https://wa.me/6282210109142?text=Hallo%20Saya%20tertarik%20dengan%20Merchandise%20OK-02" class="flex-auto text-xl font-semibold">Kaos Gerakan Sosial OK OCE</a>
                                 <div class="text-xl font-semibold text-gray-500">Rp. 115.000 - Rp. 125.000</div>
-                                <div class="flex-none w-full mt-2 text-sm font-medium text-gray-500">Sisa stok: 16</div>
-                            </div>
-                            <div>
-                                <p class="text-justify py-3 lg:py-0">Kaos Gerakan Sosial OK OCE, terdiri dari empat titik lokasi cetak logo Gerakan Sosial di bagian depan, logo OK OCE di bagian belakang , logo 7 top samping kanan dan logo okoce.net sebelah kiri Dibuat menggunakan bahan kaos cotton combed soft 30s. Tersedia dalam bentuk lengan pendek dan lengan panjang<br /><br /></p>
-                                <p class="text-justify py-3 lg:py-0">Catatan: <br />Lengan Pendek: Rp. 115.000 <br />Lengan Panjang: Rp.125.000 </p>
-                            </div>
-                            <div class="flex items-baseline mt-4 mb-6 text-gray-700">
-                                <div class="flex space-x-2">
-                                    <label class="text-center">
-                                        <input type="radio" class="flex items-center justify-center w-6 h-6 bg-gray-100 rounded-lg" name="size" value="xs" />XS</label>
-
-                                    <label class="text-center">
-                                        <input type="radio" class="flex items-center justify-center w-6 h-6" name="size" value="s" />S</label>
-
-                                    <label class="text-center">
-                                        <input type="radio" class="flex items-center justify-center w-6 h-6" name="size" value="m" />M</label>
-
-                                    <label class="text-center">
-                                        <input type="radio" class="flex items-center justify-center w-6 h-6" name="size" value="l" />L</label>
-
-                                    <label class="text-center">
-                                        <input type="radio" class="flex items-center justify-center w-6 h-6" name="size" value="xl" />XL</label>
+                                <div class="flex-none w-full mt-2 text-sm font-medium text-gray-500"><p>Sisa stok: 16</p>
+                                </div>
+                                <div class="mt-8">
+                                    <p class="text-justify py-3 lg:py-0">Kaos Gerakan Sosial OK OCE, terdiri dari empat titik lokasi cetak logo Gerakan Sosial di bagian depan, logo OK OCE di bagian belakang , logo 7 top samping kanan dan logo okoce.net sebelah kiri Dibuat menggunakan bahan kaos cotton combed soft 30s. Tersedia dalam bentuk lengan pendek dan lengan panjang<br /><br /></p>
+                                    <p class="text-justify py-3 lg:py-0">Catatan: <br />Lengan Pendek: Rp. 115.000 <br />Lengan Panjang: Rp.125.000 </p>
                                 </div>
                             </div>
                             <div class="flex mb-4 text-sm font-medium">
