@@ -7,9 +7,10 @@ const Peta = () => {
     return (
         <MapContainer
             center={[-2.5, 118.0]}
-            zoom={5}
-            style={{ background: 'white', height: '600px', width: '100%', marginTop: '2%', marginBottom: '5%', zIndex: '0' }}
+            zoom={window.innerWidth <= 640 ? 3 : 5}
+            style={{ background: 'white', height: '60vh', width: '80vw', margin: 'auto', marginTop: '2%', marginBottom: '5%', zIndex: '0' }}
             scrollWheelZoom={false}
+            className="sm:zoom-3"
         >
             <GeoJSON
                 data={Mapindo}
