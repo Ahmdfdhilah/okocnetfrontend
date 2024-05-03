@@ -17,12 +17,43 @@ import SUMBER2 from "@img/emakkece/SUMBER2.png";
 import SUMBER3 from "@img/emakkece/SUMBER3.png";
 import SUMBER4 from "@img/emakkece/SUMBER4.png";
 import TAHAPAN from "@img/emakkece/TAHAPAN.png";
+import EMAKKECE from "@img/emakkece/EMAKKECE.png";
+import MATERI1 from "@img/emakkece/MATERI1.png";
+import MATERI2 from "@img/emakkece/MATERI2.png";
+import MATERI3 from "@img/emakkece/MATERI3.png";
+import MATERI4 from "@img/emakkece/MATERI4.png";
+import FOTO1 from "@img/emakkece/FOTO1.png";
+import FOTO2 from "@img/emakkece/FOTO2.png";
+import FOTO3 from "@img/emakkece/FOTO3.png";
 
 
 
 const Emakkece = () => {
     return (
         <>
+             <div className="px-20 py-20 mt-20 bg-white max-md:px-5">
+                <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+                    <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+                    <img class="mt-2.5 w-full aspect-[1.96] max-md:mt-10 max-md:max-w-full" src={EMAKKECE} />
+                    </div>
+                    <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+                    <div className="flex flex-col mt-2.5 font-bold text-black leading-[120%] max-md:mt-10 max-md:max-w-full">
+                        <div className="text-4xl max-md:max-w-full">EMAK KECE</div>
+                        <div className="mt-6 text-lg leading-7 text-justify max-md:max-w-full">
+                        Melahirkan emak-emak pengusaha yang tangguh secara ruhani, emosi,
+                        dan mandiri
+                        <br />
+                        <br />
+                        Menjadi Wirausaha Baru dan Wirausaha Naik Kelas
+                        </div>
+                        <div className="justify-center items-center px-16 py-6 mt-10 text-2xl text-center text-white bg-red-600 rounded-3xl max-md:px-5 max-md:max-w-full">
+                        PELAJARI SELENGKAPNYA
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="mt-[10rem] bg-white-300 w-full h-[20rem] grid justify-center content-center">
                 <h1 class="font-extrabold text-4xl text-center">PELAKSANA</h1>
                 <div class="flex justify-center">
@@ -115,21 +146,38 @@ const Emakkece = () => {
                 </div>
             </div>
 
-            <div class="mt-[5rem] bg-white-300 w-full h-[20rem] grid justify-center content-center">
-                <h1 class="font-extrabold text-4xl text-center">SUMBER DAYA</h1>
+            <div class="mt-[0rem] bg-white-300 w-full h-[20rem] grid justify-center content-center">
+                <h1 class="font-extrabold py-5 text-4xl text-center">MATERI</h1>
                 <div class="flex justify-center">
                     <div class="grid grid-cols-4 gap-4">
                         <div class="mt-4">
-                            <img class="h-[15em]" src={SUMBER1} />
+                            <img class="h-[15em]" src={MATERI1} />
                         </div>
                         <div class="mt-4">
-                            <img class="h-[15em]" src={SUMBER2} />
+                            <img class="h-[15em]" src={MATERI2} />
                         </div>
                         <div class="mt-4">
-                            <img class="h-[15em]" src={SUMBER3} />
+                            <img class="h-[15em]" src={MATERI3} />
                         </div>
                         <div class="mt-4">
-                            <img class="h-[15em]" src={SUMBER4} />
+                            <img class="h-[15em]" src={MATERI4} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-[0rem] bg-white-300 w-full h-[40rem] grid justify-center content-center">
+                <h1 class="font-extrabold py-5 text-4xl text-center">DEWAN PENASEHAT</h1>
+                <div class="flex justify-center">
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="mt-4">
+                            <img class="h-[20em]" src={FOTO1} />
+                        </div>
+                        <div class="mt-4">
+                            <img class="h-[20em]" src={FOTO2} />
+                        </div>
+                        <div class="mt-4">
+                            <img class="h-[20em]" src={FOTO3} />
                         </div>
                     </div>
                 </div>
