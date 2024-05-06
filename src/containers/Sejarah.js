@@ -35,7 +35,7 @@ const Sejarah = () => {
     return (
         <>
             <div id="controls-carousel" className="relative w-full h-full top-[3rem] mb-[8rem]" data-carousel="slide">
-                <div className="relative min-h-screen overflow-hidden rounded-lg">
+                <div className="relative overflow-hidden rounded-lg mobile:h-72 lg:min-h-screen">
                     {slides.map((slide, index) => (
                         <div key={slide.id} className={`duration-700 ease-in-out ${index === currentIndex ? '' : 'hidden'}`} data-carousel-item={index === currentIndex ? 'active' : ''}>
                             <img src={slide.src} className="absolute object-cover block h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="" />
@@ -61,8 +61,8 @@ const Sejarah = () => {
             </div>
 
             <section class="w-full mx-auto px-12 m-14">
-                <div class="grid md:grid-cols-12 gap-5 p-4 m-2">
-                    <main class="md:col-span-8 p-10 mr-14">
+                <div class="grid gap-5 p-4 m-2 mobile:grid-rows-1 mobile:p-0 mobile:m-0 lg:grid-cols-12">
+                    <main class="mobile:p-0 mobile:mr-1 mobile:ml-0 lg:p-10 lg:mr-14 lg:col-span-8">
                         <h1 class="text-3xl font-bold text-center mb-8">Sejarah OK OCE Indonesia</h1>
                         <p class="text-justify">OK OCE lahir sebagai sebuah konsep pada tahun 1998 di keluarga Uno, yang terdiri dari Mien dan Henk Uno. Pada saat itu, banyak mahasiswa dari Gorontalo yang tidak bisa melanjutkan kuliah di Jakarta, dan meminta beasiswa kepada keluarga Uno. Dan setelah mereka lulus kuliah, mereka kembali ke perkebunan milik keluarga Uno untuk bekerja.<br /><br />
                             Setelah beberapa tahun, mereka akhirnya membuat ulang dan merombak program beasiswa dari program biasa menjadi program beasiswa enterprenuer, yang terdiri dari pelatihan, pemasaran, dan sekolah penganggaran. Hasilnya, lahirlah Mien R Uno Foundation pada tahun 2000.<br /><br />
@@ -72,17 +72,17 @@ const Sejarah = () => {
                             Pada tahun 2023, OK OCE telah menciptakan 1,5 juta lapangan kerja, dan hanya menyisakan 500.000 lapangan kerja lagi untuk mencapai target yang ditetapkan. Inisiatif lokal program OK OCE di DKI Jakarta, yang sekarang dikenal sebagai JakPreneur, memiliki keanggotaan sebanyak 340.000 orang, yang semakin menunjukkan dampak dan keberhasilan program ini secara luas.</p>
                     </main>
 
-                    <aside class="md:col-span-4 p-2">
-                        <img src={OkOce} class="mt-[7rem] mx-auto max-w-[20rem]" alt="logo okoce" />
+                    <aside class="lg:col-span-4 lg:p-2">
+                        <img src={OkOce} class="mobile:max-w-[14rem] mobile:mx-auto mobile:pl-4 mobile:mt-[3rem] lg:max-w-[20rem] lg:mx-auto lg:mt-[7rem]" alt="logo okoce" />
                         <h1 class="text-3xl font-bold text-center mb-8 mt-10">OK OCE Melahirkan Pengusaha Baru!</h1>
                         <p class="text-justify">Bersama lebih 500 ribu anggota dari berbagai provinsi di Indonesia. Setelah sukses memulainya di tahun 2017 dan bekerjasama dengan Pemerintah Provinsi DKI Jakarta dan menghasilkan puluhan ribu wirausaha baru serta menyerap 200 ribu lapangan kerja di DKI Jakarta. Kini OK OCE diterapkan ke seluruh Indonesia melalui lebih dari 197 komunitas penggerak.</p>
 
-                        <div class="mt-10 grid justify-items-start md:grid-cols-2 grid-flow-row gap-6">
+                        <div class="mt-10 grid justify-items-start mobile:grid-cols-2 mobile:gap-8 lg:grid-cols-2 lg:grid-flow-row lg:gap-6">
                             <div class="max-w-16">
                                 <h1 class="font-extrabold text-4xl">2016</h1>
                                 <p class="mt-4">Founded</p>
                             </div>
-                            <div class="max-w-16">
+                            <div class="max-w-32">
                                 <h1 class="font-extrabold text-4xl">500K+</h1>
                                 <p class="mt-4">Anggota Ok Oce </p>
                             </div>
@@ -99,9 +99,9 @@ const Sejarah = () => {
                 </div>
             </section>
             <div class="grid justify-items-center">
-                <h1 class="text-4xl font-bold text-center mt-[4rem]">Logo OK OCE Indonesia</h1>
+                <h1 class="text-4xl font-bold text-center mt-[4rem] mobile:text-3xl">Logo OK OCE Indonesia</h1>
                 <img src={Gerakan} class="mt-[7rem] mx-auto max-w-[20rem]" alt="gerakan sosial" />
-                <div class="grid justify-items-center md:grid-cols-2 grid-flow-col gap-6">
+                <div class="grid justify-items-center lg:grid-cols-2 lg:grid-flow-col lg:gap-6">
                     <img src={Desapreneur} class="max-w-[20rem]" alt="gerakan sosial" />
                     <img src={Mesjid} class="max-w-[20rem]" alt="gerakan sosial" />
                     <img src={EmakKece} class="max-w-[20rem]" alt="gerakan sosial" />

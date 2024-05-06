@@ -8,7 +8,7 @@ const Footer = () => {
     return (
         <>
             <footer
-                class="flex flex-col items-center bg-black text-center text-surface text-white mobile:w-full lg:w-full">
+                class="w-full flex flex-col items-center bg-black text-center text-surface text-white">
                 <div class="container px-6 pt-6">
                     <div class="mb-6 flex justify-evenly space-x-2">
                         <a href="https://www.google.com">

@@ -21,7 +21,6 @@ import Pelaporan from "@img/Laporan Keuangan.png";
 import Permodalan from "@img/Permodalan.png";
 import News1 from "@img/news-1.webp";
 import Okocetv from "@img/okoce-tv.webp";
-import Bg from "@img/blob-scene-haikei.svg";
 // - component
 import Peta from "@components/Peta";
 import Youtube from "@components/Youtube";
@@ -71,24 +70,28 @@ const Homepage = () => {
 
     return (
         <>
-            <div class="grid grid-flow-row justify-items-center items-center w-full">
-                <section class="mt-[5em] bg-center bg-no-repeat" style={{ backgroundImage: `url(${Bg})`, width: `100%`, height: `100%`, backgroundSize: `cover` }}>
-                    <div class="mx-auto text-center mobile:mt-[10rem] lg:max-w-screen-xl lg:px-4 lg:py-32">
-                        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Gerakan Sosial Untuk Indonesia!</h1>
-                        <p class="mb-8 text-lg font-normal text-white lg:text-xl mobile:px-16 lg:px-48">OK OCE hadir sebagai gerakan sosial yang mampu menciptakan lapangan kerja dan meningkatkan penghasilan masyarakat melalui pelatihan dan pendampingan kewirausahaan.</p>
-                        <div class="grid lg:grid-flow-col space-y-4 gap-4 mobile:grid-flow-row mobile:justify-center mobile:space-y-0">
-                            <a href="https://www.ecsys.okoce.net/register" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-red-600 hover:bg-white hover:text-black focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
-                                DAFTAR SEKARANG
+            <div class="grid grid-flow-row">
+                <section class="bg-white dark:bg-gray-900 mt-24">
+                    <div class="py-8 px-4 mx-auto text-center mobile:w-80 sm:w-96 lg:w-full lg:py-16">
+                        <h1 class="mb-4 text-4xl text-white font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">We invest in the world’s potential</h1>
+                        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl mobilw:px-16 lg:px-48 dark:text-gray-400">Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
+                        <div class="flex flex-col space-y-4 mobile:flex-row mobile:justify-center mobile:space-y-0">
+                            <a href="#" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                                Get started
+                                <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                </svg>
                             </a>
-                            <a href="#" class="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400">
-                                PANDUAN DAFTAR OK OCE
+                            <a href="#" class="py-3 px-5 mobile:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-70">
+                                Learn more
                             </a>
                         </div>
                     </div>
                 </section>
 
-                <div id="about" className="mt-[5em] mb-20 w-full flex justify-center items-center bg-white pt-16">
-                    <div className="w-3/4 about-container flex flex-col lg:flex-row justify-center items-center bg-detik-milk">
+
+                <div id="about" className="mt-[5em] mb-20 flex items-center bg-white pt-16 mobile:justify-start mobile:w-80 sm:w-96 lg:justify-center lg:mx-auto lg:w-3/4">
+                    <div className="about-container flex flex-col justify-center items-center bg-detik-milk mobile:ml-10 lg:flex-row">
                         <div className="w-[100%] mx-auto p-2">
                             <div className="relative rounded-lg overflow-hidden" data-carousel="static">
                                 <div className="relative h-78" data-carousel-inner>
@@ -155,9 +158,9 @@ const Homepage = () => {
                     </div>
                 </div>
 
-                <div class="w-full grid grid-grid-flow-row justify-items-center items-center">
+                <div class="grid grid-grid-flow-row justify-items-center items-center mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
                     <div class="md:pt-8 pb-8">
-                        <h3 class="text-okoce-blue text-center font-poppins text-xl md:text-2xl lg:text-4xl font-bold-700 mobile:text-3xl mobile:font-bold">Sebaran UMKM di Indonesia</h3>
+                        <h3 class="text-okoce-blue text-center font-poppins text-xl mobile:text-2xl lg:text-4xl font-bold-700 mobile:text-3xl mobile:font-bold">Sebaran UMKM di Indonesia</h3>
                     </div>
                     <div id="map" class="grid justify-items-center items-center w-full">
                         <div class="w-10/12">
@@ -175,7 +178,7 @@ const Homepage = () => {
                                     </h3>
                                 </div>
                                 <div class="pb-5">
-                                    <h3 class="text-black text-justify font-medium">
+                                    <h3 class="text-black text-center font-medium">
                                         UMKM Anggota OK OCE Indonesia
                                     </h3>
                                 </div>
@@ -197,14 +200,14 @@ const Homepage = () => {
                     </div>
                 </div>
 
-                <div class="bg-white mt-32 pb-20 grid justify-items-center">
+                <div class="bg-white mt-32 lg:pb-20 mobile:pb-5 grid justify-items-center mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
                     <div class="md:pt-8 pb-8 mb-4">
                         <h3 class="text-okoce-blue text-center font-poppins text-xl md:text-2xl lg:text-4xl font-bold-700 mobile:text-3xl mobile:font-bold">7 Tahapan OK OCE Prima</h3>
                     </div>
-                    <div class="lg:w-3/5 lg:grid lg:justify-items-center lg:grid-cols-5 lg:grid-flow-col">
-                        <div class="md:row-span-2 md:mr-8 hover:drop-shadow-2xl">
+                    <div class="lg:w-10/12 lg:grid lg:justify-items-center lg:grid-flow-col">
+                        <div class="md:mr-8 hover:drop-shadow-2xl">
                             <a href="/7top">
-                                <img class="md:h-[20em]" src={Top7} />
+                                <img class="md:h-[10em]" src={Top7} />
                             </a>
                         </div>
                         <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
@@ -235,40 +238,40 @@ const Homepage = () => {
                     </div>
                 </div>
 
-                <div class="bg-white mb-14">
+                <div class="bg-white mobile:w-80 mobile:mb-0 mobile:mx-auto sm:w-96 lg:mb-14 lg:w-full">
                     <div class="mt-10 pb-4">
-                        <h3 class="text-okoce-blue text-center font-poppins text-xl md:text-2xl lg:text-4xl font-bold-700 mobile:text-3xl mobile:font-bold">Event OK OCE Indonesia</h3>
+                        <h3 class="text-okoce-blue text-center font-poppins text-xl font-bold-700 mobile:text-3xl mobile:font-bold p-3 md:text-2xl lg:text-4xl">Event OK OCE Indonesia</h3>
                     </div>
                     <div class="flex justify-center">
-                        <h3 class="w-[55em] text-okoce-blue text-center font-poppins text-xs md:text-xl lg:text-xl font-bold-700">Berikut merupakan kalender mengenai acara-acara yang diselenggarakan oleh OK OCE Indonesia. Ayo Sobat, daftar OK OCE sekarang juga dan nikmati berbagai fasilitas pemasaran produk melalui acara OK OCE secara gratis, lho!</h3>
+                        <h3 class="w-[55em] text-okoce-blue text-center font-poppins text-xs font-bold-700 mobile:px-2 md:text-xl lg:text-xl ">Berikut merupakan kalender mengenai acara-acara yang diselenggarakan oleh OK OCE Indonesia. Ayo Sobat, daftar OK OCE sekarang juga dan nikmati berbagai fasilitas pemasaran produk melalui acara OK OCE secara gratis, lho!</h3>
                     </div>
-                </div>
-                <div class="mb-40 grid justify-items-center items-center lg:grid-rows-2 lg:grid-flow-col gap-2 sm:grid-rows-1 sm:grid-flow-row">
-                    <div class="h-[90%] mr-10 mt-10 grid justify-items-center items-center bg-white drop-shadow-2xl lg:row-span-2 sm:row-span-1 rounded-3xl sm:p-4 sm:mx-auto sm:my-auto">
-                        <Calendar />
-                    </div>
-                    <div class="text-xl font-bold mobile:p-4 mobile:mt-10">Daftar Acara
-                        <div class="grid grid-flow-col gap-4 mt-4">
-                            <img class="max-h-[10rem]" src={News1} />
-                            <img class="max-h-[10rem]" src={News1} />
-                            <img class="max-h-[10rem]" src={News1} />
+                    <div class="grid justify-items-center items-center mobile:mb-20 mobile:mx-auto sm:grid-rows-1 sm:grid-flow-row lg:grid-rows-2 lg:grid-flow-col gap-2 lg:mb-36">
+                        <div class="h-[90%] grid justify-items-center items-center bg-white drop-shadow-2xl rounded-3xl mobile:w-full mobile:row-span-1 mobile:p-0 mobile:mx-auto lg:col-span-1 lg:row-span-2 lg:w-8/12 lg:mr-0 lg:mt-12">
+                            <Calendar />
                         </div>
-                    </div>
-                    <div class="text-xl font-bold mobile:p-4 mobile:mt-3">Daftar Pelatihan
-                        <div class="grid grid-flow-col gap-4 mt-4">
-                            <img class="max-h-[10rem]" src={News1} />
-                            <img class="max-h-[10rem]" src={News1} />
-                            <img class="max-h-[10rem]" src={News1} />
+                        <div class="text-xl font-bold mobile:p-4 mobile:mt-6">Daftar Acara
+                            <div class="grid grid-flow-col gap-4 mt-4">
+                                <img class="max-h-[10rem]" src={News1} />
+                                <img class="max-h-[10rem]" src={News1} />
+                                <img class="max-h-[10rem]" src={News1} />
+                            </div>
+                        </div>
+                        <div class="text-xl font-bold mobile:p-4 mobile:mt-3">Daftar Pelatihan
+                            <div class="grid grid-flow-col gap-4 mt-4">
+                                <img class="max-h-[10rem]" src={News1} />
+                                <img class="max-h-[10rem]" src={News1} />
+                                <img class="max-h-[10rem]" src={News1} />
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-white m-8 pb-20">
-                    <div class="md:pt-8 pb-8">
+                <div class="bg-white mobile:p-3 mobile:mx-auto mobile:w-80 sm:w-96 lg:w-full lg:pb-20">
+                    <div class="pb-8">
                         <h3 class="text-okoce-blue text-center font-poppins text-xl md:text-2xl lg:text-4xl font-bold-700 mobile:text-3xl mobile:font-bold">Berita Ok Oce Indonesia</h3>
                     </div>
 
-                    <div class="grid lg:grid-cols-3 lg:grid-flow-col gap-6 mobile:grid-cols-1 mobile:grid-flow-row">
+                    <div class="grid justify-items-center lg:grid-cols-3 lg:grid-flow-col gap-6 mobile:grid-cols-1 mobile:grid-flow-row">
                         <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                             <a href="#">
                                 <img class="object-cover rounded-t-lg min-h-96 max-h-96 w-full" src={Berita1} alt="" />
@@ -324,11 +327,10 @@ const Homepage = () => {
                     </div>
                 </div>
 
-                <div class="bg-white m-6 pb-20">
-                    <div class="md:pt-8 pb-8">
+                <div class="bg-white mobile:w-80 mobile:pb-10 mobile:mx-auto sm:w-96 lg:w-11/12 lg:pb-20">
+                    <div class="mobile:pt-8 pb-8">
                         <h3 class="text-okoce-blue text-center font-poppins text-xl md:text-2xl lg:text-4xl font-bold-700 mobile:text-3xl mobile:font-bold">Jadilah salah satu dari mitra kami!</h3>
                     </div>
-
                     <div class="p-10 grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
                         <div>
                             <img class="h-auto max-w-full rounded-lg shadow-md" src={Azindo} alt="" />
@@ -369,23 +371,27 @@ const Homepage = () => {
                     </div>
                 </div>
 
-                <div class="grid justify-items-center mb-[4rem]">
-                    <div class="mb-8">
-                        <img class="h-auto max-w-full" src={Okocetv} alt="" />
+                <div className="grid grid-flow-row justify-items-center items-center text-lg text-center text-black mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
+                    <div class="max-w-72">
+                        <img
+                            loading="lazy"
+                            srcSet={Okocetv}
+                            className="object-cover"
+                        />
                     </div>
-                    <div class="m-auto">
-                        <Youtube src="https://www.youtube.com/embed/5ThtiH6g0MQ?si=nDPKDSV7jAU5nfUw" />
+                    <div class="flex justify-center items-center mobile:w-80 lg:w-full">
+                        <Youtube src="https://www.youtube.com/embed/5ThtiH6g0MQ?si=03pi3GAI_Gokz4X7" />
                     </div>
-                    <div class="flex justify-center md:pt-8 pb-8">
-                        <h3 class="w-[55em] text-okoce-blue text-center font-poppins text-xs md:text-lg lg:text-lg font-bold-700">Tonton video lainnya di YouTube OK OCE Indonesia.</h3>
+                    <div class="flex justify-center mt-7 max-md:max-w-full">
+                        Tonton video lainnya di YouTube OK OCE Indonesia.
                     </div>
                 </div>
 
-                <div class="bg-white m-6 pb-20">
+                <div class="bg-white m-6 pb-20 mobile:w-72 mobile:mx-auto sm:w-96 lg:w-11/12">
                     <div class="md:pt-8 pb-8">
-                        <h3 class="text-okoce-blue text-center font-poppins text-xl md:text-2xl lg:text-4xl font-bold-700 mobile:text-3xl mobile:font-bold">Pendapat Mereka Tentang Ok Oce Indonesia!</h3>
+                        <h3 class="text-okoce-blue text-center font-poppins text-xl font-bold-700 mobile:mt-10 mobile:text-3xl mobile:font-bold md:text-2xl lg:text-4xl">Pendapat Mereka Tentang Ok Oce Indonesia!</h3>
                     </div>
-                    <div class="grid grid-cols-3">
+                    <div class="grid mobile:grid-cols-1 mobile:grid-flow-row mobile:gap-4 lg:grid-cols-3">
                         <section class="bg-white">
                             <div class="bg-gray-600 max-w-sm px-4 py-8 mx-auto text-center rounded-3xl lg:py-16 lg:px-6">
                                 <figure class="max-w-screen-md mx-auto">
@@ -393,7 +399,7 @@ const Homepage = () => {
                                         <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" fill="currentColor" />
                                     </svg>
                                     <blockquote>
-                                        <p class="text-2xl font-medium text-gray-900 dark:text-white">"Flowbite is just awesome. It contains tons of predesigned components and pages starting from login screen to complex dashboard. Perfect choice for your next SaaS application."</p>
+                                        <p class="font-medium text-gray-900 dark:text-white lg:text-2xl ">"Flowbite is just awesome. It contains tons of predesigned components and pages starting from login screen to complex dashboard. Perfect choice for your next SaaS application."</p>
                                     </blockquote>
                                     <figcaption class="flex items-center justify-center mt-6 space-x-3">
                                         <img class="w-6 h-6 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png" alt="profile" />
@@ -412,7 +418,7 @@ const Homepage = () => {
                                         <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" fill="currentColor" />
                                     </svg>
                                     <blockquote>
-                                        <p class="text-2xl font-medium text-gray-900 dark:text-white">"Flowbite is just awesome. It contains tons of predesigned components and pages starting from login screen to complex dashboard. Perfect choice for your next SaaS application."</p>
+                                        <p class="font-medium text-gray-900 dark:text-white lg:text-2xl">"Flowbite is just awesome. It contains tons of predesigned components and pages starting from login screen to complex dashboard. Perfect choice for your next SaaS application."</p>
                                     </blockquote>
                                     <figcaption class="flex items-center justify-center mt-6 space-x-3">
                                         <img class="w-6 h-6 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png" alt="profile" />
@@ -431,7 +437,7 @@ const Homepage = () => {
                                         <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" fill="currentColor" />
                                     </svg>
                                     <blockquote>
-                                        <p class="text-2xl font-medium text-gray-900 dark:text-white">"Flowbite is just awesome. It contains tons of predesigned components and pages starting from login screen to complex dashboard. Perfect choice for your next SaaS application."</p>
+                                        <p class="font-medium text-gray-900 dark:text-white lg:text-2xl">"Flowbite is just awesome. It contains tons of predesigned components and pages starting from login screen to complex dashboard. Perfect choice for your next SaaS application."</p>
                                     </blockquote>
                                     <figcaption class="flex items-center justify-center mt-6 space-x-3">
                                         <img class="w-6 h-6 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png" alt="profile" />

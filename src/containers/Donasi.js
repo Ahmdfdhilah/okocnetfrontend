@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import qris from "@img/barcode/qris.png";
 import qris2 from "@img/barcode/Qris-1.png";
@@ -8,92 +7,29 @@ const Donasi = () => {
     return (
         <>
             {/* <!-- Jumbotron --> */}
-            <div class="flex justify-center">
-                <div class="my-36 max-w-6xl rounded-lg p-6 text-surface shadow-lg">
-                    <h2 class="mb-5 text-4xl font-extrabold text-center pt-10">Qris Donasi Ok Oce Indonesia</h2>
-                    <p class="text-center text-xl px-12">
+            <div className="w-full grid justify-items-center items-center">
+                <div className="w-full my-36 max-w-6xl rounded-lg p-6 text-surface shadow-lg">
+                    <h2 className="mb-5 text-4xl font-extrabold text-center pt-10">Qris Donasi Ok Oce Indonesia</h2>
+                    <p className="text-center text-xl px-12">
                         OK OCE adalah Gerakan Sosial Penciptaan Lapangan Kerja Berbasis Wirausaha. Kami membuka <br />bagi siapapun yang memiliki kesamaan visi, nilai dan perjuangan untuk mendukung gerakan ini dengan berdonasi melalui : <br /><br />
-
-                        <span class="font-bold text-2xl">Bank Syariah Indonesia (ex-BSM) </span> <br />
+                        <span className="font-bold text-2xl">Bank Syariah Indonesia (ex-BSM) </span> <br />
                         an. OK OCE INDONESIA No. Rekening 7148254367 <br /><br />
-
                         Scan QRIS melalui Aplikasi Payment dan Mobile Banking Melalui :
                     </p>
-                    <div className="flex flex-col px-5">
-                        <div className="mt-20 w-full max-md:mt-10 max-md:max-w-full">
-                            <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-                                <div className="flex flex-col w-[36%] max-md:ml-0 max-md:w-full">
-                                    <img
-                                        loading="lazy"
-                                        src={qris}
-                                        className="grow w-full shadow-sm aspect-[0.68] max-md:max-w-full" alt=""
-                                    />
-                                </div>
-                                <div className="flex flex-col ml-5 w-[64%] max-md:ml-0 max-md:w-full">
-                                    <div className="flex flex-col grow px-12 py-16 w-full text-black bg-gray-50 rounded-none shadow-sm max-md:px-5 max-md:max-w-full">
-                                        <div className="text-4xl font-extrabold leading-[90px] max-md:max-w-full max-md:text-4xl">
-                                            OK OCE INDONESIA
-                                        </div>
-                                        <div className="text-2xl leading-10 text-justify max-md:max-w-full">
-                                            OK OCE adalah Gerakan Sosial Penciptaan Lapangan Kerja Berbasis
-                                            Wirausaha. Kami membuka bagi siapapun yang memiliki kesamaan
-                                            visi, nilai dan perjuangan untuk mendukung gerakan ini
-                                        </div>
-                                    </div>
-                                </div>
+                    <div className="w-full mt-10 mb-10 mx-auto border-2 bg-gray-50 rounded-lg lg:w-5/6">
+                        <div className="grid justify-items-center items-center p-4 grid-cols-1 lg:grid-cols-2 gap-2 lg:mr-10 ">
+                            <div className="justify-self-auto">
+                                <img className="object-cover w-full rounded-t-lg h-96 lg:h-auto lg:w-48 lg:rounded-none lg:rounded-l-lg" src={qris} alt="" />
                             </div>
-                        </div>
-                        <div className="mt-28 w-full max-md:mt-10 max-md:max-w-full">
-                            <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-                                <div className="flex flex-col w-[36%] max-md:ml-0 max-md:w-full">
-                                    <img
-                                        loading="lazy"
-                                        src={qris2}
-                                        className="grow w-full shadow-sm aspect-[0.68] max-md:max-w-full object-cover" alt=""
-                                    />
-                                </div>
-                                <div className="flex flex-col ml-5 w-[64%] max-md:ml-0 max-md:w-full">
-                                    <div className="flex flex-col grow px-12 py-16 w-full text-black bg-gray-50 rounded-none shadow-sm max-md:px-5 max-md:max-w-full">
-                                        <div className="text-4xl font-extrabold leading-[90px] max-md:max-w-full max-md:text-4xl">
-                                            OK OCE WAKAF
-                                        </div>
-                                        <div className="text-2xl leading-10 text-justify max-md:max-w-full">
-                                            OK OCE adalah Gerakan Sosial Penciptaan Lapangan Kerja Berbasis
-                                            Wirausaha. Kami membuka bagi siapapun yang memiliki kesamaan
-                                            visi, nilai dan perjuangan untuk mendukung gerakan ini
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="mt-28 w-full max-md:mt-10 max-md:max-w-full">
-                            <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-                                <div className="flex flex-col w-[36%] max-md:ml-0 max-md:w-full">
-                                    <img
-                                        loading="lazy"
-                                        src={qris3}
-                                        className="grow w-full shadow-sm aspect-[0.68] max-md:max-w-full" alt=""
-                                    />
-                                </div>
-                                <div className="flex flex-col ml-5 w-[64%] max-md:ml-0 max-md:w-full">
-                                    <div className="flex flex-col grow px-12 py-16 w-full text-black bg-gray-50 rounded-none shadow-sm max-md:px-5 max-md:max-w-full">
-                                        <div className="text-4xl font-extrabold leading-[90px] max-md:max-w-full max-md:text-4xl">
-                                            OK OCE KEMANUSIAAN
-                                        </div>
-                                        <div className="text-2xl leading-10 text-justify max-md:mt-10 max-md:max-w-full">
-                                            OK OCE adalah Gerakan Sosial Penciptaan Lapangan Kerja Berbasis
-                                            Wirausaha. Kami membuka bagi siapapun yang memiliki kesamaan
-                                            visi, nilai dan perjuangan untuk mendukung gerakan ini
-                                        </div>
-                                    </div>
-                                </div>
+                            <div className="">
+                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-black">Noteworthy technology acquisitions 2021</h5>
+                                <p className="mb-3 font-normal text-gray-700">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             {/* <!-- Jumbotron --> */}
-
         </>
     )
 }

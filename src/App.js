@@ -25,6 +25,7 @@ import Emakkece from "./containers/Emakkece";
 import Testimoni from "./containers/Testimoni";
 import DaftarPelatihan from "./containers/DaftarPelatihan";
 import DaftarBerita from "./containers/DaftarBerita";
+import PengurusBaru from "./containers/PengurusBaru";
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
           <Route path="/emakkece" element={<Emakkece />} />
           <Route path="/daftarpelatihan" element={<DaftarPelatihan />} />
           <Route path="/daftarberita" element={<DaftarBerita />} />
+          <Route path="/ujicoba" element={<PengurusBaru />} />
         </Routes>
         <Footer />
       </BrowserRouter>

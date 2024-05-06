@@ -11,6 +11,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "alias": "^0.0.5",
+    "contentful": "^10.9.2",
     "date-fns": "^3.6.0",
     "dayjs": "^1.11.10",
     "leaflet": "^1.9.4",
