@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import qris from "@img/barcode/qris.png";
 import qris2 from "@img/barcode/Qris-1.png";
@@ -16,14 +17,74 @@ const Donasi = () => {
                         an. OK OCE INDONESIA No. Rekening 7148254367 <br /><br />
                         Scan QRIS melalui Aplikasi Payment dan Mobile Banking Melalui :
                     </p>
-                    <div className="w-full mt-10 mb-10 mx-auto border-2 bg-gray-50 rounded-lg lg:w-5/6">
-                        <div className="grid justify-items-center items-center p-4 grid-cols-1 lg:grid-cols-2 gap-2 lg:mr-10 ">
-                            <div className="justify-self-auto">
-                                <img className="object-cover w-full rounded-t-lg h-96 lg:h-auto lg:w-48 lg:rounded-none lg:rounded-l-lg" src={qris} alt="" />
+                    <div className="flex flex-col px-5">
+                        <div className="mt-36 w-full max-md:mt-10 max-md:max-w-full">
+                            <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+                                <div className="flex flex-col w-[36%] max-md:ml-0 max-md:w-full">
+                                    <img
+                                        loading="lazy"
+                                        srcSet={qris}
+                                        className="grow w-full shadow-sm aspect-[0.68] max-md:max-w-full"
+                                    />
+                                </div>
+                                <div className="flex flex-col ml-5 w-[64%] max-md:ml-0 max-md:w-full">
+                                    <div className="flex flex-col grow px-12 py-16 w-full text-black bg-gray-50 rounded-none shadow-sm max-md:px-5 max-md:max-w-full">
+                                        <div className="text-6xl font-semibold leading-[90px] max-md:max-w-full max-md:text-4xl">
+                                            OK OCE INDONESIA
+                                        </div>
+                                        <div className="mt-9 text-2xl leading-10 text-justify max-md:max-w-full">
+                                            OK OCE adalah Gerakan Sosial Penciptaan Lapangan Kerja Berbasis
+                                            Wirausaha. Kami membuka bagi siapapun yang memiliki kesamaan
+                                            visi, nilai dan perjuangan untuk mendukung gerakan ini
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="">
-                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-black">Noteworthy technology acquisitions 2021</h5>
-                                <p className="mb-3 font-normal text-gray-700">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                        </div>
+                        <div className="mt-28 w-full max-md:mt-10 max-md:max-w-full">
+                            <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+                                <div className="flex flex-col w-[36%] max-md:ml-0 max-md:w-full">
+                                    <img
+                                        loading="lazy"
+                                        srcSet={qris2}
+                                        className="grow w-full shadow-sm aspect-[0.68] max-md:max-w-full"
+                                    />
+                                </div>
+                                <div className="flex flex-col ml-5 w-[64%] max-md:ml-0 max-md:w-full">
+                                    <div className="flex flex-col grow px-12 py-16 w-full text-black bg-gray-50 rounded-none shadow-sm max-md:px-5 max-md:max-w-full">
+                                        <div className="text-6xl font-semibold leading-[90px] max-md:max-w-full max-md:text-4xl">
+                                            OK OCE WAKAF
+                                        </div>
+                                        <div className="mt-9 text-2xl leading-10 text-justify max-md:max-w-full">
+                                            OK OCE adalah Gerakan Sosial Penciptaan Lapangan Kerja Berbasis
+                                            Wirausaha. Kami membuka bagi siapapun yang memiliki kesamaan
+                                            visi, nilai dan perjuangan untuk mendukung gerakan ini
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="mt-28 w-full max-md:mt-10 max-md:max-w-full">
+                            <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+                                <div className="flex flex-col w-[36%] max-md:ml-0 max-md:w-full">
+                                    <img
+                                        loading="lazy"
+                                        srcSet={qris3}
+                                        className="grow w-full shadow-sm aspect-[0.68] max-md:max-w-full"
+                                    />
+                                </div>
+                                <div className="flex flex-col ml-5 w-[64%] max-md:ml-0 max-md:w-full">
+                                    <div className="flex flex-col grow px-12 py-16 w-full text-black bg-gray-50 rounded-none shadow-sm max-md:px-5 max-md:max-w-full">
+                                        <div className="text-6xl font-semibold leading-[82.5px] max-md:max-w-full max-md:text-4xl">
+                                            OK OCE KEMANUSIAAN
+                                        </div>
+                                        <div className="mt-10 text-2xl leading-10 text-justify max-md:mt-10 max-md:max-w-full">
+                                            OK OCE adalah Gerakan Sosial Penciptaan Lapangan Kerja Berbasis
+                                            Wirausaha. Kami membuka bagi siapapun yang memiliki kesamaan
+                                            visi, nilai dan perjuangan untuk mendukung gerakan ini
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
