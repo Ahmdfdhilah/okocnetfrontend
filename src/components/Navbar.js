@@ -82,7 +82,7 @@ function Navbar() {
         <>
             <nav class="border-b border-gray">
                 {/* {Navbar Mobile} */}
-                <div class="bg-white fixed top-0 z-50 w-full flex items-center justify-between mx-auto p-2 max-h-24 shadow-lg">
+                <div class="fixed w-svw bg-white top-0 z-50 flex items-center justify-between mx-auto p-2 max-h-24 shadow-lg">
                     <a href="/" class="ml-8 ">
                         <img
                             src="https://okoce.net/wp-content/uploads/2021/03/logo-okoce-01.png"
@@ -125,14 +125,14 @@ function Navbar() {
                                 onMouseLeave={handleDropdownHide}>
                                 <button
                                     id="dropdownNavbarLink"
-                                    class="uppercase flex items-center justify-between w-full py-2 px-3 text-black hover:bg-red-600 rounded-lg md:hover:bg-red-600 md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-black md:dark:hover:text-white dark:focus:text-black dark:hover:bg-red-600 md:dark:hover:bg-red-600">
+                                    class="uppercase flex items-center justify-between w-full py-2 px-3 text-black hover:bg-red-600 rounded-lg md:hover:bg-red-600 md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto">
                                     Tentang Kami
                                 </button>
 
                                 {/*Dropdown menu */}
                                 <div
                                     className={
-                                        "absolute z-100 font-normal divide-y divide-gray-100 rounded-lg top-[4.5rem] w-44 dark:bg-gray-400 dark:divide-gray-500 " +
+                                        "absolute z-100 font-normal drop-shadow-2xl divide-y divide-gray-100 rounded-lg top-[4.5rem] w-44 bg-white " +
                                         (dropdownVisible ? "" : "hidden")
                                     }>
                                     <ul
@@ -141,42 +141,42 @@ function Navbar() {
                                         <li>
                                             <a
                                                 href="/sejarah"
-                                                class="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                class="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Sejarah
                                             </a>
                                         </li>
                                         <li>
                                             <a
                                                 href="/visimisi"
-                                                class="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                class="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Visi dan Misi
                                             </a>
                                         </li>
                                         <li>
                                             <a
                                                 href="/nilaiinti"
-                                                class="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                class="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Nilai Inti
                                             </a>
                                         </li>
                                         <li>
                                             <a
                                                 href="/struktur"
-                                                class="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                class="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Struktur Pengurus
                                             </a>
                                         </li>
                                         <li>
                                             <a
                                                 href="/penggerak"
-                                                class="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                class="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Penggerak
                                             </a>
                                         </li>
                                         <li>
                                             <a
                                                 href="#"
-                                                class="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                class="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Anniversary
                                             </a>
                                         </li>
@@ -185,7 +185,7 @@ function Navbar() {
                             </li>
                             <li>
                                 <a
-                                    href="#"
+                                    href="/7top"
                                     class="uppercase block py-2 px-3 text-gray-900 rounded hover:bg-red-600 rounded-lg md:hover:bg-red-600 md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-black md:dark:hover:text-white dark:focus:text-black dark:hover:bg-red-600 md:dark:hover:bg-red-600">
                                     7 Top
                                 </a>
@@ -202,7 +202,7 @@ function Navbar() {
                                 {/*Dropdown menu */}
                                 <div
                                     class={
-                                        "absolute z-100 font-normal divide-y divide-gray-100 rounded-lg top-[9.5rem] w-44 dark:bg-gray-400 dark:divide-gray-500 " +
+                                        "absolute z-100 font-normal drop-shadow-2xl divide-y divide-gray-100 rounded-lg top-[9.5rem] w-44 bg-white " +
                                         (EtalaseDropdownVisible ? "" : "hidden")
                                     }>
                                     <ul
@@ -211,7 +211,7 @@ function Navbar() {
                                         <li>
                                             <a
                                                 href="#"
-                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Marchendise
                                             </a>
                                         </li>
@@ -230,7 +230,7 @@ function Navbar() {
                                 {/*Dropdown menu */}
                                 <div
                                     class={
-                                        "absolute z-100 font-normal divide-y divide-gray-100 rounded-lg top-[12rem] w-44 dark:bg-gray-400 dark:divide-gray-500 " +
+                                        "absolute z-100 font-normal drop-shadow-2xl divide-y divide-gray-100 rounded-lg top-[12rem] w-44 bg-white divide-gray-500 " +
                                         (PeluangDropdownVisible ? "" : "hidden")
                                     }>
                                     <ul
@@ -238,50 +238,50 @@ function Navbar() {
                                         aria-labelledby="dropdownPeluangNavbarLink">
                                         <li>
                                             <a
-                                                href="#"
-                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                href="/peluangusaha"
+                                                className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Peluang Usaha
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                href="#"
-                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                href="/peluangkerja"
+                                                className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Peluang Kerja
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                href="#"
-                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                href="/magang"
+                                                className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Magang
                                             </a>
                                         </li>
                                         <li>
                                             <a
                                                 href="#"
-                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Trainer
                                             </a>
                                         </li>
                                         <li>
                                             <a
                                                 href="#"
-                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Mentor
                                             </a>
                                         </li>
                                         <li>
                                             <a
                                                 href="#"
-                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Mitra Kerjasama
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                href="#"
-                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                href="/donasi"
+                                                className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Donasi
                                             </a>
                                         </li>
@@ -295,13 +295,13 @@ function Navbar() {
                                 onMouseLeave={handleEventDropdownHide}>
                                 <button
                                     id="dropdownEventNavbarLink"
-                                    className="uppercase flex items-center justify-between w-full py-2 px-3 text-black hover:bg-red-600 rounded-lg md:hover:bg-red-600 md:border-0 md:hover:text-blue-700 md:w-auto dark:text-black md:dark:hover:text-white dark:focus:text-black dark:hover:bg-red-600 md:dark:hover:bg-red-600">
+                                    className="uppercase flex items-center justify-between w-full py-2 px-3 text-black hover:bg-red-600 rounded-lg md:hover:bg-red-600 md:border-0 md:hover:text-blue-700 md:w-auto">
                                     Event
                                 </button>
                                 {/*Dropdown menu */}
                                 <div
                                     class={
-                                        "absolute z-100 font-normal divide-y divide-gray-100 rounded-lg top-[14.5rem] w-44 dark:bg-gray-400 dark:divide-gray-500 " +
+                                        "absolute z-100 font-normal drop-shadow-2xl divide-y divide-gray-100 rounded-lg top-[14.5rem] w-44 bg-white divide-gray-500 " +
                                         (EventDropdownVisible ? "" : "hidden")
                                     }>
                                     <ul
@@ -309,15 +309,15 @@ function Navbar() {
                                         aria-labelledby="dropdownEventNavbarLink">
                                         <li>
                                             <a
-                                                href="#"
-                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                href="/daftarberita"
+                                                className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Daftar Acara
                                             </a>
                                         </li>
                                         <li>
                                             <a
                                                 href="#"
-                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                className="ccamelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Daftar Pelatihan
                                             </a>
                                         </li>
@@ -330,14 +330,14 @@ function Navbar() {
                                 onMouseLeave={handleProgramDropdownHide}>
                                 <button
                                     id="dropdownProgramNavbarLink"
-                                    className="uppercase flex items-center justify-between w-full py-2 px-3 text-black hover:bg-red-600 rounded-lg md:hover:bg-red-600 md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-black md:dark:hover:text-white dark:focus:text-black dark:hover:bg-red-600 md:dark:hover:bg-red-600">
+                                    className="uppercase flex items-center justify-between w-full py-2 px-3 text-black hover:bg-red-600 rounded-lg md:hover:bg-red-600 md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto">
                                     Program
                                 </button>
 
                                 {/*Dropdown menu */}
                                 <div
                                     class={
-                                        "absolute z-100 font-normal divide-y divide-gray-100 rounded-lg top-[17rem] w-44 dark:bg-gray-400 dark:divide-gray-500 " +
+                                        "absolute z-100 font-normal drop-shadow-2xl divide-y divide-gray-100 rounded-lg top-[17rem] w-44 bg-white divide-gray-500 " +
                                         (programDropdownVisible ? "" : "hidden")
                                     }>
                                     <ul
@@ -346,56 +346,56 @@ function Navbar() {
                                         <li>
                                             <a
                                                 href="/lokalbrand"
-                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Brand Lokal OK
                                             </a>
                                         </li>
                                         <li>
                                             <a
                                                 href="/modalberkah"
-                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Modal Berkah
                                             </a>
                                         </li>
                                         <li>
                                             <a
                                                 href="/emakkece"
-                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Emak Kece
                                             </a>
                                         </li>
                                         <li>
                                             <a
                                                 href="masjidpemberdaya"
-                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Masjid Pemberdaya
                                             </a>
                                         </li>
                                         <li>
                                             <a
                                                 href="#"
-                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Desapreneur
                                             </a>
                                         </li>
                                         <li>
                                             <a
                                                 href="#"
-                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 The Mentor
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                href="/mastermentor"
-                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                href="#"
+                                                className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Master Mentor
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                href="#"
-                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                href="/digitalisasi"
+                                                className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Digitalisasi
                                             </a>
                                         </li>
@@ -415,7 +415,7 @@ function Navbar() {
                                 {/*Dropdown menu */}
                                 <div
                                     class={
-                                        "absolute z-100 font-normal divide-y divide-gray-100 rounded-lg top-[19.5rem] w-44 dark:bg-gray-400 dark:divide-gray-500 " +
+                                        "absolute z-100 font-normal drop-shadow-2xl divide-y divide-gray-100 rounded-lg top-[19.5rem] w-44 bg-white divide-gray-500 " +
                                         (InformasiDropdownVisible ? "" : "hidden")
                                     }>
                                     <ul
@@ -423,15 +423,15 @@ function Navbar() {
                                         aria-labelledby="dropdownEventNavbarLink">
                                         <li>
                                             <a
-                                                href="#"
-                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                href="/faq"
+                                                className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 FAQ
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                href="#"
-                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                href="/testimoni"
+                                                className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Testimoni Pengguna
                                             </a>
                                         </li>
@@ -448,7 +448,7 @@ function Navbar() {
                     </div>
 
                     {/* {Navbar Laptop} */}
-                    <div class="hidden flex justify-center w-full lg:inline-flex lg:flex-row lg:items-center">
+                    <div class="w-11/12 hidden flex justify-center lg:inline-flex lg:flex-row lg:items-center">
                         <ul class="flex flex-col text-base bg-gray-50 md:items-center md:space-x-6 md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-white md:dark:bg-white dark:border-gray-700 tracking-wide">
                             <li
                                 onMouseEnter={handleDropdownShow}
@@ -693,7 +693,7 @@ function Navbar() {
                                         </li>
                                         <li>
                                             <a
-                                                href="/masjidpemberdaya"
+                                                href="masjidpemberdaya"
                                                 className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                                 Masjid Pemberdaya
                                             </a>
@@ -714,7 +714,7 @@ function Navbar() {
                                         </li>
                                         <li>
                                             <a
-                                                href="/mastermentor"
+                                                href="#"
                                                 className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                                 Master Mentor
                                             </a>

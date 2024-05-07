@@ -22,12 +22,13 @@ import Masjidpemberdaya from "./containers/Masjidpemberdaya";
 import Donasi from "./containers/Donasi";
 import Magang from "./containers/Magang";
 import Emakkece from "./containers/Emakkece";
-import Mastermentor from "./containers/Mastermentor";
 import Perizinan from "./containers/Perizinan";
 import PelaporanKeuangan from "./containers/PelaporanKeuangan";
 import Pemasaran from "./containers/Pemasaran";
 import Permodalan from "./containers/Permodalan";
-
+import Testimoni from "./containers/Testimoni";
+import MasterMentor from "./containers/Mastermentor";
+import PengurusBaru from "./containers/PengurusBaru";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
           <Route path="/pendampingan" element={<Pendampingan />} />
           <Route path="/pelatihan" element={<Pelatihan />} />
           <Route path="/faq" element={<Faq />} />
+          <Route path="/testimoni" element={<Testimoni />} />
           <Route path="/peluangusaha" element={<PeluangUsaha />} />
           <Route path="/peluangkerja" element={<PeluangKerja />} />
           <Route path="/lokalbrand" element={<LokalBrand />} />
@@ -59,8 +61,8 @@ function App() {
           <Route path="/pelaporankeuangan" element={<PelaporanKeuangan />} />
           <Route path="/pemasaran" element={<Pemasaran />} />
           <Route path="/permodalan" element={<Permodalan />} />
-          <Route path="/mastermentor" element={<Mastermentor/>} />
-
+          <Route path="/mastermentor" element={<MasterMentor />} />
+          <Route path="/ujicoba" element={<PengurusBaru />} />
         </Routes>
         <Footer />
       </BrowserRouter>
