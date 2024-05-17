@@ -27,7 +27,7 @@ import PelaporanKeuangan from "./containers/PelaporanKeuangan";
 import Pemasaran from "./containers/Pemasaran";
 import Permodalan from "./containers/Permodalan";
 import Testimoni from "./containers/Testimoni";
-import MasterMentor from "./containers/Mastermentor";
+import MasterMentor from "./containers/MasterMentor";
 import PengurusBaru from "./containers/PengurusBaru";
 
 function App() {
@@ -66,7 +66,6 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
-
     </>
   );
 }
