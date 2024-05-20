@@ -42,7 +42,7 @@ import Wgs from "@mitra-kerjasama/wgshub.png";
 import Ekles from "@mitra-kerjasama/alternatives/ekles-2.png";
 import Indivara from "@mitra-kerjasama/alternatives/indivara-2.png";
 import Jnj from "@mitra-kerjasama/alternatives/jnj-group-2.png";
-
+import HeaderPenggerak from "@img/PenggerakOkOce.png";
 
 
 const Homepage = () => {
@@ -71,10 +71,10 @@ const Homepage = () => {
     return (
         <>
             <div class="grid grid-flow-row">
-                <section class="bg-white dark:bg-gray-900 mt-24">
+                <section class="bg-white dark:bg-gray-900 mt-24 mobile:w-full" style={{ backgroundImage: `url(${HeaderPenggerak})` }}>
                     <div class="py-8 px-4 mx-auto text-center mobile:w-80 sm:w-96 lg:w-full lg:py-16">
                         <h1 class="mb-4 text-4xl text-white font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">We invest in the world’s potential</h1>
-                        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl mobilw:px-16 lg:px-48 dark:text-gray-400">Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
+                        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl mobilw:px-16 lg:px-48 dark:text-gray-400">Here at    Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
                         <div class="flex flex-col space-y-4 mobile:flex-row mobile:justify-center mobile:space-y-0">
                             <a href="#" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
                                 Get started
@@ -88,7 +88,6 @@ const Homepage = () => {
                         </div>
                     </div>
                 </section>
-
 
                 <div id="about" className="mt-[5em] mb-20 flex items-center bg-white pt-16 mobile:justify-start mobile:w-80 sm:w-96 lg:justify-center lg:mx-auto lg:w-3/4">
                     <div className="about-container flex flex-col justify-center items-center bg-detik-milk mobile:ml-10 lg:flex-row">

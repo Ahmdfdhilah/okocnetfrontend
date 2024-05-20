@@ -1,281 +1,219 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import Sandiaga from "@img/pengurus/sandiaga-uno-scaled.webp";
-import Indra from "@img/pengurus/indra-uno-scaled.webp";
-import Victor from "@img/pengurus/victor-aritonang-scaled.webp";
-import Subiakto from "@img/pengurus/subiakto-priosoedarsono-scaled.webp";
-import Diana from "@img/pengurus/diana-nazir-scaled.webp";
-import Iim from "@img/pengurus/iim.webp";
-import Sahmullah from "@img/pengurus/rivqi.webp";
-import Farid from "@img/pengurus/farid.webp";
-import Abba from "@img/pengurus/azwa-zubair-al-awwam-scaled.webp";
-import Ferdian from "@img/pengurus/Ferdian-brilian-scaled.webp";
-import Ayad from "@img/pengurus/ayat.webp";
-import RullyMus from "@img/pengurus/rully-mustaqimah-scaled.webp";
-import RullyMar from "@img/pengurus/RULLY-MARDJONO-scaled.webp";
-import Rahmiyati from "@img/pengurus/Rahmiyati-yahya-scaled.webp";
-import Iqbal from "@img/pengurus/iqbal.webp";
-import Antoko from "@img/pengurus/antoko-nugroho-scaled.webp";
-import Munawar from "@img/pengurus/munawar-aziz-scaled.webp";
-import Hilman from "@img/pengurus/hilman-scaled.webp";
-import Seftyana from "@img/pengurus/SEFTYANA-scaled.webp";
-import Sulis from "@img/pengurus/sulis.webp";
-import Irana from "@img/pengurus/nana.webp";
-import Indah from "@img/pengurus/indah.webp";
-import Vicka from "@img/pengurus/VICKA-KUEN-scaled.webp";
-import Restu from "@img/pengurus/RESTU-MELIANI-scaled.webp";
-import Kevin from "@img/pengurus/KEVIN-scaled.webp";
-import Rahma from "@img/pengurus/rahma-destira.webp";
-import Farah from "@img/pengurus/farah.webp";
-import Ane from "@img/pengurus/anne.webp";
+import React, { useState, useEffect } from "react";
 
-const Struktur = () => {
+const PengurusBaru = () => {
+    const [employees, setEmployees] = useState([]);
+    const [employees2, setEmployees2] = useState([]);
+    const [employees3, setEmployees3] = useState([]);
+    const [employees4, setEmployees4] = useState([]);
+    const [employees5, setEmployees5] = useState([]);
+    const [employees6, setEmployees6] = useState([]);
+
+    useEffect(() => {
+        fetchEmployees();
+        fetchEmployees2();
+        fetchEmployees3();
+        fetchEmployees4();
+        fetchEmployees5();
+        fetchEmployees6();
+    }, []);
+
+    const fetchEmployees = async () => {
+        try {
+            const response = await fetch('https://cms-okoce-a155c649b6e6.herokuapp.com/api/penguruses?populate=*');
+            if (!response.ok) {
+                throw new Error('Gagal mengambil data karyawan');
+            }
+            const data = await response.json();
+            // Extract the data array from the response
+            const employeesData = data.data;
+            console.log(employeesData)
+            setEmployees(employeesData);
+        } catch (error) {
+            console.error('Error fetching employees:', error);
+            // Jika terjadi kesalahan, pastikan untuk mengatur employees menjadi array kosong
+            setEmployees([]);
+        }
+    };
+    const fetchEmployees2 = async () => {
+        try {
+            const response = await fetch('https://cms-okoce-a155c649b6e6.herokuapp.com/api/struktur-pengurus-pembinas?populate=*');
+            if (!response.ok) {
+                throw new Error('Gagal mengambil data karyawan');
+            }
+            const data2 = await response.json();
+            // Extract the data array from the response
+            const employeesData2 = data2.data;
+            console.log(employeesData2)
+            setEmployees2(employeesData2);
+        } catch (error) {
+            console.error('Error fetching employees:', error);
+            // Jika terjadi kesalahan, pastikan untuk mengatur employees menjadi array kosong
+            setEmployees2([]);
+        }
+    };
+    const fetchEmployees3 = async () => {
+        try {
+            const response = await fetch('https://cms-okoce-a155c649b6e6.herokuapp.com/api/struktur-pengurus-kurasis?populate=*');
+            if (!response.ok) {
+                throw new Error('Gagal mengambil data karyawan');
+            }
+            const data = await response.json();
+            // Extract the data array from the response
+            const employeesData = data.data;
+            console.log(employeesData)
+            setEmployees3(employeesData);
+        } catch (error) {
+            console.error('Error fetching employees:', error);
+            // Jika terjadi kesalahan, pastikan untuk mengatur employees menjadi array kosong
+            setEmployees3([]);
+        }
+    };
+    const fetchEmployees4 = async () => {
+        try {
+            const response = await fetch('https://cms-okoce-a155c649b6e6.herokuapp.com/api/struktur-pengurus-harians?populate=*');
+            if (!response.ok) {
+                throw new Error('Gagal mengambil data karyawan');
+            }
+            const data = await response.json();
+            // Extract the data array from the response
+            const employeesData = data.data;
+            console.log(employeesData)
+            setEmployees4(employeesData);
+        } catch (error) {
+            console.error('Error fetching employees:', error);
+            // Jika terjadi kesalahan, pastikan untuk mengatur employees menjadi array kosong
+            setEmployees4([]);
+        }
+    };
+    const fetchEmployees5 = async () => {
+        try {
+            const response = await fetch('https://cms-okoce-a155c649b6e6.herokuapp.com/api/struktur-pengurus-direktorats?populate=*');
+            if (!response.ok) {
+                throw new Error('Gagal mengambil data karyawan');
+            }
+            const data = await response.json();
+            // Extract the data array from the response
+            const employeesData = data.data;
+            console.log(employeesData)
+            setEmployees5(employeesData);
+        } catch (error) {
+            console.error('Error fetching employees:', error);
+            // Jika terjadi kesalahan, pastikan untuk mengatur employees menjadi array kosong
+            setEmployees5([]);
+        }
+    };
+    const fetchEmployees6 = async () => {
+        try {
+            const response = await fetch('https://cms-okoce-a155c649b6e6.herokuapp.com/api/struktur-pengurus-eksekutifs?populate=*');
+            if (!response.ok) {
+                throw new Error('Gagal mengambil data karyawan');
+            }
+            const data = await response.json();
+            // Extract the data array from the response
+            const employeesData = data.data;
+            console.log(employeesData)
+            setEmployees6(employeesData);
+        } catch (error) {
+            console.error('Error fetching employees:', error);
+            // Jika terjadi kesalahan, pastikan untuk mengatur employees menjadi array kosong
+            setEmployees6([]);
+        }
+    };
+
     return (
-        <>
-
-            <div class="mt-[6rem] bg-gray-400 w-full h-[20rem] grid justify-center content-center">
-                <h1 class="font-extrabold text-4xl text-center">Struktur Organisasi <br /> Ok Oce Indonesia </h1>
-                <p class="text-center mt-6">These are the great people behind the success of OK OCE Indonesia </p>
+        <div>
+            <div className="mt-[6rem] bg-gray-400 w-full h-[20rem] grid justify-center content-center">
+                <h1 className="font-extrabold text-4xl text-center">Struktur Organisasi <br /> Ok Oce Indonesia </h1>
+                <p className="text-center mt-6">These are the great people behind the success of OK OCE Indonesia </p>
             </div>
-
-            <div class="mt-[6rem] mb-16 w-4/5 mx-auto">
-                <h1 class="w-[73rem] ml-[1.5rem] mb-8 text-2xl font-bold border-b">Founder OK OCE INDONESIA</h1>
-                <div class="flex justify-evenly">
-                    <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                        <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Sandiaga} alt="" />
-                        <div class="flex flex-col justify-between p-4 leading-normal">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Sandiaga Uno</h5>
-                            <p class="mb-3 font-normal text-gray-600">Founder</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                        <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Indra} alt="" />
-                        <div class="flex flex-col justify-between p-4 leading-normal">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Indra C Uno</h5>
-                            <p class="mb-3 font-normal text-gray-600">Founder & Ketua Dewan Pembina</p>
-                        </div>
-                    </div>
-                </div>
-
-                <h1 class="w-[73rem] ml-[1.5rem] mt-10 mb-8 text-2xl font-bold border-b">Dewan Pembina</h1>
-                <div class="flex justify-evenly">
-                    <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                        <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Indra} alt="" />
-                        <div class="flex flex-col justify-between p-4 leading-normal">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Indra C Uno</h5>
-                            <p class="mb-3 font-normal text-gray-600">Founder & Ketua Dewan Pembina</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                        <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Victor} alt="" />
-                        <div class="flex flex-col justify-between p-4 leading-normal">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Victor Aritonang</h5>
-                            <p class="mb-3 font-normal text-gray-600">Pembina</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="w-[96%] mx-auto">
-                    <h1 class="w-[73rem] mt-10 mb-8 text-2xl font-bold border-b">Dewan Kurasi</h1>
-                    <div class="grid grid-cols-2 gap-3 justify-evenly">
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Subiakto} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Subiakto Priosoedarsono</h5>
-                                <p class="mb-3 font-normal text-gray-600">Kurator</p>
+            <div className="mt-[6rem] mb-16 w-4/5 mx-auto">
+                <h1 className="w-[73rem] ml-[1.5rem] mb-8 text-2xl font-bold border-b">Founder OK OCE INDONESIA</h1>
+                <div className="flex justify-evenly">
+                    {employees.map((employee) => (
+                        <div key={employee.id} className="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
+                            <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={employee.attributes.foto_founder.data[0].attributes.url} alt={employee.attributes.nama_founder} />
+                            <div className="flex flex-col justify-between p-4 leading-normal">
+                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">{employee.attributes.nama_founder}</h5>
+                                <p className="mb-3 font-normal text-gray-600">{employee.attributes.jabatan_founder}</p>
                             </div>
                         </div>
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Diana} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Diana Nazir</h5>
-                                <p class="mb-3 font-normal text-gray-600">Kurator</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="w-[96%] mx-auto">
-                    <h1 class="w-ful mt-10 mb-8 text-2xl font-bold border-b">Pengurus Harian</h1>
-                    <div class="grid grid-cols-3 gap-3 justify-evenly">
-                        <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Iim} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Iim Rusyamsi</h5>
-                                <p class="mb-3 font-normal text-gray-600">Ketua Umum</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Sahmullah} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Sahmullah Rivqi</h5>
-                                <p class="mb-3 font-normal text-gray-600">Sekjen</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Farid} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Farid Rifai</h5>
-                                <p class="mb-3 font-normal text-gray-600">Bendahara Umum</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="w-[96%] mx-auto">
-                    <h1 class="w-[73rem] mt-10 mb-8 text-2xl font-bold border-b">Direktorat</h1>
-                    <div class="grid grid-cols-2 justify-stretch gap-4 ">
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Abba} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Abba Zubair Al Awwam</h5>
-                                <p class="mb-3 font-normal text-gray-600">Direktur Kerja Sama dan Pendidikan</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Ayad} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Ayad ALS</h5>
-                                <p class="mb-3 font-normal text-gray-600">Direktur Kerjasama Pemerintah</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Ferdian} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Ferdian</h5>
-                                <p class="mb-3 font-normal text-gray-600">Direktur Kerjasama Swasta</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={RullyMus} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Rully Mustaqimah</h5>
-                                <p class="mb-3 font-normal text-gray-600">Direktur Kerjasama Penggerak</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={RullyMar} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Rully Mardjono</h5>
-                                <p class="mb-3 font-normal text-gray-600">Direktur Data dan Riset</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Sulis} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Sulistio</h5>
-                                <p class="mb-3 font-normal text-gray-600">Direktur Program</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Rahmiyati} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Rahmiyati Yahya</h5>
-                                <p class="mb-3 font-normal text-gray-600">Direktur Legal</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Iqbal} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Iqbal Aldilas</h5>
-                                <p class="mb-3 font-normal text-gray-600">Direktur Optimasi Digital</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Antoko} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Antoko Nugroho</h5>
-                                <p class="mb-3 font-normal text-gray-600">PLT. Direktur Humas dan Promosi</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Munawar} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Munawar Aziz</h5>
-                                <p class="mb-3 font-normal text-gray-600">Manager Kurikulum Direktorat Program</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Irana} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Irana L Meriam</h5>
-                                <p class="mb-3 font-normal text-gray-600">Manager Pemberdayaan Usaha Direktorat Program</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Indah} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Indah Nursanti</h5>
-                                <p class="mb-3 font-normal text-gray-600">Manager Kerjasama Penggerak</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Hilman} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Hilman</h5>
-                                <p class="mb-3 font-normal text-gray-600">Manager Kerjasama Sekolah / Pesantren</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Seftyana} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Seftyana</h5>
-                                <p class="mb-3 font-normal text-gray-600">Manager Kerjasama Kampus</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="w-[96%] mx-auto">
-                    <h1 class="w-[73rem] mt-10 mb-8 text-2xl font-bold border-b">Eksekutif</h1>
-                    <div class="grid grid-cols-2 justify-stretch gap-4 ">
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Vicka} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Vicka Kuen</h5>
-                                <p class="mb-3 font-normal text-gray-600">Eksekutif Humas dan Promosi</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Restu} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Restu Meliani</h5>
-                                <p class="mb-3 font-normal text-gray-600">Eksekutif Hukum dan Legal</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Kevin} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Kevin Arthadia</h5>
-                                <p class="mb-3 font-normal text-gray-600">Eksekutif Program</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Rahma} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Rahma Destira</h5>
-                                <p class="mb-3 font-normal text-gray-600">Eksekutif Data dan Riset</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Farah} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Farah Dila</h5>
-                                <p class="mb-3 font-normal text-gray-600">Personal Assistant Sekjen</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Ane} alt="" />
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">Ane Ardianti</h5>
-                                <p class="mb-3 font-normal text-gray-600">Personal Assistant Ketua Umum</p>
-                            </div>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
-        </>
+            <div className="mt-10 mb-16 w-4/5 mx-auto">
+                <h1 className="w-[73rem] ml-[1.5rem] mb-8 text-2xl font-bold border-b">Dewan Pembina</h1>
+                <div className="flex justify-evenly">
+                    {employees2.map((employee) => (
+                        <div key={employee.id} className="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
+                            <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={employee.attributes.foto_pembina.data[0].attributes.url} alt={employee.attributes.nama_pembina} />
+                            <div className="flex flex-col justify-between p-4 leading-normal">
+                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">{employee.attributes.nama_pembina}</h5>
+                                <p className="mb-3 font-normal text-gray-600">{employee.attributes.jabatan_pembina}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className="mt-10 mb-16 w-4/5 mx-auto">
+                <h1 className="w-[73rem] ml-[1.5rem] mb-8 text-2xl font-bold border-b">Dewan Kurasi</h1>
+                <div className="flex justify-evenly">
+                    {employees3.map((employee) => (
+                        <div key={employee.id} className="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
+                            <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={employee.attributes.foto_dewan.data[0].attributes.url} alt={employee.attributes.nama_dewan} />
+                            <div className="flex flex-col justify-between p-4 leading-normal">
+                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">{employee.attributes.nama_dewan}</h5>
+                                <p className="mb-3 font-normal text-gray-600">{employee.attributes.jabatan_dewan}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className="mt-10 mb-16 w-4/5 mx-auto">
+                <h1 className="w-[73rem] ml-[1.5rem] mb-8 text-2xl font-bold border-b">Pengurus Harian</h1>
+                <div className="flex justify-evenly">
+                    {employees4.map((employee) => (
+                        <div key={employee.id} className="grid grid-cols-3 items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:min-h-16 md:max-w-[23rem]">
+                            <div className="w-40 h-full">
+                                <img className="object-cover w-full h-full rounded-t-lg md:rounded-none md:rounded-s-lg" src={employee.attributes.foto_pengurus.data.attributes.url} alt={employee.attributes.nama_pengurus} />
+                            </div>
+                            <div className="flex flex-col ml-14 justify-between p-4 leading-normal">
+                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-start">{employee.attributes.nama_pengurus}</h5>
+                                <p className="mb-3 font-normal text-gray-600">{employee.attributes.jabatan_pengurus}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className="mt-10 mb-16 w-4/5 mx-auto">
+                <h1 className="w-[73rem] ml-[1.5rem] mb-8 text-2xl font-bold border-b">Direktorat</h1>
+                <div className="grid grid-cols-2 grid-flow-row gap-6 mx-6 justify-items-stretch">
+                    {employees5.map((employee) => (
+                        <div key={employee.id} className="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
+                            <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={employee.attributes.foto_pengurus.data[0].attributes.url} alt={employee.attributes.nama_pengurus} />
+                            <div className="flex flex-col justify-between p-4 leading-normal">
+                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">{employee.attributes.nama_pengurus}</h5>
+                                <p className="mb-3 font-normal text-gray-600">{employee.attributes.jabatan_pengurus}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className="mt-10 mb-16 w-4/5 mx-auto">
+                <h1 className="w-[73rem] ml-[1.5rem] mb-8 text-2xl font-bold border-b">Eksekutif</h1>
+                <div className="grid grid-cols-2 grid-flow-row gap-6 mx-6 justify-items-stretch">
+                    {employees6.map((employee) => (
+                        <div key={employee.id} className="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
+                            <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={employee.attributes.foto_pengurus.data[0].attributes.url} alt={employee.attributes.nama_pengurus} />
+                            <div className="flex flex-col justify-between p-4 leading-normal">
+                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">{employee.attributes.nama_pengurus}</h5>
+                                <p className="mb-3 font-normal text-gray-600">{employee.attributes.jabatan_pengurus}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
     );
 }
 
-export default Struktur;
+export default PengurusBaru;
