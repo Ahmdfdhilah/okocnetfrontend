@@ -27,9 +27,10 @@ import PelaporanKeuangan from "./containers/PelaporanKeuangan";
 import Pemasaran from "./containers/Pemasaran";
 import Permodalan from "./containers/Permodalan";
 import Testimoni from "./containers/Testimoni";
-import MasterMentor from "./containers/Mastermentor";
+import MasterMentor from "./containers/MasterMentor";
 import Trainer from "./containers/Trainer";
 import Event from "./containers/Event";
+import Mentor from "./containers/Mentor";
 
 function App() {
   return (
@@ -65,6 +66,7 @@ function App() {
           <Route path="/mastermentor" element={<MasterMentor />} />
           <Route path="/trainer" element={<Trainer />} />
           <Route path="/event" element={<Event />} />
+          <Route path="/mentor" element={<Mentor />} />
         </Routes>
         <Footer />
       </BrowserRouter>
