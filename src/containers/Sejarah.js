@@ -99,7 +99,7 @@ const Sejarah = () => {
                 </div>
             </section>
             <div class="grid justify-items-center">
-                <h1 class="text-4xl font-bold text-center mt-[4rem] mobile:text-3xl">Logo OK OCE Indonesia</h1>
+                <h1 class="text-4xl font-bold text-center mt-[4rem] mobile:text-3xl mobile:px-2">Logo OK OCE Indonesia</h1>
                 <img src={Gerakan} class="mt-[7rem] mx-auto max-w-[20rem]" alt="gerakan sosial" />
                 <div class="grid justify-items-center lg:grid-cols-2 lg:grid-flow-col lg:gap-6">
                     <img src={Desapreneur} class="max-w-[20rem]" alt="gerakan sosial" />
