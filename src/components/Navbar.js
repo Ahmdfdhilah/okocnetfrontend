@@ -260,7 +260,7 @@ function Navbar() {
                                         </li>
                                         <li>
                                             <a
-                                                href="#"
+                                                href="/trainer"
                                                 className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Trainer
                                             </a>
@@ -395,7 +395,7 @@ function Navbar() {
                                         </li>
                                         <li>
                                             <a
-                                                href="#"
+                                                href="/mastermentor"
                                                 className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Master Mentor
                                             </a>
@@ -594,7 +594,7 @@ function Navbar() {
                                         </li>
                                         <li>
                                             <a
-                                                href="#"
+                                                href="/trainer"
                                                 className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                                 Trainer
                                             </a>
@@ -729,7 +729,7 @@ function Navbar() {
                                         </li>
                                         <li>
                                             <a
-                                                href="#"
+                                                href="/mastermentor"
                                                 className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                                 Master Mentor
                                             </a>
