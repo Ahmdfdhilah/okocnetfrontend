@@ -30,7 +30,11 @@ import Testimoni from "./containers/Testimoni";
 import MasterMentor from "./containers/MasterMentor";
 import Trainer from "./containers/Trainer";
 import Event from "./containers/Event";
+<<<<<<< HEAD
 import Mentor from "./containers/Mentor";
+=======
+import Mitrakerjasama from "./containers/Mitrakerjasama";
+>>>>>>> 98943b8038b679ae1bd30f69b43d59c79ff7a98f
 
 function App() {
   return (
@@ -66,7 +70,11 @@ function App() {
           <Route path="/mastermentor" element={<MasterMentor />} />
           <Route path="/trainer" element={<Trainer />} />
           <Route path="/event" element={<Event />} />
+<<<<<<< HEAD
           <Route path="/mentor" element={<Mentor />} />
+=======
+          <Route path="/mitrakerjasama" element={<Mitrakerjasama />} />
+>>>>>>> 98943b8038b679ae1bd30f69b43d59c79ff7a98f
         </Routes>
         <Footer />
       </BrowserRouter>
