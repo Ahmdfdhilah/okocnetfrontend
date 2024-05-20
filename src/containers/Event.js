@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import nib from "../asset/img/nib.jpg"
 import soap from "../asset/img/soap.jpg"
