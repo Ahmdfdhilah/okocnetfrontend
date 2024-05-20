@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import LogoOkOce from "@img/logo-okoce.webp"
 
 function Navbar() {
     const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -85,8 +86,8 @@ function Navbar() {
                 <div class="fixed w-svw bg-white top-0 z-50 flex items-center justify-between mx-auto p-2 max-h-24 shadow-lg">
                     <a href="/" class="ml-8 ">
                         <img
-                            src="https://okoce.net/wp-content/uploads/2021/03/logo-okoce-01.png"
-                            class="h-[6rem]"
+                            src={LogoOkOce}
+                            class="h-[5rem]"
                             alt="Ok Oce Logo"
                         />
                     </a>
@@ -319,6 +320,13 @@ function Navbar() {
                                                 href="#"
                                                 className="ccamelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Daftar Pelatihan
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="#"
+                                                className="ccamelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
+                                                Daftar Berita
                                             </a>
                                         </li>
                                     </ul>
@@ -646,6 +654,13 @@ function Navbar() {
                                                 href="/daftarpelatihan"
                                                 className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                                 Daftar Pelatihan
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="/daftarpelatihan"
+                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                Daftar Berita
                                             </a>
                                         </li>
                                     </ul>

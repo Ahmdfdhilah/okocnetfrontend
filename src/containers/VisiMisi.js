@@ -14,8 +14,8 @@ const VisiMisi = () => {
                     <p class="mt-8 text-justify">Berawal dari para pengurus, penggerak, dan anggota OK OCE yang memiliki visi dan misi yang sama mengenai arti memberikan pekerjaan dan penghidupan yang layak bagi kemanusiaan. Atas hal tersebut tercetuslah sebuah gagasan untuk mendirikan yayasan yang memiliki kepedulian terhadap masyarakat khususnya UMKM, menjunjung tinggi nilai-nilai sosial, pendidikan dan kemanusiaan.
                     </p>
                 </div>
-                <div class="mobile:mt-0 mobile:px-10 mobile:mb-10 lg:mt-10 lg:p-10">
-                    <img src={visi} class="object-cover mobile:max-w-80 lg:max-w-[40rem]" alt="" />
+                <div class="mobile:mt-0 mobile:px-10 mobile:mb-10 mobile:mr-3 mobile:max-w-md lg:mt-10 lg:p-10">
+                    <img src={visi} class="object-cover lg:max-w-[40rem]" alt="" />
                 </div>
             </div>
         </>

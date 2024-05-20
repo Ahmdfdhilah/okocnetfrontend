@@ -27,11 +27,9 @@ import PelaporanKeuangan from "./containers/PelaporanKeuangan";
 import Pemasaran from "./containers/Pemasaran";
 import Permodalan from "./containers/Permodalan";
 import Testimoni from "./containers/Testimoni";
-import MasterMentor from "./containers/MasterMentor";
-import PengurusBaru from "./containers/PengurusBaru";
+import MasterMentor from "./containers/Mastermentor";
 import Trainer from "./containers/Trainer";
-import Mitrakerjasama from "./containers/Mitrakerjasama";
-
+import Event from "./containers/Event";
 
 function App() {
   return (
@@ -65,9 +63,8 @@ function App() {
           <Route path="/pemasaran" element={<Pemasaran />} />
           <Route path="/permodalan" element={<Permodalan />} />
           <Route path="/mastermentor" element={<MasterMentor />} />
-          <Route path="/ujicoba" element={<PengurusBaru />} />
           <Route path="/trainer" element={<Trainer />} />
-          <Route path="/mitrakerjasama" element={<Mitrakerjasama />} />
+          <Route path="/event" element={<Event />} />
         </Routes>
         <Footer />
       </BrowserRouter>

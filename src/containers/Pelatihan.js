@@ -1,5 +1,4 @@
 import React from "react";
-import Foto1 from "@img/promo.png";
 import Top from "@img/7top-rb.webp";
 
 const Pelatihan = () => {
@@ -18,10 +17,10 @@ const Pelatihan = () => {
                     <div className="flex flex-col ml-5 w-[82%] max-md:ml-0 max-md:w-full">
                         <div className="flex flex-col self-stretch p-8 my-auto w-full text-white bg-sky-700 max-md:px-5 max-md:mt-10 max-md:max-w-full">
                             <div className="text-5xl font-bold leading-[57.6px] max-md:max-w-full max-md:text-4xl">
-                            Pelatihan
+                                Pelatihan
                             </div>
                             <div className="mt-4 text-lg leading-7 max-md:max-w-full">
-                            Peserta akan dilatih berdasarkan kurikulum OK OCE dan akan digabungkan ke kelompok inkubasi melalui komunitas penggerak.
+                                Peserta akan dilatih berdasarkan kurikulum OK OCE dan akan digabungkan ke kelompok inkubasi melalui komunitas penggerak.
                             </div>
                         </div>
                     </div>
@@ -48,31 +47,7 @@ const Pelatihan = () => {
                     <div class="rounded-xl shadow-lg">
                         <div class="p-5 flex flex-col">
                             <div class="rounded-xl overflow-hidden">
-                                <img src={Foto1} alt="" />
-                            </div>
-                            <h5 class="text-2xl md:text-3xl font-medium mt-3">Kolaborasi UKM Strategi Marketing Digital</h5>
-                            <p class="text-slate-500 text-lg mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center bg-blue-400 text-blue-700 py-2 rounded-lg font semibold mt-4 hover:bg-blue-300 focus:scale-95 transition-all duration-200 ease-out">Daftar</a>
-                        </div>
-                    </div>
-
-
-                    <div class="rounded-xl shadow-lg">
-                        <div class="p-5 flex flex-col">
-                            <div class="rounded-xl overflow-hidden">
-                                <img src={Foto1} alt="" />
-                            </div>
-                            <h5 class="text-2xl md:text-3xl font-medium mt-3">Kolaborasi UKM Strategi Marketing Digital</h5>
-                            <p class="text-slate-500 text-lg mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center bg-blue-400 text-blue-700 py-2 rounded-lg font semibold mt-4 hover:bg-blue-300 focus:scale-95 transition-all duration-200 ease-out">Daftar</a>
-                        </div>
-                    </div>
-
-
-                    <div class="rounded-xl shadow-lg">
-                        <div class="p-5 flex flex-col">
-                            <div class="rounded-xl overflow-hidden">
-                                <img src={Foto1} alt="" />
+                                <img src="" alt="" />
                             </div>
                             <h5 class="text-2xl md:text-3xl font-medium mt-3">Kolaborasi UKM Strategi Marketing Digital</h5>
                             <p class="text-slate-500 text-lg mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
