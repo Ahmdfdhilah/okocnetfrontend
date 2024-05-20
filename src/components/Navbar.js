@@ -273,7 +273,7 @@ function Navbar() {
                                         </li>
                                         <li>
                                             <a
-                                                href="#"
+                                                href="/mitrakerjasama"
                                                 className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Mitra Kerjasama
                                             </a>
@@ -600,7 +600,7 @@ function Navbar() {
                                         </li>
                                         <li>
                                             <a
-                                                href="#"
+                                                href="/mitrakerjasama"
                                                 className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                                 Mitra Kerjasama
                                             </a>

@@ -30,6 +30,7 @@ import Testimoni from "./containers/Testimoni";
 import MasterMentor from "./containers/MasterMentor";
 import PengurusBaru from "./containers/PengurusBaru";
 import Trainer from "./containers/Trainer";
+import Mitrakerjasama from "./containers/Mitrakerjasama";
 
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
           <Route path="/mastermentor" element={<MasterMentor />} />
           <Route path="/ujicoba" element={<PengurusBaru />} />
           <Route path="/trainer" element={<Trainer />} />
+          <Route path="/mitrakerjasama" element={<Mitrakerjasama />} />
         </Routes>
         <Footer />
       </BrowserRouter>
