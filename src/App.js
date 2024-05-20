@@ -29,6 +29,7 @@ import Permodalan from "./containers/Permodalan";
 import Testimoni from "./containers/Testimoni";
 import MasterMentor from "./containers/Mastermentor";
 import Trainer from "./containers/Trainer";
+import Event from "./containers/Event";
 
 function App() {
   return (
@@ -63,6 +64,7 @@ function App() {
           <Route path="/permodalan" element={<Permodalan />} />
           <Route path="/mastermentor" element={<MasterMentor />} />
           <Route path="/trainer" element={<Trainer />} />
+          <Route path="/event" element={<Event />} />
         </Routes>
         <Footer />
       </BrowserRouter>
