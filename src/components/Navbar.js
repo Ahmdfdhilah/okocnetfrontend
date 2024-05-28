@@ -384,7 +384,7 @@ function Navbar() {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/Thementor"
                         className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                         The Mentor
                       </a>
@@ -718,7 +718,7 @@ function Navbar() {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/Thementor"
                         className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                         The Mentor
                       </a>
