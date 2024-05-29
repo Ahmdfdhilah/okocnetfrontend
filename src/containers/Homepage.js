@@ -21,6 +21,7 @@ import Pelaporan from "@img/Laporan Keuangan.png";
 import Permodalan from "@img/Permodalan.png";
 import News1 from "@img/news-1.webp";
 import Okocetv from "@img/okoce-tv.webp";
+import Header from "../asset/img/Penggerak OKOCE Indonesia (1519 x 710 piksel).png"
 // - component
 import Peta from "@components/Peta";
 import Youtube from "@components/Youtube";
@@ -42,8 +43,7 @@ import Wgs from "@mitra-kerjasama/wgshub.png";
 import Ekles from "@mitra-kerjasama/alternatives/ekles-2.png";
 import Indivara from "@mitra-kerjasama/alternatives/indivara-2.png";
 import Jnj from "@mitra-kerjasama/alternatives/jnj-group-2.png";
-import HeaderPenggerak from "@img/PenggerakOkOce.png";
-
+import PopupMenu from "../components/PopupMenu";
 
 const Homepage = () => {
     const [currentItemIndex, setCurrentItemIndex] = useState(0);
@@ -70,28 +70,32 @@ const Homepage = () => {
 
     return (
         <>
-            <div class="grid grid-flow-row">
-                <section class="bg-white dark:bg-gray-900 mt-24 mobile:w-full" style={{ backgroundImage: `url(${HeaderPenggerak})` }}>
-                    <div class="py-8 px-4 mx-auto text-center mobile:w-80 sm:w-96 lg:w-full lg:py-16">
-                        <h1 class="mb-4 text-4xl text-white font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">We invest in the world’s potential</h1>
-                        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl mobilw:px-16 lg:px-48 dark:text-gray-400">Here at    Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
-                        <div class="flex flex-col space-y-4 mobile:flex-row mobile:justify-center mobile:space-y-0">
-                            <a href="#" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
-                                Get started
-                                <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                </svg>
-                            </a>
-                            <a href="#" class="py-3 px-5 mobile:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-70">
-                                Learn more
-                            </a>
+            <div className="mt-24">
+                <PopupMenu />
+            </div>
+            <div class="relative grid grid-flow-row">
+                <div className="relative w-full mt-24 mobile:h-full lg:h-screen">
+                    <img className="object-cover w-full h-auto mobile:w-[200%]" src={Header} alt="" />
+                    <section className="absolute inset-0 flex items-center justify-center mobile:top-1 lg:top-[14rem] ">
+                        <div className="bg-inherit rounded-3xl mobile:p-0 mobile:mx-auto lg:p-10 lg:w-9/12">
+                            <div className="flex sm:flex-row sm:justify-center mobile:p-0 lg:p-10">
+                                <a href="https://ecsys.okoce.net/" className="inline-flex justify-center items-center font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 mobile:py-0 mobile:px-3 mobile:text-[10px] lg:text-xl lg:py-3 lg:px-5">
+                                    Daftar Sekarang
+                                    <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                    </svg>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=DjF6FKYGYbU" className="inline-flex justify-center bg-red-600 items-center py-3 px-5 sm:ms-4 font-medium text-center text-white rounded-lg border border-white hover:bg-red-700 focus:ring-4 focus:ring-gray-400 mobile:text-[10px] lg:text-xl">
+                                    Cara Daftar OK OCE
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                </div>
 
-                <div id="about" className="mt-[5em] mb-20 flex items-center bg-white pt-16 mobile:justify-start mobile:w-80 sm:w-96 lg:justify-center lg:mx-auto lg:w-3/4">
-                    <div className="about-container flex flex-col justify-center items-center bg-detik-milk mobile:ml-10 lg:flex-row">
-                        <div className="w-[100%] mx-auto p-2">
+                <div id="about" className="mb-20 flex items-center bg-white mx-auto mobile:justify-start mobile:w-80 sm:w-96 lg:justify-center lg:w-3/4">
+                    <div className="about-container mx-auto flex flex-col justify-center items-center bg-detik-milk lg:flex-row">
+                        <div className="w-[100%] h-full lg:mr-20">
                             <div className="relative rounded-lg overflow-hidden" data-carousel="static">
                                 <div className="relative h-78" data-carousel-inner>
                                     {items.map((item, index) => (
@@ -114,7 +118,7 @@ const Homepage = () => {
                             </div>
                         </div>
 
-                        <div class="ml-10 pt-40 flex flex-col flex-grow pl-0 mobile:pt-24 mobile:ml-0 lg:mt-0 lg:pl-4 lg:pt-0">
+                        <div class="flex flex-col flex-grow mobile:mt-10 lg:ml-16">
                             <div class="pb-5 mobile:mt-0">
                                 <h3 id="about-headline"
                                     class="text-center lg:text-left text-sm leading-9 lg:text-5xl font-bold-700 text-black mobile:text-3xl mobile:font-bold">
@@ -159,10 +163,10 @@ const Homepage = () => {
 
                 <div class="grid grid-grid-flow-row justify-items-center items-center mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
                     <div class="md:pt-8 pb-8">
-                        <h3 class="text-okoce-blue text-center font-poppins text-xl mobile:text-2xl lg:text-4xl font-bold-700 mobile:text-3xl mobile:font-bold">Sebaran UMKM di Indonesia</h3>
+                        <h3 class="text-okoce-blue text-center font-poppins mobile:text-2xl text-sky-700 font-bold-700 mobile:text-3xl mobile:font-bold lg:text-5xl ">Sebaran UMKM di Indonesia</h3>
                     </div>
                     <div id="map" class="grid justify-items-center items-center w-full">
-                        <div class="w-10/12">
+                        <div class="w-11/12">
                             <Peta />
                         </div>
                     </div>
@@ -186,7 +190,7 @@ const Homepage = () => {
                                 <div class="pb-5">
                                     <h3 id="about-headline"
                                         class="text-center lg:text-left text-black text-2xl lg:text-5xl font-extrabold">
-                                        117
+                                        198
                                     </h3>
                                 </div>
                                 <div class="pb-5">
@@ -199,11 +203,11 @@ const Homepage = () => {
                     </div>
                 </div>
 
-                <div class="bg-white mt-32 lg:pb-20 mobile:pb-5 grid justify-items-center mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
-                    <div class="md:pt-8 pb-8 mb-4">
-                        <h3 class="text-okoce-blue text-center font-poppins text-xl md:text-2xl lg:text-4xl font-bold-700 mobile:text-3xl mobile:font-bold">7 Tahapan OK OCE Prima</h3>
+                <div class="bg-white mt-24 lg:pb-20 mobile:pb-5 grid justify-items-center mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
+                    <div class="md:pt-8 mb-4">
+                        <h3 class="text-okoce-blue text-center font-poppins mobile:text-2xl text-sky-700 font-bold-700 mobile:text-3xl mobile:font-bold lg:text-5xl">7 Tahapan OK OCE Prima</h3>
                     </div>
-                    <div class="lg:w-10/12 lg:grid lg:justify-items-center lg:grid-flow-col">
+                    <div class="lg:w-10/12 lg:grid lg:justify-items-center lg:grid-flow-col lg:mt-20">
                         <div class="md:mr-8 hover:drop-shadow-2xl">
                             <a href="/7top">
                                 <img class="md:h-[10em]" src={Top7} />
@@ -237,9 +241,9 @@ const Homepage = () => {
                     </div>
                 </div>
 
-                <div class="bg-white mobile:w-80 mobile:mb-0 mobile:mx-auto sm:w-96 lg:mb-14 lg:w-full">
-                    <div class="mt-10 pb-4">
-                        <h3 class="text-okoce-blue text-center font-poppins text-xl font-bold-700 mobile:text-3xl mobile:font-bold p-3 md:text-2xl lg:text-4xl">Event OK OCE Indonesia</h3>
+                <div class="bg-white mobile:w-80 mobile:mb-0 mobile:mx-auto sm:w-96 lg:w-full">
+                    <div class="mt-20 mb-12">
+                        <h3 class="text-okoce-blue text-center font-poppins mobile:text-2xl text-sky-700 font-bold-700 mobile:text-3xl mobile:font-bold lg:text-5xl">Event OK OCE Indonesia</h3>
                     </div>
                     <div class="flex justify-center">
                         <h3 class="w-[55em] text-okoce-blue text-center font-poppins text-xs font-bold-700 mobile:px-2 md:text-xl lg:text-xl ">Berikut merupakan kalender mengenai acara-acara yang diselenggarakan oleh OK OCE Indonesia. Ayo Sobat, daftar OK OCE sekarang juga dan nikmati berbagai fasilitas pemasaran produk melalui acara OK OCE secara gratis, lho!</h3>
@@ -267,11 +271,10 @@ const Homepage = () => {
 
                 <div class="bg-white mobile:p-3 mobile:mx-auto mobile:w-80 sm:w-96 lg:w-full lg:pb-20">
                     <div class="pb-8">
-                        <h3 class="text-okoce-blue text-center font-poppins text-xl md:text-2xl lg:text-4xl font-bold-700 mobile:text-3xl mobile:font-bold">Berita Ok Oce Indonesia</h3>
+                        <h3 class="text-okoce-blue text-center font-poppins mobile:text-2xl text-sky-700 font-bold-700 mobile:text-3xl mobile:font-bold lg:text-5xl lg:mb-12">Berita OK OCE INDONESIA</h3>
                     </div>
-
-                    <div class="grid justify-items-center lg:grid-cols-3 lg:grid-flow-col gap-6 mobile:grid-cols-1 mobile:grid-flow-row">
-                        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div class="grid mobile:gap-6 mobile:grid-cols-1 mobile:grid-flow-row lg:grid-cols-3 lg:grid-flow-row lg:gap-1 lg:justify-items-center">
+                        <div class="max-w-sm bg-white border-2 border-red-700 rounded-lg dark:bg-gray-800 dark:border-gray-700">
                             <a href="#">
                                 <img class="object-cover rounded-t-lg min-h-96 max-h-96 w-full" src={Berita1} alt="" />
                             </a>
@@ -330,7 +333,7 @@ const Homepage = () => {
                     <div class="mobile:pt-8 pb-8">
                         <h3 class="text-okoce-blue text-center font-poppins text-xl md:text-2xl lg:text-4xl font-bold-700 mobile:text-3xl mobile:font-bold">Jadilah salah satu dari mitra kami!</h3>
                     </div>
-                    <div class="p-10 grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
+                    <div class="grid grid-cols-2 gap-6 justify-items-center mobile:grid-cols-1 mobile:px-10 md:grid-cols-4  lg:p-10">
                         <div>
                             <img class="h-auto max-w-full rounded-lg shadow-md" src={Azindo} alt="" />
                         </div>
@@ -388,7 +391,7 @@ const Homepage = () => {
 
                 <div class="bg-white m-6 pb-20 mobile:w-72 mobile:mx-auto sm:w-96 lg:w-11/12">
                     <div class="md:pt-8 pb-8">
-                        <h3 class="text-okoce-blue text-center font-poppins text-xl font-bold-700 mobile:mt-10 mobile:text-3xl mobile:font-bold md:text-2xl lg:text-4xl">Pendapat Mereka Tentang Ok Oce Indonesia!</h3>
+                        <h3 class="text-okoce-blue text-center font-poppins text-xl font-bold-700 mobile:mt-10 mobile:text-3xl mobile:font-bold md:text-2xl lg:text-4xl">Pendapat Mereka Tentang OK OCE INDONESIA!</h3>
                     </div>
                     <div class="grid mobile:grid-cols-1 mobile:grid-flow-row mobile:gap-4 lg:grid-cols-3">
                         <section class="bg-white">

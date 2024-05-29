@@ -11,15 +11,15 @@ const Footer = () => {
                 class="w-full flex flex-col items-center bg-black text-center text-surface text-white">
                 <div class="container px-6 pt-6">
                     <div class="mb-6 flex justify-evenly space-x-2">
-                        <a href="https://www.google.com">
-                            <img class="w-[4em] cursor-pointer" src={Gerakan} alt="Gerakan" />
+                        <div>
+                            <img class="cursor-pointer mobile:w-20 lg:w-32 lg:h-28" src={Gerakan} alt="Gerakan" />
+                        </div>
+                        <a href="https://drive.google.com/file/d/18lcHzSbdLiIRbU9GRHWJeG9UWr2qd6iF/view">
+                            <img class="cursor-pointer mobile:w-20 lg:w-32 lg:h-28" src={Wtp} alt="Gerakan" />
                         </a>
-                        <a href="https://www.google.com">
-                            <img class="w-[4em] cursor-pointer" src={Wtp} alt="Gerakan" />
-                        </a>
-                        <a href="https://www.google.com">
-                            <img class="w-[4em] cursor-pointer" src={Okoce} alt="Gerakan" />
-                        </a>
+                        <div>
+                            <img class="cursor-pointer mobile:w-20 lg:w-36 lg:h-28" src={Okoce} alt="Gerakan" />
+                        </div>
                     </div>
                     <div class="mt-16 text-2xl font-bold ">
                         <h1> Perkumpulan Gerakan OK OCE Indonesia </h1>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Header from "../asset/img/Struktur Organisasi.png"
 
 const PengurusBaru = () => {
     const [employees, setEmployees] = useState([]);
@@ -122,91 +123,102 @@ const PengurusBaru = () => {
 
     return (
         <div>
-            <div className="mt-[6rem] bg-gray-400 w-full h-[20rem] grid justify-center content-center">
-                <h1 className="font-extrabold text-4xl text-center">Struktur Organisasi <br /> Ok Oce Indonesia </h1>
-                <p className="text-center mt-6">These are the great people behind the success of OK OCE Indonesia </p>
+            <div className="mt-24">
+                <img className="w-full" src={Header} alt=""></img>
             </div>
             <div className="mt-[6rem] mb-16 w-4/5 mx-auto">
-                <h1 className="w-[73rem] ml-[1.5rem] mb-8 text-2xl font-bold border-b">Founder OK OCE INDONESIA</h1>
-                <div className="flex justify-evenly">
+                <div className="mobile:w-3/4 mobile:mx-auto lg:w-[74rem] lg:ml-[1rem]">
+                    <h1 className="mb-8 text-2xl font-bold border-b mobile:text-3xl mobile:text-center lg:text-start">Founder OK OCE INDONESIA</h1>
+                </div>
+                <div className="flex mx-auto mobile:w-60 mobile:flex-col mobile:gap-6 lg:flex-row lg:justify-evenly lg:w-full">
                     {employees.map((employee) => (
                         <div key={employee.id} className="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={employee.attributes.foto_founder.data[0].attributes.url} alt={employee.attributes.nama_founder} />
+                            <img className="object-cover w-full rounded-t-lg mobile:h-60 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={employee.attributes.foto_founder.data[0].attributes.url} alt={employee.attributes.nama_founder} />
                             <div className="flex flex-col justify-between p-4 leading-normal">
                                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">{employee.attributes.nama_founder}</h5>
-                                <p className="mb-3 font-normal text-gray-600">{employee.attributes.jabatan_founder}</p>
+                                <p className="mb-3 font-normal text-gray-600 mobile:mx-auto lg:m-0">{employee.attributes.jabatan_founder}</p>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
             <div className="mt-10 mb-16 w-4/5 mx-auto">
-                <h1 className="w-[73rem] ml-[1.5rem] mb-8 text-2xl font-bold border-b">Dewan Pembina</h1>
-                <div className="flex justify-evenly">
+                <div className="mobile:w-3/4 mobile:mx-auto lg:w-[74rem] lg:ml-[1rem]">
+                    <h1 className="mb-8 text-2xl font-bold border-b mobile:text-3xl mobile:text-center lg:text-start">Dewan Pembina</h1>
+                </div>
+                <div className="flex mx-auto mobile:w-60 mobile:flex-col mobile:gap-6 lg:flex-row lg:justify-evenly lg:w-full">
                     {employees2.map((employee) => (
                         <div key={employee.id} className="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={employee.attributes.foto_pembina.data[0].attributes.url} alt={employee.attributes.nama_pembina} />
+                            <img className="object-cover w-full rounded-t-lg mobile:h-60 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={employee.attributes.foto_pembina.data[0].attributes.url} alt={employee.attributes.nama_pembina} />
                             <div className="flex flex-col justify-between p-4 leading-normal">
-                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">{employee.attributes.nama_pembina}</h5>
-                                <p className="mb-3 font-normal text-gray-600">{employee.attributes.jabatan_pembina}</p>
+                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 mobile:mx-auto lg:m-0">{employee.attributes.nama_pembina}</h5>
+                                <p className="mb-3 font-normal text-gray-600 mobile:mx-auto lg:m-0">{employee.attributes.jabatan_pembina}</p>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
             <div className="mt-10 mb-16 w-4/5 mx-auto">
-                <h1 className="w-[73rem] ml-[1.5rem] mb-8 text-2xl font-bold border-b">Dewan Kurasi</h1>
-                <div className="flex justify-evenly">
+                <div className="mobile:w-3/4 mobile:mx-auto lg:w-[74rem] lg:ml-[1rem]">
+                    <h1 className="mb-8 text-2xl font-bold border-b mobile:text-3xl mobile:text-center lg:text-start">Dewan Kurasi</h1>
+                </div>
+                <div className="flex mx-auto mobile:w-60 mobile:flex-col mobile:gap-6 lg:flex-row lg:justify-evenly lg:w-full">
                     {employees3.map((employee) => (
-                        <div key={employee.id} className="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={employee.attributes.foto_dewan.data[0].attributes.url} alt={employee.attributes.nama_dewan} />
+                        <div key={employee.id} className="flex items-center bg-white border border-gray-200 rounded-lg shadow mobile:flex-col md:flex-row md:max-w-xl lg:flex-row lg:grow">
+                            <img className="object-cover w-full rounded-t-lg mobile:h-60 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={employee.attributes.foto_dewan.data[0].attributes.url} alt={employee.attributes.nama_dewan} />
                             <div className="flex flex-col justify-between p-4 leading-normal">
-                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">{employee.attributes.nama_dewan}</h5>
-                                <p className="mb-3 font-normal text-gray-600">{employee.attributes.jabatan_dewan}</p>
+                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 mobile:mx-auto mobile:text-center lg:text-start lg:m-0">{employee.attributes.nama_dewan}</h5>
+                                <p className="mb-3 font-normal text-gray-600 mobile:mx-auto lg:m-0">{employee.attributes.jabatan_dewan}</p>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
             <div className="mt-10 mb-16 w-4/5 mx-auto">
-                <h1 className="w-[73rem] ml-[1.5rem] mb-8 text-2xl font-bold border-b">Pengurus Harian</h1>
-                <div className="flex justify-evenly">
+                <div className="mobile:w-3/4 mobile:mx-auto lg:w-[74rem] lg:ml-[1rem]">
+                    <h1 className="mb-8 text-2xl font-bold border-b mobile:text-3xl mobile:text-center lg:text-start">Pengurus Harian</h1>
+                </div>
+                <div className="flex mx-auto mobile:w-60 mobile:flex-col mobile:gap-6 lg:flex-row lg:justify-evenly lg:w-full lg:gap-1">
                     {employees4.map((employee) => (
-                        <div key={employee.id} className="grid grid-cols-3 items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:min-h-16 md:max-w-[23rem]">
-                            <div className="w-40 h-full">
-                                <img className="object-cover w-full h-full rounded-t-lg md:rounded-none md:rounded-s-lg" src={employee.attributes.foto_pengurus.data.attributes.url} alt={employee.attributes.nama_pengurus} />
+                        <div key={employee.id} className="grid items-center bg-white border border-gray-200 rounded-lg shadow mobile:grid-cols-1 md:flex-row md:min-h-16 md:max-w-[24rem] lg:grid-cols-3">
+                            <div className="mobile:w-auto lg:w-40 lg:h-full">
+                                <img className="object-cover w-full rounded-t-lg mobile:h-60 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={employee.attributes.foto_pengurus.data.attributes.url} alt={employee.attributes.nama_pengurus} />
                             </div>
-                            <div className="flex flex-col ml-14 justify-between p-4 leading-normal">
-                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-start">{employee.attributes.nama_pengurus}</h5>
-                                <p className="mb-3 font-normal text-gray-600">{employee.attributes.jabatan_pengurus}</p>
+                            <div className="flex flex-col justify-between p-4 leading-normal mobile:ml-0 lg:ml-14">
+                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-start mobile:mx-auto lg:text-start lg:m-0">{employee.attributes.nama_pengurus}</h5>
+                                <p className="mb-3 font-normal text-gray-600 text-start mobile:mx-auto mobile: lg:text-start lg:m-0">{employee.attributes.jabatan_pengurus}</p>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
             <div className="mt-10 mb-16 w-4/5 mx-auto">
-                <h1 className="w-[73rem] ml-[1.5rem] mb-8 text-2xl font-bold border-b">Direktorat</h1>
-                <div className="grid grid-cols-2 grid-flow-row gap-6 mx-6 justify-items-stretch">
+                <div className="mobile:w-3/4 mobile:mx-auto lg:w-[74rem] lg:ml-[1rem]">
+                    <h1 className="mb-8 text-2xl font-bold border-b mobile:text-3xl mobile:text-center lg:text-start">Direktorat</h1>
+                </div>
+                <div className="grid mx-auto mobile:w-60 mobile:grid-cols-1 mobile:grid-flow-row mobile:gap-6 lg:w-full lg:grid-cols-2 lg:grid-flow-row lg:pl-4 lg:gap-6">
                     {employees5.map((employee) => (
                         <div key={employee.id} className="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={employee.attributes.foto_pengurus.data[0].attributes.url} alt={employee.attributes.nama_pengurus} />
+                            <img className="object-cover w-full rounded-t-lg mobile:h-60 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={employee.attributes.foto_pengurus.data[0].attributes.url} alt={employee.attributes.nama_pengurus} />
                             <div className="flex flex-col justify-between p-4 leading-normal">
-                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">{employee.attributes.nama_pengurus}</h5>
-                                <p className="mb-3 font-normal text-gray-600">{employee.attributes.jabatan_pengurus}</p>
+                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 mobile:mx-auto mobile:text-center lg:text-start lg:m-0">{employee.attributes.nama_pengurus}</h5>
+                                <p className="mb-3 font-normal text-gray-600 mobile:mx-auto mobile:text-center lg:text-start lg:m-0">{employee.attributes.jabatan_pengurus}</p>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
             <div className="mt-10 mb-16 w-4/5 mx-auto">
-                <h1 className="w-[73rem] ml-[1.5rem] mb-8 text-2xl font-bold border-b">Eksekutif</h1>
-                <div className="grid grid-cols-2 grid-flow-row gap-6 mx-6 justify-items-stretch">
+                <div className="mobile:w-3/4 mobile:mx-auto lg:w-[74rem] lg:ml-[1rem]">
+                    <h1 className="mb-8 text-2xl font-bold border-b mobile:text-2xl mobile:text-center lg:text-start">Eksekutif</h1>
+                </div>
+                <div className="grid mx-auto mobile:w-60 mobile:grid-cols-1 mobile:grid-flow-row mobile:gap-6 lg:w-full lg:grid-cols-2 lg:grid-flow-row lg:pl-4 lg:gap-6">
                     {employees6.map((employee) => (
                         <div key={employee.id} className="flex flex-col grow items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl">
-                            <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={employee.attributes.foto_pengurus.data[0].attributes.url} alt={employee.attributes.nama_pengurus} />
+                            <img className="object-cover w-full rounded-t-lg mobile:h-60 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={employee.attributes.foto_pengurus.data[0].attributes.url} alt={employee.attributes.nama_pengurus} />
                             <div className="flex flex-col justify-between p-4 leading-normal">
-                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-">{employee.attributes.nama_pengurus}</h5>
-                                <p className="mb-3 font-normal text-gray-600">{employee.attributes.jabatan_pengurus}</p>
+                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 mobile:mx-auto mobile:text-center lg:text-start lg:m-0">{employee.attributes.nama_pengurus}</h5>
+                                <p className="mb-3 font-normal text-gray-600 mobile:mx-auto mobile:text-center lg:text-start lg:m-0">{employee.attributes.jabatan_pengurus}</p>
                             </div>
                         </div>
                     ))}

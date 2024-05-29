@@ -2,7 +2,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import LogoOkOce from "@img/logo-okoce.webp"
+import LogoOkOce from "@img/logo-okoce.webp";
+import '../index.css';
 
 function Navbar() {
     const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -81,7 +82,7 @@ function Navbar() {
 
     return (
         <>
-            <nav class="border-b border-gray">
+            <nav class="border-b border-gray font-jost">
                 {/* {Navbar Mobile} */}
                 <div class="fixed w-svw bg-white top-0 z-50 flex items-center justify-between mx-auto p-2 max-h-24 shadow-lg">
                     <a href="/" class="ml-8 ">
@@ -176,7 +177,7 @@ function Navbar() {
                                         </li>
                                         <li>
                                             <a
-                                                href="#"
+                                                href="/anniversary"
                                                 class="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Anniversary
                                             </a>
@@ -211,9 +212,9 @@ function Navbar() {
                                         aria-labelledby="dropdownEtalaseNavbarLink">
                                         <li>
                                             <a
-                                                href="#"
+                                                href="/merchandise"
                                                 className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
-                                                Marchendise
+                                                Merchendise
                                             </a>
                                         </li>
                                     </ul>
@@ -310,21 +311,14 @@ function Navbar() {
                                         aria-labelledby="dropdownEventNavbarLink">
                                         <li>
                                             <a
-                                                href="/daftarberita"
+                                                href="/event"
                                                 className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
-                                                Daftar Acara
+                                                Daftar event
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                href="#"
-                                                className="ccamelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
-                                                Daftar Pelatihan
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                href="#"
+                                                href="/daftarberita"
                                                 className="ccamelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                                                 Daftar Berita
                                             </a>
@@ -545,9 +539,9 @@ function Navbar() {
                                         aria-labelledby="dropdownEtalaseNavbarLink">
                                         <li>
                                             <a
-                                                href="/marchendise"
+                                                href="/merchendise"
                                                 className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                                Marchendise
+                                                Merchendise
                                             </a>
                                         </li>
                                     </ul>
@@ -644,21 +638,14 @@ function Navbar() {
                                         aria-labelledby="dropdownEventNavbarLink">
                                         <li>
                                             <a
-                                                href=""
+                                                href="/event"
                                                 className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                                Daftar Acara
+                                                Daftar Event
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                href="/daftarpelatihan"
-                                                className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                                Daftar Pelatihan
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                href="/daftarpelatihan"
+                                                href="/daftarberita"
                                                 className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                                 Daftar Berita
                                             </a>
