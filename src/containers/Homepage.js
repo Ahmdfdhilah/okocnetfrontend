@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-no-target-blank */
 import { useState } from "react";
+import FloatingMenu from "@components/FloatingMenu";
 
 // - img
 import sandiaga from "@img/sandiaga-uno-ok.png";
@@ -70,9 +71,11 @@ const Homepage = () => {
 
   return (
     <>
+      {/*  */}
+      {/*  */}
       <div class="grid grid-flow-row">
         <section
-          class="bg-white dark:bg-gray-900 mt-24 mobile:w-full"
+          classname="bg-white dark:bg-gray-900 mt-24 mobile:w-full"
           style={{ backgroundImage: `url(${HeaderPenggerak})` }}>
           <div class="py-8 px-4 mx-auto text-center mobile:w-80 sm:w-96 lg:w-full lg:py-16">
             <h1 class="mb-4 text-4xl text-white font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">
@@ -197,6 +200,10 @@ const Homepage = () => {
                 </button>
               </div>
             </div>
+
+            {/* floating menu */}
+
+            {/* floting menu */}
 
             <div class="ml-10 pt-40 flex flex-col flex-grow pl-0 mobile:pt-24 mobile:ml-0 lg:mt-0 lg:pl-4 lg:pt-0">
               <div class="pb-5 mobile:mt-0">
@@ -731,6 +738,8 @@ const Homepage = () => {
           </div>
         </div>
       </div>
+      <FloatingMenu />{" "}
+      {/* Ensure the FloatingMenu component is included here */}
     </>
   );
 };

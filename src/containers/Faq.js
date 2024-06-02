@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "@components/Navbar";
 import Youtube from "@components/Youtube";
+import FloatingMenu from "@components/FloatingMenu"; // Ensure this import path is correct
 
 const Faq = () => {
   const [accordions, setAccordions] = useState([
@@ -86,6 +87,8 @@ const Faq = () => {
           </div>
         </div>
       </div>
+      <FloatingMenu />{" "}
+      {/* Ensure the FloatingMenu component is included here */}
     </>
   );
 };
