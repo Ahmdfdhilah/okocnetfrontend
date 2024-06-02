@@ -8,7 +8,7 @@ import Struktur from "./containers/Struktur";
 import Anniversary from "./containers/Anniversary";
 import Penggerak from "./containers/Penggerak";
 import Seventop from "./containers/Seventop";
-import Marchendise from "./containers/Marchendise";
+import Merchendise from "./containers/Merchendise";
 import Pelatihan from "./containers/Pelatihan";
 import Pendampingan from "./containers/Pendampingan";
 import Faq from "./containers/Faq";
@@ -33,6 +33,8 @@ import Event from "./containers/Event";
 import Mentor from "./containers/Mentor";
 import Mitrakerjasama from "./containers/Mitrakerjasama";
 import Desapreneur from "./containers/Desapreneur";
+import EventDetail from "./containers/EventDetail";
+import DaftarBerita from "./containers/DaftarBerita";
 
 function App() {
   return (
@@ -48,7 +50,7 @@ function App() {
           <Route path="/penggerak" element={<Penggerak />} />
           <Route path="/anniversary" element={<Anniversary />} />
           <Route path="/7top" element={<Seventop />} />
-          <Route path="/marchendise" element={<Marchendise />} />
+          <Route path="/merchendise" element={<Merchendise />} />
           <Route path="/pendampingan" element={<Pendampingan />} />
           <Route path="/pelatihan" element={<Pelatihan />} />
           <Route path="/faq" element={<Faq />} />
@@ -71,9 +73,11 @@ function App() {
           <Route path="/mentor" element={<Mentor />} />
           <Route path="/mitrakerjasama" element={<Mitrakerjasama />} />
           <Route path="/desapreneur" element={<Desapreneur />} />
-        </Routes>
+          <Route path="/event/:id" element={<EventDetail />} />
+          <Route path="/daftarberita" element={<DaftarBerita />} />
+        </Routes >
         <Footer />
-      </BrowserRouter>
+      </BrowserRouter >
     </>
   );
 }

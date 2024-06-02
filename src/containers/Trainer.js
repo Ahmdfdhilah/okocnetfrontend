@@ -16,17 +16,15 @@ import Vector3 from "@img/Trainer/Vector3.png";
 import Vector4 from "@img/Trainer/Vector4.png";
 import Vector5 from "@img/Trainer/Vector5.png";
 
-
-
 const Trainer = () => {
     return (
         <>
             <div className="flex overflow-hidden relative flex-col items-start px-12 py-20 text-white shadow-sm min-h-[825px] max-md:px-5">
                 <img loading="lazy" src={Atas} className="object-cover absolute inset-0 size-full" />
-                <div className="relative mt-96 text-4xl font-bold leading-10 max-md:mt-10 max-md:max-w-full">
+                <div className="relative text-4xl font-bold leading-10 max-md:mt-10 max-md:max-w-full mobile:mt-64 lg:mt-96">
                     TRAINER{" "}
                 </div>
-                <div className="relative mt-6 text-lg leading-7 text-justify w-[616px] max-md:max-w-full">
+                <div className="relative text-lg leading-7 text-justify w-[616px] max-md:max-w-full mobile:mt-0 lg:mt-6">
                     Trainer UMKM memberikan panduan praktis dalam mengembangkan bisnis kecil
                     dan menengah, meliputi strategi pemasaran, manajemen keuangan, dan
                     keterampilan pengembangan produk.
@@ -180,44 +178,6 @@ const Trainer = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="flex flex-col px-20 py-20 bg-white max-md:px-5">
-                <div className="self-center mt-1.5 text-4xl font-bold leading-10 text-center text-black max-md:max-w-full">
-                    List Penggerak Membuka Trainer
-                </div>
-                <div className="mt-12 max-md:mt-10 max-md:max-w-full">
-                    <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-                        <div className="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
-                            < img src={Penggerak1} className="grow shrink-0 mt-2 max-w-full aspect-[2.04] w-[291px] max-md:mt-10" />
-                        </div>
-                        <div className="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
-                            <img src={Penggerak2} className="grow shrink-0 max-w-full aspect-[1.92] w-[291px] max-md:mt-10" />
-                        </div>
-                        <div className="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
-                            <img src={Penggerak3} className="grow shrink-0 mt-2 max-w-full aspect-[2.04] w-[291px] max-md:mt-10" />
-                        </div>
-                        <div className="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
-                            <img src={Penggerak4} className="grow shrink-0 mt-2 max-w-full aspect-[2.04] w-[291px] max-md:mt-10" />
-                        </div>
-                    </div>
-                </div>
-                <div className="mt-10 max-md:max-w-full">
-                    <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-                        <div className="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
-                            <img src={Penggerak5} className="grow shrink-0 max-w-full aspect-[2.04] w-[291px] max-md:mt-10" />
-                        </div>
-                        <div className="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
-                            <img src={Penggerak6} className="grow shrink-0 max-w-full aspect-[2.04] w-[291px] max-md:mt-10" />
-                        </div>
-                        <div className="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
-                            <img src={Penggerak7} className="grow shrink-0 max-w-full aspect-[2.04] w-[291px] max-md:mt-10" />
-                        </div>
-                        <div className="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
-                            <img src={Penggerak8} className="grow shrink-0 max-w-full aspect-[2.04] w-[291px] max-md:mt-10" />
                         </div>
                     </div>
                 </div>

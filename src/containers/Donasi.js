@@ -10,7 +10,7 @@ const Donasi = () => {
             {/* <!-- Jumbotron --> */}
             <div className="w-full grid justify-items-center items-center">
                 <div className="w-full my-36 max-w-6xl rounded-lg p-6 text-surface shadow-lg">
-                    <h2 className="mb-5 text-4xl font-extrabold text-center pt-10">Qris Donasi Ok Oce Indonesia</h2>
+                    <h2 className="mb-5 text-4xl font-extrabold text-center pt-10">Qris Donasi OK OCE INDONESIA</h2>
                     <p className="text-center text-xl px-12">
                         OK OCE adalah Gerakan Sosial Penciptaan Lapangan Kerja Berbasis Wirausaha. Kami membuka <br />bagi siapapun yang memiliki kesamaan visi, nilai dan perjuangan untuk mendukung gerakan ini dengan berdonasi melalui : <br /><br />
                         <span className="font-bold text-2xl">Bank Syariah Indonesia (ex-BSM) </span> <br />
