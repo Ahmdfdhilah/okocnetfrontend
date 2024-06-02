@@ -16,9 +16,6 @@ import Smeshub from "@img/7 top/pendampingan/smeshub.png";
 import Pajak from "@img/7 top/pendampingan/pajakonline.png";
 import Travel from "@img/7 top/pendampingan/travelbook.png";
 
-
-
-
 const Pendampingan = () => {
     return (
         <>
