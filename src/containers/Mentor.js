@@ -13,7 +13,7 @@ function Mentor() {
   return (
     <>
       <section
-        class="mt-[4em] bg-center bg-no-repeat"
+        class="mt-24 bg-center bg-no-repeat"
         style={{
           backgroundImage: `url(${Header})`,
           width: `100%`,

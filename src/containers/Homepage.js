@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-no-target-blank */
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import FloatingMenu from "@components/FloatingMenu";
 
 // - img
@@ -22,6 +23,7 @@ import Pelaporan from "@img/Laporan Keuangan.png";
 import Permodalan from "@img/Permodalan.png";
 import News1 from "@img/news-1.webp";
 import Okocetv from "@img/okoce-tv.webp";
+import Header from "../asset/img/Penggerak OKOCE Indonesia (1519 x 710 piksel).png";
 // - component
 import Peta from "@components/Peta";
 import Youtube from "@components/Youtube";
@@ -43,17 +45,68 @@ import Wgs from "@mitra-kerjasama/wgshub.png";
 import Ekles from "@mitra-kerjasama/alternatives/ekles-2.png";
 import Indivara from "@mitra-kerjasama/alternatives/indivara-2.png";
 import Jnj from "@mitra-kerjasama/alternatives/jnj-group-2.png";
-import HeaderPenggerak from "@img/PenggerakOkOce.png";
+import PopupMenu from "../components/PopupMenu";
 
 const Homepage = () => {
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
   const [showText, setShowText] = useState(true);
+  const [datas, setData] = useState([]);
+  const [events, setEvents] = useState([]);
 
   const items = [
     { src: sandiaga, alt: "Slide 1", text: "Founder - Sandiaga Uno" },
     { src: iim, alt: "Slide 2", text: "Ketua Umum - Iim Rusyamsi" },
     { src: indra, alt: "Slide 3", text: "Ketua Dewan Pembina - Indra Uno" },
   ];
+
+  useEffect(() => {
+    fetchDataNews();
+    fetchDataEvents();
+  }, []);
+
+  const fetchDataNews = async () => {
+    try {
+      const response = await fetch(
+        "https://cms-okoce-a155c649b6e6.herokuapp.com/api/beritas?populate=*"
+      );
+      if (!response.ok) {
+        throw new Error("Gagal mengambil data berita");
+      }
+      const data = await response.json();
+      // Extract the data array from the response
+      const newsData = data.data;
+      newsData.sort((a, b) => a.id - b.id);
+      const lastThreeData = newsData.slice(0, 3); // Mengambil 3 data terakhir
+      console.log(lastThreeData);
+      setData(lastThreeData);
+    } catch (error) {
+      console.error("Error fetching employees:", error);
+      // Jika terjadi kesalahan, pastikan untuk mengatur employees menjadi array kosong
+      setData([]);
+    }
+  };
+
+  const fetchDataEvents = async () => {
+    try {
+      const response = await fetch(
+        "https://cms-okoce-a155c649b6e6.herokuapp.com/api/events?populate=*"
+      );
+      if (!response.ok) {
+        throw new Error("Gagal mengambil data event");
+      }
+      const data = await response.json();
+      // Extract the data array from the response
+      const eventData = data.data;
+      eventData.sort((a, b) => a.id - b.id);
+      const lastThreeData = eventData.slice(0, 3); // Mengambil 3 data terakhir
+      console.log(lastThreeData);
+      setEvents(lastThreeData);
+    } catch (error) {
+      console.error("Error fetching employees:", error);
+      // Jika terjadi kesalahan, pastikan untuk mengatur employees menjadi array kosong
+      setEvents([]);
+    }
+  };
 
   const goToNextItem = () => {
     setCurrentItemIndex((prevIndex) => (prevIndex + 1) % items.length);
@@ -71,11 +124,9 @@ const Homepage = () => {
 
   return (
     <>
-      {/*  */}
-      {/*  */}
       <div class="grid grid-flow-row">
         <section
-          classname="bg-white dark:bg-gray-900 mt-24 mobile:w-full"
+          class="bg-white dark:bg-gray-900 mt-24 mobile:w-full"
           style={{ backgroundImage: `url(${HeaderPenggerak})` }}>
           <div class="py-8 px-4 mx-auto text-center mobile:w-80 sm:w-96 lg:w-full lg:py-16">
             <h1 class="mb-4 text-4xl text-white font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">
@@ -201,11 +252,7 @@ const Homepage = () => {
               </div>
             </div>
 
-            {/* floating menu */}
-
-            {/* floting menu */}
-
-            <div class="ml-10 pt-40 flex flex-col flex-grow pl-0 mobile:pt-24 mobile:ml-0 lg:mt-0 lg:pl-4 lg:pt-0">
+            <div class="flex flex-col flex-grow mobile:mt-10 lg:ml-16">
               <div class="pb-5 mobile:mt-0">
                 <h3
                   id="about-headline"
@@ -259,12 +306,12 @@ const Homepage = () => {
 
         <div class="grid grid-grid-flow-row justify-items-center items-center mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
           <div class="md:pt-8 pb-8">
-            <h3 class="text-okoce-blue text-center font-poppins text-xl mobile:text-2xl lg:text-4xl font-bold-700 mobile:text-3xl mobile:font-bold">
+            <h3 class="text-okoce-blue text-center font-poppins mobile:text-2xl text-sky-700 font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl ">
               Sebaran UMKM di Indonesia
             </h3>
           </div>
           <div id="map" class="grid justify-items-center items-center w-full">
-            <div class="w-10/12">
+            <div class="w-11/12">
               <Peta />
             </div>
           </div>
@@ -290,7 +337,7 @@ const Homepage = () => {
                   <h3
                     id="about-headline"
                     class="text-center lg:text-left text-black text-2xl lg:text-5xl font-extrabold">
-                    117
+                    198
                   </h3>
                 </div>
                 <div class="pb-5">
@@ -303,13 +350,13 @@ const Homepage = () => {
           </div>
         </div>
 
-        <div class="bg-white mt-32 lg:pb-20 mobile:pb-5 grid justify-items-center mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
-          <div class="md:pt-8 pb-8 mb-4">
-            <h3 class="text-okoce-blue text-center font-poppins text-xl md:text-2xl lg:text-4xl font-bold-700 mobile:text-3xl mobile:font-bold">
+        <div class="bg-white mt-24 lg:pb-20 mobile:pb-5 grid justify-items-center mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
+          <div class="md:pt-8 mb-4">
+            <h3 class="text-okoce-blue text-center font-poppins mobile:text-2xl text-sky-700 font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl">
               7 Tahapan OK OCE Prima
             </h3>
           </div>
-          <div class="lg:w-10/12 lg:grid lg:justify-items-center lg:grid-flow-col">
+          <div class="lg:w-10/12 lg:grid lg:justify-items-center lg:grid-flow-col lg:mt-20">
             <div class="md:mr-8 hover:drop-shadow-2xl">
               <a href="/7top">
                 <img class="md:h-[10em]" src={Top7} />
@@ -346,9 +393,9 @@ const Homepage = () => {
           </div>
         </div>
 
-        <div class="bg-white mobile:w-80 mobile:mb-0 mobile:mx-auto sm:w-96 lg:mb-14 lg:w-full">
-          <div class="mt-10 pb-4">
-            <h3 class="text-okoce-blue text-center font-poppins text-xl font-bold-700 mobile:text-3xl mobile:font-bold p-3 md:text-2xl lg:text-4xl">
+        <div class="bg-white mobile:w-80 mobile:mb-0 mobile:mx-auto sm:w-96 lg:w-full">
+          <div class="mt-20 mb-12">
+            <h3 class="text-okoce-blue text-center font-poppins mobile:text-2xl text-sky-700 font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl">
               Event OK OCE Indonesia
             </h3>
           </div>
@@ -360,24 +407,34 @@ const Homepage = () => {
               melalui acara OK OCE secara gratis, lho!
             </h3>
           </div>
-          <div class="grid justify-items-center items-center mobile:mb-20 mobile:mx-auto sm:grid-rows-1 sm:grid-flow-row lg:grid-rows-2 lg:grid-flow-col gap-2 lg:mb-36">
-            <div class="h-[90%] grid justify-items-center items-center bg-white drop-shadow-2xl rounded-3xl mobile:w-full mobile:row-span-1 mobile:p-0 mobile:mx-auto lg:col-span-1 lg:row-span-2 lg:w-8/12 lg:mr-0 lg:mt-12">
+          <div class="grid justify-items-center items-center mobile:mb-20 mobile:mx-auto sm:grid-rows-1 sm:grid-flow-row lg:grid-rows-2 lg:grid-flow-col lg:mb-36">
+            <div class="grid justify-items-center items-center bg-white drop-shadow-2xl rounded-3xl mobile:max-w-full mobile:row-span-1 mobile:p-0 mobile:mx-auto mobile:h-[98%] mobile:mt-12 lg:h-[83%] lg:col-span-1 lg:row-span-2 lg:w-9/12 lg:mr-0 lg:mt-12">
               <Calendar />
             </div>
-            <div class="text-xl font-bold mobile:p-4 mobile:mt-6">
-              Daftar Acara
-              <div class="grid grid-flow-col gap-4 mt-4">
-                <img class="max-h-[10rem]" src={News1} />
-                <img class="max-h-[10rem]" src={News1} />
-                <img class="max-h-[10rem]" src={News1} />
+            <div class="text-xl font-bold mobile:p-4 mobile:mt-14 mobile:text-center lg:text-start lg:p-0 lg:mt-14">
+              Daftar Event
+              <div class="grid gap-4 mt-4 mobile:grid-cols-1 mobile:grid-flow-row lg:grid-cols-3 lg:grid-flow-col">
+                {events.map((event) => (
+                  <div className="border-2 border-black p-2">
+                    <img
+                      class="max-h-[10rem] min-w-42"
+                      src={event.attributes.foto_event.data.attributes.url}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
-            <div class="text-xl font-bold mobile:p-4 mobile:mt-3">
-              Daftar Pelatihan
-              <div class="grid grid-flow-col gap-4 mt-4">
-                <img class="max-h-[10rem]" src={News1} />
-                <img class="max-h-[10rem]" src={News1} />
-                <img class="max-h-[10rem]" src={News1} />
+            <div class="text-xl font-bold mobile:p-4 mobile:mt-14 mobile:text-center lg:text-start lg:p-0 lg:mt-6">
+              Daftar Berita
+              <div class="grid gap-4 mt-4 mobile:grid-cols-1 mobile:grid-flow-row lg:grid-cols-3 lg:grid-flow-col">
+                {datas.map((data) => (
+                  <div className="border-2 border-black p-2">
+                    <img
+                      class="object-cover h-full max-w-40"
+                      src={data.attributes.foto_berita.data.attributes.url}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -385,139 +442,45 @@ const Homepage = () => {
 
         <div class="bg-white mobile:p-3 mobile:mx-auto mobile:w-80 sm:w-96 lg:w-full lg:pb-20">
           <div class="pb-8">
-            <h3 class="text-okoce-blue text-center font-poppins text-xl md:text-2xl lg:text-4xl font-bold-700 mobile:text-3xl mobile:font-bold">
-              Berita Ok Oce Indonesia
+            <h3 class="text-okoce-blue text-center font-poppins mobile:text-2xl text-sky-700 font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl lg:mb-4">
+              Berita OK OCE INDONESIA
             </h3>
           </div>
-
-          <div class="grid justify-items-center lg:grid-cols-3 lg:grid-flow-col gap-6 mobile:grid-cols-1 mobile:grid-flow-row">
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <a href="#">
-                <img
-                  class="object-cover rounded-t-lg min-h-96 max-h-96 w-full"
-                  src={Berita1}
-                  alt=""
-                />
-              </a>
-              <div class="p-5">
-                <a href="#">
-                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    Munawar Aziz Bagikan ‘Rahasia Membangun Merek’ Yang Kuat
-                    Melalui One Rule, Two Principal
-                  </h5>
-                </a>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  Jakarta – Di bulan Ramadhan, OK OCE terus memberikan
-                  kebermanfaatan untuk pelaku UMKM, salah satunya melalui
-                  Program Ramadhan yang didalamnya terdapat Pelatihan Strategi
-                  Pemasaran Produk atau Jasa.
-                </p>
-                <a
-                  href="#"
-                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  Read more
-                  <svg
-                    class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 14 10">
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M1 5h12m0 0L9 1m4 4L9 9"
+          <div className="grid mobile:grid-cols-1 mobile:mt-10 lg:w-11/12 lg:mx-auto lg:grid-cols-3 lg:gap-y-8 lg:gap-x-4 lg:mt-2">
+            {datas.map((data, index) => (
+              <div key={index} className="w-full mx-auto p-4">
+                <div className="bg-gray-700 shadow-md rounded-lg lg:mr-1">
+                  <div className="p-5">
+                    <img
+                      className="object-cover w-full mobile:h-36 lg:h-96"
+                      src={data.attributes?.foto_berita?.data?.attributes?.url}
+                      alt=""
                     />
-                  </svg>
-                </a>
+                    <div className="relative group mb-2 mt-6 h-20">
+                      <div className="text-base leading-7 text-white font-bold text-xl overflow-hidden line-clamp-2">
+                        {data.attributes?.judul_berita}
+                      </div>
+                      <div className="absolute left-0 bottom-full mb-2 hidden w-full text-xs text-white bg-black p-2 rounded group-hover:block">
+                        {data.attributes?.judul_berita}
+                      </div>
+                    </div>
+                    <p className="text-white">
+                      Author: {data.attributes?.author_berita}
+                    </p>
+                    <div className="flex space-x-4 my-4">
+                      <span className="bg-white text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
+                        Tanggal Publish: {data.attributes?.tanggal_berita}
+                      </span>
+                    </div>
+                    <div className="mt-8 flex justify-start">
+                      <button className="bg-green-500 w-full text-white p-2 rounded-lg">
+                        Read more
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <a href="#">
-                <img
-                  class="object-cover rounded-t-lg min-h-96 w-full"
-                  src={Berita2}
-                  alt=""
-                />
-              </a>
-              <div class="p-5">
-                <a href="#">
-                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    Disambut Bupati Ponorogo, Mahasiswa Amerika Antusias Dengan
-                    Budaya Indonesia!
-                  </h5>
-                </a>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  Jakarta – Acara Buka Puasa OK OCE pada hari Selasa (26/3) di
-                  Hotel Amaris Pancoran turut menghadirkan Santunan kepada
-                  Mualaf. Momentum berbagi kebaikan ini turut diberikan langsung
-                  oleh Founder OK OCE, Sandiaga Salahuddin Uno.
-                </p>
-                <a
-                  href="#"
-                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  Read more
-                  <svg
-                    class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 14 10">
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M1 5h12m0 0L9 1m4 4L9 9"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <a href="#">
-                <img
-                  class="object-cover rounded-t-lg min-h-96 max-h-96 w-full"
-                  src={Berita3}
-                  alt=""
-                />
-              </a>
-              <div class="p-5">
-                <a href="#">
-                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    OK OCE Bantu Pelaku Usaha Melalui Pelatihan Copywriting
-                    Produk, ‘Lebih Dari Sekedar Kata-Kata’
-                  </h5>
-                </a>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  Okocenews.com – Dalam bulan penuh berkah, OK OCE selaku
-                  Gerakan Sosial penciptaan lapangan kerja melalui pendampingan
-                  wirausaha mengadakan serangkaian Program Ramadhan, salah
-                  satunya ‘Pelatihan Ramadhan’ dengan tema Effective Copywriting
-                  Skill pada Kamis (21/03).
-                </p>
-                <a
-                  href="#"
-                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  Read more
-                  <svg
-                    class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 14 10">
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M1 5h12m0 0L9 1m4 4L9 9"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
@@ -527,7 +490,7 @@ const Homepage = () => {
               Jadilah salah satu dari mitra kami!
             </h3>
           </div>
-          <div class="p-10 grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
+          <div class="grid grid-cols-2 gap-6 justify-items-center mobile:grid-cols-1 mobile:px-10 md:grid-cols-4  lg:p-10">
             <div>
               <img
                 class="h-auto max-w-full rounded-lg shadow-md"
@@ -738,8 +701,6 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-      <FloatingMenu />{" "}
-      {/* Ensure the FloatingMenu component is included here */}
     </>
   );
 };

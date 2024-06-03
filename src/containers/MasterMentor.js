@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
 import MASTERMENTOR from "@img/Mastermentor/MASTERMENTOR.png";
@@ -63,9 +64,8 @@ const MasterMentor = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
-                        <img
-                            className="self-stretch my-auto w-full aspect-[1.59] max-md:mt-10 max-md:max-w-full" src={MASTERMENTOR} alt="" />
+                    <div className="flex flex-col mx-auto mt-5 w-5/12 max-md:ml-0 max-md:w-full">
+                        <iframe id="hero-iframe" src="https://okoce.net/wp-content/uploads/2023/10/7.-HIGHRES-VIDEO-UCAPAN-MASTER-MENTOR-OK-OCE.mp4" class="rounded-xl h-80"></iframe>
                     </div>
                 </div>
             </div>
@@ -254,9 +254,6 @@ const MasterMentor = () => {
                     </div>
                 </div>
             </div>
-
-
-
         </>
     );
 }

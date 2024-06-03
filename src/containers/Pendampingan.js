@@ -16,9 +16,6 @@ import Smeshub from "@img/7 top/pendampingan/smeshub.png";
 import Pajak from "@img/7 top/pendampingan/pajakonline.png";
 import Travel from "@img/7 top/pendampingan/travelbook.png";
 
-
-
-
 const Pendampingan = () => {
     return (
         <>
@@ -35,10 +32,10 @@ const Pendampingan = () => {
                     <div className="flex flex-col ml-5 w-[82%] max-md:ml-0 max-md:w-full">
                         <div className="flex flex-col self-stretch p-8 my-auto w-full text-white bg-sky-700 max-md:px-5 max-md:mt-10 max-md:max-w-full">
                             <div className="text-5xl font-bold leading-[57.6px] max-md:max-w-full max-md:text-4xl">
-                            Pendampingan
+                                Pendampingan
                             </div>
                             <div className="mt-4 text-lg leading-7 max-md:max-w-full">
-                            Peserta akan didampingi oleh pendamping UMKM dan mengikuti Program Mentoring.
+                                Peserta akan didampingi oleh pendamping UMKM dan mengikuti Program Mentoring.
                             </div>
                         </div>
                     </div>
@@ -48,12 +45,12 @@ const Pendampingan = () => {
             <div className="flex flex-col items-center px-16 pt-20 bg-white max-md:px-5">
                 <div className="flex flex-col w-full max-w-[1096px] max-md:max-w-full">
                     <div className="self-center text-4xl font-bold leading-10 text-center text-black">
-                    Pendampingan
+                        Pendampingan
                     </div>
                     <div className="mt-8 text-lg leading-7 text-center text-black max-md:max-w-full">
-                    Melalui OK OCE, usaha Sobat akan mendapatkan fasilitas pendampingan Oleh Mentor OK OCE dalam kegiatan pemasaran, permodalan, laporan keuangan, 
-                    konsultasi ide-ide kreatif dan inovatif, perubahan mindset kewirausahaan, mencari penyelesaian permasalahan usaha, hingga pembentukan karakter 
-                    untuk menjadi UMKM Naik Kelas. Fasilitas tersebut dapat diakses melalui sistem OK OCE pada kolom Inkubasi Usaha, Chat Mentor, maupun Kolaborator.
+                        Melalui OK OCE, usaha Sobat akan mendapatkan fasilitas pendampingan Oleh Mentor OK OCE dalam kegiatan pemasaran, permodalan, laporan keuangan,
+                        konsultasi ide-ide kreatif dan inovatif, perubahan mindset kewirausahaan, mencari penyelesaian permasalahan usaha, hingga pembentukan karakter
+                        untuk menjadi UMKM Naik Kelas. Fasilitas tersebut dapat diakses melalui sistem OK OCE pada kolom Inkubasi Usaha, Chat Mentor, maupun Kolaborator.
                     </div>
                 </div>
             </div>
@@ -80,53 +77,6 @@ const Pendampingan = () => {
                     </div>
                 </div>
             </div>
-
-            <div className="flex flex-col items-center px-16 pt-20 bg-white max-md:px-5">
-                <div className="flex flex-col w-full max-w-[1096px] max-md:max-w-full">
-                    <div className="self-center text-4xl font-bold leading-10 text-center text-black">
-                    Para Kolaborator
-                    </div>
-                </div>
-            </div>
-
-            <div class="p-10 grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
-                        <div>
-                            <img class="h-auto max-w-full" src={Az} alt="" />
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full" src={Ck} alt="" />
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full" src={Edu} alt="" />
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full" src={Ekles} alt="" />
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full" src={Indivara} alt="" />
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full" src={Inotek} alt="" />
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full" src={Jnj} alt="" />
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full" src={Kk} alt="" />
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full" src={Smeshub} alt="" />
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full" src={Pajak} alt="" />
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full" src={Travel} alt="" />
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full" src={Wgs} alt="" />
-                        </div>
-                    </div>
         </>
     );
 }

@@ -3,17 +3,20 @@ import React from "react";
 import Seven from "@img/7top-rb.webp";
 import Seven2 from "@img/7-TOP-OK-OCE-1-768x768.webp";
 
-const cardClasses = "mb-10 w-[50rem] h-[10rem] mx-auto flex items-center bg-zinc-100 rounded-lg shadow-lg";
-const titleClasses = "h-[10rem] w-[300px] bg-blue-700 p-4 flex items-center justify-center text-center text-2xl text-white drop-shadow-lg font-bold rounded-lg";
-const titleClasses2 = "h-[10rem] w-[300px] bg-red-700 p-4 flex items-center justify-center text-center text-2xl text-white drop-shadow-lg font-bold rounded-lg";
-const contentClasses = "max-w-[500px] text-base p-6 flex flex-col items-center justify-center text-center text-zinc-800";
+const cardClasses = "mb-10 mx-auto flex items-center bg-zinc-100 rounded-lg shadow-lg mobile:flex-col mobile:w-full lg:w-[35rem] lg:h-[15rem]";
+const titleClasses = "bg-blue-700 p-4 flex items-center justify-center text-center text-2xl text-white drop-shadow-lg font-bold rounded-lg mobile:w-full mobile:h-28 lg:w-full lg:h-20";
+const titleClasses2 = "bg-red-700 p-4 flex items-center justify-center text-center text-2xl text-white drop-shadow-lg font-bold rounded-lg mobile:w-full mobile:h-28 lg:w-full lg:h-20";
+const contentClasses = "text-base p-6 flex flex-col items-center justify-center text-center text-zinc-800 lg:max-w-[500px]";
 
 const Seventop = () => {
     return (
         <>
-            <div class="max-w-5xl mx-auto mt-40">
+            <div class="max-w-5xl mx-auto mt-40 px-6">
                 <div class="flex justify-center mb-20">
                     <img src={Seven} class="object-cover flex justify-center items-center" alt="7 Top Ok Oce" />
+                </div>
+                <div class="flex justify-center mt-[6rem] pb-20">
+                    <img src={Seven2} class="object-cover flex justify-center items-center max-w-xl mobile:max-w-72" alt="7 Top Ok Oce" />
                 </div>
                 <div className={cardClasses}>
                     <div className={titleClasses}>Pendaftaran</div>
@@ -63,9 +66,6 @@ const Seventop = () => {
                         Peserta akan didampingi untuk mendapatkan akses permodalan sesuai dengan kebutuhan usahanya.<br /> <br />
                         <a href="/permodalan" class="text-blue-500 font-medium">Pelajari Selengkapnya &gt;</a>
                     </div>
-                </div>
-                <div class="flex justify-center mt-[6rem] pb-20">
-                    <img src={Seven2} class="object-cover flex justify-center items-center max-w-xl" alt="7 Top Ok Oce" />
                 </div>
             </div>
         </>
