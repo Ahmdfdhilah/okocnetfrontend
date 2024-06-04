@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AnimateAnggota from "../components/AnimateAnggota";
 import AnimatePenggerak from "../components/AnimatePenggerak";
+import FloatingMenu from "@components/FloatingMenu";
 
 // - img
 import sandiaga from "@img/sandiaga-uno-ok.png";
@@ -599,7 +600,7 @@ const Homepage = () => {
           </div>
           <div class="grid mobile:grid-cols-1 mobile:grid-flow-row mobile:gap-4 lg:grid-cols-3">
             <section class="bg-white">
-              <div class="bg-gray-600 max-w-sm px-4 py-8 mx-auto text-center rounded-3xl lg:py-16 lg:px-6">
+              <div class="bg-gray-600 max-w-sm min-h-3/5 px-4 py-8 mx-auto text-center rounded-3xl lg:py-16 lg:px-6">
                 <figure class="max-w-screen-md mx-auto">
                   <svg
                     class="h-12 mx-auto mb-3 text-black dark:text-black"
@@ -613,23 +614,19 @@ const Homepage = () => {
                   </svg>
                   <blockquote>
                     <p class="font-medium text-gray-900 dark:text-white lg:text-2xl ">
-                      "Flowbite is just awesome. It contains tons of predesigned
-                      components and pages starting from login screen to complex
-                      dashboard. Perfect choice for your next SaaS application."
+                      "Program OK OCE Indonesia telah mendapat berbagai
+                      tanggapan positif karena dianggap mampu memberdayakan
+                      pengusaha kecil dan menengah melalui pelatihan
+                      kewirausahaan dan akses permodalan yang lebih mudah."
                     </p>
                   </blockquote>
                   <figcaption class="flex items-center justify-center mt-6 space-x-3">
-                    <img
-                      class="w-6 h-6 rounded-full"
-                      src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
-                      alt="profile"
-                    />
                     <div class="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
-                      <div class="pr-3 font-medium text-gray-900 dark:text-white">
-                        Micheal Gough
+                      <div class="pr-3 font-medium text-gray-900 text-white">
+                        Ihsania Izzatun Nisa
                       </div>
-                      <div class="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">
-                        CEO at Google
+                      <div class="pl-3 text-sm font-bold text-black">
+                        Pendamping Program
                       </div>
                     </div>
                   </figcaption>
@@ -637,7 +634,7 @@ const Homepage = () => {
               </div>
             </section>
             <section class="bg-white">
-              <div class="bg-gray-600 max-w-sm px-4 py-8 mx-auto text-center rounded-3xl lg:py-16 lg:px-6">
+              <div class="bg-gray-600 max-w-sm min-h-[100%] px-4 py-8 mx-auto text-center rounded-3xl lg:py-16 lg:px-6">
                 <figure class="max-w-screen-md mx-auto">
                   <svg
                     class="h-12 mx-auto mb-3 text-black dark:text-black"
@@ -651,23 +648,19 @@ const Homepage = () => {
                   </svg>
                   <blockquote>
                     <p class="font-medium text-gray-900 dark:text-white lg:text-2xl">
-                      "Flowbite is just awesome. It contains tons of predesigned
-                      components and pages starting from login screen to complex
-                      dashboard. Perfect choice for your next SaaS application."
+                      "Program OK OCE Indonesia dipuji banyak pihak karena
+                      efektif memberdayakan pengusaha kecil dan menengah melalui
+                      pelatihan kewirausahaan dan akses permodalan yang lebih
+                      mudah."
                     </p>
                   </blockquote>
-                  <figcaption class="flex items-center justify-center mt-6 space-x-3">
-                    <img
-                      class="w-6 h-6 rounded-full"
-                      src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
-                      alt="profile"
-                    />
+                  <figcaption class="flex items-center justify-center mt-14 space-x-3">
                     <div class="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
-                      <div class="pr-3 font-medium text-gray-900 dark:text-white">
-                        Micheal Gough
+                      <div class="pr-3 font-medium text-gray-900 text-white">
+                        Nauval Firdaus
                       </div>
-                      <div class="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">
-                        CEO at Google
+                      <div class="pl-3 text-sm font-bold text-black">
+                        Pendamping UMKM
                       </div>
                     </div>
                   </figcaption>
@@ -675,7 +668,7 @@ const Homepage = () => {
               </div>
             </section>
             <section class="bg-white">
-              <div class="bg-gray-600 max-w-sm px-4 py-8 mx-auto text-center rounded-3xl lg:py-16 lg:px-6">
+              <div class="bg-gray-600 max-w-sm min-h-[100%] px-4 py-8 mx-auto text-center rounded-3xl lg:py-16 lg:px-6">
                 <figure class="max-w-screen-md mx-auto">
                   <svg
                     class="h-12 mx-auto mb-3 text-black dark:text-black"
@@ -689,23 +682,18 @@ const Homepage = () => {
                   </svg>
                   <blockquote>
                     <p class="font-medium text-gray-900 dark:text-white lg:text-2xl">
-                      "Flowbite is just awesome. It contains tons of predesigned
-                      components and pages starting from login screen to complex
-                      dashboard. Perfect choice for your next SaaS application."
+                      "Program OK OCE Indonesia dianggap sukses oleh banyak
+                      orang dalam membantu menciptakan lapangan kerja baru dan
+                      meningkatkan keterampilan kewirausahaan masyarakat."
                     </p>
                   </blockquote>
-                  <figcaption class="flex items-center justify-center mt-6 space-x-3">
-                    <img
-                      class="w-6 h-6 rounded-full"
-                      src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
-                      alt="profile"
-                    />
+                  <figcaption class="flex items-center justify-center mt-[5.5rem] space-x-3">
                     <div class="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
-                      <div class="pr-3 font-medium text-gray-900 dark:text-white">
-                        Micheal Gough
+                      <div class="pr-3 font-medium text-gray-900 text-white">
+                        Rico Hadeta Putra
                       </div>
-                      <div class="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">
-                        CEO at Google
+                      <div class="pl-3 text-sm font-bold text-black">
+                        MSIB Batch 6
                       </div>
                     </div>
                   </figcaption>
@@ -718,6 +706,7 @@ const Homepage = () => {
       <div>
         <PopupMenu />
       </div>
+      <FloatingMenu />{" "}
     </>
   );
 };
