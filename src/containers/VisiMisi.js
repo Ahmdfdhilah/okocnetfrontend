@@ -1,6 +1,5 @@
 import React from "react";
-import Header from "@img/Header visimisi.png"
-import visi from "@img/visimisiContent.jpg"
+import Header from "@img/Header visimisi.png";
 
 const VisiMisi = () => {
     return (
@@ -8,15 +7,29 @@ const VisiMisi = () => {
             <div class="w-full flex justify-center mobile:mt-24">
                 <img src={Header} class="relative object-cover block w-full h-auto lg:w-screen lg:h-[40rem]" alt="header" />
             </div>
-            <div class="grid mobile:grid-rows-1 lg:grid-cols-2 lg:gap-4">
-                <div class="p-12">
-                    <h1 class="font-extrabold text-3xl">“OK OCE memberikan relevansi untuk kebutuhan masyarakat."</h1>
-                    <p class="mt-8 text-justify">Berawal dari para pengurus, penggerak, dan anggota OK OCE yang memiliki visi dan misi yang sama mengenai arti memberikan pekerjaan dan penghidupan yang layak bagi kemanusiaan. Atas hal tersebut tercetuslah sebuah gagasan untuk mendirikan yayasan yang memiliki kepedulian terhadap masyarakat khususnya UMKM, menjunjung tinggi nilai-nilai sosial, pendidikan dan kemanusiaan.
-                    </p>
-                </div>
-                <div class="mobile:mt-0 mobile:px-10 mobile:mb-10 mobile:mr-3 mobile:max-w-md lg:mt-10 lg:p-10">
-                    <img src={visi} class="object-cover lg:max-w-[40rem]" alt="" />
-                </div>
+            <div class="w-7/12 mt-10 py-10 mx-auto grid mobile:grid-rows-1">
+                <h1 class="font-extrabold text-3xl text-center">"OK OCE memberikan relevansi untuk kebutuhan masyarakat"</h1>
+                <p class="mt-8 text-center">Berawal dari para pengurus, penggerak, dan anggota OK OCE yang memiliki visi dan misi yang sama mengenai arti memberikan pekerjaan dan penghidupan yang layak bagi kemanusiaan. Atas hal tersebut tercetuslah sebuah gagasan untuk mendirikan yayasan yang memiliki kepedulian terhadap masyarakat khususnya UMKM, menjunjung tinggi nilai-nilai sosial, pendidikan dan kemanusiaan.
+                </p>
+            </div>
+            <div class="w-7/12 bg-red-500 rounded-xl mt-10 py-10 mx-auto grid mobile:grid-rows-1">
+                <h1 class="font-extrabold text-3xl text-white text-center">VISI OK OCE INDONESIA</h1>
+                <p class="mt-8 text-center text-white">Menjadi gerakan sosial yang mampu menciptakan lapangan kerja dan meningkatkan penghasilan masyarakat melalui pelatihan dan pendampingan kewirausahaan.
+                </p>
+            </div>
+            <div class="w-7/12 bg-blue-500 rounded-xl mt-10 mb-14 py-10 mx-auto grid mobile:grid-rows-1">
+                <h1 class="font-extrabold text-3xl text-white text-center">MISI OK OCE INDONESIA</h1>
+                <ul class="w-[90%] text-justify text-white mx-auto mt-8">
+                    <li className="list-disc">Melakukan pendataan calon wirausaha dan wirausaha di masyarakat.</li>
+                    <li className="list-disc">Melakukan pendataan calon wirausaha dan wirausaha di masyarakat.</li>
+                    <li className="list-disc">Memberikan pelatihan dan pendampingan usaha kepada masyarakat.</li>
+                    <li className="list-disc">Mendorong dan membantu wirausaha untuk melengkapi perizinan.</li>
+                    <li className="list-disc">Membantu pemasaran produk-produk anggota.</li>
+                    <li className="list-disc">Menciptakan pusat-pusat kewirausahaan di masyarakat.</li>
+                    <li className="list-disc">Membantu akses permodalan kepada anggota.</li>
+                    <li className="list-disc">Berkolaborasi dengan pemerintah, swasta, dunia pendidikan dan penggerak komunitas
+                        Membangun ekosistem bisnis bagi komunitas wirausaha sosial untuk membantu wirausaha dampingan.</li>
+                </ul>
             </div>
         </>
     );

@@ -12,11 +12,13 @@ const Seventop = () => {
     return (
         <>
             <div class="max-w-5xl mx-auto mt-40 px-6">
-                <div class="flex justify-center mb-20">
-                    <img src={Seven} class="object-cover flex justify-center items-center" alt="7 Top Ok Oce" />
-                </div>
-                <div class="flex justify-center mt-[6rem] pb-20">
-                    <img src={Seven2} class="object-cover flex justify-center items-center max-w-xl mobile:max-w-72" alt="7 Top Ok Oce" />
+                <div className="flex justify-around mb-20">
+                    <div class="">
+                        <img src={Seven} class="object-cover" alt="7 Top Ok Oce" />
+                    </div>
+                    <div class="">
+                        <img src={Seven2} class="object-cover lg:max-w-64 mobile:max-w-72" alt="7 Top Ok Oce" />
+                    </div>
                 </div>
                 <div className={cardClasses}>
                     <div className={titleClasses}>Pendaftaran</div>

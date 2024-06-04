@@ -6,7 +6,7 @@ const Modal = ({ isOpen, onClose }) => {
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center w-full h-full overflow-x-hidden overflow-y-auto bg-black bg-opacity-50">
-            <div className="relative w-full max-w-md p-4 bg-white rounded-lg shadow-lg dark:bg-gray-700">
+            <div className="relative w-full max-w-md p-4 bg-white rounded-lg shadow-lg dark:bg-gray-700 animate-fade-up animate-once animate-delay-[20ms]">
                 <div className="flex items-center justify-between p-4 border-b rounded-t dark:border-gray-600">
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Sign in to our platform</h3>
                     <button

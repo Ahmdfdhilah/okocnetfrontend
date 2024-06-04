@@ -51,34 +51,42 @@ const EventDetail = () => {
                     <p className="font-extrabold text-red-500 text-2xl">{eventData.attributes?.contact_person}</p>
                 </div>
                 <div className="w-[90%] mx-auto border-b-2 border-blue-400">
-                    <p className="mt-2 text-sm text-black text-justify pb-4">{eventData.attributes?.deskripsi_event}
+                    <p className="mt-2 text-lg text-black text-justify pb-4">{eventData.attributes?.deskripsi_event}
+                    </p>
+                    <p className="mt-2 text-lg text-black text-justify pb-4">{eventData.attributes?.deskripsi_event_2}
+                    </p>
+                    <p className="mt-2 text-lg text-black text-justify pb-4">{eventData.attributes?.deskripsi_event_3}
+                    </p>
+                    <p className="mt-2 text-lg text-black text-justify pb-4">{eventData.attributes?.deskripsi_event_4}
+                    </p>
+                    <p className="mt-2 text-lg text-black text-justify pb-4">{eventData.attributes?.deskripsi_event_5}
                     </p>
                 </div>
-                <div className="w-[90%] mx-auto border-b-2 border-blue-400 pt-6 flex justify-between">
+                <div className="w-[90%] mx-auto border-b-2 border-blue-400 pt-6 grid grid-cols-2 justify-between">
                     <div>
                         <h3 className="font-semibold text-lg text-blue-500">Tanggal Event</h3>
-                        <p className="mt-2 text-black font-bold text-xl text-justify pb-4">{eventData.attributes?.tanggal_event}
+                        <p className="mt-2 text-black font-bold text-2xl text-justify pb-4">{eventData.attributes?.tanggal_event}
                         </p>
                     </div>
                     <div>
                         <h3 className="font-semibold text-lg text-blue-500">Waktu</h3>
-                        <p className="mt-2 text-black font-bold text-xl text-justify pb-4">{eventData.attributes?.durasi_event}
+                        <p className="mt-2 text-black font-bold text-2xl text-justify pb-4">{eventData.attributes?.durasi_event}
                         </p>
                     </div>
-                    <div>
+                    <div className="col-span-2">
                         <h3 className="font-semibold text-lg text-blue-500">Lokasi</h3>
-                        <p className="mt-2 text-black font-bold text-xl text-justify pb-4">{eventData.attributes?.tempat_event}
+                        <p className="mt-2 text-black font-bold text-2xl pb-4">{eventData.attributes?.tempat_event}
                         </p>
                     </div>
                     <div>
                         <h3 className="font-semibold text-lg text-blue-500">Kuota</h3>
-                        <p className="mt-2 text-black font-bold text-xl text-justify pb-4">{eventData.attributes?.quota_event}
+                        <p className="mt-2 text-black font-bold text-2xl text-justify pb-4">{eventData.attributes?.quota_event}
                         </p>
                     </div>
                 </div>
                 <div className="w-[90%] mx-auto border-b-2 border-blue-400 pt-4">
-                    <h3 className="font-semibold text-2xl text-blue-500">Narasumber</h3>
-                    <p className="mt-2 text-lg font-bold text-black text-justify pb-4">{eventData.attributes?.narasumber}
+                    <h3 className="font-semibold text-xl text-blue-500">Narasumber</h3>
+                    <p className="mt-2 text-2xl font-bold text-black text-justify pb-4">{eventData.attributes?.narasumber}
                     </p>
                 </div>
             </div>
