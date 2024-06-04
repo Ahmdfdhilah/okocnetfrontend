@@ -23,7 +23,7 @@ import Pelaporan from "@img/Laporan Keuangan.png";
 import Permodalan from "@img/Permodalan.png";
 import News1 from "@img/news-1.webp";
 import Okocetv from "@img/okoce-tv.webp";
-import Header from "../asset/img/Penggerak OKOCE Indonesia (1519 x 710 piksel).png";
+import Header from "@img/Penggerak OKOCE Indonesia (1519 x 710 piksel).png";
 // - component
 import Peta from "@components/Peta";
 import Youtube from "@components/Youtube";
@@ -127,7 +127,7 @@ const Homepage = () => {
       <div class="grid grid-flow-row">
         <section
           class="bg-white dark:bg-gray-900 mt-24 mobile:w-full"
-          style={{ backgroundImage: `url(${HeaderPenggerak})` }}>
+          style={{ backgroundImage: `url(${Header})` }}>
           <div class="py-8 px-4 mx-auto text-center mobile:w-80 sm:w-96 lg:w-full lg:py-16">
             <h1 class="mb-4 text-4xl text-white font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">
               We invest in the world’s potential
@@ -701,6 +701,7 @@ const Homepage = () => {
           </div>
         </div>
       </div>
+      <FloatingMenu />{" "}
     </>
   );
 };
