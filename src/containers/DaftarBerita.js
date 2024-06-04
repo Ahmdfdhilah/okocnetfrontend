@@ -3,7 +3,6 @@ import Header from '../asset/img/beritaheader.png';
 import { Link } from "react-router-dom";
 
 const ITEMS_PER_PAGE = 9;  // Jumlah item per halaman
-const MAX_PAGE_BUTTONS = 5; // Jumlah maksimal tombol halaman yang ditampilkan
 
 const DaftarBerita = () => {
     const [datas, setData] = useState([]);
@@ -43,28 +42,6 @@ const DaftarBerita = () => {
     const endIndex = startIndex + ITEMS_PER_PAGE;
     const currentItems = datas.slice(startIndex, endIndex);
 
-    // Fungsi untuk menentukan halaman yang akan ditampilkan dalam rentang tertentu
-    const getPageNumbers = () => {
-        const pages = [];
-        const halfRange = Math.floor(MAX_PAGE_BUTTONS / 2);
-        let startPage = Math.max(currentPage - halfRange, 1);
-        let endPage = Math.min(currentPage + halfRange, totalPages);
-
-        if (currentPage - halfRange <= 0) {
-            endPage = Math.min(MAX_PAGE_BUTTONS, totalPages);
-        }
-
-        if (currentPage + halfRange > totalPages) {
-            startPage = Math.max(totalPages - MAX_PAGE_BUTTONS + 1, 1);
-        }
-
-        for (let i = startPage; i <= endPage; i++) {
-            pages.push(i);
-        }
-
-        return pages;
-    };
-
     return (
         <>
             <div className="bg-gray-200">
@@ -91,9 +68,11 @@ const DaftarBerita = () => {
                                             Tanggal Publish: {data.attributes?.tanggal_berita}
                                         </span>
                                     </div>
-                                    <div className="mt-8 flex justify-start">
-                                        <button className="bg-green-500 w-full text-white p-2 rounded-lg">Read more</button>
-                                    </div>
+                                    <Link to={`/daftarberita/${data.id}`}>
+                                        <div className="mt-8 flex justify-start">
+                                            <button className="bg-green-500 w-full text-white p-2 rounded-lg">Read more</button>
+                                        </div>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

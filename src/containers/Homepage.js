@@ -3,6 +3,8 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import AnimateAnggota from "../components/AnimateAnggota";
+import AnimatePenggerak from "../components/AnimatePenggerak";
 
 // - img
 import sandiaga from "@img/sandiaga-uno-ok.png";
@@ -20,17 +22,12 @@ import Perizinan from "@img/Perizinan.png";
 import Pemasaran from "@img/Pemasaran.png";
 import Pelaporan from "@img/Laporan Keuangan.png";
 import Permodalan from "@img/Permodalan.png";
-import News1 from "@img/news-1.webp";
 import Okocetv from "@img/okoce-tv.webp";
 import Header from "../asset/img/Penggerak OKOCE Indonesia (1519 x 710 piksel).png"
 // - component
 import Peta from "@components/Peta";
 import Youtube from "@components/Youtube";
 import Calendar from "@components/Calendar";
-// - galeri
-import Berita1 from "@galeri/Munawar.jpg";
-import Berita2 from "@galeri/Berbagi Berkah.png";
-import Berita3 from "@galeri/copywriting.png";
 // - mitra-kerjasama
 import Azindo from "@mitra-kerjasama/az-indonesia.png";
 import Cetak from "@mitra-kerjasama/cetakkemasan.png";
@@ -117,7 +114,7 @@ const Homepage = () => {
 
     return (
         <>
-            <div class="relative grid grid-flow-row">
+            <div class="relative w-full grid grid-flow-row">
                 <div className="relative w-full mt-24 mobile:h-full lg:h-screen">
                     <img className="object-cover w-full h-auto mobile:w-[200%]" src={Header} alt="" />
                     <section className="absolute inset-0 flex items-center justify-center mobile:top-1 lg:top-[14rem] ">
@@ -206,24 +203,14 @@ const Homepage = () => {
                 </div>
 
                 <div class="grid grid-grid-flow-row justify-items-center items-center mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
-                    <div class="md:pt-8 pb-8">
-                        <h3 class="text-okoce-blue text-center font-poppins mobile:text-2xl text-sky-700 font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl ">Sebaran UMKM di Indonesia</h3>
+                    <div class="md:pt-16 pb-8">
+                        <h2 class="text-sky-700 text-center font-poppins mobile:text-2xl font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl ">Total Anggota OK OCE INDONESIA</h2>
+                        <h3 className="mt-4 mb-10 text-black text-center font-poppins mobile:text-lg mobile:text-3xl mobile:font-bold lg:text-xl lg:font-medium">Peserta yang telah bergabung di <span className="text-red-500 font-bold">OK OCE </span>sampai saat ini</h3>
                     </div>
-                    <div id="map" class="grid justify-items-center items-center w-full">
-                        <div class="w-11/12">
-                            <Peta />
-                        </div>
-                    </div>
-
-                    <div class="w-full flex justify-center items-center text-slate-700">
-                        <div class="w-3/4  about-container flex flex-col lg:flex-row justify-center items-center bg-detik-milk">
+                    <div class="w-full mb-20 flex justify-around items-center text-slate-700">
+                        <div class="about-container flex flex-col lg:flex-row justify-center items-center bg-detik-milk mobile:w-3/4 lg:w-[35rem]">
                             <div class="lg:mt-0 flex flex-col flex-grow pl-0 justify-center items-center">
-                                <div class="pb-5">
-                                    <h3 id="about-headline"
-                                        class="text-center lg:text-left text-black text-2xl lg:text-5xl font-extrabold">
-                                        14.367
-                                    </h3>
-                                </div>
+                                <AnimateAnggota />
                                 <div class="pb-5">
                                     <h3 class="text-black text-center font-medium">
                                         UMKM Anggota OK OCE Indonesia
@@ -231,12 +218,7 @@ const Homepage = () => {
                                 </div>
                             </div>
                             <div class="lg:mt-0 flex flex-col flex-grow pl-0 justify-center items-center">
-                                <div class="pb-5">
-                                    <h3 id="about-headline"
-                                        class="text-center lg:text-left text-black text-2xl lg:text-5xl font-extrabold">
-                                        198
-                                    </h3>
-                                </div>
+                                <AnimatePenggerak />
                                 <div class="pb-5">
                                     <h3 class="text-black text-justify font-medium">
                                         Penggerak OK OCE Indonesia
@@ -245,11 +227,16 @@ const Homepage = () => {
                             </div>
                         </div>
                     </div>
+                    <div id="map" class="grid justify-items-center items-center w-full">
+                        <div class="w-11/12">
+                            <Peta />
+                        </div>
+                    </div>
                 </div>
 
-                <div class="bg-white mt-24 lg:pb-20 mobile:pb-5 grid justify-items-center mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
+                <div class="bg-white mt-12 lg:pb-20 mobile:pb-5 grid justify-items-center mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
                     <div class="md:pt-8 mb-4">
-                        <h3 class="text-okoce-blue text-center font-poppins mobile:text-2xl text-sky-700 font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl">7 Tahapan OK OCE Prima</h3>
+                        <h3 class="text-sky-700 text-center font-poppins mobile:text-2xl font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl">7 TAHAPAN OK OCE PRIMA</h3>
                     </div>
                     <div class="lg:w-10/12 lg:grid lg:justify-items-center lg:grid-flow-col lg:mt-20">
                         <div class="md:mr-8 hover:drop-shadow-2xl">
@@ -257,9 +244,11 @@ const Homepage = () => {
                                 <img class="md:h-[10em]" src={Top7} />
                             </a>
                         </div>
-                        <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
-                            <img class="md:h-[10em] object-cover mx-auto" src={Pendaftaran} />
-                        </div>
+                        <a href="https://www.ecsys.okoce.net/register">
+                            <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
+                                <img class="md:h-[10em] object-cover mx-auto" src={Pendaftaran} />
+                            </div>
+                        </a>
                         <a href="/pelatihan">
                             <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
                                 <img class="md:h-[10em] object-cover mx-auto" src={Pelatihan} />
@@ -270,30 +259,38 @@ const Homepage = () => {
                                 <img class="h-[10em] sm:mx-auto object-cover mx-auto" src={Pendampingan} />
                             </div>
                         </a>
-                        <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
-                            <img class="md:h-[10em] object-cover mx-auto" src={Perizinan} />
-                        </div>
-                        <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
-                            <img class="md:h-[10em] object-cover mx-auto" src={Pemasaran} />
-                        </div>
-                        <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
-                            <img class="md:h-[10em] object-cover mx-auto" src={Pelaporan} />
-                        </div>
-                        <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
-                            <img class="md:h-[10em] object-cover mx-auto" src={Permodalan} />
-                        </div>
+                        <a href="/perizinan">
+                            <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
+                                <img class="md:h-[10em] object-cover mx-auto" src={Perizinan} />
+                            </div>
+                        </a>
+                        <a href="/pemasaran">
+                            <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
+                                <img class="md:h-[10em] object-cover mx-auto" src={Pemasaran} />
+                            </div>
+                        </a>
+                        <a href="/pelaporan">
+                            <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
+                                <img class="md:h-[10em] object-cover mx-auto" src={Pelaporan} />
+                            </div>
+                        </a>
+                        <a href="/permodalan">
+                            <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
+                                <img class="md:h-[10em] object-cover mx-auto" src={Permodalan} />
+                            </div>
+                        </a>
                     </div>
                 </div>
 
                 <div class="bg-white mobile:w-80 mobile:mb-0 mobile:mx-auto sm:w-96 lg:w-full">
                     <div class="mt-20 mb-12">
-                        <h3 class="text-okoce-blue text-center font-poppins mobile:text-2xl text-sky-700 font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl">Event OK OCE Indonesia</h3>
+                        <h3 class="text-sky-700 text-center font-poppins mobile:text-2xl font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl">EVENT OK OCE INDONESIA</h3>
                     </div>
                     <div class="flex justify-center">
                         <h3 class="w-[55em] text-okoce-blue text-center font-poppins text-xs font-bold-700 mobile:px-2 md:text-xl lg:text-xl ">Berikut merupakan kalender mengenai acara-acara yang diselenggarakan oleh OK OCE Indonesia. Ayo Sobat, daftar OK OCE sekarang juga dan nikmati berbagai fasilitas pemasaran produk melalui acara OK OCE secara gratis, lho!</h3>
                     </div>
                     <div class="grid justify-items-center items-center mobile:mb-20 mobile:mx-auto sm:grid-rows-1 sm:grid-flow-row lg:grid-rows-2 lg:grid-flow-col lg:mb-36">
-                        <div class="grid justify-items-center items-center bg-white drop-shadow-2xl rounded-3xl mobile:max-w-full mobile:row-span-1 mobile:p-0 mobile:mx-auto mobile:h-[98%] mobile:mt-12 lg:h-[83%] lg:col-span-1 lg:row-span-2 lg:w-9/12 lg:mr-0 lg:mt-12">
+                        <div class="grid justify-items-center items-center bg-white drop-shadow-2xl rounded-3xl mobile:max-w-full mobile:row-span-1 mobile:p-0 mobile:mx-auto mobile:h-[98%] mobile:mt-12 lg:h-[83%] lg:col-span-1 lg:row-span-2 lg:w-[64%] lg:mr-0 lg:mt-12">
                             <Calendar />
                         </div>
                         <div class="text-xl font-bold mobile:p-4 mobile:mt-14 mobile:text-center lg:text-start lg:p-0 lg:mt-14">Daftar Event
@@ -317,16 +314,16 @@ const Homepage = () => {
                     </div>
                 </div>
 
-                <div class="bg-white mobile:p-3 mobile:mx-auto mobile:w-80 sm:w-96 lg:w-full lg:pb-20">
-                    <div class="pb-8">
-                        <h3 class="text-okoce-blue text-center font-poppins mobile:text-2xl text-sky-700 font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl lg:mb-4">Berita OK OCE INDONESIA</h3>
+                <div class="bg-gray-200 mobile:px-3 mobile:w-full sm:w-96 lg:w-full lg:py-20 lg:mb-20">
+                    <div class="mobile:pt-10 lg:pb-6 lg:pt-0">
+                        <h3 class="text-sky-700 text-center font-poppins font-bold-700 mobile:text-2xl mobile:text-3xl mobile:font-bold lg:text-4xl lg:mb-4">BERITA OK OCE INDONESIA</h3>
                     </div>
-                    <div className="grid mobile:grid-cols-1 mobile:mt-10 lg:w-11/12 lg:mx-auto lg:grid-cols-3 lg:gap-y-8 lg:gap-x-4 lg:mt-2">
+                    <div className="grid mobile:grid-cols-1 mobile:mt-10 lg:w-11/12 lg:mx-auto lg:grid-cols-3 lg:gap-y-8 lg:gap-x-4 lg:mt-0">
                         {datas.map((data, index) => (
                             <div key={index} className="w-full mx-auto p-4">
-                                <div className="bg-gray-700 shadow-md rounded-lg lg:mr-1">
+                                <div className="bg-sky-500 shadow-md rounded-lg lg:mr-1">
                                     <div className="p-5">
-                                        <img className="object-cover w-full mobile:h-36 lg:h-96" src={data.attributes?.foto_berita?.data?.attributes?.url} alt="" />
+                                        <img className="object-cover w-full mobile:h-36 lg:h-72" src={data.attributes?.foto_berita?.data?.attributes?.url} alt="" />
                                         <div className="relative group mb-2 mt-6 h-20">
                                             <div className="text-base leading-7 text-white font-bold text-xl overflow-hidden line-clamp-2">
                                                 {data.attributes?.judul_berita}
@@ -341,19 +338,35 @@ const Homepage = () => {
                                                 Tanggal Publish: {data.attributes?.tanggal_berita}
                                             </span>
                                         </div>
-                                        <div className="mt-8 flex justify-start">
-                                            <button className="bg-green-500 w-full text-white p-2 rounded-lg">Read more</button>
-                                        </div>
+                                        <Link to={`/daftarberita/${data.id}`}>
+                                            <div className="mt-8 flex justify-start">
+                                                <button className="bg-lime-400 w-full text-white p-2 rounded-lg hover:bg-lime-500">Read more</button>
+                                            </div>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
-
-                <div class="bg-white mobile:w-80 mobile:pb-10 mobile:mx-auto sm:w-96 lg:w-11/12 lg:pb-20">
+                <div className="grid grid-flow-row justify-items-center items-center text-lg text-center text-black mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
+                    <div class="max-w-72">
+                        <img
+                            loading="lazy"
+                            srcSet={Okocetv}
+                            className="object-cover"
+                        />
+                    </div>
+                    <div class="flex justify-center items-center mobile:w-80 lg:w-full">
+                        <Youtube src="https://www.youtube.com/embed/5ThtiH6g0MQ?si=03pi3GAI_Gokz4X7" />
+                    </div>
+                    <div class="flex justify-center mt-7 max-md:max-w-full">
+                        Tonton video lainnya di YouTube OK OCE Indonesia.
+                    </div>
+                </div>
+                <div class="bg-white mt-10 mobile:w-full mobile:pb-10 mobile:mx-auto lg:w-11/12 lg:pb-2">
                     <div class="mobile:pt-8 pb-8">
-                        <h3 class="text-okoce-blue text-center font-poppins text-xl md:text-2xl lg:text-4xl font-bold-700 mobile:text-3xl mobile:font-bold">Jadilah salah satu dari mitra kami!</h3>
+                        <h3 class="text-sky-700 text-center font-poppins text-xl font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl">Jadilah salah satu dari mitra kami!</h3>
                     </div>
                     <div class="grid grid-cols-2 gap-6 justify-items-center mobile:grid-cols-1 mobile:px-10 md:grid-cols-4  lg:p-10">
                         <div>
@@ -394,26 +407,9 @@ const Homepage = () => {
                         </div>
                     </div>
                 </div>
-
-                <div className="grid grid-flow-row justify-items-center items-center text-lg text-center text-black mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
-                    <div class="max-w-72">
-                        <img
-                            loading="lazy"
-                            srcSet={Okocetv}
-                            className="object-cover"
-                        />
-                    </div>
-                    <div class="flex justify-center items-center mobile:w-80 lg:w-full">
-                        <Youtube src="https://www.youtube.com/embed/5ThtiH6g0MQ?si=03pi3GAI_Gokz4X7" />
-                    </div>
-                    <div class="flex justify-center mt-7 max-md:max-w-full">
-                        Tonton video lainnya di YouTube OK OCE Indonesia.
-                    </div>
-                </div>
-
                 <div class="bg-white m-6 pb-20 mobile:w-72 mobile:mx-auto sm:w-96 lg:w-11/12">
-                    <div class="md:pt-8 pb-8">
-                        <h3 class="text-okoce-blue text-center font-poppins text-xl font-bold-700 mobile:mt-10 mobile:text-3xl mobile:font-bold md:text-2xl lg:text-4xl">Pendapat Mereka Tentang OK OCE INDONESIA!</h3>
+                    <div class="md:pt-8 pb-14">
+                        <h3 class="text-sky-700 text-center font-poppins font-bold-700 mobile:mt-10 mobile:text-3xl mobile:font-bold md:text-2xl lg:text-4xl">Pendapat Mereka Tentang OK OCE INDONESIA!</h3>
                     </div>
                     <div class="grid mobile:grid-cols-1 mobile:grid-flow-row mobile:gap-4 lg:grid-cols-3">
                         <section class="bg-white">

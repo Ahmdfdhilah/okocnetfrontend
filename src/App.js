@@ -35,6 +35,7 @@ import Mitrakerjasama from "./containers/Mitrakerjasama";
 import Desapreneur from "./containers/Desapreneur";
 import EventDetail from "./containers/EventDetail";
 import DaftarBerita from "./containers/DaftarBerita";
+import BeritaDetail from "./containers/BeritaDetail";
 
 function App() {
   return (
@@ -75,6 +76,7 @@ function App() {
           <Route path="/desapreneur" element={<Desapreneur />} />
           <Route path="/event/:id" element={<EventDetail />} />
           <Route path="/daftarberita" element={<DaftarBerita />} />
+          <Route path="/daftarberita/:id" element={<BeritaDetail />} />
         </Routes >
         <Footer />
       </BrowserRouter >

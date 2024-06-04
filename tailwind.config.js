@@ -9,6 +9,6 @@ module.exports = {
     screens: { 'mobile': '320px', 'sm': '400px', 'md': '1199px', 'lg': '1200px', 'xl': '1280px', },
     extend: {},
   },
-  plugins: [],
+  plugins: [require('tailwindcss-animated')],
 }
 
