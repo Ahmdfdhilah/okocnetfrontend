@@ -13,6 +13,7 @@
     "alias": "^0.0.5",
     "axios": "^1.7.2",
     "contentful": "^10.9.2",
+    "countup.js": "^2.8.0",
     "date-fns": "^3.6.0",
     "dayjs": "^1.11.10",
     "leaflet": "^1.9.4",

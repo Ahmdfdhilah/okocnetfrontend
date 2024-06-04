@@ -3,7 +3,8 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import FloatingMenu from "@components/FloatingMenu";
+import AnimateAnggota from "../components/AnimateAnggota";
+import AnimatePenggerak from "../components/AnimatePenggerak";
 
 // - img
 import sandiaga from "@img/sandiaga-uno-ok.png";
@@ -21,17 +22,12 @@ import Perizinan from "@img/Perizinan.png";
 import Pemasaran from "@img/Pemasaran.png";
 import Pelaporan from "@img/Laporan Keuangan.png";
 import Permodalan from "@img/Permodalan.png";
-import News1 from "@img/news-1.webp";
 import Okocetv from "@img/okoce-tv.webp";
-import Header from "@img/Penggerak OKOCE Indonesia (1519 x 710 piksel).png";
+import Header from "../asset/img/Penggerak OKOCE Indonesia (1519 x 710 piksel).png";
 // - component
 import Peta from "@components/Peta";
 import Youtube from "@components/Youtube";
 import Calendar from "@components/Calendar";
-// - galeri
-import Berita1 from "@galeri/Munawar.jpg";
-import Berita2 from "@galeri/Berbagi Berkah.png";
-import Berita3 from "@galeri/copywriting.png";
 // - mitra-kerjasama
 import Azindo from "@mitra-kerjasama/az-indonesia.png";
 import Cetak from "@mitra-kerjasama/cetakkemasan.png";
@@ -124,52 +120,50 @@ const Homepage = () => {
 
   return (
     <>
-      <div class="grid grid-flow-row">
-        <section
-          class="bg-white dark:bg-gray-900 mt-24 mobile:w-full"
-          style={{ backgroundImage: `url(${Header})` }}>
-          <div class="py-8 px-4 mx-auto text-center mobile:w-80 sm:w-96 lg:w-full lg:py-16">
-            <h1 class="mb-4 text-4xl text-white font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">
-              We invest in the world’s potential
-            </h1>
-            <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl mobilw:px-16 lg:px-48 dark:text-gray-400">
-              Here at Flowbite we focus on markets where technology, innovation,
-              and capital can unlock long-term value and drive economic growth.
-            </p>
-            <div class="flex flex-col space-y-4 mobile:flex-row mobile:justify-center mobile:space-y-0">
-              <a
-                href="#"
-                class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
-                Get started
-                <svg
-                  class="w-3.5 h-3.5 ms-2 rtl:rotate-180"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 14 10">
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M1 5h12m0 0L9 1m4 4L9 9"
-                  />
-                </svg>
-              </a>
-              <a
-                href="#"
-                class="py-3 px-5 mobile:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-70">
-                Learn more
-              </a>
+      <div class="relative w-full grid grid-flow-row">
+        <div className="relative w-full mt-24 mobile:h-full lg:h-screen">
+          <img
+            className="object-cover w-full h-auto mobile:w-[200%]"
+            src={Header}
+            alt=""
+          />
+          <section className="absolute inset-0 flex items-center justify-center mobile:top-1 lg:top-[14rem] ">
+            <div className="bg-inherit rounded-3xl mobile:p-0 mobile:mx-auto lg:p-10 lg:w-9/12">
+              <div className="flex sm:flex-row sm:justify-center mobile:p-0 lg:p-10">
+                <a
+                  href="https://ecsys.okoce.net/"
+                  className="inline-flex justify-center items-center font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 mobile:py-0 mobile:px-3 mobile:text-[10px] lg:text-xl lg:py-3 lg:px-5">
+                  Daftar Sekarang
+                  <svg
+                    className="w-3.5 h-3.5 ms-2 rtl:rotate-180"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 10">
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M1 5h12m0 0L9 1m4 4L9 9"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.youtube.com/watch?v=DjF6FKYGYbU"
+                  className="inline-flex justify-center bg-red-600 items-center py-3 px-5 sm:ms-4 font-medium text-center text-white rounded-lg border border-white hover:bg-red-700 focus:ring-4 focus:ring-gray-400 mobile:text-[10px] lg:text-xl">
+                  Cara Daftar OK OCE
+                </a>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
 
         <div
           id="about"
-          className="mt-[5em] mb-20 flex items-center bg-white pt-16 mobile:justify-start mobile:w-80 sm:w-96 lg:justify-center lg:mx-auto lg:w-3/4">
-          <div className="about-container flex flex-col justify-center items-center bg-detik-milk mobile:ml-10 lg:flex-row">
-            <div className="w-[100%] mx-auto p-2">
+          className="mb-20 flex items-center bg-white mx-auto mobile:justify-start mobile:w-80 sm:w-96 lg:justify-center lg:w-3/4">
+          <div className="about-container mx-auto flex flex-col justify-center items-center bg-detik-milk lg:flex-row">
+            <div className="w-[100%] h-full lg:mr-20">
               <div
                 className="relative rounded-lg overflow-hidden"
                 data-carousel="static">
@@ -305,27 +299,20 @@ const Homepage = () => {
         </div>
 
         <div class="grid grid-grid-flow-row justify-items-center items-center mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
-          <div class="md:pt-8 pb-8">
-            <h3 class="text-okoce-blue text-center font-poppins mobile:text-2xl text-sky-700 font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl ">
-              Sebaran UMKM di Indonesia
+          <div class="md:pt-16 pb-8">
+            <h2 class="text-sky-700 text-center font-poppins mobile:text-2xl font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl ">
+              Total Anggota OK OCE INDONESIA
+            </h2>
+            <h3 className="mt-4 mb-10 text-black text-center font-poppins mobile:text-lg mobile:text-3xl mobile:font-bold lg:text-xl lg:font-medium">
+              Peserta yang telah bergabung di{" "}
+              <span className="text-red-500 font-bold">OK OCE </span>sampai saat
+              ini
             </h3>
           </div>
-          <div id="map" class="grid justify-items-center items-center w-full">
-            <div class="w-11/12">
-              <Peta />
-            </div>
-          </div>
-
-          <div class="w-full flex justify-center items-center text-slate-700">
-            <div class="w-3/4  about-container flex flex-col lg:flex-row justify-center items-center bg-detik-milk">
+          <div class="w-full mb-20 flex justify-around items-center text-slate-700">
+            <div class="about-container flex flex-col lg:flex-row justify-center items-center bg-detik-milk mobile:w-3/4 lg:w-[35rem]">
               <div class="lg:mt-0 flex flex-col flex-grow pl-0 justify-center items-center">
-                <div class="pb-5">
-                  <h3
-                    id="about-headline"
-                    class="text-center lg:text-left text-black text-2xl lg:text-5xl font-extrabold">
-                    14.367
-                  </h3>
-                </div>
+                <AnimateAnggota />
                 <div class="pb-5">
                   <h3 class="text-black text-center font-medium">
                     UMKM Anggota OK OCE Indonesia
@@ -333,13 +320,7 @@ const Homepage = () => {
                 </div>
               </div>
               <div class="lg:mt-0 flex flex-col flex-grow pl-0 justify-center items-center">
-                <div class="pb-5">
-                  <h3
-                    id="about-headline"
-                    class="text-center lg:text-left text-black text-2xl lg:text-5xl font-extrabold">
-                    198
-                  </h3>
-                </div>
+                <AnimatePenggerak />
                 <div class="pb-5">
                   <h3 class="text-black text-justify font-medium">
                     Penggerak OK OCE Indonesia
@@ -348,12 +329,17 @@ const Homepage = () => {
               </div>
             </div>
           </div>
+          <div id="map" class="grid justify-items-center items-center w-full">
+            <div class="w-11/12">
+              <Peta />
+            </div>
+          </div>
         </div>
 
-        <div class="bg-white mt-24 lg:pb-20 mobile:pb-5 grid justify-items-center mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
+        <div class="bg-white mt-12 lg:pb-20 mobile:pb-5 grid justify-items-center mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
           <div class="md:pt-8 mb-4">
-            <h3 class="text-okoce-blue text-center font-poppins mobile:text-2xl text-sky-700 font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl">
-              7 Tahapan OK OCE Prima
+            <h3 class="text-sky-700 text-center font-poppins mobile:text-2xl font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl">
+              7 TAHAPAN OK OCE PRIMA
             </h3>
           </div>
           <div class="lg:w-10/12 lg:grid lg:justify-items-center lg:grid-flow-col lg:mt-20">
@@ -362,9 +348,14 @@ const Homepage = () => {
                 <img class="md:h-[10em]" src={Top7} />
               </a>
             </div>
-            <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
-              <img class="md:h-[10em] object-cover mx-auto" src={Pendaftaran} />
-            </div>
+            <a href="https://www.ecsys.okoce.net/register">
+              <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
+                <img
+                  class="md:h-[10em] object-cover mx-auto"
+                  src={Pendaftaran}
+                />
+              </div>
+            </a>
             <a href="/pelatihan">
               <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
                 <img class="md:h-[10em] object-cover mx-auto" src={Pelatihan} />
@@ -378,25 +369,36 @@ const Homepage = () => {
                 />
               </div>
             </a>
-            <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
-              <img class="md:h-[10em] object-cover mx-auto" src={Perizinan} />
-            </div>
-            <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
-              <img class="md:h-[10em] object-cover mx-auto" src={Pemasaran} />
-            </div>
-            <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
-              <img class="md:h-[10em] object-cover mx-auto" src={Pelaporan} />
-            </div>
-            <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
-              <img class="md:h-[10em] object-cover mx-auto" src={Permodalan} />
-            </div>
+            <a href="/perizinan">
+              <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
+                <img class="md:h-[10em] object-cover mx-auto" src={Perizinan} />
+              </div>
+            </a>
+            <a href="/pemasaran">
+              <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
+                <img class="md:h-[10em] object-cover mx-auto" src={Pemasaran} />
+              </div>
+            </a>
+            <a href="/pelaporan">
+              <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
+                <img class="md:h-[10em] object-cover mx-auto" src={Pelaporan} />
+              </div>
+            </a>
+            <a href="/permodalan">
+              <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
+                <img
+                  class="md:h-[10em] object-cover mx-auto"
+                  src={Permodalan}
+                />
+              </div>
+            </a>
           </div>
         </div>
 
         <div class="bg-white mobile:w-80 mobile:mb-0 mobile:mx-auto sm:w-96 lg:w-full">
           <div class="mt-20 mb-12">
-            <h3 class="text-okoce-blue text-center font-poppins mobile:text-2xl text-sky-700 font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl">
-              Event OK OCE Indonesia
+            <h3 class="text-sky-700 text-center font-poppins mobile:text-2xl font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl">
+              EVENT OK OCE INDONESIA
             </h3>
           </div>
           <div class="flex justify-center">
@@ -408,7 +410,7 @@ const Homepage = () => {
             </h3>
           </div>
           <div class="grid justify-items-center items-center mobile:mb-20 mobile:mx-auto sm:grid-rows-1 sm:grid-flow-row lg:grid-rows-2 lg:grid-flow-col lg:mb-36">
-            <div class="grid justify-items-center items-center bg-white drop-shadow-2xl rounded-3xl mobile:max-w-full mobile:row-span-1 mobile:p-0 mobile:mx-auto mobile:h-[98%] mobile:mt-12 lg:h-[83%] lg:col-span-1 lg:row-span-2 lg:w-9/12 lg:mr-0 lg:mt-12">
+            <div class="grid justify-items-center items-center bg-white drop-shadow-2xl rounded-3xl mobile:max-w-full mobile:row-span-1 mobile:p-0 mobile:mx-auto mobile:h-[98%] mobile:mt-12 lg:h-[83%] lg:col-span-1 lg:row-span-2 lg:w-[64%] lg:mr-0 lg:mt-12">
               <Calendar />
             </div>
             <div class="text-xl font-bold mobile:p-4 mobile:mt-14 mobile:text-center lg:text-start lg:p-0 lg:mt-14">
@@ -440,19 +442,19 @@ const Homepage = () => {
           </div>
         </div>
 
-        <div class="bg-white mobile:p-3 mobile:mx-auto mobile:w-80 sm:w-96 lg:w-full lg:pb-20">
-          <div class="pb-8">
-            <h3 class="text-okoce-blue text-center font-poppins mobile:text-2xl text-sky-700 font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl lg:mb-4">
-              Berita OK OCE INDONESIA
+        <div class="bg-gray-200 mobile:px-3 mobile:w-full sm:w-96 lg:w-full lg:py-20 lg:mb-20">
+          <div class="mobile:pt-10 lg:pb-6 lg:pt-0">
+            <h3 class="text-sky-700 text-center font-poppins font-bold-700 mobile:text-2xl mobile:text-3xl mobile:font-bold lg:text-4xl lg:mb-4">
+              BERITA OK OCE INDONESIA
             </h3>
           </div>
-          <div className="grid mobile:grid-cols-1 mobile:mt-10 lg:w-11/12 lg:mx-auto lg:grid-cols-3 lg:gap-y-8 lg:gap-x-4 lg:mt-2">
+          <div className="grid mobile:grid-cols-1 mobile:mt-10 lg:w-11/12 lg:mx-auto lg:grid-cols-3 lg:gap-y-8 lg:gap-x-4 lg:mt-0">
             {datas.map((data, index) => (
               <div key={index} className="w-full mx-auto p-4">
-                <div className="bg-gray-700 shadow-md rounded-lg lg:mr-1">
+                <div className="bg-sky-500 shadow-md rounded-lg lg:mr-1">
                   <div className="p-5">
                     <img
-                      className="object-cover w-full mobile:h-36 lg:h-96"
+                      className="object-cover w-full mobile:h-36 lg:h-72"
                       src={data.attributes?.foto_berita?.data?.attributes?.url}
                       alt=""
                     />
@@ -472,21 +474,33 @@ const Homepage = () => {
                         Tanggal Publish: {data.attributes?.tanggal_berita}
                       </span>
                     </div>
-                    <div className="mt-8 flex justify-start">
-                      <button className="bg-green-500 w-full text-white p-2 rounded-lg">
-                        Read more
-                      </button>
-                    </div>
+                    <Link to={`/daftarberita/${data.id}`}>
+                      <div className="mt-8 flex justify-start">
+                        <button className="bg-lime-400 w-full text-white p-2 rounded-lg hover:bg-lime-500">
+                          Read more
+                        </button>
+                      </div>
+                    </Link>
                   </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
-
-        <div class="bg-white mobile:w-80 mobile:pb-10 mobile:mx-auto sm:w-96 lg:w-11/12 lg:pb-20">
+        <div className="grid grid-flow-row justify-items-center items-center text-lg text-center text-black mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
+          <div class="max-w-72">
+            <img loading="lazy" srcSet={Okocetv} className="object-cover" />
+          </div>
+          <div class="flex justify-center items-center mobile:w-80 lg:w-full">
+            <Youtube src="https://www.youtube.com/embed/5ThtiH6g0MQ?si=03pi3GAI_Gokz4X7" />
+          </div>
+          <div class="flex justify-center mt-7 max-md:max-w-full">
+            Tonton video lainnya di YouTube OK OCE Indonesia.
+          </div>
+        </div>
+        <div class="bg-white mt-10 mobile:w-full mobile:pb-10 mobile:mx-auto lg:w-11/12 lg:pb-2">
           <div class="mobile:pt-8 pb-8">
-            <h3 class="text-okoce-blue text-center font-poppins text-xl md:text-2xl lg:text-4xl font-bold-700 mobile:text-3xl mobile:font-bold">
+            <h3 class="text-sky-700 text-center font-poppins text-xl font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl">
               Jadilah salah satu dari mitra kami!
             </h3>
           </div>
@@ -577,31 +591,18 @@ const Homepage = () => {
             </div>
           </div>
         </div>
-
-        <div className="grid grid-flow-row justify-items-center items-center text-lg text-center text-black mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
-          <div class="max-w-72">
-            <img loading="lazy" srcSet={Okocetv} className="object-cover" />
-          </div>
-          <div class="flex justify-center items-center mobile:w-80 lg:w-full">
-            <Youtube src="https://www.youtube.com/embed/5ThtiH6g0MQ?si=03pi3GAI_Gokz4X7" />
-          </div>
-          <div class="flex justify-center mt-7 max-md:max-w-full">
-            Tonton video lainnya di YouTube OK OCE Indonesia.
-          </div>
-        </div>
-
         <div class="bg-white m-6 pb-20 mobile:w-72 mobile:mx-auto sm:w-96 lg:w-11/12">
-          <div class="md:pt-8 pb-8">
-            <h3 class="text-okoce-blue text-center font-poppins text-xl font-bold-700 mobile:mt-10 mobile:text-3xl mobile:font-bold md:text-2xl lg:text-4xl">
-              Pendapat Mereka Tentang Ok Oce Indonesia!
+          <div class="md:pt-8 pb-14">
+            <h3 class="text-sky-700 text-center font-poppins font-bold-700 mobile:mt-10 mobile:text-3xl mobile:font-bold md:text-2xl lg:text-4xl">
+              Pendapat Mereka Tentang OK OCE INDONESIA!
             </h3>
           </div>
           <div class="grid mobile:grid-cols-1 mobile:grid-flow-row mobile:gap-4 lg:grid-cols-3">
             <section class="bg-white">
-              <div class="bg-red-500 max-w-sm px-4 py-8 mx-auto text-center rounded-3xl lg:py-16 lg:px-6">
+              <div class="bg-gray-600 max-w-sm px-4 py-8 mx-auto text-center rounded-3xl lg:py-16 lg:px-6">
                 <figure class="max-w-screen-md mx-auto">
                   <svg
-                    class="h-12 mx-auto mb-3 text-white dark:text-black"
+                    class="h-12 mx-auto mb-3 text-black dark:text-black"
                     viewBox="0 0 24 27"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -611,20 +612,24 @@ const Homepage = () => {
                     />
                   </svg>
                   <blockquote>
-                    <p class="font-medium text-white dark:text-white lg:text-2xl ">
-                      "Program OK OCE Indonesia telah mendapat berbagai
-                      tanggapan positif karena dianggap mampu memberdayakan
-                      pengusaha kecil dan menengah melalui pelatihan
-                      kewirausahaan dan akses permodalan yang lebih mudah."
+                    <p class="font-medium text-gray-900 dark:text-white lg:text-2xl ">
+                      "Flowbite is just awesome. It contains tons of predesigned
+                      components and pages starting from login screen to complex
+                      dashboard. Perfect choice for your next SaaS application."
                     </p>
                   </blockquote>
                   <figcaption class="flex items-center justify-center mt-6 space-x-3">
+                    <img
+                      class="w-6 h-6 rounded-full"
+                      src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
+                      alt="profile"
+                    />
                     <div class="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
-                      <div class="pr-3 font-medium text-white dark:text-white">
-                        Ihsania Izzatun Nisa
+                      <div class="pr-3 font-medium text-gray-900 dark:text-white">
+                        Micheal Gough
                       </div>
-                      <div class="pl-3 text-sm font-light text-white dark:text-gray-400">
-                        Pendamping Program
+                      <div class="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">
+                        CEO at Google
                       </div>
                     </div>
                   </figcaption>
@@ -632,10 +637,10 @@ const Homepage = () => {
               </div>
             </section>
             <section class="bg-white">
-              <div class="bg-red-500 max-w-sm px-4 py-8 mx-auto text-center rounded-3xl lg:py-16 lg:px-6">
+              <div class="bg-gray-600 max-w-sm px-4 py-8 mx-auto text-center rounded-3xl lg:py-16 lg:px-6">
                 <figure class="max-w-screen-md mx-auto">
                   <svg
-                    class="h-12 mx-auto mb-3 text-white dark:text-black"
+                    class="h-12 mx-auto mb-3 text-black dark:text-black"
                     viewBox="0 0 24 27"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -645,20 +650,24 @@ const Homepage = () => {
                     />
                   </svg>
                   <blockquote>
-                    <p class="font-medium text-white dark:text-white lg:text-2xl">
-                      "Program OK OCE Indonesia dipuji banyak pihak karena
-                      efektif memberdayakan pengusaha kecil dan menengah melalui
-                      pelatihan kewirausahaan dan akses permodalan yang lebih
-                      mudah."
+                    <p class="font-medium text-gray-900 dark:text-white lg:text-2xl">
+                      "Flowbite is just awesome. It contains tons of predesigned
+                      components and pages starting from login screen to complex
+                      dashboard. Perfect choice for your next SaaS application."
                     </p>
                   </blockquote>
                   <figcaption class="flex items-center justify-center mt-6 space-x-3">
+                    <img
+                      class="w-6 h-6 rounded-full"
+                      src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
+                      alt="profile"
+                    />
                     <div class="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
-                      <div class="pr-3 font-medium text-white dark:text-white">
-                        Nauval Firdaus
+                      <div class="pr-3 font-medium text-gray-900 dark:text-white">
+                        Micheal Gough
                       </div>
-                      <div class="pl-3 text-sm font-light text-white dark:text-gray-400">
-                        Pendamping UMKM
+                      <div class="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">
+                        CEO at Google
                       </div>
                     </div>
                   </figcaption>
@@ -666,10 +675,10 @@ const Homepage = () => {
               </div>
             </section>
             <section class="bg-white">
-              <div class="bg-red-500 max-w-sm px-4 py-8 mx-auto text-center rounded-3xl lg:py-16 lg:px-6">
+              <div class="bg-gray-600 max-w-sm px-4 py-8 mx-auto text-center rounded-3xl lg:py-16 lg:px-6">
                 <figure class="max-w-screen-md mx-auto">
                   <svg
-                    class="h-12 mx-auto mb-3 text-white dark:text-black"
+                    class="h-12 mx-auto mb-3 text-black dark:text-black"
                     viewBox="0 0 24 27"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -679,19 +688,24 @@ const Homepage = () => {
                     />
                   </svg>
                   <blockquote>
-                    <p class="font-medium text-white dark:text-white lg:text-2xl">
-                      "Program OK OCE Indonesia dianggap sukses oleh banyak
-                      orang dalam membantu menciptakan lapangan kerja baru dan
-                      meningkatkan keterampilan kewirausahaan masyarakat."
+                    <p class="font-medium text-gray-900 dark:text-white lg:text-2xl">
+                      "Flowbite is just awesome. It contains tons of predesigned
+                      components and pages starting from login screen to complex
+                      dashboard. Perfect choice for your next SaaS application."
                     </p>
                   </blockquote>
                   <figcaption class="flex items-center justify-center mt-6 space-x-3">
+                    <img
+                      class="w-6 h-6 rounded-full"
+                      src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
+                      alt="profile"
+                    />
                     <div class="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
-                      <div class="pr-3 font-medium text-white dark:text-white">
-                        Rico Hadeta Putra
+                      <div class="pr-3 font-medium text-gray-900 dark:text-white">
+                        Micheal Gough
                       </div>
-                      <div class="pl-3 text-sm font-light text-white dark:text-gray-400">
-                        MSIB Batch 6
+                      <div class="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">
+                        CEO at Google
                       </div>
                     </div>
                   </figcaption>
@@ -701,7 +715,9 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-      <FloatingMenu />{" "}
+      <div>
+        <PopupMenu />
+      </div>
     </>
   );
 };
