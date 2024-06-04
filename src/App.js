@@ -36,6 +36,7 @@ import Desapreneur from "./containers/Desapreneur";
 import Thementor from "./containers/Thementor";
 import EventDetail from "./containers/EventDetail";
 import DaftarBerita from "./containers/DaftarBerita";
+import BeritaDetail from "./containers/BeritaDetail";
 
 function App() {
   return (
@@ -77,6 +78,7 @@ function App() {
           <Route path="/thementor" element={<Thementor />} />
           <Route path="/event/:id" element={<EventDetail />} />
           <Route path="/daftarberita" element={<DaftarBerita />} />
+          <Route path="/daftarberita/:id" element={<BeritaDetail />} />
         </Routes>
         <Footer />
       </BrowserRouter>

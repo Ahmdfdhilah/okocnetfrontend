@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import Header from "@img/headerdesapreneur.png";
 import TUJUAND1 from "@img/tujuand1.png";
