@@ -127,16 +127,54 @@ const Magang = () => {
                                 </div>
                                 <div className="mt-10 mr-32 mb-10">
                                     <h1 className="text-2xl text-black font-bold">Kompetensi yang Dikembangkan</h1>
-                                    <div className="grid grid-cols-2 grid-flow-row gap-x-4 gap-y-6">
-                                        <div className="max-w-[75%] border-2 drop-shadow-lg rounded-lg mt-4">1</div>
-                                        <div className="max-w-[75%] border-2 drop-shadow-lg rounded-lg mt-4">2</div>
-                                        <div className="max-w-[75%] border-2 drop-shadow-lg rounded-lg mt-4">3</div>
-                                        <div className="max-w-[75%] border-2 drop-shadow-lg rounded-lg mt-4">4</div>
-                                        <div className="max-w-[75%] border-2 drop-shadow-lg rounded-lg mt-4">5</div>
+                                    <div className="grid grid-cols-2 grid-flow-row gap-y-6">
+                                        <div className="max-w-[75%] border-2 drop-shadow-md rounded-lg mt-4 text-black p-4 font-bold text-lg">{jobDetails.attributes.kompetensi_1}</div>
+                                        <div className="max-w-[75%] border-2 drop-shadow-md rounded-lg mt-4 text-black p-4 font-bold text-lg">{jobDetails.attributes.kompetensi_2}</div>
+                                        <div className="max-w-[75%] border-2 drop-shadow-md rounded-lg mt-4 text-black p-4 font-bold text-lg">{jobDetails.attributes.kompetensi_3}</div>
+                                        <div className="max-w-[75%] border-2 drop-shadow-md rounded-lg mt-4 text-black p-4 font-bold text-lg">{jobDetails.attributes.kompetensi_4}</div>
+                                        <div className="max-w-[75%] border-2 drop-shadow-md rounded-lg mt-4 text-black p-4 font-bold text-lg">{jobDetails.attributes.kompetensi_5}</div>
                                     </div>
                                 </div>
                                 <div className="mt-10 mr-32 mb-10">
                                     <h1 className="text-2xl text-black font-bold">Kriteria Peserta</h1>
+                                    <div className="mt-4">
+                                        <ul className="ml-5">
+                                            <li className="text-black text-black text-lg list-disc">{jobDetails.attributes.kriteria_peserta_1}</li>
+                                            <li className="text-black text-black text-lg list-disc">{jobDetails.attributes.kriteria_peserta_2}</li>
+                                            <li className="text-black text-black text-lg list-disc">{jobDetails.attributes.kriteria_peserta_3}</li>
+                                            <li className="text-black text-black text-lg list-disc">{jobDetails.attributes.kriteria_peserta_4}</li>
+                                            {jobDetails && jobDetails.attributes.kriteria_peserta_5 && (
+                                                <li className="text-black text-lg list-disc">
+                                                    {jobDetails.attributes.kriteria_peserta_5}
+                                                </li>
+                                            )}
+                                            {jobDetails && jobDetails.attributes.kriteria_peserta_6 && (
+                                                <li className="text-black text-lg list-disc">
+                                                    {jobDetails.attributes.kriteria_peserta_6}
+                                                </li>
+                                            )}
+                                            {jobDetails && jobDetails.attributes.kriteria_peserta_7 && (
+                                                <li className="text-black text-lg list-disc">
+                                                    {jobDetails.attributes.kriteria_peserta_7}
+                                                </li>
+                                            )}
+                                            {jobDetails && jobDetails.attributes.kriteria_peserta_8 && (
+                                                <li className="text-black text-lg list-disc">
+                                                    {jobDetails.attributes.kriteria_peserta_8}
+                                                </li>
+                                            )}
+                                            {jobDetails && jobDetails.attributes.kriteria_peserta_9 && (
+                                                <li className="text-black text-lg list-disc">
+                                                    {jobDetails.attributes.kriteria_peserta_9}
+                                                </li>
+                                            )}
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div className="mt-10 mr-32 mb-10">
+                                    <h1 className="text-2xl text-black font-bold">Informasi Tambahan</h1>
+                                    <p className="text-black text-black text-lg">OK OCE menawarkan 1 macam sertifikat, yaitu sertifikat keikutsertaan program.
+                                    </p>
                                 </div>
                             </div>
                         </div>
