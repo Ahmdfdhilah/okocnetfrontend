@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import '../index.css';
+import "../index.css";
 import LogoOkOce from "@img/logo-okoce.webp";
 
 function Navbar() {
@@ -86,11 +86,7 @@ function Navbar() {
         {/* {Navbar Mobile} */}
         <div class="fixed w-svw bg-white top-0 z-50 flex items-center justify-between mx-auto p-2 max-h-24 shadow-lg">
           <a href="/" class="ml-8 ">
-            <img
-              src={LogoOkOce}
-              class="h-[5rem]"
-              alt="Ok Oce Logo"
-            />
+            <img src={LogoOkOce} class="h-[5rem]" alt="Ok Oce Logo" />
           </a>
           <button
             data-collapse-toggle="navbar-multi-level"
@@ -382,7 +378,7 @@ function Navbar() {
                     </li>
                     <li>
                       <a
-                        href="/thementor"
+                        href="/Thementor"
                         className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                         The Mentor
                       </a>
@@ -713,7 +709,7 @@ function Navbar() {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/Thementor"
                         className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                         The Mentor
                       </a>

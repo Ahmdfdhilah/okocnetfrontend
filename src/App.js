@@ -33,6 +33,7 @@ import Event from "./containers/Event";
 import Mentor from "./containers/Mentor";
 import Mitrakerjasama from "./containers/Mitrakerjasama";
 import Desapreneur from "./containers/Desapreneur";
+import Thementor from "./containers/Thementor";
 import EventDetail from "./containers/EventDetail";
 import DaftarBerita from "./containers/DaftarBerita";
 import BeritaDetail from "./containers/BeritaDetail";
@@ -74,12 +75,13 @@ function App() {
           <Route path="/mentor" element={<Mentor />} />
           <Route path="/mitrakerjasama" element={<Mitrakerjasama />} />
           <Route path="/desapreneur" element={<Desapreneur />} />
+          <Route path="/thementor" element={<Thementor />} />
           <Route path="/event/:id" element={<EventDetail />} />
           <Route path="/daftarberita" element={<DaftarBerita />} />
           <Route path="/daftarberita/:id" element={<BeritaDetail />} />
-        </Routes >
+        </Routes>
         <Footer />
-      </BrowserRouter >
+      </BrowserRouter>
     </>
   );
 }
