@@ -36,7 +36,7 @@ const LokalBrand = () => {
                 <h1 class="font-extrabold text-4xl text-center">BRAND LOKAL OK</h1>
                 <p class="text-center mt-6">MEMILIKI PRODUK 100% BUATAN INDONESIA NAMUN BELUM MAKSIMAL PENJUALANNYA<br />PROGRAM PENDAMPINGAN BAGI PELAKU USAHA UNTUK DAPAT TUMBUH BERSAMA. KATEGORI ULTRA MIKRO & MIKRO UNTUK SCALEUP KE KECIL SAMPAI MENENGAH<br /><span class="text-red-600 font-bold">YUK DAFTAR 100% GRATIS.</span></p>
                 <div class="mt-6 flex flex-col items-center">
-                    <a href="#Link" class="p-4 bg-red-600 rounded-lg text-white font-bold text-lg">Daftar Sekarang</a>
+                    <a href="" class="p-4 bg-red-600 rounded-lg text-white font-bold text-lg">PENDAFTARAN DI TUTUP</a>
                 </div>
             </div>
             <div class="flex justify-center m-12">
