@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from '../asset/img/beritaheader.png';
 import { Link } from "react-router-dom";
+import FloatingMenu from "../components/FloatingMenu";
 
 const ITEMS_PER_PAGE = 9;  // Jumlah item per halaman
 
@@ -64,13 +65,13 @@ const DaftarBerita = () => {
                                     </div>
                                     <p className="text-zinc-700">Author: {data.attributes?.author_berita}</p>
                                     <div className="flex space-x-4 my-4">
-                                        <span className="bg-yellow-300 text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
+                                        <span className="bg-gray-200 text-black text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
                                             Tanggal Publish: {data.attributes?.tanggal_berita}
                                         </span>
                                     </div>
                                     <Link to={`/daftarberita/${data.id}`}>
                                         <div className="mt-8 flex justify-start">
-                                            <button className="bg-green-500 w-full text-white p-2 rounded-lg">Read more</button>
+                                            <button className="bg-gray-400 w-full text-black font-bold p-2 rounded-lg">Read more</button>
                                         </div>
                                     </Link>
                                 </div>
@@ -97,6 +98,7 @@ const DaftarBerita = () => {
                     </button>
                 </div>
             </div>
+            <FloatingMenu />{" "}
         </>
     );
 };

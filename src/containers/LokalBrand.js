@@ -27,6 +27,7 @@ import Lokalbrand21 from "@img/lokalbrand/lokalbrand21.PNG";
 import Lokalbrand22 from "@img/lokalbrand/lokalbrand22.PNG";
 import Lokalbrand23 from "@img/lokalbrand/lokalbrand23.PNG";
 import Lokalbrand24 from "@img/lokalbrand/lokalbrand24.PNG";
+import FloatingMenu from "../components/FloatingMenu";
 
 
 const LokalBrand = () => {
@@ -296,6 +297,7 @@ const LokalBrand = () => {
                     </div>
                 </div>
             </div>
+            <FloatingMenu />{" "}
         </>
     );
 }

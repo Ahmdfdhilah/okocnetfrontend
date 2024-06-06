@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../asset/img/HeaderKerja.png";
 import Logo from "@img/logo-okoce.webp";
+import FloatingMenu from "../components/FloatingMenu";
 
 const cardClasses = 'bg-white p-4 rounded-lg shadow-md flex items-start cursor-pointer';
 const textClasses = 'text-zinc-500';
@@ -102,7 +103,7 @@ const Magang = () => {
 
             <div className="w-full flex flex-col justify-around md:flex-row p-4 bg-gray-200">
                 <div className="min-w-[25rem] p-4">
-                    <p className="text-zinc-600 mb-4">Total Posisi: </p>
+                    <p className="text-zinc-600 mb-4">List Posisi </p>
                     <JobList onJobClick={handleJobClick} />
                 </div>
                 <div className="w-7/12 h-auto bg-white mt-14 rounded-xl flex items-center justify-center">
@@ -185,6 +186,7 @@ const Magang = () => {
                     )}
                 </div>
             </div>
+            <FloatingMenu />{" "}
         </>
     );
 }

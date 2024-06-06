@@ -1,5 +1,6 @@
 import React from "react";
 import Top from "@img/7top-rb.webp";
+import FloatingMenu from "../components/FloatingMenu";
 
 const Pelatihan = () => {
     return (
@@ -164,6 +165,7 @@ const Pelatihan = () => {
                     </div>
                 </div>
             </div>
+            <FloatingMenu />
         </>
     );
 }

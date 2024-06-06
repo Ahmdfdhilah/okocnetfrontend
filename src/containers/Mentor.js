@@ -8,6 +8,7 @@ import Mentor2 from "@img/mentor2.png";
 import Mentor3 from "@img/mentor3.png";
 import Mentor4 from "@img/mentor4.png";
 import Mentor5 from "@img/mentor5.png";
+import FloatingMenu from "../components/FloatingMenu";
 
 function Mentor() {
   return (
@@ -217,6 +218,7 @@ function Mentor() {
         </div>
       </div>
       {/* Benefit menjadi mentor end */}
+      <FloatingMenu />{" "}
     </>
   );
 }

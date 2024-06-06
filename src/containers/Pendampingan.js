@@ -3,18 +3,7 @@ import Top from "@img/7top-rb.webp";
 import Usaha from "@img/7 top/pendampingan/inkubasi.png";
 import Chat from "@img/7 top/pendampingan/chat.png";
 import Kolaborator from "@img/7 top/pendampingan/kolaborator.png";
-import Az from "@img/7 top/pendampingan/az-indonesia.png";
-import Ck from "@img/7 top/pendampingan/cetakkemasan.png";
-import Edu from "@img/7 top/pendampingan/eduversal.png";
-import Ekles from "@img/7 top/pendampingan/ekles-2.png";
-import Indivara from "@img/7 top/pendampingan/indivara-2.png";
-import Inotek from "@img/7 top/pendampingan/inotek.png";
-import Jnj from "@img/7 top/pendampingan/jnj-group-2.png";
-import Wgs from "@img/7 top/pendampingan/wgshub.png";
-import Kk from "@img/7 top/pendampingan/kk-indonesia.png";
-import Smeshub from "@img/7 top/pendampingan/smeshub.png";
-import Pajak from "@img/7 top/pendampingan/pajakonline.png";
-import Travel from "@img/7 top/pendampingan/travelbook.png";
+import FloatingMenu from "../components/FloatingMenu";
 
 const Pendampingan = () => {
     return (
@@ -77,6 +66,7 @@ const Pendampingan = () => {
                     </div>
                 </div>
             </div>
+            <FloatingMenu />
         </>
     );
 }

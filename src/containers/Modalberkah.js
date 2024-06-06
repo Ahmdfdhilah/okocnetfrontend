@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
 import Modalberkah1 from "@img/modalberkah/modalberkah.png";
-
+import FloatingMenu from "../components/FloatingMenu";
 
 const Modalberkah = () => {
     return (
@@ -20,8 +20,8 @@ const Modalberkah = () => {
                     <h1 className="font-extrabold text-4xl text-left mb-6">MODAL BERKAH</h1>
                     <p className="text-justify">Melalui program ‘Modal Berkah’ diharapkan bisa membantu perkembangan wirausaha dan UMKM sekitar Masjid karena bersifat tanpa riba dan tanpa embel-embel bagi hasil untuk ketiga belah pihak (OK OCE, Masjid dan UMKM) Merupakan program keumatan berbasis lembaga atau masjid yang bertujuan untuk menghimpun dan menyalurkan infaq dalam bentuk pinjaman dana kepada pelaku UMKM tanpa adanya riba</p>
                 </div>
-
             </div >
+            <FloatingMenu />
         </>
     );
 }

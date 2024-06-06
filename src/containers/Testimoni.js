@@ -6,6 +6,7 @@ import Testi3 from "@img/testi3.jpg";
 import Testi4 from "@img/testi4.jpg";
 import Testi5 from "@img/testi5.jpg";
 import Testi6 from "@img/testi6.jpg";
+import FloatingMenu from "../components/FloatingMenu";
 
 const Testimoni = () => {
   return (
@@ -182,6 +183,7 @@ const Testimoni = () => {
         </div>
       </section>
       {/* End Testimoni section */}
+      <FloatingMenu />
     </>
   );
 };

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import BgEvent from "../asset/img/bg-event.webp";
 import { Link } from "react-router-dom";
+import FloatingMenu from "../components/FloatingMenu";
 
 const ITEMS_PER_PAGE = 9;  // Jumlah item per halaman
 
@@ -97,6 +98,7 @@ const Event = () => {
                     Selanjutnya
                 </button>
             </div>
+            <FloatingMenu />{" "}
         </>
     );
 }

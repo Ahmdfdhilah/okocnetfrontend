@@ -1,11 +1,12 @@
 import React from "react";
-import Header from "../asset/img/Nilai Inti OKOCE.png"
+import Header from "../asset/img/Nilai Inti OKOCE.png";
+import FloatingMenu from "../components/FloatingMenu";
 
 const NilaiInti = () => {
     return (
         <>
-            <div className="mt-24">
-                <img className="" src={Header} alt="" />
+            <div className="mt-32 mx-auto w-11/12">
+                <img className="rounded-xl" src={Header} alt="" />
             </div>
             <div className="mt-20 mb-32">
                 <div className="container mx-auto px-4 py-8 mt-10">
@@ -33,7 +34,7 @@ const NilaiInti = () => {
                     </div>
                 </div>
             </div>
-
+            <FloatingMenu />
         </>
     );
 }

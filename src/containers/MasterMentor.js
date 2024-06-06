@@ -14,6 +14,7 @@ import BENEFIT2 from "@img/Mastermentor/BENEFIT2.png";
 import BENEFIT3 from "@img/Mastermentor/BENEFIT3.png";
 import BENEFIT4 from "@img/Mastermentor/BENEFIT4.png";
 import BENEFIT5 from "@img/Mastermentor/BENEFIT5.png";
+import FloatingMenu from "../components/FloatingMenu";
 
 const MasterMentor = () => {
     return (
@@ -254,6 +255,7 @@ const MasterMentor = () => {
                     </div>
                 </div>
             </div>
+            <FloatingMenu />{" "}
         </>
     );
 }

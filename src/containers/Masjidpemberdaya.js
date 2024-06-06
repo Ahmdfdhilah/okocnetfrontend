@@ -36,6 +36,7 @@ import Key2 from "@img/key2.png";
 import Key3 from "@img/key3.png";
 import Key4 from "@img/key4.png";
 import Key5 from "@img/key5.png";
+import FloatingMenu from "../components/FloatingMenu";
 
 const Masjidpemberdaya = () => {
   return (
@@ -757,6 +758,7 @@ const Masjidpemberdaya = () => {
 
         {/* KUNCI SUKSES END */}
       </div>
+      <FloatingMenu />{" "}
     </>
   );
 };

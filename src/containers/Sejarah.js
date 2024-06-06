@@ -9,6 +9,7 @@ import Mesjid from "@img/Placeholder image .png";
 import Desapreneur from "@img/Placeholder image-1.png";
 import EmakKece from "@img/Placeholder image-4.png";
 import Brand from "@img/Placeholder image-3.png";
+import FloatingMenu from "../components/FloatingMenu";
 
 const Sejarah = () => {
 
@@ -108,6 +109,7 @@ const Sejarah = () => {
                     <img src={Brand} class="max-w-[20rem]" alt="gerakan sosial" />
                 </div>
             </div>
+            <FloatingMenu />
         </>
     )
 }

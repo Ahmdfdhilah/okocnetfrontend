@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import Header from "../asset/img/Merch.png"
+import Header from "../asset/img/Merch.png";
+import FloatingMenu from "../components/FloatingMenu";
 
 const Merchandise = () => {
     const [datas, setDatas] = useState([]);
@@ -146,6 +147,7 @@ const Merchandise = () => {
                     )}
                 </div>
             </div>
+            <FloatingMenu />{" "}
         </>
     );
 };

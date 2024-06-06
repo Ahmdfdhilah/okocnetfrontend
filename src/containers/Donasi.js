@@ -3,6 +3,7 @@ import React from "react";
 import qris from "@img/barcode/qris.png";
 import qris2 from "@img/barcode/Qris-1.png";
 import qris3 from "@img/barcode/Qris-2.png";
+import FloatingMenu from "../components/FloatingMenu";
 
 const Donasi = () => {
     return (
@@ -91,6 +92,7 @@ const Donasi = () => {
                 </div>
             </div>
             {/* <!-- Jumbotron --> */}
+            <FloatingMenu />{" "}
         </>
     )
 }

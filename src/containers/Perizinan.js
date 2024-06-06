@@ -1,5 +1,4 @@
 import React from "react";
-import Top from "@img/7top-rb.webp";
 import Halal from "@img/7 top/perizinan/izin-sertifikasi-halal.png";
 import Berusaha from "@img/7 top/perizinan/nomer-izin-berusaha.png";
 import Kosmetik from "@img/7 top/perizinan/izin-sertifikasi-kosmetik.png";
@@ -8,6 +7,7 @@ import Haki from "@img/7 top/perizinan/haki.png";
 import Pkrt from "@img/7 top/perizinan/sertifikasi-pkrt.png";
 import a7 from "@img/7 top/perizinan/7.png";
 import header from "@img/7 top/perizinan/headerperizinan.png";
+import FloatingMenu from "../components/FloatingMenu";
 
 const Perizinan = () => {
   return (
@@ -16,13 +16,13 @@ const Perizinan = () => {
         <img
           loading="lazy"
           src={header}
-          className="object-cover absolute inset-0 size-full"
+          className="object-cover absolute inset-0 size-full" alt=""
         />
         <div className="relative mt-24 w-full max-w-[1196px] max-md:mt-10 max-md:max-w-full">
           <div className="flex gap-5 max-md:flex-col max-md:gap-0">
             <div className="flex flex-col w-[22%] max-md:ml-0 max-md:w-full">
               <div className="flex relative flex-col grow justify-center p-2.5 w-full rounded-3xl shadow-sm bg-opacity-70 max-md:mt-10">
-                <img loading="lazy" src={a7} className="w-full aspect-[0.79]" />
+                <img loading="lazy" src={a7} className="w-full aspect-[0.79]" alt="" />
               </div>
             </div>
             <div className="flex flex-col ml-10 w-[78%] max-md:ml-0 max-md:w-full">
@@ -61,7 +61,7 @@ const Perizinan = () => {
                 <img
                   loading="lazy"
                   src={Halal}
-                  className="w-[149px] aspect-[1.19]"
+                  className="w-[149px] aspect-[1.19]" alt=""
                 />
                 <div className="mt-4">Izin Sertifikasi Halal</div>
               </div>
@@ -78,7 +78,7 @@ const Perizinan = () => {
                 <a
                   href="https://ptsp.halal.go.id/"
                   className="underline text-blue-500"
-                  target="_blank">
+                  target="_blank" rel="noreferrer" >
                   https://ptsp.halal.go.id/
                 </a>
               </div>
@@ -97,7 +97,7 @@ const Perizinan = () => {
                 <img
                   loading="lazy"
                   src={Berusaha}
-                  className="aspect-[1.16] w-[155px]"
+                  className="aspect-[1.16] w-[155px]" alt=""
                 />
                 <div className="mt-4">Nomor Izin Berusaha</div>
               </div>
@@ -116,7 +116,7 @@ const Perizinan = () => {
                 <a
                   href="https://oss.go.id/"
                   className="underline text-blue-500"
-                  target="_blank">
+                  target="_blank" rel="noreferrer">
                   https://oss.go.id/
                 </a>
               </div>
@@ -135,7 +135,7 @@ const Perizinan = () => {
                 <img
                   loading="lazy"
                   src={Kosmetik}
-                  className="self-center aspect-[1.01] w-[133px]"
+                  className="self-center aspect-[1.01] w-[133px]" alt=""
                 />
                 <div className="mt-4 max-md:mx-1">
                   Izin Sertifikasi Kosmetik
@@ -154,21 +154,21 @@ const Perizinan = () => {
                 <a
                   href="https://notifkos.pom.go.id/"
                   className="underline text-blue-500"
-                  target="_blank">
+                  target="_blank" rel="noreferrer">
                   https://notifkos.pom.go.id{" "}
                 </a>
                 (Izin/ sertifikasi Kosmetik) <br />
                 <a
                   href="https://asrot.pom.go.id/"
                   className="underline text-blue-500"
-                  target="_blank">
+                  target="_blank" rel="noreferrer">
                   https://asrot.pom.go.id
                 </a>{" "}
                 (Obat Tradisional) <br />
                 <a
                   href="https://asrot.pom.go.id/asrot/"
                   className="underline text-blue-500"
-                  target="_blank">
+                  target="_blank" rel="noreferrer">
                   e-Registration OTSM - BPOM
                 </a>
                 (Suplemen Kesehatan)
@@ -176,7 +176,7 @@ const Perizinan = () => {
                 <a
                   href="https://new-aero.pom.go.id/"
                   className="underline text-blue-500"
-                  target="_blank">
+                  target="_blank" rel="noreferrer">
                   https://new-aero.pom.go.id/
                 </a>{" "}
                 (Obat).
@@ -196,7 +196,7 @@ const Perizinan = () => {
                 <img
                   loading="lazy"
                   src={Pangan}
-                  className="self-center aspect-[0.99] w-[133px]"
+                  className="self-center aspect-[0.99] w-[133px]" alt=""
                 />
                 <div className="mt-4 max-md:mx-1">Izin Sertifikasi Pangan</div>
               </div>
@@ -212,7 +212,7 @@ const Perizinan = () => {
                 <a
                   href="https://registrasipangan.pom.go.id/"
                   className="underline text-blue-500"
-                  target="_blank">
+                  target="_blank" rel="noreferrer">
                   Beranda | Direktorat Registrasi Pangan Olahan (pom.go.id)
                 </a>
               </div>
@@ -231,7 +231,7 @@ const Perizinan = () => {
                 <img
                   loading="lazy"
                   src={Haki}
-                  className="self-center aspect-[1.2] w-[157px]"
+                  className="self-center aspect-[1.2] w-[157px]" alt=""
                 />
                 <div className="mt-4">Izin Sertifikasi HAKI</div>
               </div>
@@ -247,7 +247,7 @@ const Perizinan = () => {
                 <a
                   href="https://www.dgip.go.id/menu-utama/merek/proses-pendaftaran-merek"
                   className="underline text-blue-500"
-                  target="_blank">
+                  target="_blank" rel="noreferrer">
                   https://www.dgip.go.id/menu-utama/merek/proses-pendaftaran-merek
                 </a>
                 <br />
@@ -267,7 +267,7 @@ const Perizinan = () => {
                 <img
                   loading="lazy"
                   src={Pkrt}
-                  className="self-center aspect-[1.02] w-[155px]"
+                  className="self-center aspect-[1.02] w-[155px]" alt=""
                 />
                 <div className="mt-5">Izin Sertifikasi PKRT</div>
               </div>
@@ -283,7 +283,7 @@ const Perizinan = () => {
                 <a
                   href="https://www.dgip.go.id/menu-utama/merek/proses-pendaftaran-merek"
                   className="underline text-blue-500"
-                  target="_blank">
+                  target="_blank" rel="noreferrer">
                   https://www.dgip.go.id/menu-utama/merek/proses-pendaftaran-merek
                 </a>
                 <br />
@@ -293,6 +293,7 @@ const Perizinan = () => {
         </div>
       </div>
       {/* PKRT END */}
+      <FloatingMenu />
     </>
   );
 };

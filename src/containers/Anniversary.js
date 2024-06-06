@@ -1,5 +1,6 @@
 import React from "react";
 import Youtube from "@components/Youtube";
+import FloatingMenu from "../components/FloatingMenu";
 
 const Anniversary = () => {
     return (
@@ -11,6 +12,7 @@ const Anniversary = () => {
             <div class="flex justify-center m-12">
                 <Youtube src="https://www.youtube.com/embed/avA0_NJK5mU" />
             </div>
+            <FloatingMenu />{" "}
         </>
     );
 }

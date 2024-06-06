@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "@img/headervisimisi.png";
+import FloatingMenu from "../components/FloatingMenu";
 
 const VisiMisi = () => {
   return (
@@ -67,6 +68,7 @@ const VisiMisi = () => {
           </li>
         </ul>
       </div>
+      <FloatingMenu />
     </>
   );
 };

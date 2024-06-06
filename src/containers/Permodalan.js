@@ -1,5 +1,6 @@
 import React from "react";
 import Top from "@img/7top-rb.webp";
+import FloatingMenu from "../components/FloatingMenu";
 
 const Permodalan = () => {
     return (
@@ -17,28 +18,27 @@ const Permodalan = () => {
                     <div className="flex flex-col ml-5 w-[82%] max-md:ml-0 max-md:w-full">
                         <div className="flex flex-col self-stretch p-8 my-auto w-full text-white bg-sky-700 max-md:px-5 max-md:mt-10 max-md:max-w-full">
                             <div className="text-5xl font-bold leading-[57.6px] max-md:max-w-full max-md:text-4xl">
-                            Permodalan
+                                Permodalan
                             </div>
                             <div className="mt-4 text-lg leading-7 max-md:max-w-full">
-                            Peserta akan didampingi untuk mendapatkan akses permodalan sesuai dengan kebutuhan usahanya.
+                                Peserta akan didampingi untuk mendapatkan akses permodalan sesuai dengan kebutuhan usahanya.
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div className="flex flex-col items-center px-16 pt-20 pb-20 bg-white max-md:px-5">
                 <div className="flex flex-col w-full max-w-[1096px] max-md:max-w-full">
                     <div className="self-center text-4xl font-bold leading-10 text-center text-black">
-                    Permodalan
+                        Permodalan
                     </div>
                     <div className="mt-8 text-lg leading-7 text-center text-black max-md:max-w-full">
-                    Melalui OK OCE, usaha sobat akan mendapatkan fasilitas dari para pendamping dalam hal permodalan yang berguna untuk menunjang kebutuhan bisnis sobat. 
-                    Fasilitas tersebut dapat diakses melalui sistem OK OCE Indonesia.
+                        Melalui OK OCE, usaha sobat akan mendapatkan fasilitas dari para pendamping dalam hal permodalan yang berguna untuk menunjang kebutuhan bisnis sobat.
+                        Fasilitas tersebut dapat diakses melalui sistem OK OCE Indonesia.
                     </div>
                 </div>
             </div>
-
+            <FloatingMenu />
         </>
     );
 }

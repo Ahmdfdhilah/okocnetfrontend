@@ -6,6 +6,7 @@ import TUJUAND2 from "@img/tujuand2.png";
 import TUJUAND3 from "@img/tujuand3.png";
 import TUJUAND4 from "@img/tujuand4.png";
 import TUJUAND5 from "@img/tujuand5.png";
+import FloatingMenu from "../components/FloatingMenu";
 
 const Desapreneur = () => {
   return (
@@ -148,6 +149,7 @@ const Desapreneur = () => {
         </div>
       </div>
       {/* Manfaaat End */}
+      <FloatingMenu />{" "}
     </>
   );
 };

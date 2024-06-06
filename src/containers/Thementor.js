@@ -3,6 +3,7 @@ import Header from "@img/headerthementor.png";
 import Themen from "@img/thementor1.png";
 import Themen2 from "@img/themen2.png";
 import Themen3 from "@img/themen3.png";
+import FloatingMenu from "../components/FloatingMenu";
 
 const Thementor = () => {
   return (
@@ -11,7 +12,7 @@ const Thementor = () => {
         <img
           loading="lazy"
           src={Header}
-          className="object-cover absolute inset-0 size-full"
+          className="object-cover absolute inset-0 size-full" alt=""
         />
         <div className="relative self-center mt-20 text-2xl font-bold leading-8 max-md:max-w-full">
           &quot;The Mentor&quot; Training Online Penggerak OK OCE Indonesia
@@ -28,18 +29,18 @@ const Thementor = () => {
         <img
           loading="lazy"
           src={Themen}
-          className="object-cover absolute inset-0 w-full h-full max-md:h-auto"
+          className="object-cover absolute inset-0 w-full h-full max-md:h-auto" alt=""
         />
         <div className="flex relative gap-5 justify-between mt-[571px] max-md:mt-10">
           <img
             loading="lazy"
             src={Themen3}
-            className="shrink-0 aspect-square w-[30px]"
+            className="shrink-0 aspect-square w-[30px]" alt=""
           />
           <img
             loading="lazy"
             src={Themen2}
-            className="shrink-0 aspect-square w-[30px]"
+            className="shrink-0 aspect-square w-[30px]" alt=""
           />
         </div>
       </div>
@@ -87,6 +88,7 @@ const Thementor = () => {
         pengalaman secara langsung secara teknis.
       </div>
       {/* Teks Content 3 end */}
+      <FloatingMenu />
     </>
   );
 };
