@@ -12,7 +12,7 @@ const Modalberkah = () => {
                         <img src={Modalberkah1} alt="Placeholder Image" className="w-4/6 rounded-md mx-auto mb-6 object-cover" />
                     </div>
                     <div className="mt-2">
-                        <a href="#Link" class="text-white bg-red-600 px-32 py-4 rounded-xl font-bold text-lg hover:bg-red-800">Pelajari Selengkapnya</a>
+                        <a href="https://modalberkah.com/" class="text-white bg-red-600 px-32 py-4 rounded-xl font-bold text-lg hover:bg-red-800">Pelajari Selengkapnya</a>
                     </div>
                 </div >
 

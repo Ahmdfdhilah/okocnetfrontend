@@ -56,9 +56,7 @@ const Masjidpemberdaya = () => {
                     src={Kmp}
                     className="w-full aspect-[1.92]"
                   />
-                  <div className="justify-center px-12 py-7 mt-7 bg-green-700 rounded-3xl max-md:px-5">
-                    PELAJARI SELENGKAPNYA
-                  </div>
+                  <a href="https://masjidpemberdaya.org/" className="justify-center px-12 py-7 mt-7 bg-green-700 rounded-3xl max-md:px-5">Pelajari Selengkapnya</a>
                 </div>
               </div>
               <div className="flex flex-col mt-12 ml-7 w-[57%] max-md:ml-0 max-md:w-full">
