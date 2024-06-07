@@ -2,14 +2,26 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
 import Utama from "@img/mitra-kerjasama/Utama.png";
-import Penggerak1 from "@img/Mitrakerjasama/Penggerak1.png";
-import Penggerak2 from "@img/Mitrakerjasama/Penggerak2.png";
-import Penggerak3 from "@img/Mitrakerjasama/Penggerak3.png";
-import Penggerak4 from "@img/Mitrakerjasama/Penggerak4.png";
-import Penggerak5 from "@img/Mitrakerjasama/Penggerak5.png";
-import Penggerak6 from "@img/Mitrakerjasama/Penggerak6.png";
-import Penggerak7 from "@img/Mitrakerjasama/Penggerak7.png";
-import Penggerak8 from "@img/Mitrakerjasama/Penggerak8.png";
+import Swasta1 from "@img/Mitrakerjasama/Penggerak1.png";
+import Swasta2 from "@img/Mitrakerjasama/Penggerak2.png";
+import Swasta3 from "@img/Mitrakerjasama/Penggerak3.png";
+import Swasta4 from "@img/Mitrakerjasama/Penggerak4.png";
+import Swasta5 from "@img/Mitrakerjasama/Penggerak5.png";
+import Swasta6 from "@img/Mitrakerjasama/Penggerak6.png";
+import Swasta7 from "@img/Mitrakerjasama/Penggerak7.png";
+import Swasta8 from "@img/Mitrakerjasama/Penggerak8.png";
+import LogoUniv1 from "@img/Logo_UMJ.png";
+import LogoUniv2 from "@img/LogoAhmad.png";
+import LogoUniv3 from "@img/UnivPertamina.png";
+import LogoUniv4 from "@img/LogoUGJ.png";
+import LogoUniv5 from "@img/UPI.png";
+import LogoUniv6 from "@img/UnivPamulang.png";
+import Penggerak1 from "@img/logo_hr-academy.png";
+import Penggerak2 from "@img/logo_ok-oce-buana-m16.jpeg";
+import Penggerak3 from "@img/logo_ok-oce-forever.jpg";
+import Penggerak4 from "@img/logo_ok-oce-gan-gebrakan-anak-negeri.png";
+import Penggerak5 from "@img/logo_perwira.png";
+import Penggerak6 from "@img/logo_ok-oce-stii.png";
 import FloatingMenu from "../components/FloatingMenu";
 
 const Mitrakerjasama = () => {
@@ -123,35 +135,173 @@ const Mitrakerjasama = () => {
                 </div>
             </div>
 
-            <div className="mt-12 max-md:mt-10 max-md:max-w-full">
-                <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-                    <div className="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
-                        <img src={Penggerak1} className="grow shrink-0 mt-2 max-w-full aspect-[2.04] w-[291px] max-md:mt-10" />
-                    </div>
-                    <div className="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
-                        <img src={Penggerak2} className="grow shrink-0 max-w-full aspect-[1.92] w-[291px] max-md:mt-10" />
-                    </div>
-                    <div className="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
-                        <img src={Penggerak3} className="grow shrink-0 mt-2 max-w-full aspect-[2.04] w-[291px] max-md:mt-10" />
-                    </div>
-                    <div className="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
-                        <img src={Penggerak4} className="grow shrink-0 mt-2 max-w-full aspect-[2.04] w-[291px] max-md:mt-10" />
+            <div class="grid grid-grid-flow-row justify-items-center items-center mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
+                <div class="md:pt-16 pb-8">
+                    <h2 class="text-sky-700 text-center font-poppins mobile:text-2xl font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl ">
+                        Total Mitra Kerjasama Swasta
+                    </h2>
+                    <h3 className="mt-4 mb-4 text-black text-center font-poppins mobile:text-lg mobile:text-3xl mobile:font-bold lg:text-xl lg:font-medium">
+                        Mitra Kerjasama Swasta{" "}
+                        <span className="text-red-500 font-bold">OK OCE </span>sampai saat
+                        ini
+                    </h3>
+                </div>
+                <div class="w-full mb-20 flex justify-around items-center text-slate-700">
+                    <div class="about-container flex flex-col lg:flex-row justify-center items-center bg-detik-milk mobile:w-3/4 lg:w-[35rem]">
+                        <div class="lg:mt-0 text-lg flex flex-col flex-grow pl-4 justify-center items-center">
+                            <p className="font-bold text-2xl mb-4">198</p>
+                            <div class="pb-5">
+                                <h3 class="text-black text-justify font-medium">
+                                    Mitra Kerjasama Swasta
+                                </h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className="mt-10 max-md:max-w-full">
-                <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-                    <div className="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
-                        <img src={Penggerak5} className="grow shrink-0 max-w-full aspect-[2.04] w-[291px] max-md:mt-10" />
+
+            <div className="pb-14 w-full mx-auto h-auto overflow-hidden border-b-4">
+                <div className="flex gap-x-10 animate-marquee">
+                    <div className="w-full h-full">
+                        <img src={Swasta1} className="grow shrink-0 mt-2 w-full" />
                     </div>
-                    <div className="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
-                        <img src={Penggerak6} className="grow shrink-0 max-w-full aspect-[2.04] w-[291px] max-md:mt-10" />
+                    <div className="w-full">
+                        <img src={Swasta2} className="grow shrink-0 mt-2 w-full" />
                     </div>
-                    <div className="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
-                        <img src={Penggerak7} className="grow shrink-0 max-w-full aspect-[2.04] w-[291px] max-md:mt-10" />
+                    <div className="w-full">
+                        <img src={Swasta3} className="grow shrink-0 mt-2 w-full " />
                     </div>
-                    <div className="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
-                        <img src={Penggerak8} className="grow shrink-0 max-w-full aspect-[2.04] w-[291px] max-md:mt-10" />
+                    <div className="w-full">
+                        <img src={Swasta4} className="grow shrink-0 mt-2 w-full " />
+                    </div>
+                    <div className="w-full">
+                        <img src={Swasta5} className="grow shrink-0 w-full " />
+                    </div>
+                    <div className="w-full">
+                        <img src={Swasta6} className="grow shrink-0 w-full" />
+                    </div>
+                    <div className="w-full">
+                        <img src={Swasta7} className="grow shrink-0 w-full" />
+                    </div>
+                    <div className="w-full">
+                        <img src={Swasta8} className="grow shrink-0 w-full" />
+                    </div>
+                </div>
+            </div>
+
+            <div className="flex flex-col px-20 py-20 bg-white max-md:px-5">
+                <div className="text-2xl font-bold leading-8 text-black max-md:max-w-full">
+                    Mitra Penggerak yang Telah Bekerjasama dengan Kami
+                </div>
+                <div className="mt-6 text-xl leading-7 text-black max-md:mt-10 max-md:max-w-full">
+                    Hingga saat ini, kami telah bekerjasama dengan berbagai lembaga, mulai
+                    dari lembaga keuangan, seperti perbankan dan perusahaan modal ventura,
+                    koperasi, startup digital, hingga lembaga non-profit.
+                </div>
+            </div>
+
+            <div class="grid grid-grid-flow-row justify-items-center items-center mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
+                <div class="md:pt-16 pb-8">
+                    <h2 class="text-sky-700 text-center font-poppins mobile:text-2xl font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl ">
+                        Total Mitra Kerjasama Penggerak
+                    </h2>
+                    <h3 className="mt-4 mb-4 text-black text-center font-poppins mobile:text-lg mobile:text-3xl mobile:font-bold lg:text-xl lg:font-medium">
+                        Mitra Kerjasama Penggerak{" "}
+                        <span className="text-red-500 font-bold">OK OCE </span>sampai saat
+                        ini
+                    </h3>
+                </div>
+                <div class="w-full flex justify-around items-center text-slate-700 mobile:mb-0 lg:mb-20">
+                    <div class="about-container flex flex-col lg:flex-row justify-center items-center bg-detik-milk mobile:w-3/4 lg:w-[35rem]">
+                        <div class="lg:mt-0 text-lg flex flex-col flex-grow pl-4 justify-center items-center">
+                            <p className="font-bold text-2xl mb-4">198</p>
+                            <div class="mobile:pb-0 lg:pb-5">
+                                <h3 class="text-black text-justify font-medium">
+                                    Mitra Kerjasama Penggerak
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="w-full mx-auto h-auto mobile:pb-0 lg:pb-14 border-b-4">
+                <div className="w-9/12 mx-auto grid gap-x-20 mobile:grid-cols-1 mobile:grid-flow-row mobile:gap-y-4 lg:grid-flow-col">
+                    <div className="w-full h-full">
+                        <img src={LogoUniv1} className="grow shrink-0 mobile:mb-12 mobile:mx-auto mobile:mt-10 mobile:w-3/5 lg:w-full lg:mt-2" />
+                    </div>
+                    <div className="w-full">
+                        <img src={LogoUniv2} className="grow shrink-0 mobile:mx-auto mobile:mb-12 mobile:w-3/5 lg:w-full lg:mt-2" />
+                    </div>
+                    <div className="w-full">
+                        <img src={LogoUniv3} className="grow shrink-0 mobile:mx-auto mobile:mb-12 mobile:w-3/5 lg:w-full lg:mt-2" />
+                    </div>
+                    <div className="w-full">
+                        <img src={LogoUniv4} className="grow shrink-0 mobile:mx-auto mobile:mb-12 mobile:w-3/5 lg:w-full lg:mt-2" />
+                    </div>
+                    <div className="w-full">
+                        <img src={LogoUniv5} className="grow shrink-0 mobile:mx-auto mobile:mb-12 mobile:w-3/5 lg:w-full lg:mt-2" />
+                    </div>
+                    <div className="w-full">
+                        <img src={LogoUniv6} className="grow shrink-0 mobile:mx-auto mobile:mb-12 mobile:w-3/5 lg:w-full lg:mt-2" />
+                    </div>
+                </div>
+            </div>
+            <div className="flex flex-col px-20 py-20 bg-white max-md:px-5">
+                <div className="text-2xl font-bold leading-8 text-black max-md:max-w-full">
+                    Mitra Penggerak yang Telah Bekerjasama dengan Kami
+                </div>
+                <div className="mt-6 text-xl leading-7 text-black max-md:mt-10 max-md:max-w-full">
+                    Hingga saat ini, kami telah bekerjasama dengan berbagai lembaga, mulai
+                    dari lembaga keuangan, seperti perbankan dan perusahaan modal ventura,
+                    koperasi, startup digital, hingga lembaga non-profit.
+                </div>
+            </div>
+
+            <div class="grid grid-grid-flow-row justify-items-center items-center mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
+                <div class="md:pt-16 pb-8">
+                    <h2 class="text-sky-700 text-center font-poppins mobile:text-2xl font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl ">
+                        Total Mitra Kerjasama Penggerak
+                    </h2>
+                    <h3 className="mt-4 mb-4 text-black text-center font-poppins mobile:text-lg mobile:text-3xl mobile:font-bold lg:text-xl lg:font-medium">
+                        Mitra Kerjasama Penggerak{" "}
+                        <span className="text-red-500 font-bold">OK OCE </span>sampai saat
+                        ini
+                    </h3>
+                </div>
+                <div class="w-full flex justify-around items-center text-slate-700 mobile:mb-0 lg:mb-20">
+                    <div class="about-container flex flex-col lg:flex-row justify-center items-center bg-detik-milk mobile:w-3/4 lg:w-[35rem]">
+                        <div class="lg:mt-0 text-lg flex flex-col flex-grow pl-4 justify-center items-center">
+                            <p className="font-bold text-2xl mb-4">198</p>
+                            <div class="mobile:pb-0 lg:pb-5">
+                                <h3 class="text-black text-justify font-medium">
+                                    Mitra Kerjasama Penggerak
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="pb-14 w-full mx-auto h-auto">
+                <div className="w-9/12 mx-auto grid gap-x-20 mobile:grid-cols-1 mobile:grid-flow-row mobile:gap-y-4 lg:grid-flow-col">
+                    <div className="w-full h-full">
+                        <img src={Penggerak1} className="grow shrink-0 mt-2 w-full" />
+                    </div>
+                    <div className="w-full">
+                        <img src={Penggerak2} className="grow shrink-0 mobile:mt-0 mobile:mb-14 lg:mt-2 w-full" />
+                    </div>
+                    <div className="w-full">
+                        <img src={Penggerak3} className="grow shrink-0 mt-2 mobile:mb-12 mobile:mx-auto mobile:w-3/5 lg:w-full" />
+                    </div>
+                    <div className="w-full">
+                        <img src={Penggerak4} className="grow shrink-0 mt-2 w-full " />
+                    </div>
+                    <div className="w-full">
+                        <img src={Penggerak5} className="grow shrink-0 w-full " />
+                    </div>
+                    <div className="w-full">
+                        <img src={Penggerak6} className="grow shrink-0 w-full" />
                     </div>
                 </div>
             </div>

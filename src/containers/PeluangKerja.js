@@ -12,10 +12,10 @@ const JobCard = ({ logo, title, location, job_system, category, onClick }) => {
                 <h3 className="text-lg font-semibold">{title}</h3>
                 <p className="text-zinc-800">{location}</p>
                 <div className="flex gap-x-4">
-                    <div className="mt-4 bg-blue-200 p-1 rounded-md">
+                    <div className="mt-4 bg-blue-200 px-3 py-2 rounded-md">
                         <p className="text-blue-500">{job_system}</p>
                     </div>
-                    <div className="mt-4 bg-green-200 p-1 rounded-md">
+                    <div className="mt-4 bg-green-200 px-3 py-2 rounded-md">
                         <p className="text-green-500">{category}</p>
                     </div>
                 </div>
@@ -135,6 +135,9 @@ const PeluangKerja = () => {
                                     <h1 className="text-2xl text-black font-bold">Benefit</h1>
                                     <h2 className="mt-3 font-medium text-black text-lg text-justify">{jobDetails.attributes.benefit_program}</h2>
                                 </div>
+                                <a href="#">
+                                    <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 me-2 mb-10 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Daftar Sekarang</button>
+                                </a>
                             </div>
                         </div>
                     ) : (

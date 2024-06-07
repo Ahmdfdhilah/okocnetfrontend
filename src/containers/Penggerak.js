@@ -15,15 +15,15 @@ const Penggerak = () => {
         try {
             const response = await fetch('https://cms-okoce-a155c649b6e6.herokuapp.com/api/penggerak-okoces?populate=*');
             if (!response.ok) {
-                throw new Error('Gagal mengambil data karyawan');
+                throw new Error('Gagal mengambil data penggerak');
             }
             const data = await response.json();
             // Extract the data array from the response
-            const employeesData = data.data;
-            console.log(employeesData)
-            setPenggerak(employeesData);
+            const penggerakData = data.data;
+            console.log(penggerakData)
+            setPenggerak(penggerakData);
         } catch (error) {
-            console.error('Error fetching employees:', error);
+            console.error('Error fetching penggerak:', error);
             // Jika terjadi kesalahan, pastikan untuk mengatur employees menjadi array kosong
             setPenggerak([]);
         }

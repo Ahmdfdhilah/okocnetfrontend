@@ -172,11 +172,14 @@ const Magang = () => {
                                         </ul>
                                     </div>
                                 </div>
-                                <div className="mt-10 mr-32 mb-10">
+                                <div className="mt-10 mr-32 mb-8">
                                     <h1 className="text-2xl text-black font-bold">Informasi Tambahan</h1>
                                     <p className="text-black text-black text-lg">OK OCE menawarkan 1 macam sertifikat, yaitu sertifikat keikutsertaan program.
                                     </p>
                                 </div>
+                                <a href={jobDetails.attributes.url_msib}>
+                                    <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 me-2 mb-10 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Daftar MSIB</button>
+                                </a>
                             </div>
                         </div>
                     ) : (

@@ -12,10 +12,10 @@ const JobCard = ({ logo, title, location, job_system, category, onClick }) => {
                 <h3 className="text-lg font-semibold">{title}</h3>
                 <p className="text-zinc-800">{location}</p>
                 <div className="flex gap-x-4">
-                    <div className="mt-4 bg-blue-200 p-1 rounded-md">
+                    <div className="mt-4 bg-blue-200 px-3 py-2 rounded-md">
                         <p className="text-blue-500">{job_system}</p>
                     </div>
-                    <div className="mt-4 bg-green-200 p-1 rounded-md">
+                    <div className="mt-4 bg-green-200 px-3 py-2 rounded-md">
                         <p className="text-green-500">{category}</p>
                     </div>
                 </div>
@@ -105,37 +105,40 @@ const PeluangUsaha = () => {
                 </div>
             </section>
 
-            <div className="w-full flex flex-col justify-around md:flex-row p-4 bg-gray-200">
-                <div className="min-w-[29rem] p-4">
+            <div className="w-full justify-around md:flex-row p-4 bg-gray-200 mobile:grid  mobile:grid-cols-1 mobile:grid-flow-row lg:flex">
+                <div className="mobile:max-w-[30rem] lg:min-w-[29rem] lg:p-4">
                     <p className="text-zinc-600 mb-4">List Peluang Usaha : </p>
                     <JobList onJobClick={handleJobClick} />
                 </div>
-                <div className="w-7/12 h-auto bg-white mt-14 rounded-xl flex items-center justify-center">
+                <div className="bg-white mt-14 rounded-xl flex items-center justify-center mobile:max-w-96 lg:min-w-[60%] lg:h-auto">
                     {jobDetails ? (
                         <div className="w-full h-full text-zinc-400">
-                            <div className="mt-10 ml-14">
-                                <img src={jobDetails.attributes?.foto_usaha?.data?.[0]?.attributes?.url} alt="" className="w-full h-96 object-contain rounded-full"></img>
+                            <div className="mobile:ml-0 mobile:px-4 lg:mt-10 lg:ml-2 lg:pr-16 lg:pl-14">
+                                <img src={jobDetails.attributes?.foto_usaha?.data?.[0]?.attributes?.url} alt="" className="w-full object-cover rounded-full mobile:h-56 mobile:mt-8 lg:h-96"></img>
                                 <h3 className="text-3xl mt-16 ml-1 font-bold text-center text-black mb-4">{jobDetails.attributes.judul_usaha}</h3>
                                 <p className="text-lg mt-3 ml-1 font-normal text-black">Perkumpulan Gerakan OK OCE</p>
                                 <p className="text-lg ml-1 font-normal text-black">{jobDetails.attributes.lokasi_usaha}</p>
                                 <p className="text-lg mt-2 ml-1 font-normal text-black"><span className="font-bold">Kategori Usaha : </span>{jobDetails.attributes.kategori_usaha}</p>
                                 <p className="text-lg ml-1 font-normal text-black mb-4"><span className="font-bold">Sistem Kerja : </span>{jobDetails.attributes.sistem_kerja}</p>
-                                <div className="mt-10 mr-32 mb-10">
+                                <div className="w-full mt-10 mr-32 mb-10">
                                     <h1 className="text-2xl text-black font-bold">Rincian Kegiatan</h1>
                                     <h2 className="mt-3 font-medium text-black text-lg text-justify">{jobDetails.attributes.tentang_program}</h2>
                                 </div>
-                                <div className="mt-10 mr-32 mb-10">
+                                <div className="w-full mt-10 mr-32 mb-10">
                                     <h1 className="text-2xl text-black font-bold">Deskripsi Usaha</h1>
                                     <h2 className="mt-3 font-medium text-black text-lg text-justify">{jobDetails.attributes.jobdesc_usaha}</h2>
                                 </div>
-                                <div className="mt-10 mr-32 mb-10">
+                                <div className="w-full mt-10 mr-32 mb-10">
                                     <h1 className="text-2xl text-black font-bold">Kualifikasi</h1>
                                     <h2 className="mt-3 font-medium text-black text-lg text-justify">{jobDetails.attributes.kriteria_usaha}</h2>
                                 </div>
-                                <div className="mt-10 mr-32 mb-10">
+                                <div className="w-full mt-10 mr-32 mb-10">
                                     <h1 className="text-2xl text-black font-bold">Benefit</h1>
                                     <h2 className="mt-3 font-medium text-black text-lg text-justify">{jobDetails.attributes.benefit_program}</h2>
                                 </div>
+                                <a href="#">
+                                    <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 me-2 mb-10 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Daftar Sekarang</button>
+                                </a>
                             </div>
                         </div>
                     ) : (
