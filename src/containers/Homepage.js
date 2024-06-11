@@ -25,10 +25,14 @@ import Pelaporan from "@img/Laporan Keuangan.png";
 import Permodalan from "@img/Permodalan.png";
 import Okocetv from "@img/okoce-tv.webp";
 import Header from "../asset/img/Penggerak OKOCE Indonesia (1519 x 710 piksel).png";
+import Header2 from "@img/Homepage2.png";
+import Header3 from "@img/Homepage3.png";
+import Header4 from "@img/Homepage4.png";
 // - component
 import Peta from "@components/Peta";
 import Youtube from "@components/Youtube";
 import Calendar from "@components/Calendar";
+import HomepageCarousel from "../components/HomepageCarousel";
 // - mitra-kerjasama
 import Azindo from "@mitra-kerjasama/az-indonesia.png";
 import Cetak from "@mitra-kerjasama/cetakkemasan.png";
@@ -49,6 +53,14 @@ const Homepage = () => {
     const [showText, setShowText] = useState(true);
     const [datas, setData] = useState([]);
     const [events, setEvents] = useState([]);
+
+    const images = [
+        { src: Header, alt: 'Header Image' },
+        { src: Header2, alt: 'Second Image' },
+        { src: Header3, alt: 'Third Image' },
+        { src: Header4, alt: 'Fourth Image' },
+        // Tambahkan lebih banyak gambar jika diperlukan
+    ];
 
     const items = [
         { src: sandiaga, alt: "Slide 1", text: "Founder - Sandiaga Uno" },
@@ -122,49 +134,15 @@ const Homepage = () => {
     return (
         <>
             <div class="relative w-full grid grid-flow-row">
-                <div className="relative w-full mt-24 mobile:h-full lg:h-screen">
-                    <img
-                        className="object-cover w-full h-auto mobile:w-[200%]"
-                        src={Header}
-                        alt=""
-                    />
-                    <section className="absolute inset-0 flex items-center justify-center mobile:top-1 lg:top-[14rem] ">
-                        <div className="bg-inherit rounded-3xl mobile:p-0 mobile:mx-auto lg:p-10 lg:w-9/12">
-                            <div className="flex sm:flex-row sm:justify-center mobile:p-0 lg:p-10">
-                                <a
-                                    href="https://ecsys.okoce.net/"
-                                    className="inline-flex justify-center items-center font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 mobile:py-0 mobile:px-3 mobile:text-[10px] lg:text-xl lg:py-3 lg:px-5">
-                                    Daftar Sekarang
-                                    <svg
-                                        className="w-3.5 h-3.5 ms-2 rtl:rotate-180"
-                                        aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 14 10">
-                                        <path
-                                            stroke="currentColor"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M1 5h12m0 0L9 1m4 4L9 9"
-                                        />
-                                    </svg>
-                                </a>
-                                <a
-                                    href="https://www.youtube.com/watch?v=DjF6FKYGYbU"
-                                    className="inline-flex justify-center bg-red-600 items-center py-3 px-5 sm:ms-4 font-medium text-center text-white rounded-lg border border-white hover:bg-red-700 focus:ring-4 focus:ring-gray-400 mobile:text-[10px] lg:text-xl">
-                                    Cara Daftar OK OCE
-                                </a>
-                            </div>
-                        </div>
-                    </section>
+                <div className="relative w-full mt-0 mobile:h-full lg:h-screen">
+                    <HomepageCarousel images={images} interval={4000} className="object-cover w-full h-auto mobile:w-[200%]" />
                 </div>
 
                 <div
                     id="about"
                     className="mb-20 flex items-center bg-white mx-auto mobile:justify-start mobile:w-80 sm:w-96 lg:justify-center lg:w-3/4">
                     <div className="about-container mx-auto flex flex-col justify-center items-center bg-detik-milk lg:flex-row">
-                        <div className="w-[100%] h-full lg:mr-20">
+                        <div className="mobile:w-[60%] mobile:h-auto lg:w-[100%] lg:h-full lg:mr-20">
                             <div
                                 className="relative rounded-lg overflow-hidden"
                                 data-carousel="static">
@@ -364,7 +342,7 @@ const Homepage = () => {
                         <a href="/pendampingan">
                             <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
                                 <img
-                                    class="h-[10em] sm:mx-auto object-cover mx-auto"
+                                    class="md:h-[10em] object-cover mx-auto"
                                     src={Pendampingan}
                                 />
                             </div>
@@ -451,7 +429,7 @@ const Homepage = () => {
                     <div className="grid mobile:grid-cols-1 mobile:mt-10 lg:w-11/12 lg:mx-auto lg:grid-cols-3 lg:gap-y-8 lg:gap-x-4 lg:mt-0">
                         {datas.map((data, index) => (
                             <div key={index} className="w-full mx-auto p-4">
-                                <div className="bg-gray-500 shadow-md rounded-lg lg:mr-1">
+                                <div className="bg-gray-400 shadow-md rounded-lg lg:mr-1">
                                     <div className="p-5">
                                         <img
                                             className="object-cover w-full mobile:h-36 lg:h-72"

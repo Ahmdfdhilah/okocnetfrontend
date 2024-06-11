@@ -191,7 +191,7 @@ const Mitrakerjasama = () => {
 
             <div className="flex flex-col px-20 py-20 bg-white max-md:px-5">
                 <div className="text-2xl font-bold leading-8 text-black max-md:max-w-full">
-                    Mitra Penggerak yang Telah Bekerjasama dengan Kami
+                    Mitra Pendidikan yang Telah Bekerjasama dengan Kami
                 </div>
                 <div className="mt-6 text-xl leading-7 text-black max-md:mt-10 max-md:max-w-full">
                     Hingga saat ini, kami telah bekerjasama dengan berbagai lembaga, mulai
@@ -203,10 +203,10 @@ const Mitrakerjasama = () => {
             <div class="grid grid-grid-flow-row justify-items-center items-center mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
                 <div class="md:pt-16 pb-8">
                     <h2 class="text-sky-700 text-center font-poppins mobile:text-2xl font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl ">
-                        Total Mitra Kerjasama Penggerak
+                        Total Mitra Kerjasama Pendidikan
                     </h2>
                     <h3 className="mt-4 mb-4 text-black text-center font-poppins mobile:text-lg mobile:text-3xl mobile:font-bold lg:text-xl lg:font-medium">
-                        Mitra Kerjasama Penggerak{" "}
+                        Mitra Kerjasama Pendidikan{" "}
                         <span className="text-red-500 font-bold">OK OCE </span>sampai saat
                         ini
                     </h3>
@@ -214,10 +214,10 @@ const Mitrakerjasama = () => {
                 <div class="w-full flex justify-around items-center text-slate-700 mobile:mb-0 lg:mb-20">
                     <div class="about-container flex flex-col lg:flex-row justify-center items-center bg-detik-milk mobile:w-3/4 lg:w-[35rem]">
                         <div class="lg:mt-0 text-lg flex flex-col flex-grow pl-4 justify-center items-center">
-                            <p className="font-bold text-2xl mb-4">198</p>
+                            <p className="font-bold text-2xl mb-4">100</p>
                             <div class="mobile:pb-0 lg:pb-5">
                                 <h3 class="text-black text-justify font-medium">
-                                    Mitra Kerjasama Penggerak
+                                    Mitra Kerjasama Pendidikan
                                 </h3>
                             </div>
                         </div>

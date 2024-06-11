@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import ModalStep1 from './ModalStep1';
+import ModalStep2 from './ModalStep2';
+import ModalStep3 from './ModalStep3';
 
 const Modal = ({ isOpen, onClose }) => {
     const [step, setStep] = useState(1);
 
     const handleNext = () => {
         setStep(step + 1);
+        console.log('Step:', step + 1);  // Debugging log
     };
 
     if (!isOpen) return null;
@@ -14,7 +18,7 @@ const Modal = ({ isOpen, onClose }) => {
             <div className="relative w-full max-w-md p-4 bg-white rounded-lg shadow-lg dark:bg-gray-700 animate-fade-up animate-once animate-delay-[20ms]">
                 <div className="flex items-center justify-between p-4 border-b rounded-t dark:border-gray-600">
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                        {step === 1 ? 'Sign in to our platform' : 'Additional Information'}
+                        {step === 1 ? 'SELAMAT DATANG DI OK OCE INDONESIA!' : step === 2 ? 'ALUR 7 TOP OK OCE INDONESIA' : 'EVENT TERBARU OK OCE INDONESIA'}
                     </h3>
                     <button
                         type="button"
@@ -28,60 +32,11 @@ const Modal = ({ isOpen, onClose }) => {
                 </div>
                 <div className="p-4">
                     {step === 1 ? (
-                        <form className="space-y-4">
-                            <div>
-                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    id="email"
-                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                    placeholder="name@company.com"
-                                    required
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
-                                <input
-                                    type="password"
-                                    name="password"
-                                    id="password"
-                                    placeholder="••••••••"
-                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                    required
-                                />
-                            </div>
-                            <div className="flex justify-between">
-                                <div className="flex items-start">
-                                    <div className="flex items-center h-5">
-                                        <input
-                                            id="remember"
-                                            type="checkbox"
-                                            className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
-                                            required
-                                        />
-                                    </div>
-                                    <label htmlFor="remember" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
-                                </div>
-                                <a href="#" className="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
-                            </div>
-                            <button
-                                type="button"
-                                className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                                onClick={handleNext}
-                            >
-                                Next
-                            </button>
-                            <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
-                                Not registered? <a href="#" className="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
-                            </div>
-                        </form>
+                        <ModalStep1 onNext={handleNext} />
+                    ) : step === 2 ? (
+                        <ModalStep2 onNext={handleNext} onClose={onClose} />
                     ) : (
-                        <div>
-                            <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Step 2: More Details</h4>
-                            <p className="text-gray-700 dark:text-gray-300">Additional content goes here...</p>
-                            {/* Add more fields or content as necessary */}
-                        </div>
+                        <ModalStep3 onClose={onClose} />
                     )}
                 </div>
             </div>

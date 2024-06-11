@@ -39,11 +39,8 @@ const Emakkece = () => {
                         <div className="flex flex-col mt-2.5 font-bold text-black leading-[120%] max-md:mt-10 max-md:max-w-full">
                             <div className="text-4xl max-md:max-w-full">EMAK KECE</div>
                             <div className="mt-6 text-lg leading-7 text-justify max-md:max-w-full">
-                                Melahirkan emak-emak pengusaha yang tangguh secara ruhani, emosi,
-                                dan mandiri
+                                Emak Kece adalah program inovatif yang dirancang oleh OK OCE Indonesia, khusus untuk para ibu-ibu. Program ini dijalankan oleh para penggerak dan mitra OK OCE Indonesia, dengan tujuan memberdayakan serta meningkatkan keterampilan dan potensi ekonomi para ibu dalam berbagai bidang usaha.
                                 <br />
-                                <br />
-                                Menjadi Wirausaha Baru dan Wirausaha Naik Kelas
                             </div>
                             <div className="justify-center items-center px-16 py-6 mt-10 text-2xl text-center text-white bg-red-600 rounded-3xl max-md:px-5 max-md:max-w-full">
                                 PELAJARI SELENGKAPNYA
