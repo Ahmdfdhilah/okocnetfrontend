@@ -38,19 +38,19 @@ const EventDetail = () => {
     return (
         <>
             <div className="max-w-4xl mx-auto mt-24 p-4">
-                <div className="bg-white shadow-md rounded-lg p-5">
+                <div className="bg-white shadow-md rounded-lg lg:p-5">
                     <img className="object-cover w-full h-full" src={eventData.attributes?.foto_event?.data?.attributes?.url} alt="" />
-                    <div className="flex justify-between">
+                    <div className="grid mobile:grid-cols-1 lg:grid-cols-2">
                         <div>
-                            <h2 className="font-extrabold text-3xl ml-10 mb-2 mt-12">{eventData.attributes?.judul_event}</h2>
+                            <h2 className="font-extrabold text-3xl mb-2 mt-12 mobile:ml-4 lg:ml-10">{eventData.attributes?.judul_event}</h2>
                         </div>
                         <div>
-                            <p className="text-zinc-700 font-medium mr-10 text-2xl mt-12">{eventData.attributes?.harga_event}</p>
+                            <p className="text-zinc-700 font-medium text-2xl mobile:mt-2 mobile:ml-4 lg:mt-12 lg:ml-64">{eventData.attributes?.harga_event}</p>
                         </div>
                     </div>
-                    <div className="ml-10 mt-4 mb-10">
+                    <div className="mt-4 mb-10 mobile:ml-4 lg:ml-10">
                         <p className="text-lg">Inisiator Event<br /></p>
-                        <p className="font-extrabold text-red-500 text-2xl">{eventData.attributes?.contact_person}</p>
+                        <p className="font-extrabold text-red-500 text-xl">{eventData.attributes?.contact_person}</p>
                     </div>
                     <div className="w-[90%] mx-auto border-b-2 border-blue-400">
                         <p className="mt-2 text-lg text-black text-justify pb-4">{eventData.attributes?.deskripsi_event}
@@ -64,25 +64,25 @@ const EventDetail = () => {
                         <p className="mt-2 text-lg text-black text-justify pb-4">{eventData.attributes?.deskripsi_event_5}
                         </p>
                     </div>
-                    <div className="w-[90%] mx-auto border-b-2 border-blue-400 pt-6 grid grid-cols-2 justify-between">
-                        <div>
-                            <h3 className="font-semibold text-lg text-blue-500">Tanggal Event</h3>
-                            <p className="mt-2 text-black font-bold text-2xl text-justify pb-4">{eventData.attributes?.tanggal_event}
+                    <div className="w-[90%] mx-auto border-b-2 border-blue-400 pt-6 grid justify-between mobile:grid-cols-2 mobile:gap-2 mobile:grid-flow-row lg:grid-cols-3">
+                        <div className="bg-gray-100 rounded-xl mobile:w-full lg:w-48">
+                            <h3 className="w-full bg-blue-500 pl-3 text-start py-1 font-semibold text-lg text-white">Tanggal Event</h3>
+                            <p className="mt-2 text-black font-bold text-xl pl-3 py-1">{eventData.attributes?.tanggal_event}
                             </p>
                         </div>
-                        <div>
-                            <h3 className="font-semibold text-lg text-blue-500">Waktu</h3>
-                            <p className="mt-2 text-black font-bold text-2xl text-justify pb-4">{eventData.attributes?.durasi_event}
+                        <div className="bg-gray-100 rounded-xl mobile:w-full lg:w-48">
+                            <h3 className="w-full bg-blue-500 pl-3 text-start py-1 font-semibold text-lg text-white">Waktu</h3>
+                            <p className="mt-2 text-black font-bold text-xl pl-3 py-1">{eventData.attributes?.durasi_event}
                             </p>
                         </div>
-                        <div className="col-span-2">
-                            <h3 className="font-semibold text-lg text-blue-500">Lokasi</h3>
-                            <p className="mt-2 text-black font-bold text-2xl pb-4">{eventData.attributes?.tempat_event}
+                        <div className="bg-gray-100 rounded-xl mobile:w-full lg:w-48">
+                            <h3 className="w-full bg-blue-500 pl-3 text-start py-1 font-semibold text-lg text-white">Kuota</h3>
+                            <p className="mt-2 text-black font-bold text-xl pl-3 py-1">{eventData.attributes?.quota_event}
                             </p>
                         </div>
-                        <div>
-                            <h3 className="font-semibold text-lg text-blue-500">Kuota</h3>
-                            <p className="mt-2 text-black font-bold text-2xl text-justify pb-4">{eventData.attributes?.quota_event}
+                        <div className="mt-10 mb-6 bg-gray-100 col-span-2 w-64 rounded-xl my-4">
+                            <h3 className="w-full bg-blue-500 pl-3 text-start py-1 font-semibold text-lg text-white">Lokasi</h3>
+                            <p className="mt-2 text-black font-bold text-xl pl-3 py-1">{eventData.attributes?.tempat_event}
                             </p>
                         </div>
                     </div>

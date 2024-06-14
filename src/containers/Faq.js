@@ -19,8 +19,15 @@ const Faq = () => {
     },
     {
       question: "Apa Saja Kurikulum 7 Top OK OCE Indonesia?",
-      answer:
-        "1. Pendaftaran 2. Pelatihan 3. Pendampingan 4. Perizinan. 5. Pemasaran. 6. Pencatatan Keuangan. 7. Permodalan",
+      answer: `<ol class="list-decimal list-inside">
+                  <li>Pendaftaran</li>
+                  <li>Pelatihan</li>
+                  <li>Pendampingan</li>
+                  <li>Perizinan</li>
+                  <li>Pemasaran</li>
+                  <li>Pencatatan Keuangan</li>
+                  <li>Permodalan</li>
+                </ol>`,
       isOpen: false,
     },
     {
@@ -68,7 +75,7 @@ const Faq = () => {
               </div>
               {accordion.isOpen && (
                 <div className="accordion-content p-4">
-                  <p>{accordion.answer}</p>
+                  <p dangerouslySetInnerHTML={{ __html: accordion.answer }}></p>
                 </div>
               )}
             </div>
@@ -80,7 +87,7 @@ const Faq = () => {
           <h1 className="font-extrabold text-4xl text-center mb-4">
             Video Cara Daftar Akun
           </h1>
-          <div className="mb-8 w-11/12 ml-32">
+          <div className="mb-8 w-11/12 mobile:ml-8 lg:ml-32">
             <Youtube src="https://www.youtube.com/embed/DjF6FKYGYbU?si=Mzale-8dk2aNzbnM" />
           </div>
         </div>

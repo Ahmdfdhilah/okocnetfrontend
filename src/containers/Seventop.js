@@ -38,7 +38,7 @@ const Seventop = () => {
           <div className={contentClasses}>
             Peserta wajib mendaftar di website OKOCE.NET, serta memilih
             komunitas wirausaha yang akan membina. <br /> <br />
-            <a href="" class="text-blue-500 font-medium">
+            <a href="https://ecsys.okoce.net/" class="text-blue-500 font-medium">
               Pelajari Selengkapnya &gt;
             </a>
           </div>

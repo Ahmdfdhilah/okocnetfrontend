@@ -38,7 +38,9 @@ const Penggerak = () => {
                 <h1 class="font-extrabold text-4xl text-center">Penggerak <br /> OK OCE Indonesia</h1>
                 <p class="text-center mt-6 font-medium">Penggerak OK OCE sebagai layer kedua dalam bangunan gerakan sosial penciptaan lapangan kerja <br /> berbasis wirausaha tersebar diberbagai daerah di seluruh Indonesia.</p>
                 <p class="text-center mt-2 font-medium">Anda dapat bergabung dengan penggerak-penggerak OK OCE di Lokasi terdekat tempat tinggal anda.</p>
-                <button type="button" class="w-[10rem] mt-6 mx-auto text-white text-base bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Penggerak  &#10132; </button>
+                <a href="https://ecsys.okoce.net/" className="mx-auto">
+                    <button type="button" class="w-[10rem] mt-6 mx-auto text-white text-base bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Penggerak  &#10132; </button>
+                </a>
             </div>
 
             {/* <!-- component --> */}

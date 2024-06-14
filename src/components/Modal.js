@@ -15,11 +15,13 @@ const Modal = ({ isOpen, onClose }) => {
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center w-full h-full overflow-x-hidden overflow-y-auto bg-black bg-opacity-50">
-            <div className="relative w-full max-w-md p-4 bg-white rounded-lg shadow-lg dark:bg-gray-700 animate-fade-up animate-once animate-delay-[20ms]">
-                <div className="flex items-center justify-between p-4 border-b rounded-t dark:border-gray-600">
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                        {step === 1 ? 'SELAMAT DATANG DI OK OCE INDONESIA!' : step === 2 ? 'ALUR 7 TOP OK OCE INDONESIA' : 'EVENT TERBARU OK OCE INDONESIA'}
-                    </h3>
+            <div className="relative w-full max-w-md p-4 bg-white rounded-lg shadow-lg bg-gray-600 animate-fade-up animate-once animate-delay-[20ms]">
+                <div className="flex items-center justify-between p-4 border-b-2 rounded-t dark:border-gray-600">
+                    <div className="">
+                        <h3 className="text-xl font-semibold text-black">
+                            {step === 1 ? <> <p className='text-center mobile:ml-8 lg:ml-20'>SELAMAT DATANG <br /> DI OK OCE INDONESIA!</p></> : step === 2 ? 'ALUR 7 TOP OK OCE INDONESIA' : 'EVENT TERBARU OK OCE INDONESIA'}
+                        </h3>
+                    </div>
                     <button
                         type="button"
                         className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"

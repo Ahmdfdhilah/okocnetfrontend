@@ -25,12 +25,13 @@ import MATERI4 from "@img/emakkece/MATERI4.png";
 import FOTO1 from "@img/emakkece/FOTO1.png";
 import FOTO2 from "@img/emakkece/FOTO2.png";
 import FOTO3 from "@img/emakkece/FOTO3.png";
-import FloatingMenu from "../components/FloatingMenu";
+
+
 
 const Emakkece = () => {
     return (
         <>
-            <div className="px-20 py-20 mt-20 bg-white max-md:px-5">
+            <div className="px-20 py-20 bg-white max-md:px-5 mobile:mt-6 lg:mt-20">
                 <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                     <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
                         <img class="mt-2.5 w-full aspect-[1.96] max-md:mt-10 max-md:max-w-full" src={EMAKKECE} />
@@ -50,10 +51,11 @@ const Emakkece = () => {
                 </div>
             </div>
 
-            <div class="mt-[10rem] bg-white-300 w-full h-[20rem] grid justify-center content-center">
+            {/* Responsive mobile diukuran 320px keatas*/}
+            <div class="bg-white-300 w-full h-[20rem] grid justify-center content-center mobile:mt-72 mobile:mb-[55rem] lg:mt-20 lg:mb-20">
                 <h1 class="font-extrabold text-4xl text-center">PELAKSANA</h1>
                 <div class="flex justify-center">
-                    <div class="grid grid-cols-3 gap-4">
+                    <div class="grid gap-4 mobile:grid-cols-1 lg:grid-cols-3"> {/* Responsive mobile*/}
                         <div class="mt-4">
                             <img class="h-[15em]" src={PELAKSANA1} />
                         </div>
@@ -67,10 +69,10 @@ const Emakkece = () => {
                 </div>
             </div>
 
-            <div class="mt-[5rem] bg-white-300 w-full h-[20rem] grid justify-center content-center">
+            <div class="bg-white-300 w-full h-[20rem] grid justify-center content-center mobile:mt-52 mobile:mb-[65rem] lg:mt-20 lg:mb-20">
                 <h1 class="font-extrabold text-4xl text-center">PESERTA</h1>
                 <div class="flex justify-center">
-                    <div class="grid grid-cols-5 gap-4">
+                    <div class="grid gap-4 mobile:grid-cols-1 lg:grid-cols-5">
                         <div class="mt-4">
                             <img class="h-[15em]" src={PESERTA1} />
                         </div>
@@ -90,10 +92,10 @@ const Emakkece = () => {
                 </div>
             </div>
 
-            <div class="mt-[5rem] bg-white-300 w-full h-[20rem] grid justify-center content-center">
-                <h1 class="font-extrabold text-4xl text-center">DURASI</h1>
+            <div class="bg-white-300 w-full h-[20rem] grid justify-center content-center mobile:mt-52 mobile:mb-[55rem] lg:mt-20 lg:mb-20">
+                <h1 class="font-extrabold py-5 text-4xl text-center">DURASI</h1>
                 <div class="flex justify-center">
-                    <div class="grid grid-cols-4 gap-4">
+                    <div class="grid gap-4 mobile:grid-cols-1 lg:grid-cols-4">
                         <div class="mt-4">
                             <img class="h-[15em]" src={DURASI1} />
                         </div>
@@ -110,10 +112,10 @@ const Emakkece = () => {
                 </div>
             </div>
 
-            <div class="mt-[5rem] bg-white-300 w-full h-[20rem] grid justify-center content-center">
-                <h1 class="font-extrabold text-4xl text-center">SUMBER DAYA</h1>
+            <div class="bg-white-300 w-full h-[20rem] grid justify-center content-center mobile:mt-52 mobile:mb-[30rem] lg:mt-10 lg:mb-10">
+                <h1 class="font-extrabold py-5 text-4xl text-center">SUMBER DAYA</h1>
                 <div class="flex justify-center">
-                    <div class="grid grid-cols-4 gap-4">
+                    <div class="grid gap-4 mobile:grid-cols-1 lg:grid-cols-4">
                         <div class="mt-4">
                             <img class="h-[15em]" src={SUMBER1} />
                         </div>
@@ -130,8 +132,7 @@ const Emakkece = () => {
                 </div>
             </div>
 
-
-            <div class="mt-[5rem] bg-white-300 w-full h-[50rem] grid justify-center content-center">
+            <div class="mt-[5rem] bg-white-300 w-full h-[50rem] grid justify-center content-center mobile:mb-[20rem] lg:mb-0">
                 <h1 class="font-extrabold text-4xl text-center">TAHAPAN</h1>
                 <div class="flex justify-center">
                     <div class="grid grid-cols-1 gap-4">
@@ -142,10 +143,10 @@ const Emakkece = () => {
                 </div>
             </div>
 
-            <div class="mt-[0rem] bg-white-300 w-full h-[20rem] grid justify-center content-center">
+            <div class="bg-white-300 w-full h-[20rem] grid justify-center content-center mobile:mt-52 mobile:mb-[45rem] lg:mt-10 lg:mb-5">
                 <h1 class="font-extrabold py-5 text-4xl text-center">MATERI</h1>
                 <div class="flex justify-center">
-                    <div class="grid grid-cols-4 gap-4">
+                    <div class="grid gap-4 mobile:grid-cols-1 lg:grid-cols-4">
                         <div class="mt-4">
                             <img class="h-[15em]" src={MATERI1} />
                         </div>
@@ -162,10 +163,10 @@ const Emakkece = () => {
                 </div>
             </div>
 
-            <div class="mt-[0rem] bg-white-300 w-full h-[40rem] grid justify-center content-center">
+            <div class="bg-white-300 w-full h-[40rem] grid justify-center content-center mobile:mb-[20rem] lg:mb-5">
                 <h1 class="font-extrabold py-5 text-4xl text-center">DEWAN PENASEHAT</h1>
                 <div class="flex justify-center">
-                    <div class="grid grid-cols-3 gap-4">
+                    <div class="grid gap-4 mobile:grid-cols-1 lg:grid-cols-3">
                         <div class="mt-4">
                             <img class="h-[20em]" src={FOTO1} />
                         </div>
@@ -178,7 +179,6 @@ const Emakkece = () => {
                     </div>
                 </div>
             </div>
-            <FloatingMenu />{" "}
         </>
     );
 }

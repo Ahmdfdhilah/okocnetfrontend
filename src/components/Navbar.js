@@ -208,7 +208,7 @@ function Navbar() {
                     aria-labelledby="dropdownEtalaseNavbarLink">
                     <li>
                       <a
-                        href="/merchandise"
+                        href="/merchendise"
                         className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                         Merchendise
                       </a>

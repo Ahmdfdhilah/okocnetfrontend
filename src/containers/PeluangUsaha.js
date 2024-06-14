@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from "react";
 import Header from "@img/headerPeluang.png";
 import FloatingMenu from "../components/FloatingMenu";
@@ -106,7 +107,7 @@ const PeluangUsaha = () => {
             </section>
 
             <div className="w-full justify-around md:flex-row p-4 bg-gray-200 mobile:grid  mobile:grid-cols-1 mobile:grid-flow-row lg:flex">
-                <div className="mobile:max-w-[30rem] lg:min-w-[29rem] lg:p-4">
+                <div className="mobile:max-w-[30rem] mobile:text-sm lg:w-[29rem] lg:mt-5">
                     <p className="text-zinc-600 mb-4">List Peluang Usaha : </p>
                     <JobList onJobClick={handleJobClick} />
                 </div>

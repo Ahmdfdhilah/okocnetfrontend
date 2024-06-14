@@ -28,6 +28,11 @@ import Header from "../asset/img/Penggerak OKOCE Indonesia (1519 x 710 piksel).p
 import Header2 from "@img/Homepage2.png";
 import Header3 from "@img/Homepage3.png";
 import Header4 from "@img/Homepage4.png";
+import Profile1 from "@img/verified.png";
+import Profile2 from "@img/safety.png";
+import Profile3 from "@img/government.png";
+import Profile4 from "@img/partners.png";
+import Profile5 from "@img/education.png";
 // - component
 import Peta from "@components/Peta";
 import Youtube from "@components/Youtube";
@@ -140,7 +145,7 @@ const Homepage = () => {
 
                 <div
                     id="about"
-                    className="mb-20 flex items-center bg-white mx-auto mobile:justify-start mobile:w-80 sm:w-96 lg:justify-center lg:w-3/4">
+                    className="mb-20 flex items-center bg-white mx-auto mobile:justify-start mobile:w-80 mobile:mt-14 sm:w-96 lg:justify-center lg:w-3/4 lg:mt-28">
                     <div className="about-container mx-auto flex flex-col justify-center items-center bg-detik-milk lg:flex-row">
                         <div className="mobile:w-[60%] mobile:h-auto lg:w-[100%] lg:h-full lg:mr-20">
                             <div
@@ -228,7 +233,7 @@ const Homepage = () => {
                             <div class="pb-5 mobile:mt-0">
                                 <h3
                                     id="about-headline"
-                                    class="text-center lg:text-left text-sm leading-9 lg:text-5xl font-bold-700 text-black mobile:text-3xl mobile:font-bold">
+                                    class="text-center lg:text-left text-sm leading-9 lg:text-5xl font-bold-700 text-black mobile:text-xl mobile:font-bold">
                                     OK OCE Gerakan Sosial Penciptaan Lapangan Kerja
                                 </h3>
                             </div>
@@ -278,10 +283,10 @@ const Homepage = () => {
 
                 <div class="grid grid-grid-flow-row justify-items-center items-center mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
                     <div class="md:pt-16 pb-8">
-                        <h2 class="text-sky-700 text-center font-poppins mobile:text-2xl font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl ">
+                        <h2 class="text-sky-700 text-center font-poppins font-bold-700 mobile:text-xl mobile:font-bold lg:text-4xl ">
                             Total Anggota OK OCE INDONESIA
                         </h2>
-                        <h3 className="mt-4 mb-10 text-black text-center font-poppins mobile:text-lg mobile:text-3xl mobile:font-bold lg:text-xl lg:font-medium">
+                        <h3 className="mt-4 mb-10 text-black text-center font-poppins mobile:text-lg mobile:text-lg mobile:font-bold lg:text-xl lg:font-medium">
                             Peserta yang telah bergabung di{" "}
                             <span className="text-red-500 font-bold">OK OCE </span>sampai saat
                             ini
@@ -314,58 +319,97 @@ const Homepage = () => {
                     </div>
                 </div>
 
+                <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:w-10/12 lg:mx-auto lg:grid-cols-3 p-4">
+                    <div class="bg-yellow-100 rounded-lg p-4 flex items-center">
+                        <img src={Profile1} alt="User Icon" class="mr-4" />
+                        <div>
+                            <div class="text-2xl font-bold">107.618</div>
+                            <div class="text-zinc-600">Total Pelaku Usaha</div>
+                        </div>
+                    </div>
+                    <div class="bg-zinc-100 rounded-lg p-4 flex items-center">
+                        <img src={Profile2} alt="Event Icon" class="mr-4" />
+                        <div>
+                            <div class="text-2xl font-bold">37</div>
+                            <div class="text-zinc-600">Total Kerjasama Swasta
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-purple-100 rounded-lg p-4 flex items-center">
+                        <img src={Profile3} alt="Training Icon" class="mr-4" />
+                        <div>
+                            <div class="text-2xl font-bold">2</div>
+                            <div class="text-zinc-600">Total Kerjasama Pemerintah</div>
+                        </div>
+                    </div>
+                    <div class="bg-blue-100 rounded-lg p-4 flex items-center lg:col-span-2">
+                        <img src={Profile4} alt="Consultation Icon" class="mr-4" />
+                        <div>
+                            <div class="text-2xl font-bold">200</div>
+                            <div class="text-zinc-600">Total Kerjasama Penggerak</div>
+                        </div>
+                    </div>
+                    <div class="bg-teal-100 rounded-lg p-4 flex items-center">
+                        <img src={Profile5} alt="Community Icon" class="mr-4" />
+                        <div>
+                            <div class="text-2xl font-bold">60</div>
+                            <div class="text-zinc-600">Total Kerjasama Pendidikan</div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="bg-white mt-12 lg:pb-20 mobile:pb-5 grid justify-items-center mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
                     <div class="md:pt-8 mb-4">
-                        <h3 class="text-sky-700 text-center font-poppins mobile:text-2xl font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl">
+                        <h3 class="text-sky-700 text-center font-poppins mobile:text-2xl font-bold-700 mobile:text-xl mobile:font-bold lg:text-4xl">
                             7 TAHAPAN OK OCE PRIMA
                         </h3>
                     </div>
                     <div class="lg:w-10/12 lg:grid lg:justify-items-center lg:grid-flow-col lg:mt-20">
                         <div class="md:mr-8 hover:drop-shadow-2xl">
                             <a href="/7top">
-                                <img class="md:h-[10em]" src={Top7} />
+                                <img class="md:h-[10em] object-cover mx-auto mobile:w-4/5 mobile:h-auto" src={Top7} />
                             </a>
                         </div>
-                        <a href="https://www.ecsys.okoce.net/register">
+                        <a href="https://ecsys.okoce.net/">
                             <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
                                 <img
-                                    class="md:h-[10em] object-cover mx-auto"
+                                    class="md:h-[10em] object-cover mx-auto mobile:w-4/5 mobile:h-auto"
                                     src={Pendaftaran}
                                 />
                             </div>
                         </a>
                         <a href="/pelatihan">
                             <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
-                                <img class="md:h-[10em] object-cover mx-auto" src={Pelatihan} />
+                                <img class="md:h-[10em] object-cover mx-auto mobile:w-4/5 mobile:h-auto" src={Pelatihan} />
                             </div>
                         </a>
                         <a href="/pendampingan">
                             <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
                                 <img
-                                    class="md:h-[10em] object-cover mx-auto"
+                                    class="md:h-[10em] object-cover mx-auto mobile:w-4/5 mobile:h-auto"
                                     src={Pendampingan}
                                 />
                             </div>
                         </a>
                         <a href="/perizinan">
                             <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
-                                <img class="md:h-[10em] object-cover mx-auto" src={Perizinan} />
+                                <img class="md:h-[10em] object-cover mx-auto mobile:w-4/5 mobile:h-auto" src={Perizinan} />
                             </div>
                         </a>
                         <a href="/pemasaran">
                             <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
-                                <img class="md:h-[10em] object-cover mx-auto" src={Pemasaran} />
+                                <img class="md:h-[10em] object-cover mx-auto mobile:w-4/5 mobile:h-auto" src={Pemasaran} />
                             </div>
                         </a>
-                        <a href="/pelaporan">
+                        <a href="/pelaporankeuangan">
                             <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
-                                <img class="md:h-[10em] object-cover mx-auto" src={Pelaporan} />
+                                <img class="md:h-[10em] object-cover mx-auto mobile:w-4/5 mobile:h-auto" src={Pelaporan} />
                             </div>
                         </a>
                         <a href="/permodalan">
                             <div class="mt-12 md:mt-4 hover:drop-shadow-2xl">
                                 <img
-                                    class="md:h-[10em] object-cover mx-auto"
+                                    class="md:h-[10em] object-cover mx-auto mobile:w-4/5 mobile:h-auto"
                                     src={Permodalan}
                                 />
                             </div>
@@ -374,8 +418,8 @@ const Homepage = () => {
                 </div>
 
                 <div class="bg-white mobile:w-80 mobile:mb-0 mobile:mx-auto sm:w-96 lg:w-full">
-                    <div class="mt-20 mb-12">
-                        <h3 class="text-sky-700 text-center font-poppins mobile:text-2xl font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl">
+                    <div class="mt-20 mobile:mb-6 lg:mb-12">
+                        <h3 class="text-sky-700 text-center font-poppins mobile:text-2xl font-bold-700 mobile:text-xl mobile:font-bold lg:text-4xl">
                             EVENT OK OCE INDONESIA
                         </h3>
                     </div>
@@ -422,14 +466,14 @@ const Homepage = () => {
 
                 <div class="bg-gray-200 mobile:px-3 mobile:w-full sm:w-96 lg:w-full lg:py-20 lg:mb-20">
                     <div class="mobile:pt-10 lg:pb-6 lg:pt-0">
-                        <h3 class="text-sky-700 text-center font-poppins font-bold-700 mobile:text-2xl mobile:text-3xl mobile:font-bold lg:text-4xl lg:mb-4">
+                        <h3 class="text-sky-700 text-center font-poppins font-bold-700 mobile:text-2xl mobile:text-xl mobile:font-bold lg:text-4xl lg:mb-4">
                             BERITA OK OCE INDONESIA
                         </h3>
                     </div>
                     <div className="grid mobile:grid-cols-1 mobile:mt-10 lg:w-11/12 lg:mx-auto lg:grid-cols-3 lg:gap-y-8 lg:gap-x-4 lg:mt-0">
                         {datas.map((data, index) => (
                             <div key={index} className="w-full mx-auto p-4">
-                                <div className="bg-gray-400 shadow-md rounded-lg lg:mr-1">
+                                <div className="bg-blue-400 shadow-md rounded-lg lg:mr-1">
                                     <div className="p-5">
                                         <img
                                             className="object-cover w-full mobile:h-36 lg:h-72"
@@ -465,8 +509,8 @@ const Homepage = () => {
                         ))}
                     </div>
                 </div>
-                <div className="grid grid-flow-row justify-items-center items-center text-lg text-center text-black mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
-                    <div class="max-w-72">
+                <div className="grid grid-flow-row justify-items-center items-center text-lg text-center text-black mobile:mt-14 mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
+                    <div class="max-w-72 mobile:mb-4">
                         <img loading="lazy" srcSet={Okocetv} className="object-cover" />
                     </div>
                     <div class="flex justify-center items-center mobile:w-80 lg:w-full">
@@ -478,7 +522,7 @@ const Homepage = () => {
                 </div>
                 <div class="bg-white mt-10 mobile:w-full mobile:pb-10 mobile:mx-auto lg:w-11/12 lg:pb-2">
                     <div class="mobile:pt-8 pb-8">
-                        <h3 class="text-sky-700 text-center font-poppins text-xl font-bold-700 mobile:text-3xl mobile:font-bold lg:text-4xl">
+                        <h3 class="text-sky-700 text-center font-poppins font-bold-700 mobile:text-xl mobile:font-bold lg:text-4xl">
                             Jadilah salah satu dari mitra kami!
                         </h3>
                     </div>
@@ -571,13 +615,13 @@ const Homepage = () => {
                 </div>
                 <div class="bg-white m-6 pb-20 mobile:w-72 mobile:mx-auto sm:w-96 lg:w-11/12">
                     <div class="md:pt-8 pb-14">
-                        <h3 class="text-sky-700 text-center font-poppins font-bold-700 mobile:mt-10 mobile:text-3xl mobile:font-bold md:text-2xl lg:text-4xl">
+                        <h3 class="text-sky-700 text-center font-poppins font-bold-700 mobile:mt-10 mobile:text-xl mobile:font-bold md:text-2xl lg:text-4xl">
                             Pendapat Mereka Tentang OK OCE INDONESIA!
                         </h3>
                     </div>
                     <div class="grid mobile:grid-cols-1 mobile:grid-flow-row mobile:gap-4 lg:grid-cols-3">
                         <section class="bg-white">
-                            <div class="bg-gray-600 max-w-sm min-h-3/5 px-4 py-8 mx-auto text-center rounded-3xl lg:py-16 lg:px-6">
+                            <div class="bg-gray-500 max-w-sm min-h-3/5 px-4 py-8 mx-auto text-center rounded-3xl lg:py-16 lg:px-6">
                                 <figure class="max-w-screen-md mx-auto">
                                     <svg
                                         class="h-12 mx-auto mb-3 text-black dark:text-black"
@@ -611,7 +655,7 @@ const Homepage = () => {
                             </div>
                         </section>
                         <section class="bg-white">
-                            <div class="bg-gray-600 max-w-sm min-h-[100%] px-4 py-8 mx-auto text-center rounded-3xl lg:py-16 lg:px-6">
+                            <div class="bg-gray-500 max-w-sm min-h-[100%] px-4 py-8 mx-auto text-center rounded-3xl lg:py-16 lg:px-6">
                                 <figure class="max-w-screen-md mx-auto">
                                     <svg
                                         class="h-12 mx-auto mb-3 text-black dark:text-black"
@@ -645,7 +689,7 @@ const Homepage = () => {
                             </div>
                         </section>
                         <section class="bg-white">
-                            <div class="bg-gray-600 max-w-sm min-h-[100%] px-4 py-8 mx-auto text-center rounded-3xl lg:py-16 lg:px-6">
+                            <div class="bg-gray-500 max-w-sm min-h-[100%] px-4 py-8 mx-auto text-center rounded-3xl lg:py-16 lg:px-6">
                                 <figure class="max-w-screen-md mx-auto">
                                     <svg
                                         class="h-12 mx-auto mb-3 text-black dark:text-black"

@@ -22,7 +22,7 @@ const Event = () => {
             }
             const data = await response.json();
             const eventData = data.data;
-            eventData.sort((a, b) => a.id - b.id);
+            eventData.sort((a, b) => b.id - a.id);
             console.log(eventData)
             setData(eventData);
         } catch (error) {

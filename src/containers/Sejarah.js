@@ -101,15 +101,15 @@ const Sejarah = () => {
             </section>
             <div class="grid justify-items-center">
                 <h1 class="text-4xl font-bold text-center mt-[4rem] mobile:text-3xl mobile:px-2">Logo OK OCE Indonesia</h1>
-                <div className="w-full flex justify-evenly">
+                <div className="w-full grid mobile:grid-cols-1 mobile:grid-flow-row mobile:justify-center mobile:items-center lg:grid-flow-col lg:grid-flow-row lg:justify-evenly">
                     <div>
-                        <img src={Gerakan} class="mt-[7rem] mx-auto max-w-[20rem]" alt="gerakan sosial" />
+                        <img src={Gerakan} class="mt-[7rem] mx-auto mobile:w-3/5 lg:max-w-[20rem]" alt="gerakan sosial" />
                     </div>
-                    <div>
-                        <img src={OkOce} class="mt-[7rem] mx-auto max-w-[20rem]" alt="gerakan sosial" />
+                    <div className="mobile:ml-5">
+                        <img src={OkOce} class="mx-auto mobile:w-3/5 mobile:mt-20 lg:w-1/3 lg:mt-[10rem] " alt="gerakan sosial" />
                     </div>
                 </div>
-                <div class="grid justify-items-center lg:grid-cols-2 lg:grid-flow-col lg:gap-6">
+                <div class="grid justify-items-center mobile:grid-cols-1 mobile:gap-0 lg:grid-cols-2 lg:grid-flow-col lg:gap-6">
                     <img src={Desapreneur} class="max-w-[20rem]" alt="gerakan sosial" />
                     <img src={Mesjid} class="max-w-[20rem]" alt="gerakan sosial" />
                     <img src={EmakKece} class="max-w-[20rem]" alt="gerakan sosial" />

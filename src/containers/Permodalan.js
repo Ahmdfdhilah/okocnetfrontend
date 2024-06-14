@@ -1,11 +1,11 @@
 import React from "react";
-import Top from "@img/7top-rb.webp";
+import Top from "../asset/img/7top-rb.webp";
 import FloatingMenu from "../components/FloatingMenu";
 
 const Permodalan = () => {
     return (
         <>
-            <div className="pl-40 pt-60 bg-white max-md:pl-5">
+            <div className="pl-40 bg-white max-md:pl-5 mobile:pt-20 lg:pt-60">
                 <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                     <div className="flex flex-col w-[18%] max-md:ml-0 max-md:w-full">
                         <img
@@ -27,6 +27,7 @@ const Permodalan = () => {
                     </div>
                 </div>
             </div>
+
             <div className="flex flex-col items-center px-16 pt-20 pb-20 bg-white max-md:px-5">
                 <div className="flex flex-col w-full max-w-[1096px] max-md:max-w-full">
                     <div className="self-center text-4xl font-bold leading-10 text-center text-black">

@@ -4,7 +4,7 @@ const ModalStep1 = ({ onNext }) => {
     return (
         <div className="space-y-4">
             <div className='mb-6'>
-                <p className='text-xl text-white text-justify'>Lengkapi identitas data diri anda dengan menekan tombol "Masuk" dibawah ini, untuk memastikan anda mendapatkan pelayanan terbaik dan informasi terbaru dari kami!</p>
+                <p className='text-xl text-black text-justify'>Lengkapi identitas data diri anda dengan menekan tombol "Masuk" dibawah ini, untuk memastikan anda mendapatkan pelayanan terbaik dan informasi terbaru dari kami!</p>
             </div>
             <a href='https://ecsys.okoce.net/'>
                 <button

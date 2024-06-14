@@ -8,7 +8,7 @@ import FloatingMenu from "../components/FloatingMenu";
 const Pendampingan = () => {
     return (
         <>
-            <div className="pl-40 pt-60 bg-white max-md:pl-5">
+            <div className="pl-40 bg-white max-md:pl-5 mobile:pt-20 lg:pt-60">
                 <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                     <div className="flex flex-col w-[18%] max-md:ml-0 max-md:w-full">
                         <img
@@ -36,7 +36,7 @@ const Pendampingan = () => {
                     <div className="self-center text-4xl font-bold leading-10 text-center text-black">
                         Pendampingan
                     </div>
-                    <div className="mt-8 text-lg leading-7 text-center text-black max-md:max-w-full">
+                    <div className="mt-8 text-lg leading-7 text-justify text-black max-md:max-w-full mobile:px-5">
                         Melalui OK OCE, usaha Sobat akan mendapatkan fasilitas pendampingan Oleh Mentor OK OCE dalam kegiatan pemasaran, permodalan, laporan keuangan,
                         konsultasi ide-ide kreatif dan inovatif, perubahan mindset kewirausahaan, mencari penyelesaian permasalahan usaha, hingga pembentukan karakter
                         untuk menjadi UMKM Naik Kelas. Fasilitas tersebut dapat diakses melalui sistem OK OCE pada kolom Inkubasi Usaha, Chat Mentor, maupun Kolaborator.
@@ -45,21 +45,21 @@ const Pendampingan = () => {
             </div>
 
             <div class="grid place-items-center bg-white m-6 pb-10">
-                <div class="p-10 grid grid-cols-3 gap-20 justify-items-center">
+                <div class="p-10 grid justify-items-center lg:gap-x-20 lg:grid-cols-3">
                     <div>
-                        <img class="h-auto max-h-[10rem]" src={Usaha} alt="" />
+                        <img class="h-54 mx-auto mobile:w-40 lg:w-44" src={Usaha} alt="" />
                         <div className="mt-2 text-lg leading-7 text-center text-black max-md:max-w-full">
                             Inkubasi Usaha
                         </div>
                     </div>
                     <div>
-                        <img class="h-auto max-h-[10rem]" src={Chat} alt="" />
+                        <img class="h-54 mx-auto mobile:w-40 lg:w-44" src={Chat} alt="" />
                         <div className="mt-2 text-lg leading-7 text-center text-black max-md:max-w-full">
                             Chat Mentor
                         </div>
                     </div>
                     <div>
-                        <img class="h-auto max-h-[10rem]" src={Kolaborator} alt="" />
+                        <img class="h-54 mx-auto mobile:w-40 lg:w-44" src={Kolaborator} alt="" />
                         <div className="mt-2 text-lg leading-7 text-center text-black max-md:max-w-full">
                             Kolaborator
                         </div>

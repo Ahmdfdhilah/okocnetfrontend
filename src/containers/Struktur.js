@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Header from "../asset/img/Struktur Organisasi.png";
+import Header from "@img/bannernilaiinti.png";
 import FloatingMenu from "../components/FloatingMenu";
 
 const PengurusBaru = () => {
@@ -125,8 +125,8 @@ const PengurusBaru = () => {
     return (
         <>
             <div>
-                <div className="mt-24">
-                    <img className="w-full" src={Header} alt=""></img>
+                <div className="mt-32">
+                    <img className="w-11/12 rounded-3xl mx-auto" src={Header} alt=""></img>
                 </div>
                 <div className="mt-[6rem] mb-16 w-4/5 mx-auto">
                     <div className="mobile:w-3/4 mobile:mx-auto lg:w-[74rem] lg:ml-[1rem]">

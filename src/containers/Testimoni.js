@@ -1,11 +1,7 @@
 import React from "react";
 import Header from "@img/headertestimoni.png";
-import Testi1 from "@img/testi1.jpg";
-import Testi2 from "@img/testi2.jpg";
-import Testi3 from "@img/testi3.jpg";
-import Testi4 from "@img/testi4.jpg";
-import Testi5 from "@img/testi5.jpg";
-import Testi6 from "@img/testi6.jpg";
+import TestiMale from "@img/profilecowo.png";
+import TestiFemale from "@img/profilecewe.png"
 import FloatingMenu from "../components/FloatingMenu";
 
 const Testimoni = () => {
@@ -39,20 +35,20 @@ const Testimoni = () => {
             <div className="bg-white shadow-lg rounded-lg overflow-hidden">
               <div className="p-4">
                 <p className="text-gray-700 text-base">
-                  "Saya sangat senang bisa bergabung dengan tim ini. Mereka
-                  memberikan layanan terbaik dan hasilnya luar biasa!"
+                  "Program OK OCE Indonesia mampu memberdayakan pengusaha kecil dan menengah melalui pelatihan kewirausahaan dan akses permodalan yang lebih mudah"
                 </p>
               </div>
               <div className="flex items-center justify-between p-4 bg-gray-200">
                 <div className="flex items-center">
                   <img
                     className="h-10 w-10 rounded-full mr-4"
-                    src={Testi1}
+                    src={TestiFemale}
                     alt="Testimonial"
                   />
                   <div>
-                    <p className="font-semibold text-gray-800">Jane Doe</p>
-                    <p className="text-xs text-gray-600">CEO, Company XYZ</p>
+                    <p className="font-semibold text-gray-800">Ihsania Izzatun Nisa</p>
+                    <p className="text-xs text-gray-600">Pendamping Program
+                    </p>
                   </div>
                 </div>
               </div>
@@ -62,20 +58,20 @@ const Testimoni = () => {
             <div className="bg-white shadow-lg rounded-lg overflow-hidden">
               <div className="p-4">
                 <p className="text-gray-700 text-base">
-                  "Pelayanan pelanggan mereka sangat responsif dan solutif.
-                  Sangat merekomendasikan untuk bekerja sama dengan mereka."
+                  "Program OK OCE Indonesia dipuji banyak pihak karena efektif memberdayakan pengusaha kecil dan menengah melalui pelatihan kewirausahaan dan akses permodalan yang lebih mudah!"
                 </p>
               </div>
               <div className="flex items-center justify-between p-4 bg-gray-200">
                 <div className="flex items-center">
                   <img
                     className="h-10 w-10 rounded-full mr-4"
-                    src={Testi2}
+                    src={TestiMale}
                     alt="Testimonial"
                   />
                   <div>
-                    <p className="font-semibold text-gray-800">John Smith</p>
-                    <p className="text-xs text-gray-600">CTO, Tech Solutions</p>
+                    <p className="font-semibold text-gray-800">Naufal Firdaus</p>
+                    <p className="text-xs text-gray-600">Pendamping UMKM
+                    </p>
                   </div>
                 </div>
               </div>
@@ -85,44 +81,42 @@ const Testimoni = () => {
             <div className="bg-white shadow-lg rounded-lg overflow-hidden">
               <div className="p-4">
                 <p className="text-gray-700 text-base">
-                  "Mereka membantu kami mengubah visi kami menjadi realitas.
-                  Terima kasih banyak OKE OCE INDONESIA!"
+                  "Program OK OCE Indonesia dianggap sukses oleh banyak orang dalam membantu menciptakan lapangan kerja baru dan meningkatkan keterampilan kewirausahaan masyarakat"
                 </p>
               </div>
               <div className="flex items-center justify-between p-4 bg-gray-200">
                 <div className="flex items-center">
                   <img
                     className="h-10 w-10 rounded-full mr-4"
-                    src={Testi3}
+                    src={TestiMale}
                     alt="Testimonial"
                   />
                   <div>
-                    <p className="font-semibold text-gray-800">Emily Johnson</p>
-                    <p className="text-xs text-gray-600">COO, Startup ABC</p>
+                    <p className="font-semibold text-gray-800">Rico Hadeta Putra</p>
+                    <p className="text-xs text-gray-600">Mahasiswa MSIB Batch 6</p>
                   </div>
                 </div>
               </div>
             </div>
             {/* End Testimoni item 3 */}
             {/* Testimoni item 4 */}
-            <div className="mt-[2rem] bg-white shadow-lg rounded-lg overflow-hidden">
+            <div className="bg-white shadow-lg rounded-lg overflow-hidden mobile:mt-2 lg:mt-[2rem]">
               <div className="p-4">
                 <p className="text-gray-700 text-base">
-                  "Pelayanan yang luar biasa! Sangat merekomendasikan untuk
-                  semua orang."
+                  "Okoce ada dan pergerakannya sgt membantu byk rakyat salah satunya bisa membuka lapangan kerja dan pelaku UMKM pun bisa ikut bazaar dm2 dgn acara2 hebat... Espas Indonesia salah satu komunitas emak2 yg sgt terbantu dgn gerakan okoce ini.. Emak2 Espas sering ikut bazaar di acara okoce dan emak2 Espas byk yg sdh bikin usaha  rumahan .. Byk pelatihan jg dr okoce Indonesia... BRAVO OKOCE INDONESIA"
                 </p>
               </div>
               <div className="flex items-center justify-between p-4 bg-gray-200">
                 <div className="flex items-center">
                   <img
                     className="h-10 w-10 rounded-full mr-4"
-                    src={Testi4}
+                    src={TestiFemale}
                     alt="Testimonial"
                   />
                   <div>
-                    <p className="font-semibold text-gray-800">Michael Brown</p>
+                    <p className="font-semibold text-gray-800">@dewiherawati8616</p>
                     <p className="text-xs text-gray-600">
-                      Manager, Company ABC
+                      Ketua Penggerak OK OCE ESPAS
                     </p>
                   </div>
                 </div>
@@ -130,24 +124,23 @@ const Testimoni = () => {
             </div>
             {/* End Testimoni item 4 */}
             {/* Testimoni item 5 */}
-            <div className="mt-[2rem] bg-white shadow-lg rounded-lg overflow-hidden">
+            <div className="bg-white shadow-lg rounded-lg overflow-hidden mobile:mt-2 lg:mt-[2rem]">
               <div className="p-4">
                 <p className="text-gray-700 text-base">
-                  "Pelayanan cepat dan hasilnya memuaskan. Akan merekomendasikan
-                  kepada teman-teman saya!"
+                  "Magang di OK OCE sangat menyenangkan dan seru, Teman-teman di sini sangat ramah dan selalu siap membantu, menciptakan lingkungan yang positif dan mendukung. Selain itu, pekerjaan yang diberikan benar-benar sesuai dengan jobdesk, sehingga saya bisa belajar banyak dan mengembangkan keterampilan sesuai bidang yang saya minati. Lingkungan yang kondusif dan suasana kerja yang penuh semangat"
                 </p>
               </div>
               <div className="flex items-center justify-between p-4 bg-gray-200">
                 <div className="flex items-center">
                   <img
                     className="h-10 w-10 rounded-full mr-4"
-                    src={Testi5}
+                    src={TestiMale}
                     alt="Testimonial"
                   />
                   <div>
-                    <p className="font-semibold text-gray-800">Sarah Johnson</p>
+                    <p className="font-semibold text-gray-800">Reza Hakim</p>
                     <p className="text-xs text-gray-600">
-                      Marketing Manager, XYZ Inc.
+                      Mahasiswa MSIB Batch 6
                     </p>
                   </div>
                 </div>
@@ -155,24 +148,23 @@ const Testimoni = () => {
             </div>
             {/* End Testimoni item 5 */}
             {/* Testimoni item 6 */}
-            <div className="mt-[2rem] bg-white shadow-lg rounded-lg overflow-hidden">
+            <div className="bg-white shadow-lg rounded-lg overflow-hidden mobile:mt-2 lg:mt-[2rem]">
               <div className="p-4">
                 <p className="text-gray-700 text-base">
-                  "Pelayanan yang sangat ramah dan kompeten. Sangat puas dengan
-                  hasilnya!"
+                  "OK OCE 2018 yang saya ikuti benar-benar luar biasa dan memiliki dampak nyata. Program ini hebat karena berhasil melahirkan banyak pengusaha baru. Dengan bimbingan yang tepat dan lingkungan yang mendukung, peserta dapat mengembangkan keterampilan dan pengetahuan yang sangat berharga. Sukses selalu untuk OK OCE dan semoga terus memberikan kontribusi positif bagi masyarakat"
                 </p>
               </div>
               <div className="flex items-center justify-between p-4 bg-gray-200">
                 <div className="flex items-center">
                   <img
                     className="h-10 w-10 rounded-full mr-4"
-                    src={Testi6}
+                    src={TestiMale}
                     alt="Testimonial"
                   />
                   <div>
-                    <p className="font-semibold text-gray-800">David Wilson</p>
+                    <p className="font-semibold text-gray-800">Cheflintang</p>
                     <p className="text-xs text-gray-600">
-                      Founder, Startup XYZ
+                      Anggota OK OCE Indonesia
                     </p>
                   </div>
                 </div>
@@ -181,9 +173,9 @@ const Testimoni = () => {
             {/* End Testimoni item 6 */}
           </div>
         </div>
-      </section>
+      </section >
       {/* End Testimoni section */}
-      <FloatingMenu />
+      < FloatingMenu />
     </>
   );
 };
