@@ -1,301 +1,73 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Youtube from "@components/Youtube";
-/*TES GAMBAR */
-import Lokalbrand1 from "@img/lokalbrand/lokalbrand1.PNG";
-import Lokalbrand2 from "@img/lokalbrand/lokalbrand2.PNG";
-import Lokalbrand3 from "@img/lokalbrand/lokalbrand3.PNG";
-import Lokalbrand4 from "@img/lokalbrand/lokalbrand4.PNG";
-import Lokalbrand5 from "@img/lokalbrand/lokalbrand5.PNG";
-import Lokalbrand6 from "@img/lokalbrand/lokalbrand6.PNG";
-import Lokalbrand7 from "@img/lokalbrand/lokalbrand7.PNG";
-import Lokalbrand8 from "@img/lokalbrand/lokalbrand8.PNG";
-import Lokalbrand9 from "@img/lokalbrand/lokalbrand9.PNG";
-import Lokalbrand10 from "@img/lokalbrand/lokalbrand10.PNG";
-import Lokalbrand11 from "@img/lokalbrand/lokalbrand11.PNG";
-import Lokalbrand12 from "@img/lokalbrand/lokalbrand12.PNG";
-import Lokalbrand13 from "@img/lokalbrand/lokalbrand13.PNG";
-import Lokalbrand14 from "@img/lokalbrand/lokalbrand14.PNG";
-import Lokalbrand15 from "@img/lokalbrand/lokalbrand15.PNG";
-import Lokalbrand16 from "@img/lokalbrand/lokalbrand16.PNG";
-import Lokalbrand17 from "@img/lokalbrand/lokalbrand17.PNG";
-import Lokalbrand18 from "@img/lokalbrand/lokalbrand18.PNG";
-import Lokalbrand19 from "@img/lokalbrand/lokalbrand19.PNG";
-import Lokalbrand20 from "@img/lokalbrand/lokalbrand20.PNG";
-import Lokalbrand21 from "@img/lokalbrand/lokalbrand21.PNG";
-import Lokalbrand22 from "@img/lokalbrand/lokalbrand22.PNG";
-import Lokalbrand23 from "@img/lokalbrand/lokalbrand23.PNG";
-import Lokalbrand24 from "@img/lokalbrand/lokalbrand24.PNG";
-
+import FloatingMenu from "../components/FloatingMenu";
+import Header from "@img/Brand Lokal OK.png"
 
 const LokalBrand = () => {
+    const [datas, setData] = useState([]);
+
+    useEffect(() => {
+        fetchData();
+    }, [])
+
+    const fetchData = async () => {
+        try {
+            const response = await fetch(
+                "https://cms-okoce-a155c649b6e6.herokuapp.com/api/brand-lokals?populate=*"
+            );
+            if (!response.ok) {
+                throw new Error("Gagal mengambil data brand");
+            }
+            const data = await response.json();
+            const brandData = data.data;
+            console.log(brandData);
+            setData(brandData);
+        } catch (error) {
+            console.error("Error fetching brand:", error);
+            // Jika terjadi kesalahan, pastikan untuk mengatur employees menjadi array kosong
+            setData([]);
+        }
+    };
+
     return (
         <>
-            <div class="mt-24 bg-gray-400 w-full h-[20rem] grid justify-center content-center flex-col items-center">
-                <h1 class="font-extrabold text-4xl text-center">BRAND LOKAL OK</h1>
-                <p class="text-center mt-6">MEMILIKI PRODUK 100% BUATAN INDONESIA NAMUN BELUM MAKSIMAL PENJUALANNYA<br />PROGRAM PENDAMPINGAN BAGI PELAKU USAHA UNTUK DAPAT TUMBUH BERSAMA. KATEGORI ULTRA MIKRO & MIKRO UNTUK SCALEUP KE KECIL SAMPAI MENENGAH<br /><span class="text-red-600 font-bold">YUK DAFTAR 100% GRATIS.</span></p>
-                <div class="mt-6 flex flex-col items-center">
-                    <a href="" class="p-4 bg-red-600 rounded-lg text-white font-bold text-lg">PENDAFTARAN DI TUTUP</a>
+            <div className="mt-24 w-full h-auto grid justify-center content-center flex-col items-center">
+                <div className="relative mx-auto w-full h-full">
+                    <img className="mobile:w-full mobile:h-full object-cover lg:mx-auto lg:w-full lg:h-auto" src={Header} alt="" />
+                    <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center mobile:bottom-[-1] mobile:w-60 lg:w-80 lg:mb-4 lg:bottom-0 ">
+                        <a href="" className="bg-red-600 hover:bg-red-700 rounded-lg text-white font-bold mobile:p-2 mobile:text-xs lg:text-lg lg:p-4">PENDAFTARAN DI TUTUP</a>
+                    </div>
                 </div>
             </div>
-            <div class="flex justify-center m-12">
-                <Youtube src="https://www.youtube.com/embed/avA0_NJK5mU" />
+
+            <div class="flex max-w-6xl mx-auto justify-center m-12">
+                <Youtube src="https://okoce.net/wp-content/uploads/2023/10/6.-HIGHRES-VIDEO-UCAPAN-BRAND-LOKAL-OK.mp4" />
             </div>
-            <div class="mt-[6rem] bg-gray-300 w-full h-[22rem] grid justify-center content-center">
-                <h1 class="font-extrabold text-4xl text-center">SELAMAT ATAS TERPILIHNYA 24 PRODUK UMKM<br />DARI 24 PENGGERAK YANG MENDAFTAR</h1>
-                <p class="text-center mt-2 font-medium">produk produk brand lokal ok</p>
+            <div class="mt-[6rem] bg-gray-300 w-full h-[22rem] grid justify-center content-center mobile:px-5">
+                <h1 class="font-extrabold text-center mobile:text-2xl lg:text-4xl ">SELAMAT ATAS TERPILIHNYA 24 PRODUK UMKM<br />DARI 24 PENGGERAK YANG MENDAFTAR!</h1>
             </div>
             {/* <!-- component --> */}
             <div class="mt-[3rem] mb-[3rem] flex items-center justify-center">
                 <div class="container w-4/5 mx-auto p-4">
-                    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-8">
+                    <div class="grid mobile:grid-cols-1 lg:grid-cols-2 gap-8">
                         {/* <!-- Replace this with your grid items --> */}
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand1} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">beutaree art creation</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak OK OCE KREASI
-                                </p>
+                        {datas.map((data, index) =>
+                            <div key={index} class="flex flex-col items-center">
+                                <img src={data.attributes?.foto_brand?.data?.attributes?.url} alt="Placeholder Image" class="rounded-md object-cover mx-auto border lg:w-4/5 lg:h-96 " />
+                                <div class="px-1 py-4 text-center">
+                                    <div class="font-bold text-xl mb-2">{data.attributes.judul_brand}</div>
+                                    <p class="text-gray-700 text-base">
+                                        {data.attributes.deskripsi_brand}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand2} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Pempek 99</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak OK OCE Perwira
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand3} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Kuring Slera</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak OK OCE Qalam
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand4} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Ai Florist</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak OK OCE Ina Makmur
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand5} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Asih Frozeen Food</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak OK OCE Forever
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand6} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Rayaku</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak OK OCE Ikrema
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand7} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Susu Kacang 777</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak HR Academy
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand8} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Berlinda</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak Mak Fau
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand9} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Wanajaya</div>
-                                <p class="text-gray-700 text-base">
-                                    DPW Lampung
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand10} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Sambal Tabur Mamiku</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak OK OCE ADMA
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand11} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">D Bajang's Coffee</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak OK OCE Andalan
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand12} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Cineurasa</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak OK OCE Buana
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand13} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Raginang Ceu Mimin</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak OK OCE CSS
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand14} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Kyoma Kitchin</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak OK OCE Kabupaten
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand15} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Kopi Buah Kabar Gembira</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak OK OCE KK Indonesia
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand16} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Sarah Kreatif</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak OK OCE STII
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand17} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Batik Tosarian</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak OK OCE UNIROW
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand18} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Aza Walet Indonesia</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak OK OCE Export
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand19} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Kempling kitchen</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak Seeker Revolution
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand20} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Lemon x</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak OK OCE SKIES
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand21} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Tunas Crochet</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak Universitas Muhammadiyah
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand22} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Nukiwari</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak UPI
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand23} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Cemilan Kriuk</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak OK OCE GAN
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center">
-                            <img src={Lokalbrand24} alt="Placeholder Image" class="w-4/5 h-48 rounded-md object-fill mx-auto border" />
-                            <div class="px-1 py-4 text-center">
-                                <div class="font-bold text-xl mb-2">Dapur Yasmin</div>
-                                <p class="text-gray-700 text-base">
-                                    Penggerak OK OCE ESPAS
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* <!-- Add more items as needed --> */}
+                        )};
                     </div>
                 </div>
             </div>
+            <FloatingMenu />{" "}
         </>
     );
 }

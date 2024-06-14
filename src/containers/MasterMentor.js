@@ -14,6 +14,7 @@ import BENEFIT2 from "@img/Mastermentor/BENEFIT2.png";
 import BENEFIT3 from "@img/Mastermentor/BENEFIT3.png";
 import BENEFIT4 from "@img/Mastermentor/BENEFIT4.png";
 import BENEFIT5 from "@img/Mastermentor/BENEFIT5.png";
+import FloatingMenu from "../components/FloatingMenu";
 
 const MasterMentor = () => {
     return (
@@ -43,7 +44,7 @@ const MasterMentor = () => {
             </div>
 
             <div>
-                <div className="flex gap-5 px-20 py-10 max-md:flex-col max-md:gap-0">
+                <div className="flex gap-5 py-10 max-md:flex-col max-md:gap-0 lg:px-20">
                     <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
                         <div className="flex flex-col grow px-5 text-black max-md:mt-10 max-md:max-w-full">
                             <div className="text-5xl font-bold leading-[57.6px] max-md:max-w-full max-md:text-4xl">
@@ -254,6 +255,7 @@ const MasterMentor = () => {
                     </div>
                 </div>
             </div>
+            <FloatingMenu />{" "}
         </>
     );
 }

@@ -2,19 +2,12 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
 import Atas from "@img/Trainer/Atas.png";
-import Penggerak1 from "@img/Trainer/Penggerak1.png";
-import Penggerak2 from "@img/Trainer/Penggerak2.png";
-import Penggerak3 from "@img/Trainer/Penggerak3.png";
-import Penggerak4 from "@img/Trainer/Penggerak4.png";
-import Penggerak5 from "@img/Trainer/Penggerak5.png";
-import Penggerak6 from "@img/Trainer/Penggerak6.png";
-import Penggerak7 from "@img/Trainer/Penggerak7.png";
-import Penggerak8 from "@img/Trainer/Penggerak8.png";
 import Vector1 from "@img/Trainer/Vector1.png";
 import Vector2 from "@img/Trainer/Vector2.png";
 import Vector3 from "@img/Trainer/Vector3.png";
 import Vector4 from "@img/Trainer/Vector4.png";
 import Vector5 from "@img/Trainer/Vector5.png";
+import FloatingMenu from "../components/FloatingMenu";
 
 const Trainer = () => {
     return (
@@ -182,6 +175,7 @@ const Trainer = () => {
                     </div>
                 </div>
             </div>
+            <FloatingMenu />
         </>
     );
 }

@@ -31,22 +31,22 @@ import FOTO3 from "@img/emakkece/FOTO3.png";
 const Emakkece = () => {
     return (
         <>
-             <div className="px-20 py-20 bg-white max-md:px-5 mobile:mt-6 lg:mt-20">
+            <div className="px-20 py-20 bg-white max-md:px-5 mobile:mt-6 lg:mt-20">
                 <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                     <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-                    <img class="mt-2.5 w-full aspect-[1.96] max-md:mt-10 max-md:max-w-full" src={EMAKKECE} />
+                        <img class="mt-2.5 w-full aspect-[1.96] max-md:mt-10 max-md:max-w-full" src={EMAKKECE} />
                     </div>
                     <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
-                    <div className="flex flex-col mt-2.5 font-bold text-black leading-[120%] max-md:mt-10 max-md:max-w-full">
-                        <div className="text-4xl max-md:max-w-full">EMAK KECE</div>
-                        <div className="mt-6 text-lg leading-7 text-justify max-md:max-w-full">
-                        Emak Kece adalah program inovatif yang dirancang oleh OK OCE Indonesia, khusus untuk para ibu-ibu. Program ini dijalankan oleh para penggerak dan mitra OK OCE Indonesia, dengan tujuan memberdayakan serta meningkatkan keterampilan dan potensi ekonomi para ibu dalam berbagai bidang usaha.
-                        <br />
+                        <div className="flex flex-col mt-2.5 font-bold text-black leading-[120%] max-md:mt-10 max-md:max-w-full">
+                            <div className="text-4xl max-md:max-w-full">EMAK KECE</div>
+                            <div className="mt-6 text-lg leading-7 text-justify max-md:max-w-full">
+                                Emak Kece adalah program inovatif yang dirancang oleh OK OCE Indonesia, khusus untuk para ibu-ibu. Program ini dijalankan oleh para penggerak dan mitra OK OCE Indonesia, dengan tujuan memberdayakan serta meningkatkan keterampilan dan potensi ekonomi para ibu dalam berbagai bidang usaha.
+                                <br />
+                            </div>
+                            <div className="justify-center items-center px-16 py-6 mt-10 text-2xl text-center text-white bg-red-600 rounded-3xl max-md:px-5 max-md:max-w-full">
+                                PELAJARI SELENGKAPNYA
+                            </div>
                         </div>
-                        <div className="justify-center items-center px-16 py-6 mt-10 text-2xl text-center text-white bg-red-600 rounded-3xl max-md:px-5 max-md:max-w-full">
-                        PELAJARI SELENGKAPNYA
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>
@@ -132,7 +132,7 @@ const Emakkece = () => {
                 </div>
             </div>
 
-            
+
             <div class="mt-[5rem] bg-white-300 w-full h-[50rem] grid justify-center content-center mobile:mb-[20rem] lg:mb-0">
                 <h1 class="font-extrabold text-4xl text-center">TAHAPAN</h1>
                 <div class="flex justify-center">
@@ -180,13 +180,8 @@ const Emakkece = () => {
                     </div>
                 </div>
             </div>
-        
-        
-
-
-
         </>
     );
 }
 
-export default Emakkece ;
+export default Emakkece;

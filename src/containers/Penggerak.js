@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from "react";
-import Header from "../asset/img/PenggerakOkOce.png"
+import Header from "../asset/img/PenggerakOkOce.png";
+import FloatingMenu from "../components/FloatingMenu";
 
 const Penggerak = () => {
     const [penggerak, setPenggerak] = useState([]);
@@ -14,15 +15,15 @@ const Penggerak = () => {
         try {
             const response = await fetch('https://cms-okoce-a155c649b6e6.herokuapp.com/api/penggerak-okoces?populate=*');
             if (!response.ok) {
-                throw new Error('Gagal mengambil data karyawan');
+                throw new Error('Gagal mengambil data penggerak');
             }
             const data = await response.json();
             // Extract the data array from the response
-            const employeesData = data.data;
-            console.log(employeesData)
-            setPenggerak(employeesData);
+            const penggerakData = data.data;
+            console.log(penggerakData)
+            setPenggerak(penggerakData);
         } catch (error) {
-            console.error('Error fetching employees:', error);
+            console.error('Error fetching penggerak:', error);
             // Jika terjadi kesalahan, pastikan untuk mengatur employees menjadi array kosong
             setPenggerak([]);
         }
@@ -37,7 +38,9 @@ const Penggerak = () => {
                 <h1 class="font-extrabold text-4xl text-center">Penggerak <br /> OK OCE Indonesia</h1>
                 <p class="text-center mt-6 font-medium">Penggerak OK OCE sebagai layer kedua dalam bangunan gerakan sosial penciptaan lapangan kerja <br /> berbasis wirausaha tersebar diberbagai daerah di seluruh Indonesia.</p>
                 <p class="text-center mt-2 font-medium">Anda dapat bergabung dengan penggerak-penggerak OK OCE di Lokasi terdekat tempat tinggal anda.</p>
-                <button type="button" class="w-[10rem] mt-6 mx-auto text-white text-base bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Penggerak  &#10132; </button>
+                <a href="https://ecsys.okoce.net/" className="mx-auto">
+                    <button type="button" class="w-[10rem] mt-6 mx-auto text-white text-base bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Penggerak  &#10132; </button>
+                </a>
             </div>
 
             {/* <!-- component --> */}
@@ -56,10 +59,10 @@ const Penggerak = () => {
                                 </div>
                             </div>
                         ))}
-                        {/* <!-- Add more items as needed --> */}
                     </div>
                 </div>
             </div>
+            <FloatingMenu />
         </>
     );
 }

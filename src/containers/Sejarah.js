@@ -9,6 +9,7 @@ import Mesjid from "@img/Placeholder image .png";
 import Desapreneur from "@img/Placeholder image-1.png";
 import EmakKece from "@img/Placeholder image-4.png";
 import Brand from "@img/Placeholder image-3.png";
+import FloatingMenu from "../components/FloatingMenu";
 
 const Sejarah = () => {
 
@@ -100,14 +101,22 @@ const Sejarah = () => {
             </section>
             <div class="grid justify-items-center">
                 <h1 class="text-4xl font-bold text-center mt-[4rem] mobile:text-3xl mobile:px-2">Logo OK OCE Indonesia</h1>
-                <img src={Gerakan} class="mt-[7rem] mx-auto max-w-[20rem]" alt="gerakan sosial" />
-                <div class="grid justify-items-center lg:grid-cols-2 lg:grid-flow-col lg:gap-6">
+                <div className="w-full grid mobile:grid-cols-1 mobile:grid-flow-row mobile:justify-center mobile:items-center lg:grid-flow-col lg:grid-flow-row lg:justify-evenly">
+                    <div>
+                        <img src={Gerakan} class="mt-[7rem] mx-auto mobile:w-3/5 lg:max-w-[20rem]" alt="gerakan sosial" />
+                    </div>
+                    <div className="mobile:ml-5">
+                        <img src={OkOce} class="mx-auto mobile:w-3/5 mobile:mt-20 lg:w-1/3 lg:mt-[10rem] " alt="gerakan sosial" />
+                    </div>
+                </div>
+                <div class="grid justify-items-center mobile:grid-cols-1 mobile:gap-0 lg:grid-cols-2 lg:grid-flow-col lg:gap-6">
                     <img src={Desapreneur} class="max-w-[20rem]" alt="gerakan sosial" />
                     <img src={Mesjid} class="max-w-[20rem]" alt="gerakan sosial" />
                     <img src={EmakKece} class="max-w-[20rem]" alt="gerakan sosial" />
                     <img src={Brand} class="max-w-[20rem]" alt="gerakan sosial" />
                 </div>
             </div>
+            <FloatingMenu />
         </>
     )
 }

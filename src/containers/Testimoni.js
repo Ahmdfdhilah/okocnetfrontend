@@ -1,11 +1,8 @@
 import React from "react";
 import Header from "@img/headertestimoni.png";
-import Testi1 from "@img/profilecewe.png";
-import Testi2 from "@img/profilecowo.png";
-import Testi3 from "@img/profilecowo.png";
-import Testi4 from "@img/profilecewe.png";
-import Testi5 from "@img/profilecowo.png";
-import Testi6 from "@img/profilecowo.png";
+import TestiFemale from "@img/profilecewe.png";
+import TestiMale from "@img/profilecowo.png";
+import FloatingMenu from "../components/FloatingMenu";
 
 const Testimoni = () => {
   return (
@@ -45,7 +42,7 @@ const Testimoni = () => {
                 <div className="flex items-center">
                   <img
                     className="h-10 w-10 rounded-full mr-4"
-                    src={Testi1}
+                    src={TestiFemale}
                     alt="Testimonial"
                   />
                   <div>
@@ -68,13 +65,13 @@ const Testimoni = () => {
                 <div className="flex items-center">
                   <img
                     className="h-10 w-10 rounded-full mr-4"
-                    src={Testi2}
+                    src={TestiMale}
                     alt="Testimonial"
                   />
                   <div>
                     <p className="font-semibold text-gray-800">Naufal Firdaus</p>
                     <p className="text-xs text-gray-600">Pendamping UMKM
-                     </p>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -91,7 +88,7 @@ const Testimoni = () => {
                 <div className="flex items-center">
                   <img
                     className="h-10 w-10 rounded-full mr-4"
-                    src={Testi3}
+                    src={TestiMale}
                     alt="Testimonial"
                   />
                   <div>
@@ -103,7 +100,7 @@ const Testimoni = () => {
             </div>
             {/* End Testimoni item 3 */}
             {/* Testimoni item 4 */}
-            <div className="mt-[2rem] bg-white shadow-lg rounded-lg overflow-hidden">
+            <div className="bg-white shadow-lg rounded-lg overflow-hidden mobile:mt-2 lg:mt-[2rem]">
               <div className="p-4">
                 <p className="text-gray-700 text-base">
                   "Okoce ada dan pergerakannya sgt membantu byk rakyat salah satunya bisa membuka lapangan kerja dan pelaku UMKM pun bisa ikut bazaar dm2 dgn acara2 hebat... Espas Indonesia salah satu komunitas emak2 yg sgt terbantu dgn gerakan okoce ini.. Emak2 Espas sering ikut bazaar di acara okoce dan emak2 Espas byk yg sdh bikin usaha  rumahan .. Byk pelatihan jg dr okoce Indonesia... BRAVO OKOCE INDONESIA"
@@ -113,7 +110,7 @@ const Testimoni = () => {
                 <div className="flex items-center">
                   <img
                     className="h-10 w-10 rounded-full mr-4"
-                    src={Testi4}
+                    src={TestiFemale}
                     alt="Testimonial"
                   />
                   <div>
@@ -127,7 +124,7 @@ const Testimoni = () => {
             </div>
             {/* End Testimoni item 4 */}
             {/* Testimoni item 5 */}
-            <div className="mt-[2rem] bg-white shadow-lg rounded-lg overflow-hidden">
+            <div className="bg-white shadow-lg rounded-lg overflow-hidden mobile:mt-2 lg:mt-[2rem]">
               <div className="p-4">
                 <p className="text-gray-700 text-base">
                   "Magang di OK OCE sangat menyenangkan dan seru, Teman-teman di sini sangat ramah dan selalu siap membantu, menciptakan lingkungan yang positif dan mendukung. Selain itu, pekerjaan yang diberikan benar-benar sesuai dengan jobdesk, sehingga saya bisa belajar banyak dan mengembangkan keterampilan sesuai bidang yang saya minati. Lingkungan yang kondusif dan suasana kerja yang penuh semangat"
@@ -137,7 +134,7 @@ const Testimoni = () => {
                 <div className="flex items-center">
                   <img
                     className="h-10 w-10 rounded-full mr-4"
-                    src={Testi5}
+                    src={TestiMale}
                     alt="Testimonial"
                   />
                   <div>
@@ -151,7 +148,7 @@ const Testimoni = () => {
             </div>
             {/* End Testimoni item 5 */}
             {/* Testimoni item 6 */}
-            <div className="mt-[2rem] bg-white shadow-lg rounded-lg overflow-hidden">
+            <div className="bg-white shadow-lg rounded-lg overflow-hidden mobile:mt-2 lg:mt-[2rem]">
               <div className="p-4">
                 <p className="text-gray-700 text-base">
                   "OK OCE 2018 yang saya ikuti benar-benar luar biasa dan memiliki dampak nyata. Program ini hebat karena berhasil melahirkan banyak pengusaha baru. Dengan bimbingan yang tepat dan lingkungan yang mendukung, peserta dapat mengembangkan keterampilan dan pengetahuan yang sangat berharga. Sukses selalu untuk OK OCE dan semoga terus memberikan kontribusi positif bagi masyarakat"
@@ -161,7 +158,7 @@ const Testimoni = () => {
                 <div className="flex items-center">
                   <img
                     className="h-10 w-10 rounded-full mr-4"
-                    src={Testi6}
+                    src={TestiMale}
                     alt="Testimonial"
                   />
                   <div>
@@ -176,8 +173,9 @@ const Testimoni = () => {
             {/* End Testimoni item 6 */}
           </div>
         </div>
-      </section>
+      </section >
       {/* End Testimoni section */}
+      < FloatingMenu />
     </>
   );
 };

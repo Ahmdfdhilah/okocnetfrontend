@@ -1,14 +1,99 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "@img/HeaderKerja.png";
+import FloatingMenu from "../components/FloatingMenu";
 
-const accordionContentClasses = 'border-t border-zinc-200 mobile:p-10 lg:p-20';
-const accordionButtonClasses = 'flex items-center justify-between w-full text-zinc-500 border-t border-zinc-200 pt-3';
+const cardClasses = 'bg-white p-4 rounded-lg shadow-md flex items-start cursor-pointer';
+
+const JobCard = ({ logo, title, location, job_system, category, onClick }) => {
+    return (
+        <div className={cardClasses} onClick={onClick}>
+            <img src={logo} alt="Company Logo" className="w-20 max-h-20  mr-4 object-cover rounded-full" />
+            <div>
+                <h3 className="text-lg font-semibold">{title}</h3>
+                <p className="text-zinc-800">{location}</p>
+                <div className="flex gap-x-4">
+                    <div className="mt-4 bg-blue-200 px-3 py-2 rounded-md">
+                        <p className="text-blue-500">{job_system}</p>
+                    </div>
+                    <div className="mt-4 bg-green-200 px-3 py-2 rounded-md">
+                        <p className="text-green-500">{category}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const JobList = ({ onJobClick }) => {
+    const [datas, setData] = useState([]);
+
+    useEffect(() => {
+        fetchDataPeluangUsaha();
+    }, []);
+
+    const fetchDataPeluangUsaha = async () => {
+        try {
+            const response = await fetch('https://cms-okoce-a155c649b6e6.herokuapp.com/api/peluang-kerjas?populate=*');
+            if (!response.ok) {
+                throw new Error('Gagal mengambil data peluang kerja');
+            }
+            const data = await response.json();
+            const PelKerData = data.data;
+            PelKerData.sort((a, b) => b.id - a.id);
+            console.log(PelKerData);
+            setData(PelKerData);
+        } catch (error) {
+            console.error('Error fetching peluang kerja :', error);
+            setData([]);
+        }
+    };
+
+    return (
+        <div>
+            {datas.map((data) =>
+                <div className="mt-0" key={data.id}>
+                    <div className="space-y-4 mt-5">
+                        <JobCard
+                            logo={data.attributes?.foto_kerja?.data?.attributes?.url}
+                            title={data.attributes?.judul_kerja}
+                            location={data.attributes?.lokasi_kerja}
+                            job_system={data.attributes?.sistem_kerja}
+                            category={data.attributes?.kategori_kerja}
+                            onClick={() => onJobClick(data.id)}
+                        />
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
 
 const PeluangKerja = () => {
-    const [isAccordionOpen, setIsAccordionOpen] = useState(false);
+    const [selectedJobId, setSelectedJobId] = useState(null);
+    const [jobDetails, setJobDetails] = useState(null);
 
-    const toggleAccordion = () => {
-        setIsAccordionOpen(!isAccordionOpen);
+    useEffect(() => {
+        if (selectedJobId !== null) {
+            fetchJobDetails(selectedJobId);
+        }
+    }, [selectedJobId]);
+
+    const fetchJobDetails = async (id) => {
+        try {
+            const response = await fetch(`https://cms-okoce-a155c649b6e6.herokuapp.com/api/peluang-kerjas/${id}?populate=*`);
+            if (!response.ok) {
+                throw new Error('Gagal mengambil detail peluang kerja');
+            }
+            const data = await response.json();
+            setJobDetails(data.data);
+        } catch (error) {
+            console.error('Error fetching peluang kerja details:', error);
+            setJobDetails(null);
+        }
+    };
+
+    const handleJobClick = (id) => {
+        setSelectedJobId(id);
     };
     return (
         <>
@@ -19,85 +104,51 @@ const PeluangKerja = () => {
                 </div>
             </section>
 
-            <div className="my-10 max-w-4xl mx-auto p-4">
-                <div className="bg-white shadow-md rounded-lg">
-                    <div className="p-5">
-                        <h2 className="font-bold text-xl mb-2">TEH KOTAK</h2>
-                        <p className="text-zinc-700">Jakarta</p>
-                        <div className="flex space-x-4 my-4">
-                            <span className="bg-blue-100 text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">Franchisee</span>
-                            <span className="bg-green-100 text-green-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">Makanan Minuman</span>
-                        </div>
-                        <button onClick={toggleAccordion} className={accordionButtonClasses}>
-                            <span class="text-black">Detail Informasi</span>
-                            <svg className={`w-6 h-6 transform transition-transform ${isAccordionOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    {isAccordionOpen && (
-                        <div className={accordionContentClasses}>
-                            <div className="flex justify-between mobile:flex-col mobile:gap-8 lg:flex-row">
-                                <img src="https://placehold.co/300x200" alt="Drink" />
-                                <img src="https://placehold.co/300x200" alt="Store" />
-                            </div>
-                            <div className="my-10 flex justify-start mobile:flex-col mobile:gap-4 lg:flex-row">
-                                <div class="mr-16">
-                                    <h3 className="font-semibold text-lg">Lokasi</h3>
-                                    <p>Pinggir Jalan</p>
+            <div className="w-full justify-around md:flex-row p-4 bg-gray-200 mobile:grid  mobile:grid-cols-1 mobile:grid-flow-row lg:flex">
+                <div className="mobile:max-w-[30rem] mobile:text-sm lg:min-w-[29rem] lg:p-4">
+                    <p className="text-zinc-600 mb-4">List Peluang Kerja : </p>
+                    <JobList onJobClick={handleJobClick} />
+                </div>
+                <div className="bg-white mt-14 rounded-xl flex items-center justify-center mobile:max-w-96 lg:min-w-[60%] lg:h-auto">
+                    {jobDetails ? (
+                        <div className="w-full h-full text-zinc-400">
+                            <div className="mobile:ml-0 mobile:px-4 lg:mt-10 lg:ml-2 lg:pr-16 lg:pl-14">
+                                <img src={jobDetails.attributes?.foto_kerja?.data?.attributes?.url} alt="" className="w-full object-cover rounded-full mobile:h-56 mobile:mt-8 lg:h-96"></img>
+                                <h3 className="text-3xl mt-16 ml-1 font-bold text-center text-black mb-4">{jobDetails.attributes.judul_kerja}</h3>
+                                <p className="text-lg mt-3 ml-1 font-normal text-black">Perkumpulan Gerakan OK OCE</p>
+                                <p className="text-lg ml-1 font-normal text-black">{jobDetails.attributes.lokasi_kerja}</p>
+                                <p className="text-lg mt-2 ml-1 font-normal text-black"><span className="font-bold">Kategori Usaha : </span>{jobDetails.attributes.kategori_kerja}</p>
+                                <p className="text-lg ml-1 font-normal text-black"><span className="font-bold">Sistem Kerja : </span>{jobDetails.attributes.sistem_kerja}</p>
+                                <p className="text-lg ml-1 font-normal text-black mb-4"><span className="font-bold">Periode Pendaftaran : </span>{jobDetails.attributes.periode_pendaftaran}</p>
+                                <div className="w-full mt-10 mr-32 mb-10">
+                                    <h1 className="text-2xl text-black font-bold">Rincian Kegiatan</h1>
+                                    <h2 className="mt-3 font-medium text-black text-lg text-justify">{jobDetails.attributes.tentang_program}</h2>
                                 </div>
-                                <div class="mr-16">
-                                    <h3 className="font-semibold text-lg">Sistem Kerja</h3>
-                                    <p>Franchise</p>
+                                <div className="w-full mt-10 mr-32 mb-10">
+                                    <h1 className="text-2xl text-black font-bold">Deskripsi Usaha</h1>
+                                    <h2 className="mt-3 font-medium text-black text-lg text-justify">{jobDetails.attributes.jobdesc_kerja}</h2>
                                 </div>
-                                <div class="mr-16">
-                                    <h3 className="font-semibold text-lg">Kategori</h3>
-                                    <p>Makann Minuman</p>
+                                <div className="w-full mt-10 mr-32 mb-10">
+                                    <h1 className="text-2xl text-black font-bold">Kualifikasi</h1>
+                                    <h2 className="mt-3 font-medium text-black text-lg text-justify">{jobDetails.attributes.kriteria_peserta}</h2>
                                 </div>
-                            </div>
-                            <div id="content" class="">
-                                <div>
-                                    <h3 className="font-semibold text-lg">Tentang Program</h3>
-                                    <p className="mt-2 text-sm text-zinc-600 text-justify">Sebagai komitmen perusahaan dalam mendukung terciptanya sumberdaya manusia Indonesia yang memiliki daya saing di dunia kerja adalah dengan memberikan kesempatan bagi para mahasiswa/i Indonesia dari Perguruan Tinggi terakreditasi di dalam negeri dan luar negeri untuk mendapatkan pengalaman dan pembelajaran di tempat kerja. Perusahaan akan menyediakan sarana untuk menerapkan hal-hal yang mahasiswa/i pelajari di dalam lingkungan kerja yang aktif, beragam, dan bergerak cepat melalui Program Magang.
-                                        Program Magang dilaksanakan berdasarkan kebutuhan bisnis Perusahaan dengan jangka waktu pelaksanaan program maksimum 3 (tiga) bulan.  Penerimaan peserta dilakukan secara berkala dua (2) kali dalam setahun pada bulan Maret dan September. Pengumuman kebutuhan peserta dan pengajuan lamaran dari mahasiswa/i dilakukan melalui website Perusahaan.
-                                        Peserta dipilih berdasarkan kinerja akademik dan penilaian standar yang ditetapkan oleh perusahaan dengan mempertimbangkan inklusi dan keberagaman.</p>
+                                <div className="w-full mt-10 mr-32 mb-10">
+                                    <h1 className="text-2xl text-black font-bold">Benefit</h1>
+                                    <h2 className="mt-3 font-medium text-black text-lg text-justify">{jobDetails.attributes.benefit_program}</h2>
                                 </div>
-                                <div class="mt-10">
-                                    <h3 className="font-semibold text-lg">Benefit</h3>
-                                    <p className="mt-2 text-sm text-zinc-600">Uang saku
-                                        Tiket pesawat (pulang-pergi), akomodasi, makan 3x sehari, fasilitas Kesehatan bagi siswa penempatan dilokasi kerja Papua
-                                        Sertifikat penyelesaian program</p>
-                                </div>
-                                <div class="mt-10">
-                                    <h3 className="font-semibold text-lg">Apa saja yang akan dilakukan secara umum </h3>
-                                    <ol style={{ listStyle: `decimal` }} className="ml-4 mt-2 text-sm text-zinc-600" >
-                                        <li>Melakukan internalisasi prosedur dan budget policy.</li>
-                                        <li>Mengawasi budget activation yang sudah tersistem di internal PT Astra Honda Motor.</li>
-                                        <li>Membuat laporan keuangan sesuai dengan standar dan kebutuhan perusahaan.</li>
-                                        <li>Menganalisa dan menyelesaikan kendala dalam proses budget activation.</li>
-                                        <li>Melakukan budget review secara bulanan dengan beberapa divisi yang terdapat di PT Astra Honda Motor.</li>
-                                        <li>Mendukung proses penyusunan dan pengawasan pembuatan master budget di beberapa divisi PT Astra Honda Motor.</li>
-                                    </ol>
-                                </div>
-                                <div class="mt-10">
-                                    <h3 className="font-semibold text-lg">Kualifikasi</h3>
-                                    <ol style={{ listStyle: `decimal` }} className="ml-4 mt-2 text-sm text-zinc-600" >
-                                        <li>Melakukan internalisasi prosedur dan budget policy.</li>
-                                        <li>Mengawasi budget activation yang sudah tersistem di internal PT Astra Honda Motor.</li>
-                                        <li>Membuat laporan keuangan sesuai dengan standar dan kebutuhan perusahaan.</li>
-                                        <li>Menganalisa dan menyelesaikan kendala dalam proses budget activation.</li>
-                                        <li>Melakukan budget review secara bulanan dengan beberapa divisi yang terdapat di PT Astra Honda Motor.</li>
-                                        <li>Mendukung proses penyusunan dan pengawasan pembuatan master budget di beberapa divisi PT Astra Honda Motor.</li>
-                                    </ol>
-                                </div>
-                                <div class="max-w-[10rem] mt-5 p-2 bg-blue-600 rounded-lg">
-                                    <p class="text-center font-medium text-white">Daftar Sekarang!</p>
-                                </div>
+                                <a href={jobDetails.attributes.url_pendaftaran}>
+                                    <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 me-2 mb-10 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Daftar Sekarang</button>
+                                </a>
                             </div>
                         </div>
+                    ) : (
+                        <p className="text-zinc-400">
+                            Silakan pilih peluang usaha di sebelah kiri untuk melihat detailnya
+                        </p>
                     )}
                 </div>
             </div>
+            <FloatingMenu />
         </>
     )
 }

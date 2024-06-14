@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import Seven from "@img/7top-rb.webp";
 import Header from "@img/headerseventop.png";
 import Seven2 from "@img/7-TOP-OK-OCE-1-768x768.webp";
+import FloatingMenu from "../components/FloatingMenu";
 
 const cardClasses =
   "mb-10 mx-auto flex items-center bg-zinc-100 rounded-lg shadow-lg mobile:flex-col mobile:w-full lg:w-[35rem] lg:h-[15rem]";
@@ -26,12 +26,9 @@ const Seventop = () => {
       <div class="max-w-5xl mx-auto mt-20 px-6">
         <div className="flex justify-around mb-20">
           <div class="">
-            <img src={Seven} class="object-cover" alt="7 Top Ok Oce" />
-          </div>
-          <div class="">
             <img
               src={Seven2}
-              class="object-cover lg:max-w-64 mobile:max-w-72"
+              class="object-cover lg:max-w-[24rem] mobile:max-w-72"
               alt="7 Top Ok Oce"
             />
           </div>
@@ -41,7 +38,7 @@ const Seventop = () => {
           <div className={contentClasses}>
             Peserta wajib mendaftar di website OKOCE.NET, serta memilih
             komunitas wirausaha yang akan membina. <br /> <br />
-            <a href="" class="text-blue-500 font-medium">
+            <a href="https://ecsys.okoce.net/" class="text-blue-500 font-medium">
               Pelajari Selengkapnya &gt;
             </a>
           </div>
@@ -112,6 +109,7 @@ const Seventop = () => {
           </div>
         </div>
       </div>
+      <FloatingMenu />
     </>
   );
 };

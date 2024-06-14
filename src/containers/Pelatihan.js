@@ -1,10 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Top from "@img/7top-rb.webp";
+import Modul1 from "@img/7 top/modul1.jpg";
+import Modul2 from "@img/7 top/modul2.jpg";
+import Modul5 from "@img/7 top/modul5.jpg";
+import Modul6 from "@img/7 top/modul6.jpg";
+import FloatingMenu from "../components/FloatingMenu";
 
 const Pelatihan = () => {
+    const [events, setEvents] = useState([]);
+
+    useEffect(() => {
+        fetchDataEvents();
+    }, []);
+
+    const fetchDataEvents = async () => {
+        try {
+            const response = await fetch(
+                "https://cms-okoce-a155c649b6e6.herokuapp.com/api/events?populate=*"
+            );
+            if (!response.ok) {
+                throw new Error("Gagal mengambil data event");
+            }
+            const data = await response.json();
+            // Extract the data array from the response
+            const eventData = data.data;
+            eventData.sort((a, b) => b.id - a.id);
+            const lastThreeData = eventData.slice(0, 3); // Mengambil 3 data terakhir
+            console.log(lastThreeData);
+            setEvents(lastThreeData);
+        } catch (error) {
+            console.error("Error fetching employees:", error);
+            // Jika terjadi kesalahan, pastikan untuk mengatur employees menjadi array kosong
+            setEvents([]);
+        }
+    };
+
     return (
         <>
-            <div className="pl-40 pt-60 bg-white max-md:pl-5">
+            <div className="pl-40 bg-white max-md:pl-5 mobile:pt-20 lg:pt-60">
                 <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                     <div className="flex flex-col w-[18%] max-md:ml-0 max-md:w-full">
                         <img
@@ -42,19 +75,33 @@ const Pelatihan = () => {
                 </div>
             </div>
 
-            <div class="flex items-center justify-center min-h-screen container mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="rounded-xl shadow-lg">
-                        <div class="p-5 flex flex-col">
-                            <div class="rounded-xl overflow-hidden">
-                                <img src="" alt="" />
+            <div className="grid mb-20 mobile:grid-cols-1 mobile:grid-flow-row lg:w-11/12 lg:mx-auto lg:grid-cols-3 lg:grid-flow-row lg:gap-y-12 lg:gap-x-0 lg:mt-24">
+                {events.map((data, index) =>
+                    <div key={index} className="flex flex-col mx-auto w-5/6 max-md:ml-0 drop-shadow-xl max-md:w-full mobile:p-6 lg:p-0">
+                        <div className="flex flex-col grow max-md:mt-10">
+                            <img src={data?.attributes?.foto_event?.data?.attributes?.url} loading="lazy" className="w-full shadow-sm aspect-square" alt="" />
+                            <div className="flex flex-col px-4 py-5 w-full bg-white shadow-sm">
+                                <div className="relative group mb-2 mt-2 h-10">
+                                    <div className="text-base leading-7 text-black font-bold text-xl overflow-hidden line-clamp-2">
+                                        {data.attributes?.judul_event}
+                                    </div>
+                                    <div className="absolute left-0 bottom-full mb-2 hidden w-full text-xs text-white bg-black p-2 rounded group-hover:block">
+                                        {data.attributes?.judul_event}
+                                    </div>
+                                </div>
+                                <div className="flex gap-5 justify-between mt-7 text-xs leading-5">
+                                    <div className="flex flex-col">
+                                        <div className="text-neutral-400">{data.attributes.tanggal_event}</div>
+                                        <div className="mt-2.5 text-sky-700">{data.attributes.harga_event}</div>
+                                    </div>
+                                    <div className="self-start mt-8 text-right text-red-600">
+                                        {data.attributes.point_event} Points
+                                    </div>
+                                </div>
                             </div>
-                            <h5 class="text-2xl md:text-3xl font-medium mt-3">Kolaborasi UKM Strategi Marketing Digital</h5>
-                            <p class="text-slate-500 text-lg mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center bg-blue-400 text-blue-700 py-2 rounded-lg font semibold mt-4 hover:bg-blue-300 focus:scale-95 transition-all duration-200 ease-out">Daftar</a>
                         </div>
                     </div>
-                </div>
+                )}
             </div>
 
             <div id="pelatihan-body" class="w-full pt-10 pb-10 font-poppins flex justify-center bg-white">
@@ -72,35 +119,37 @@ const Pelatihan = () => {
                 </div>
             </div>
 
-
-            <div class="flex items-center justify-center container mx-auto">
+            <div class="flex items-center justify-center container mx-auto mb-20">
                 <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     <div class="pr-0 md:pr-10 pb-10 md:pb-0 flex">
                         <div id="pelatihan-card" class="card card-compact w-60 bg-base-100 shadow-xl rounded-none">
-                            <div class="bg-pengelolaan-keuangan h-40 bg-cover bg-center rounded-none"></div>
+                            <img src={Modul1} alt=""></img>
+                            <div class="h-auto bg-cover bg-center rounded-none"></div>
                             <div class="card-body rounded-none bg-white">
                                 <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center font-bold text-slate-700 p-5 flex flex-col">
-                                    Materi Pengelolaan Keuangan
+                                    Modul Pelatihan 1
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="pr-0 md:pr-10 pb-10 md:pb-0 flex">
                         <div id="pelatihan-card" class="card card-compact w-60 bg-base-100 shadow-xl rounded-none">
-                            <div class="bg-keuangan-perbankan h-40 bg-cover bg-center rounded-none"></div>
+                            <img src={Modul2} alt=""></img>
+                            <div class="h-auto bg-cover bg-center rounded-none"></div>
                             <div class="card-body rounded-none bg-white">
                                 <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center font-bold text-slate-700 p-5 flex flex-col">
-                                    Keuangan Perbankan
+                                    Modul Pelatihan 3
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="pr-0 md:pr-10 pb-10 md:pb-0 flex">
                         <div id="pelatihan-card" class="card card-compact w-60 bg-base-100 shadow-xl rounded-none">
-                            <div class="bg-pengelolaan-keuangan h-40 bg-cover bg-center rounded-none"></div>
+                            <img src={Modul5} alt=""></img>
+                            <div class="h-auto bg-cover bg-center rounded-none"></div>
                             <div class="card-body rounded-none bg-white">
                                 <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center font-bold text-slate-700 p-5 flex flex-col">
-                                    Materi Pengelolaan Keuangan
+                                    Modul Pelatihan 5
                                 </a>
                             </div>
                         </div>
@@ -108,62 +157,18 @@ const Pelatihan = () => {
 
                     <div class="pr-0 md:pr-10 pb-10 md:pb-0 flex">
                         <div id="pelatihan-card" class="card card-compact w-60 bg-base-100 shadow-xl rounded-none">
-                            <div class="bg-keuangan-perbankan h-40 bg-cover bg-center rounded-none"></div>
+                            <img src={Modul6} alt=""></img>
+                            <div class="h-auto bg-cover bg-center rounded-none"></div>
                             <div class="card-body rounded-none bg-white">
                                 <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center font-bold text-slate-700 p-5 flex flex-col">
-                                    Keuangan Perbankan
+                                    Modul Pelatihan 6
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="flex items-center justify-center">
-                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 py-20">
-                    <div class="pr-0 md:pr-10 pb-10 md:pb-0 flex">
-                        <div id="pelatihan-card" class="card card-compact w-60 bg-base-100 shadow-xl rounded-none">
-                            <div class="bg-pengelolaan-keuangan h-40 bg-cover bg-center rounded-none"></div>
-                            <div class="card-body rounded-none bg-white">
-                                <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center font-bold text-slate-700 p-5 flex flex-col">
-                                    Materi Pengelolaan Keuangan
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pr-0 md:pr-10 pb-10 md:pb-0 flex">
-                        <div id="pelatihan-card" class="card card-compact w-60 bg-base-100 shadow-xl rounded-none">
-                            <div class="bg-keuangan-perbankan h-40 bg-cover bg-center rounded-none"></div>
-                            <div class="card-body rounded-none bg-white">
-                                <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center font-bold text-slate-700 p-5 flex flex-col">
-                                    Keuangan Perbankan
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pr-0 md:pr-10 pb-10 md:pb-0 flex">
-                        <div id="pelatihan-card" class="card card-compact w-60 bg-base-100 shadow-xl rounded-none">
-                            <div class="bg-pengelolaan-keuangan h-40 bg-cover bg-center rounded-none"></div>
-                            <div class="card-body rounded-none bg-white">
-                                <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center font-bold text-slate-700 p-5 flex flex-col">
-                                    Materi Pengelolaan Keuangan
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pr-0 md:pr-10 pb-10 md:pb-0 flex">
-                        <div id="pelatihan-card" class="card card-compact w-60 bg-base-100 shadow-xl rounded-none">
-                            <div class="bg-keuangan-perbankan h-40 bg-cover bg-center rounded-none"></div>
-                            <div class="card-body rounded-none bg-white">
-                                <a href="https://id.wikipedia.org/wiki/Lorem_ipsum" class="text-center font-bold text-slate-700 p-5 flex flex-col">
-                                    Keuangan Perbankan
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <FloatingMenu />
         </>
     );
 }

@@ -1,10 +1,33 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from "react";
-import qris from "@img/barcode/qris.png";
-import qris2 from "@img/barcode/Qris-1.png";
-import qris3 from "@img/barcode/Qris-2.png";
+import React, { useState, useEffect } from "react";
+import FloatingMenu from "../components/FloatingMenu";
 
 const Donasi = () => {
+    const [datas, setData] = useState([]);
+
+    useEffect(() => {
+        fetchData();
+    }, [])
+
+    const fetchData = async () => {
+        try {
+            const response = await fetch(
+                "https://cms-okoce-a155c649b6e6.herokuapp.com/api/donasis?populate=*"
+            );
+            if (!response.ok) {
+                throw new Error("Gagal mengambil data donasi");
+            }
+            const data = await response.json();
+            const donasiData = data.data;
+            console.log(donasiData);
+            setData(donasiData);
+        } catch (error) {
+            console.error("Error fetching donasi:", error);
+            // Jika terjadi kesalahan, pastikan untuk mengatur employees menjadi array kosong
+            setData([]);
+        }
+    };
+
     return (
         <>
             {/* <!-- Jumbotron --> */}
@@ -18,79 +41,34 @@ const Donasi = () => {
                         Scan QRIS melalui Aplikasi Payment dan Mobile Banking Melalui :
                     </p>
                     <div className="flex flex-col px-5">
-                        <div className="mt-36 w-full max-md:mt-10 max-md:max-w-full">
-                            <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-                                <div className="flex flex-col w-[36%] max-md:ml-0 max-md:w-full">
-                                    <img
-                                        loading="lazy"
-                                        srcSet={qris}
-                                        className="grow w-full shadow-sm aspect-[0.68] max-md:max-w-full"
-                                    />
-                                </div>
-                                <div className="flex flex-col ml-5 w-[64%] max-md:ml-0 max-md:w-full">
-                                    <div className="flex flex-col grow px-12 py-16 w-full text-black bg-gray-50 rounded-none shadow-sm max-md:px-5 max-md:max-w-full">
-                                        <div className="text-6xl font-semibold leading-[90px] max-md:max-w-full max-md:text-4xl">
-                                            OK OCE INDONESIA
-                                        </div>
-                                        <div className="mt-9 text-2xl leading-10 text-justify max-md:max-w-full">
-                                            OK OCE adalah Gerakan Sosial Penciptaan Lapangan Kerja Berbasis
-                                            Wirausaha. Kami membuka bagi siapapun yang memiliki kesamaan
-                                            visi, nilai dan perjuangan untuk mendukung gerakan ini
+                        {datas.map((data, index) =>
+                            <div key={index} className="mt-36 w-full max-md:mt-10 max-md:max-w-full" >
+                                <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+                                    <div className="flex flex-col w-[36%] max-md:ml-0 max-md:w-full">
+                                        <img
+                                            loading="lazy"
+                                            srcSet={data.attributes?.foto_donasi?.data?.attributes?.url}
+                                            className="grow w-full shadow-sm aspect-[0.68] max-md:max-w-full"
+                                        />
+                                    </div>
+                                    <div className="flex flex-col ml-5 w-[64%] max-md:ml-0 max-md:w-full">
+                                        <div className="flex flex-col grow px-12 py-16 w-full text-black bg-gray-50 rounded-none shadow-sm max-md:px-5 max-md:max-w-full">
+                                            <div className="text-5xl font-semibold leading-[90px] max-md:max-w-full max-md:text-4xl">
+                                                {data.attributes.judul_donasi}
+                                            </div>
+                                            <div className="mt-9 text-2xl leading-10 text-justify max-md:max-w-full">
+                                                {data.attributes.deskripsi_donasi}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="mt-28 w-full max-md:mt-10 max-md:max-w-full">
-                            <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-                                <div className="flex flex-col w-[36%] max-md:ml-0 max-md:w-full">
-                                    <img
-                                        loading="lazy"
-                                        srcSet={qris2}
-                                        className="grow w-full shadow-sm aspect-[0.68] max-md:max-w-full"
-                                    />
-                                </div>
-                                <div className="flex flex-col ml-5 w-[64%] max-md:ml-0 max-md:w-full">
-                                    <div className="flex flex-col grow px-12 py-16 w-full text-black bg-gray-50 rounded-none shadow-sm max-md:px-5 max-md:max-w-full">
-                                        <div className="text-6xl font-semibold leading-[90px] max-md:max-w-full max-md:text-4xl">
-                                            OK OCE WAKAF
-                                        </div>
-                                        <div className="mt-9 text-2xl leading-10 text-justify max-md:max-w-full">
-                                            OK OCE adalah Gerakan Sosial Penciptaan Lapangan Kerja Berbasis
-                                            Wirausaha. Kami membuka bagi siapapun yang memiliki kesamaan
-                                            visi, nilai dan perjuangan untuk mendukung gerakan ini
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="mt-28 w-full max-md:mt-10 max-md:max-w-full">
-                            <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-                                <div className="flex flex-col w-[36%] max-md:ml-0 max-md:w-full">
-                                    <img
-                                        loading="lazy"
-                                        srcSet={qris3}
-                                        className="grow w-full shadow-sm aspect-[0.68] max-md:max-w-full"
-                                    />
-                                </div>
-                                <div className="flex flex-col ml-5 w-[64%] max-md:ml-0 max-md:w-full">
-                                    <div className="flex flex-col grow px-12 py-16 w-full text-black bg-gray-50 rounded-none shadow-sm max-md:px-5 max-md:max-w-full">
-                                        <div className="text-6xl font-semibold leading-[82.5px] max-md:max-w-full max-md:text-4xl">
-                                            OK OCE KEMANUSIAAN
-                                        </div>
-                                        <div className="mt-10 text-2xl leading-10 text-justify max-md:mt-10 max-md:max-w-full">
-                                            OK OCE adalah Gerakan Sosial Penciptaan Lapangan Kerja Berbasis
-                                            Wirausaha. Kami membuka bagi siapapun yang memiliki kesamaan
-                                            visi, nilai dan perjuangan untuk mendukung gerakan ini
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        )}
                     </div>
                 </div>
-            </div>
+            </div >
             {/* <!-- Jumbotron --> */}
+            < FloatingMenu /> {" "}
         </>
     )
 }

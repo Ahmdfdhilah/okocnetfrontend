@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from '../asset/img/beritaheader.png';
 import { Link } from "react-router-dom";
+import FloatingMenu from "../components/FloatingMenu";
 
 const ITEMS_PER_PAGE = 9;  // Jumlah item per halaman
 
@@ -20,7 +21,7 @@ const DaftarBerita = () => {
             }
             const data = await response.json();
             const newsData = data.data;
-            newsData.sort((a, b) => a.id - b.id);
+            newsData.sort((a, b) => b.id - a.id);
             console.log(newsData);
             setData(newsData);
         } catch (error) {
@@ -46,31 +47,31 @@ const DaftarBerita = () => {
         <>
             <div className="bg-gray-200">
                 <div className="block w-full mt-24 pt-12">
-                    <img className="border-8 border-white mobile:w-full mobile:h-[15rem] lg:w-11/12 lg:h-[23rem] mx-auto rounded-xl" src={Header} alt="" />
+                    <img className="border-8 border-white mobile:w-full mobile:object-cover mobile:h-[11.3rem] lg:w-11/12 lg:h-[23rem] mx-auto rounded-xl" src={Header} alt="" />
                 </div>
                 <div className="grid mobile:grid-cols-1 mobile:mt-10 lg:w-11/12 lg:mx-auto lg:grid-cols-3 lg:gap-y-8 lg:gap-x-4 lg:mt-24">
                     {currentItems.map((data, index) => (
                         <div key={index} className="w-full mx-auto p-4">
-                            <div className="bg-white shadow-md rounded-lg lg:mr-1">
+                            <div className="bg-blue-400 shadow-md rounded-lg lg:mr-1">
                                 <div className="p-5">
                                     <img className="object-cover w-full mobile:h-36 lg:h-96" src={data.attributes?.foto_berita?.data?.attributes?.url} alt="" />
                                     <div className="relative group mb-2 mt-6 h-20">
-                                        <div className="text-base leading-7 text-black font-bold text-xl overflow-hidden line-clamp-2">
+                                        <div className="text-base leading-7 text-white font-bold text-xl overflow-hidden line-clamp-2">
                                             {data.attributes?.judul_berita}
                                         </div>
                                         <div className="absolute left-0 bottom-full mb-2 hidden w-full text-xs text-white bg-black p-2 rounded group-hover:block">
                                             {data.attributes?.judul_berita}
                                         </div>
                                     </div>
-                                    <p className="text-zinc-700">Author: {data.attributes?.author_berita}</p>
+                                    <p className="text-white">Author: {data.attributes?.author_berita}</p>
                                     <div className="flex space-x-4 my-4">
-                                        <span className="bg-yellow-300 text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
+                                        <span className="bg-gray-200 text-black text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
                                             Tanggal Publish: {data.attributes?.tanggal_berita}
                                         </span>
                                     </div>
                                     <Link to={`/daftarberita/${data.id}`}>
                                         <div className="mt-8 flex justify-start">
-                                            <button className="bg-green-500 w-full text-white p-2 rounded-lg">Read more</button>
+                                            <button className="bg-white w-full text-black font-bold p-2 rounded-lg hover:bg-red-500 hover:text-white">Read more</button>
                                         </div>
                                     </Link>
                                 </div>
@@ -97,6 +98,7 @@ const DaftarBerita = () => {
                     </button>
                 </div>
             </div>
+            <FloatingMenu />{" "}
         </>
     );
 };

@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState, useEffect } from "react";
-import Header from "../asset/img/Merch.png"
+import Header from "../asset/img/Merch.png";
+import FloatingMenu from "../components/FloatingMenu";
 
 const Merchandise = () => {
     const [datas, setDatas] = useState([]);
@@ -62,8 +64,8 @@ const Merchandise = () => {
                 <div className="w-3/4">
                     {datas.length > 0 ? (
                         datas.map((item, currentItemIndex) => (
-                            <div key={item.id} className="mb-16 rounded-xl flex mobile:flex-col mobile:bg-gray-200 mobile:p-4 lg:flex-row lg:bg-white">
-                                <div className="mx-auto mobile:p-0 mobile:mb-6 mobile:w-full lg:p-2 lg:w-[20rem]">
+                            <div key={item.id} className="mb-16 rounded-xl flex mobile:flex-col mobile:bg-gray-200 mobile:p-4 lg:flex-row lg:bg-gray-200">
+                                <div className="mx-auto mobile:p-0 mobile:mb-6 mobile:w-full lg:py-8 lg:w-[20rem]">
                                     <div className="relative rounded-lg overflow-hidden shadow-lg" data-carousel="static">
                                         <div className="relative h-78" data-carousel-inner>
                                             {item.images.map((imageUrl, index) => (
@@ -111,7 +113,7 @@ const Merchandise = () => {
                                     </div>
                                 </div>
 
-                                <div className="w-full lg:w-2/3 pl-0 lg:pl-10 lg:pt-0 font-poppins flex flex-col justify-between">
+                                <div className="w-full lg:w-2/3 pl-0 lg:py-10 lg:px-10 font-poppins flex flex-col justify-between">
                                     <div className="flex flex-wrap">
                                         <a className="flex-auto text-xl font-semibold text-black">
                                             {item.judul}
@@ -146,6 +148,7 @@ const Merchandise = () => {
                     )}
                 </div>
             </div>
+            <FloatingMenu />{" "}
         </>
     );
 };

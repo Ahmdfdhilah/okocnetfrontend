@@ -85,13 +85,13 @@ function Navbar() {
       <nav class="border-b border-gray font-jost">
         {/* {Navbar Mobile} */}
         <div class="fixed w-svw bg-white top-0 z-50 flex items-center justify-between mx-auto p-2 max-h-24 shadow-lg">
-          <a href="/" class="ml-8 ">
+          <a href="/" class="ml-4">
             <img src={LogoOkOce} class="h-[5rem]" alt="Ok Oce Logo" />
           </a>
           <button
             data-collapse-toggle="navbar-multi-level"
             type="button"
-            class="md:hidden inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            class="md:hidden inline-flex items-center mr-3 p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             aria-controls="navbar-multi-level"
             aria-expanded={isDropdownVisible ? "true" : "false"}
             onClick={toggleDropdown}>
@@ -208,7 +208,7 @@ function Navbar() {
                     aria-labelledby="dropdownEtalaseNavbarLink">
                     <li>
                       <a
-                        href="/merchandise"
+                        href="/merchendise"
                         className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
                         Merchendise
                       </a>
@@ -436,16 +436,20 @@ function Navbar() {
                   </ul>
                 </div>
               </li>
-              <button
-                type="button"
-                class="w-full text-white bg-blue-700 mr-6 mb-2 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Masuk
-              </button>
-              <button
-                type="button"
-                class="w-full text-white bg-blue-700 mr-6 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Daftar
-              </button>
+              <a href="https://ecsys.okoce.net/" className="mt-8 w-7/12 mx-auto">
+                <button
+                  type="button"
+                  class="w-full text-white bg-blue-700 mr-6 mb-2 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Masuk
+                </button>
+              </a>
+              <a href="https://ecsys.okoce.net/register" className="w-7/12 mx-auto">
+                <button
+                  type="button"
+                  class="w-full text-white bg-red-600 mr-6 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Daftar
+                </button>
+              </a>
             </ul>
           </div>
 
@@ -771,12 +775,12 @@ function Navbar() {
             <div class="ml-[3rem]">
               <a
                 class="text-white mr-6 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-4 py-2 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800"
-                href="https://www.ecsys.okoce.net/">
+                href="https://ecsys.okoce.net/">
                 Masuk
               </a>
               <a
                 class="text-white bg-blue-700 mr-6 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-4 py-2 text-center bg-red-600 hover:bg-blue-700 dark:focus:ring-blue-800"
-                href="https://www.ecsys.okoce.net/register">
+                href="https://ecsys.okoce.net/register">
                 Daftar
               </a>
             </div>

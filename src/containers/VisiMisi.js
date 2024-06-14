@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "@img/headervisimisi.png";
+import FloatingMenu from "../components/FloatingMenu";
 
 const VisiMisi = () => {
   return (
@@ -24,7 +25,7 @@ const VisiMisi = () => {
           nilai-nilai sosial, pendidikan dan kemanusiaan.
         </p>
       </div>
-      <div class="w-7/12 bg-red-500 rounded-xl mt-10 py-10 mx-auto grid mobile:grid-rows-1">
+      <div class="bg-red-500 rounded-xl mt-10 py-10 mx-auto grid mobile:grid-rows-1 mobile:px-4 mobile:w-11/12 lg:w-7/12">
         <h1 class="font-extrabold text-3xl text-white text-center">
           VISI OK OCE INDONESIA
         </h1>
@@ -34,11 +35,11 @@ const VisiMisi = () => {
           kewirausahaan.
         </p>
       </div>
-      <div class="w-7/12 bg-blue-500 rounded-xl mt-10 mb-14 py-10 mx-auto grid mobile:grid-rows-1">
+      <div class="bg-blue-500 rounded-xl mt-10 mb-14 py-10 mx-auto grid mobile:grid-rows-1 mobile:w-11/12 mobile:px-3 lg:w-7/12">
         <h1 class="font-extrabold text-3xl text-white text-center">
           MISI OK OCE INDONESIA
         </h1>
-        <ul class="w-[90%] text-justify text-white mx-auto mt-8">
+        <ul class="w-full text-justify text-white ml-3 mobile:pr-3 lg:pl-2 lg:pr-10 mx-auto mt-8 leading-relaxed hyphens-auto break-words">
           <li className="list-disc">
             Melakukan pendataan calon wirausaha dan wirausaha di masyarakat.
           </li>
@@ -67,6 +68,7 @@ const VisiMisi = () => {
           </li>
         </ul>
       </div>
+      <FloatingMenu />
     </>
   );
 };
