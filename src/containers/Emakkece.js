@@ -132,6 +132,7 @@ const Emakkece = () => {
                 </div>
             </div>
 
+
             <div class="mt-[5rem] bg-white-300 w-full h-[50rem] grid justify-center content-center mobile:mb-[20rem] lg:mb-0">
                 <h1 class="font-extrabold text-4xl text-center">TAHAPAN</h1>
                 <div class="flex justify-center">

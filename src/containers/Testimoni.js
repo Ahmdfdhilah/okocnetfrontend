@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "@img/headertestimoni.png";
+import TestiFemale from "@img/profilecewe.png";
 import TestiMale from "@img/profilecowo.png";
-import TestiFemale from "@img/profilecewe.png"
 import FloatingMenu from "../components/FloatingMenu";
 
 const Testimoni = () => {
@@ -58,7 +58,7 @@ const Testimoni = () => {
             <div className="bg-white shadow-lg rounded-lg overflow-hidden">
               <div className="p-4">
                 <p className="text-gray-700 text-base">
-                  "Program OK OCE Indonesia dipuji banyak pihak karena efektif memberdayakan pengusaha kecil dan menengah melalui pelatihan kewirausahaan dan akses permodalan yang lebih mudah!"
+                  "Program OK OCE Indonesia dipuji banyak pihak karena efektif memberdayakan pengusaha kecil dan menengah melalui pelatihan kewirausahaan dan akses permodalan yang lebih mudah"
                 </p>
               </div>
               <div className="flex items-center justify-between p-4 bg-gray-200">
