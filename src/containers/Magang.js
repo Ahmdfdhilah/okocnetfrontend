@@ -29,13 +29,12 @@ const JobList = ({ onJobClick }) => {
 
     const fetchDataMagang = async () => {
         try {
-            const response = await fetch('https://cms-okoce-a155c649b6e6.herokuapp.com/api/magangs?populate=*');
+            const response = await fetch('http://localhost:3000/magangs');
             if (!response.ok) {
                 throw new Error('Gagal mengambil data magang');
             }
             const data = await response.json();
             const internData = data.data;
-            internData.sort((a, b) => a.id - b.id);
             console.log(internData);
             setData(internData);
         } catch (error) {
@@ -50,10 +49,10 @@ const JobList = ({ onJobClick }) => {
                 <div className="mt-0" key={data.id}>
                     <div className="space-y-4 mt-5">
                         <JobCard
-                            title={data.attributes.judul_magang}
+                            title={data.judulMagang}
                             company="Perkumpulan Gerakan OK OCE"
                             location="Kota Jakarta Selatan (WFO)"
-                            duration={data.attributes.durasi_magang}
+                            duration={data.durasiMagang}
                             type="MSIB"
                             onClick={() => onJobClick(data.id)}
                         />
@@ -76,12 +75,12 @@ const Magang = () => {
 
     const fetchJobDetails = async (id) => {
         try {
-            const response = await fetch(`https://cms-okoce-a155c649b6e6.herokuapp.com/api/magangs/${id}?populate=*`);
+            const response = await fetch(`http://localhost:3000/magangs/${id}`);
             if (!response.ok) {
                 throw new Error('Gagal mengambil detail magang');
             }
             const data = await response.json();
-            setJobDetails(data.data);
+            setJobDetails(data);
         } catch (error) {
             console.error('Error fetching internship details:', error);
             setJobDetails(null);
@@ -111,73 +110,52 @@ const Magang = () => {
                         <div className="w-full h-full text-zinc-400">
                             <div className="mobile:ml-0 mobile:px-4 lg:mt-10 lg:ml-2 lg:pr-16 lg:pl-14">
                                 <img src={Logo} alt="" className="object-cover mobile:h-auto mobile:w-36 mobile:mt-8 lg:h-auto lg:w-40"></img>
-                                <h3 className="text-3xl mt-6 ml-1 font-bold text-black mb-4">{jobDetails.attributes.judul_magang}</h3>
-                                <p className="text-lg mt-3 ml-1 font-normal text-black">Perkumpulan Gerakan OK OCE</p>
-                                <p className="text-lg ml-1 font-normal text-black">Kota Jakarta Selatan (WFO)</p>
-                                <p className="text-lg ml-1 font-normal text-black mb-4"><span className="font-bold">Durasi Magang : </span>{jobDetails.attributes.durasi_magang}</p>
+                                <h3 className="text-3xl mt-6 ml-1 font-bold text-black mb-4">{jobDetails.judulMagang}</h3>
+                                <p className="text-lg mt-3 ml-1 font-normal text-black">{jobDetails.lokasiMagang}</p>
+                                <p className="text-lg ml-1 font-normal text-black">{jobDetails.jenisMagang}</p>
+                                <p className="text-lg ml-1 font-normal text-black mb-4"><span className="font-bold">Durasi Magang : </span>{jobDetails.durasiMagang}</p>
                                 <div className="w-full mt-10 mr-32 mb-10">
                                     <h1 className="text-2xl text-black font-bold">Rincian Kegiatan</h1>
-                                    <h2 className="mt-3 font-bold text-black text-lg">SMART Empowerment: Integrating Sustainable Practices And Co-Learning Spaces For Uplifting UMKM</h2>
-                                    <p className="text-black text-normal text-lg text-justify mt-4">Program magang ini bertujuan untuk memberdayakan UMKM (Usaha Mikro, Kecil, dan Menengah) melalui pendekatan SMART, yaitu Sustainability Management and Appropriate Responsible Technology. Magang ini menawarkan kesempatan bagi para peserta magang untuk belajar dan berkontribusi dalam menerapkan praktik-praktik berkelanjutan dan teknologi yang tepat serta bertanggung jawab dalam meningkatkan kinerja dan dampak positif UMKM binaan organisasi.<br /><br />Elemen-elemen utama program magang ini meliputi:<br />
-                                        1. Pelatihan dan Pembelajaran Kolaboratif : Para peserta magang akan terlibat dalam sesi pelatihan dan pembelajaran kolaboratif untuk memahami konsep-konsep keberlanjutan dan teknologi yang sesuai untuk diterapkan dalam konteks UMKM.<br /><br />2. Penerapan Praktik Berkelanjutan : Melalui magang ini, peserta akan mempraktikkan dan mengimplementasikan berbagai praktik berkelanjutan di UMKM binaan Organisasi.<br /><br />
-                                        3. Keterlibatan Komunitas : Program ini menciptakan ruang bagi keterlibatan komunitas dalam mendukung UMKM yang berkelanjutan, melalui kegiatan seperti pelatihan, lokakarya, dan pameran produk.<br /><br />
-                                        4. Monitoring dan Evaluasi : Magang ini juga melibatkan kegiatan pemantauan dan evaluasi terhadap implementasi praktik berkelanjutan di UMKM, untuk memastikan keberlanjutan dan efektivitas program.<br /><br />Melalui program magang ini, Mahasiswa akan mendapatkan ilmu langsung dari semua Stake Holder utama OK OCE Indonesia, termasuki penggerak yang tersebar di seluruh Jabodetabek.
-                                        Pada kegiatan Magang, Mahasiswa akan memperoleh ilmu sebagai konsultan bisnis (entrepreneurship) dan Trainer UMKM.
-                                        Mahasiswa akan terlibat dalam pelatihan UMKM Nasional yang dilakukan secara berkelanjutan dalam lembaga kami.<br /><br /> Mahasiswa akan dilatih untuk mampu memberikan pelatihan kepada UMKM agar dapat mengscale up usahanya. Sehingga mahasiswa akan mampu melihara pertumbuhan usaha yang massif.
-                                        Pelatihan-pelatihan yang akan kami lakukan akan memberikan mahasiswa sebuah pengalaman yang berharga bagaimana cara melatih perusahaan-perusahaan kecil/UMKM yang ada di Indonesia sehingga menjadi perushaan yang mampu bertahan di segala kondisi dan kuat menghadapi persaingan usaha.</p>
+                                    <h2 className="mt-3 font-bold text-black text-lg">{jobDetails.tentangProgram}</h2>
+                                    {console.log(jobDetails.deskripsiMagang)}
+                                    {jobDetails.deskripsiMagang.map((item) => (
+                                        <p className="text-black text-normal text-lg text-justify mt-4">
+                                            {item.str}
+                                        </p>
+                                    ))}
+
                                 </div>
                                 <div className="w-full mt-10 mr-32 mb-10">
                                     <h1 className="text-2xl text-black font-bold">Kompetensi yang Dikembangkan</h1>
                                     <div className="grid mobile:grid-cols-1 lg:grid-cols-2 lg:grid-flow-row lg:gap-y-6">
-                                        <div className="border-2 drop-shadow-md rounded-lg mt-4 text-black p-4 font-bold text-lg mobile:w-full lg:max-w-[75%]">{jobDetails.attributes.kompetensi_1}</div>
-                                        <div className="border-2 drop-shadow-md rounded-lg mt-4 text-black p-4 font-bold text-lg mobile:w-full lg:max-w-[75%]">{jobDetails.attributes.kompetensi_2}</div>
-                                        <div className="border-2 drop-shadow-md rounded-lg mt-4 text-black p-4 font-bold text-lg mobile:w-full lg:max-w-[75%]">{jobDetails.attributes.kompetensi_3}</div>
-                                        <div className="border-2 drop-shadow-md rounded-lg mt-4 text-black p-4 font-bold text-lg mobile:w-full lg:max-w-[75%]">{jobDetails.attributes.kompetensi_4}</div>
-                                        <div className="border-2 drop-shadow-md rounded-lg mt-4 text-black p-4 font-bold text-lg mobile:w-full lg:max-w-[75%]">{jobDetails.attributes.kompetensi_5}</div>
+                                        {jobDetails.kompetensi.map((item) => (
+                                            <div className="border-2 drop-shadow-md rounded-lg mt-4 text-black p-4 font-bold text-lg mobile:w-full lg:max-w-[75%]">{item.str}</div>
+                                        ))
+                                        }
                                     </div>
                                 </div>
                                 <div className="w-full mt-10 mr-32 mb-10">
                                     <h1 className="text-2xl text-black font-bold">Kriteria Peserta</h1>
                                     <div className="mt-4">
                                         <ul className="ml-5">
-                                            <li className="text-black text-black text-lg list-disc">{jobDetails.attributes.kriteria_peserta_1}</li>
-                                            <li className="text-black text-black text-lg list-disc">{jobDetails.attributes.kriteria_peserta_2}</li>
-                                            <li className="text-black text-black text-lg list-disc">{jobDetails.attributes.kriteria_peserta_3}</li>
-                                            <li className="text-black text-black text-lg list-disc">{jobDetails.attributes.kriteria_peserta_4}</li>
-                                            {jobDetails && jobDetails.attributes.kriteria_peserta_5 && (
-                                                <li className="text-black text-lg list-disc">
-                                                    {jobDetails.attributes.kriteria_peserta_5}
-                                                </li>
-                                            )}
-                                            {jobDetails && jobDetails.attributes.kriteria_peserta_6 && (
-                                                <li className="text-black text-lg list-disc">
-                                                    {jobDetails.attributes.kriteria_peserta_6}
-                                                </li>
-                                            )}
-                                            {jobDetails && jobDetails.attributes.kriteria_peserta_7 && (
-                                                <li className="text-black text-lg list-disc">
-                                                    {jobDetails.attributes.kriteria_peserta_7}
-                                                </li>
-                                            )}
-                                            {jobDetails && jobDetails.attributes.kriteria_peserta_8 && (
-                                                <li className="text-black text-lg list-disc">
-                                                    {jobDetails.attributes.kriteria_peserta_8}
-                                                </li>
-                                            )}
-                                            {jobDetails && jobDetails.attributes.kriteria_peserta_9 && (
-                                                <li className="text-black text-lg list-disc">
-                                                    {jobDetails.attributes.kriteria_peserta_9}
-                                                </li>
-                                            )}
+                                            {jobDetails.kriteriaPeserta.map((item) => (
+                                                <li className="text-black text-black text-lg list-disc">{item.str}</li>
+                                            ))
+                                            }
                                         </ul>
                                     </div>
+                                </div>
+                                <div className="w-full mt-10 mr-32 mb-10">
+                                    <h1 className="text-2xl text-black font-bold">Benefit Program</h1>
+                                    <p className="text-black text-black text-lg">{jobDetails.benefitMagang}
+                                    </p>
                                 </div>
                                 <div className="w-full mt-10 mr-32 mb-10">
                                     <h1 className="text-2xl text-black font-bold">Informasi Tambahan</h1>
                                     <p className="text-black text-black text-lg">OK OCE menawarkan 1 macam sertifikat, yaitu sertifikat keikutsertaan program.
                                     </p>
                                 </div>
-                                <a href={jobDetails.attributes.url_msib}>
+                                <a href={jobDetails.urlMsib}>
                                     <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 me-2 mb-10 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Daftar MSIB</button>
                                 </a>
                             </div>

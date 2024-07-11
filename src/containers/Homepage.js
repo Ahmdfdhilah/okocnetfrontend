@@ -64,7 +64,6 @@ const Homepage = () => {
         { src: Header2, alt: 'Second Image' },
         { src: Header3, alt: 'Third Image' },
         { src: Header4, alt: 'Fourth Image' },
-        // Tambahkan lebih banyak gambar jika diperlukan
     ];
 
     const items = [
@@ -81,7 +80,7 @@ const Homepage = () => {
     const fetchDataNews = async () => {
         try {
             const response = await fetch(
-                "https://cms-okoce-a155c649b6e6.herokuapp.com/api/beritas?populate=*"
+                "http://localhost:3000/beritas"
             );
             if (!response.ok) {
                 throw new Error("Gagal mengambil data berita");
@@ -89,7 +88,6 @@ const Homepage = () => {
             const data = await response.json();
             // Extract the data array from the response
             const newsData = data.data;
-            newsData.sort((a, b) => a.id - b.id);
             const lastThreeData = newsData.slice(0, 3); // Mengambil 3 data terakhir
             console.log(lastThreeData);
             setData(lastThreeData);
@@ -103,15 +101,13 @@ const Homepage = () => {
     const fetchDataEvents = async () => {
         try {
             const response = await fetch(
-                "https://cms-okoce-a155c649b6e6.herokuapp.com/api/events?populate=*"
+                "http://localhost:3000/events"
             );
             if (!response.ok) {
                 throw new Error("Gagal mengambil data event");
             }
             const data = await response.json();
-            // Extract the data array from the response
             const eventData = data.data;
-            eventData.sort((a, b) => a.id - b.id);
             const lastThreeData = eventData.slice(0, 3); // Mengambil 3 data terakhir
             console.log(lastThreeData);
             setEvents(lastThreeData);
@@ -442,7 +438,7 @@ const Homepage = () => {
                                     <div className="border-2 border-black p-2">
                                         <img
                                             class="max-h-[10rem] min-w-42"
-                                            src={event.attributes.foto_event.data.attributes.url}
+                                            src={event.fotoEvent}
                                         />
                                     </div>
                                 ))}
@@ -455,7 +451,7 @@ const Homepage = () => {
                                     <div className="border-2 border-black p-2">
                                         <img
                                             class="object-cover h-full max-w-40"
-                                            src={data.attributes.foto_berita.data.attributes.url}
+                                            src={data.fotoBerita}
                                         />
                                     </div>
                                 ))}
@@ -477,23 +473,23 @@ const Homepage = () => {
                                     <div className="p-5">
                                         <img
                                             className="object-cover w-full mobile:h-36 lg:h-72"
-                                            src={data.attributes?.foto_berita?.data?.attributes?.url}
+                                            src={data.fotoBerita}
                                             alt=""
                                         />
                                         <div className="relative group mb-2 mt-6 h-20">
                                             <div className="text-base leading-7 text-white font-bold text-xl overflow-hidden line-clamp-2">
-                                                {data.attributes?.judul_berita}
+                                                {data.judulBerita}
                                             </div>
                                             <div className="absolute left-0 bottom-full mb-2 hidden w-full text-xs text-white bg-black p-2 rounded group-hover:block">
-                                                {data.attributes?.judul_berita}
+                                                {data.judulBerita}
                                             </div>
                                         </div>
                                         <p className="text-white">
-                                            Author: {data.attributes?.author_berita}
+                                            Author: {data.authorBerita}
                                         </p>
                                         <div className="flex space-x-4 my-4">
                                             <span className="bg-white text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
-                                                Tanggal Publish: {data.attributes?.tanggal_berita}
+                                                Tanggal Publish: {data.tanggalBerita}
                                             </span>
                                         </div>
                                         <Link to={`/daftarberita/${data.id}`}>

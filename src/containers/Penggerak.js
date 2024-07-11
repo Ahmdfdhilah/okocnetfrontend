@@ -13,7 +13,7 @@ const Penggerak = () => {
 
     const fetchPenggerak = async () => {
         try {
-            const response = await fetch('https://cms-okoce-a155c649b6e6.herokuapp.com/api/penggerak-okoces?populate=*');
+            const response = await fetch('http://localhost:3000/penggerak-okoces');
             if (!response.ok) {
                 throw new Error('Gagal mengambil data penggerak');
             }
@@ -50,11 +50,11 @@ const Penggerak = () => {
                         {/* <!-- Replace this with your grid items --> */}
                         {penggerak.map((penggerak) => (
                             <div class="bg-white rounded-lg border drop-shadow-xl p-4">
-                                <img className="min-h-60 max-h-60 min-w-40 mx-auto" src={penggerak.attributes.foto_penggerak.data[0].attributes.url} alt={penggerak.attributes.nama_penggerak} />
+                                <img className="min-h-60 max-h-60 min-w-40 mx-auto" src={penggerak.fotoPenggerak} alt={penggerak.namaPenggerak} />
                                 <div class="px-1 py-4">
-                                    <div class="font-bold text-xl mb-2">{penggerak.attributes.nama_penggerak}</div>
+                                    <div class="font-bold text-xl mb-2">{penggerak.namaPenggerak}</div>
                                     <p class="text-gray-700 text-base">
-                                        {penggerak.attributes.deskripsi_penggerak}
+                                        {penggerak.deskripsiPenggerak}
                                     </p>
                                 </div>
                             </div>

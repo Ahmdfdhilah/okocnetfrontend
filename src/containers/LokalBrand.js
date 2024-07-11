@@ -15,18 +15,16 @@ const LokalBrand = () => {
     const fetchData = async () => {
         try {
             const response = await fetch(
-                "https://cms-okoce-a155c649b6e6.herokuapp.com/api/brand-lokals?populate=*"
+                "http://localhost:3000/brand-lokals"
             );
             if (!response.ok) {
                 throw new Error("Gagal mengambil data brand");
             }
             const data = await response.json();
             const brandData = data.data;
-            console.log(brandData);
             setData(brandData);
         } catch (error) {
             console.error("Error fetching brand:", error);
-            // Jika terjadi kesalahan, pastikan untuk mengatur employees menjadi array kosong
             setData([]);
         }
     };
@@ -55,11 +53,11 @@ const LokalBrand = () => {
                         {/* <!-- Replace this with your grid items --> */}
                         {datas.map((data, index) =>
                             <div key={index} class="flex flex-col items-center">
-                                <img src={data.attributes?.foto_brand?.data?.attributes?.url} alt="Placeholder Image" class="rounded-md object-cover mx-auto border lg:w-4/5 lg:h-96 " />
+                                <img src={data.fotoBrand} alt="Placeholder Image" class="rounded-md object-cover mx-auto border lg:w-4/5 lg:h-96 " />
                                 <div class="px-1 py-4 text-center">
-                                    <div class="font-bold text-xl mb-2">{data.attributes.judul_brand}</div>
+                                    <div class="font-bold text-xl mb-2">{data.judulBrand}</div>
                                     <p class="text-gray-700 text-base">
-                                        {data.attributes.deskripsi_brand}
+                                        {data.deskripsiBrand}
                                     </p>
                                 </div>
                             </div>

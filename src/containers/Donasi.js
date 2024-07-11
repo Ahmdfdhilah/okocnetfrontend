@@ -12,18 +12,16 @@ const Donasi = () => {
     const fetchData = async () => {
         try {
             const response = await fetch(
-                "https://cms-okoce-a155c649b6e6.herokuapp.com/api/donasis?populate=*"
+                "http://localhost:3000/donasis"
             );
             if (!response.ok) {
                 throw new Error("Gagal mengambil data donasi");
             }
             const data = await response.json();
             const donasiData = data.data;
-            console.log(donasiData);
             setData(donasiData);
         } catch (error) {
             console.error("Error fetching donasi:", error);
-            // Jika terjadi kesalahan, pastikan untuk mengatur employees menjadi array kosong
             setData([]);
         }
     };
@@ -44,20 +42,20 @@ const Donasi = () => {
                         {datas.map((data, index) =>
                             <div key={index} className="mt-36 w-full max-md:mt-10 max-md:max-w-full" >
                                 <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-                                    <div className="flex flex-col w-[36%] max-md:ml-0 max-md:w-full">
+                                    <div className="flex flex-col w-[46%] max-md:ml-0 max-md:w-full">
                                         <img
                                             loading="lazy"
-                                            srcSet={data.attributes?.foto_donasi?.data?.attributes?.url}
-                                            className="grow w-full shadow-sm aspect-[0.68] max-md:max-w-full"
+                                            srcSet={data.fotoDonasi}
+                                            className="grow w-full shadow-sm aspect-[0.68] max-md:max-w-full max-h-lvh"
                                         />
                                     </div>
                                     <div className="flex flex-col ml-5 w-[64%] max-md:ml-0 max-md:w-full">
-                                        <div className="flex flex-col grow px-12 py-16 w-full text-black bg-gray-50 rounded-none shadow-sm max-md:px-5 max-md:max-w-full">
-                                            <div className="text-5xl font-semibold leading-[90px] max-md:max-w-full max-md:text-4xl">
-                                                {data.attributes.judul_donasi}
+                                        <div className="flex flex-col grow px-12 py-8 w-full text-black bg-gray-50 rounded-none shadow-sm max-md:px-5 max-md:max-w-full">
+                                            <div className="text-4xl font-semibold leading-[60px] max-md:max-w-full max-md:text-4xl">
+                                                {data.judulDonasi}
                                             </div>
-                                            <div className="mt-9 text-2xl leading-10 text-justify max-md:max-w-full">
-                                                {data.attributes.deskripsi_donasi}
+                                            <div className="mt-3 text-xl leading-[30px] text-justify max-md:max-w-full">
+                                                {data.deskripsiDonasi}
                                             </div>
                                         </div>
                                     </div>

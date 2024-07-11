@@ -3,7 +3,7 @@ import Header from '../asset/img/beritaheader.png';
 import { Link } from "react-router-dom";
 import FloatingMenu from "../components/FloatingMenu";
 
-const ITEMS_PER_PAGE = 9;  // Jumlah item per halaman
+const ITEMS_PER_PAGE = 2;
 
 const DaftarBerita = () => {
     const [datas, setData] = useState([]);
@@ -15,13 +15,12 @@ const DaftarBerita = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch('https://cms-okoce-a155c649b6e6.herokuapp.com/api/beritas?populate=*&_sort=id:ASC&_cacheBuster=' + new Date().getTime());
+            const response = await fetch('http://localhost:3000/beritas')
             if (!response.ok) {
                 throw new Error('Gagal mengambil data berita');
             }
             const data = await response.json();
             const newsData = data.data;
-            newsData.sort((a, b) => b.id - a.id);
             console.log(newsData);
             setData(newsData);
         } catch (error) {
@@ -54,19 +53,19 @@ const DaftarBerita = () => {
                         <div key={index} className="w-full mx-auto p-4">
                             <div className="bg-blue-400 shadow-md rounded-lg lg:mr-1">
                                 <div className="p-5">
-                                    <img className="object-cover w-full mobile:h-36 lg:h-96" src={data.attributes?.foto_berita?.data?.attributes?.url} alt="" />
+                                    <img className="object-cover w-full mobile:h-36 lg:h-96" src={data.fotoBerita} alt="" />
                                     <div className="relative group mb-2 mt-6 h-20">
                                         <div className="text-base leading-7 text-white font-bold text-xl overflow-hidden line-clamp-2">
-                                            {data.attributes?.judul_berita}
+                                            {data.judulBerita}
                                         </div>
                                         <div className="absolute left-0 bottom-full mb-2 hidden w-full text-xs text-white bg-black p-2 rounded group-hover:block">
-                                            {data.attributes?.judul_berita}
+                                            {data.judulBerita}
                                         </div>
                                     </div>
-                                    <p className="text-white">Author: {data.attributes?.author_berita}</p>
+                                    <p className="text-white">Author: {data.authorBerita}</p>
                                     <div className="flex space-x-4 my-4">
                                         <span className="bg-gray-200 text-black text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
-                                            Tanggal Publish: {data.attributes?.tanggal_berita}
+                                            Tanggal Publish: {data.tanggalBerita}
                                         </span>
                                     </div>
                                     <Link to={`/daftarberita/${data.id}`}>

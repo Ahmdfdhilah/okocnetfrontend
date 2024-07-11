@@ -1,50 +1,84 @@
-/* eslint-disable no-unused-vars */
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Homepage from "./containers/Homepage";
-import Sejarah from "./containers/Sejarah";
-import Visimisi from "./containers/VisiMisi";
-import NilaiInti from "./containers/NilaiInti";
-import Struktur from "./containers/Struktur";
-import Anniversary from "./containers/Anniversary";
-import Penggerak from "./containers/Penggerak";
-import Seventop from "./containers/Seventop";
-import Merchendise from "./containers/Merchendise";
-import Pelatihan from "./containers/Pelatihan";
-import Pendampingan from "./containers/Pendampingan";
-import Faq from "./containers/Faq";
-import PeluangUsaha from "./containers/PeluangUsaha";
-import Navbar from "@components/Navbar";
-import Footer from "@components/Footer";
-import PeluangKerja from "./containers/PeluangKerja";
-import LokalBrand from "./containers/LokalBrand";
-import Modalberkah from "./containers/Modalberkah";
-import Masjidpemberdaya from "./containers/Masjidpemberdaya";
-import Donasi from "./containers/Donasi";
-import Magang from "./containers/Magang";
-import Emakkece from "./containers/Emakkece";
-import Perizinan from "./containers/Perizinan";
-import PelaporanKeuangan from "./containers/PelaporanKeuangan";
-import Pemasaran from "./containers/Pemasaran";
-import Permodalan from "./containers/Permodalan";
-import Testimoni from "./containers/Testimoni";
-import MasterMentor from "./containers/MasterMentor";
-import Trainer from "./containers/Trainer";
-import Event from "./containers/Event";
-import Mentor from "./containers/Mentor";
-import Mitrakerjasama from "./containers/Mitrakerjasama";
-import Desapreneur from "./containers/Desapreneur";
-import Thementor from "./containers/Thementor";
-import EventDetail from "./containers/EventDetail";
-import DaftarBerita from "./containers/DaftarBerita";
-import BeritaDetail from "./containers/BeritaDetail";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Homepage from './containers/Homepage';
+import Sejarah from './containers/Sejarah';
+import Visimisi from './containers/VisiMisi';
+import NilaiInti from './containers/NilaiInti';
+import Struktur from './containers/Struktur';
+import Anniversary from './containers/Anniversary';
+import Penggerak from './containers/Penggerak';
+import Seventop from './containers/Seventop';
+import Merchendise from './containers/Merchendise';
+import Pelatihan from './containers/Pelatihan';
+import Pendampingan from './containers/Pendampingan';
+import Faq from './containers/Faq';
+import PeluangUsaha from './containers/PeluangUsaha';
+import Navbar from '@components/Navbar';
+import Footer from '@components/Footer';
+import PeluangKerja from './containers/PeluangKerja';
+import LokalBrand from './containers/LokalBrand';
+import Modalberkah from './containers/Modalberkah';
+import Masjidpemberdaya from './containers/Masjidpemberdaya';
+import Donasi from './containers/Donasi';
+import Magang from './containers/Magang';
+import Emakkece from './containers/Emakkece';
+import Perizinan from './containers/Perizinan';
+import PelaporanKeuangan from './containers/PelaporanKeuangan';
+import Pemasaran from './containers/Pemasaran';
+import Permodalan from './containers/Permodalan';
+import Testimoni from './containers/Testimoni';
+import MasterMentor from './containers/MasterMentor';
+import Trainer from './containers/Trainer';
+import Event from './containers/Event';
+import Mentor from './containers/Mentor';
+import Mitrakerjasama from './containers/Mitrakerjasama';
+import Desapreneur from './containers/Desapreneur';
+import Thementor from './containers/Thementor';
+import EventDetail from './containers/EventDetail';
+import DaftarBerita from './containers/DaftarBerita';
+import BeritaDetail from './containers/BeritaDetail';
+import Login from './containers/Login';
+import AdminPrivateRoute from './AdminPrivateRoute';
+import { AuthProvider } from './AuthContext';
+import StrukturTable from './cms/strukturs';
+import CreateStrukturPengurus from './cms/strukturs/create';
+import UpdateStrukturPengurus from './cms/strukturs/update';
+import CreateEvent from './cms/events/create';
+import UpdateEvent from './cms/events/update';
+import EventTable from './cms/events';
+import BeritasTable from './cms/beritas';
+import CreateBerita from './cms/beritas/create';
+import UpdateBerita from './cms/beritas/update';
+import MagangTable from './cms/magangs';
+import CreateMagang from './cms/magangs/create';
+import UpdateMagang from './cms/magangs/update';
+import MerchandiseTable from './cms/merchandises';
+import CreateMerchandise from './cms/merchandises/create';
+import UpdateMerchandise from './cms/merchandises/update';
 
 function App() {
   return (
-    <>
+    <AuthProvider>
       <BrowserRouter>
         <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
+          <Route path="/okoclogin" element={<Login />} />
+          <Route path="/admin/struktur" element={<AdminPrivateRoute Component={StrukturTable} />} />
+          <Route path="/admin/struktur/create" element={<AdminPrivateRoute Component={CreateStrukturPengurus} />} />
+          <Route path="/admin/struktur/edit/:id" element={<AdminPrivateRoute Component={UpdateStrukturPengurus} />} />
+          <Route path="/admin/event" element={<AdminPrivateRoute Component={EventTable} />} />
+          <Route path="/admin/event/create" element={<AdminPrivateRoute Component={CreateEvent} />} />
+          <Route path="/admin/event/edit/:id" element={<AdminPrivateRoute Component={UpdateEvent} />} />
+          <Route path="/admin/berita" element={<AdminPrivateRoute Component={BeritasTable} />} />
+          <Route path="/admin/berita/create" element={<AdminPrivateRoute Component={CreateBerita} />} />
+          <Route path="/admin/berita/edit/:id" element={<AdminPrivateRoute Component={UpdateBerita} />} />
+          <Route path="/admin/magang" element={<AdminPrivateRoute Component={MagangTable} />} />
+          <Route path="/admin/magang/create" element={<AdminPrivateRoute Component={CreateMagang} />} />
+          <Route path="/admin/magang/edit/:id" element={<AdminPrivateRoute Component={UpdateMagang} />} />
+          <Route path="/admin/merchandise" element={<AdminPrivateRoute Component={MerchandiseTable} />} />
+          <Route path="/admin/merchandise/create" element={<AdminPrivateRoute Component={CreateMerchandise} />} />
+          <Route path="/admin/merchandise/edit/:id" element={<AdminPrivateRoute Component={UpdateMerchandise} />} />
           <Route path="/sejarah" element={<Sejarah />} />
           <Route path="/visimisi" element={<Visimisi />} />
           <Route path="/nilaiinti" element={<NilaiInti />} />
@@ -82,7 +116,7 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
-    </>
+    </AuthProvider>
   );
 }
 

@@ -9,26 +9,23 @@ const Merchandise = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch('https://cms-okoce-a155c649b6e6.herokuapp.com/api/merchandises?populate=*&_sort=id:ASC&_cacheBuster=');
+            const response = await fetch('http://localhost:3000/merchandises');
             if (!response.ok) {
                 throw new Error('Gagal mengambil data merchandise');
             }
             const data = await response.json();
             const merch = data.data;
-            merch.sort((a, b) => a.id - b.id);
-            const merchandiseData = merch.map(item => {
-                const images = item.attributes.foto_merchandise?.data?.map(image => image.attributes.url) || [];
-                return {
-                    id: item.id,
-                    images: images,
-                    judul: item.attributes.judul_merchandise,
-                    harga: item.attributes.harga_merchandise,
-                    stok: item.attributes.stock_merchandise,
-                    deskripsi: item.attributes.deskripsi_merchandise,
-                };
-            });
+            const merchandiseData = merch.map(item => ({
+                id: item.id,
+                images: item.fotoMerchandise,
+                judul: item.judulMerchandise,
+                harga: item.hargaMerchandise,
+                stok: item.stockMerchandise,
+                deskripsi: item.deskripsiMerchandise,
+            }));
+            
             setDatas(merchandiseData);
-            setCurrentImageIndexes(new Array(merchandiseData.length).fill(0)); // Initialize image indexes
+            setCurrentImageIndexes(new Array(merchandiseData.length).fill(0));
         } catch (error) {
             console.error('Error fetching data:', error);
             setDatas([]);
@@ -124,7 +121,7 @@ const Merchandise = () => {
                                         <div className="flex-none w-full mt-2 text-sm font-medium text-gray-500">
                                             Sisa stok: {item.stok}
                                         </div>
-                                        <div className="mt-8">
+                                        <div className="my-8">
                                             <p className="text-justify mobile:text-black">
                                                 {item.deskripsi}
                                             </p>
@@ -148,7 +145,7 @@ const Merchandise = () => {
                     )}
                 </div>
             </div>
-            <FloatingMenu />{" "}
+            <FloatingMenu />
         </>
     );
 };

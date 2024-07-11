@@ -525,6 +525,7 @@ const Masjidpemberdaya = () => {
                 </div>
               </div>
             </div>
+            <br/>
             <div className="mt-8 max-md:max-w-full mobile:mt-0">
               <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                 <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
@@ -553,6 +554,7 @@ const Masjidpemberdaya = () => {
                 </div>
               </div>
             </div>
+            <br/>
             <div className="mt-8 max-md:max-w-full mobile:mt-0">
               <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                 <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
@@ -581,6 +583,7 @@ const Masjidpemberdaya = () => {
                 </div>
               </div>
             </div>
+            <br/>
             <div className="mt-8 max-md:max-w-full mobile:mt-0">
               <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                 <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
@@ -609,6 +612,7 @@ const Masjidpemberdaya = () => {
                 </div>
               </div>
             </div>
+            <br/>
             <div className="mt-8 max-md:max-w-full mobile:mt-0">
               <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                 <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
@@ -637,6 +641,7 @@ const Masjidpemberdaya = () => {
                 </div>
               </div>
             </div>
+            <br/>
             <div className="self-center mt-8 w-full max-w-[1190px] max-md:max-w-full mobile:mt-0">
               <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                 <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
