@@ -55,6 +55,21 @@ import UpdateMagang from './cms/magangs/update';
 import MerchandiseTable from './cms/merchandises';
 import CreateMerchandise from './cms/merchandises/create';
 import UpdateMerchandise from './cms/merchandises/update';
+import DonasiTable from './cms/donasis';
+import CreateDonasi from './cms/donasis/create';
+import UpdateDonasi from './cms/donasis/update';
+import BrandLokalsTable from './cms/brand-lokals';
+import CreateBrandLokal from './cms/brand-lokals/create';
+import UpdateBrandLokal from './cms/brand-lokals/update';
+import PenggerakOkoceTable from './cms/penggerak-okoces';
+import CreatePenggerakOkoce from './cms/penggerak-okoces/create';
+import UpdatePenggerakOkoce from './cms/penggerak-okoces/update';
+import PeluangUsahaTable from './cms/peluang-usahas';
+import CreatePeluangUsaha from './cms/peluang-usahas/create';
+import UpdatePeluangUsaha from './cms/peluang-usahas/update';
+import PeluangKerjaTable from './cms/peluang-kerjas';
+import CreatePeluangKerja from './cms/peluang-kerjas/create';
+import UpdatePeluangKerja from './cms/peluang-kerjas/update';
 
 function App() {
   return (
@@ -79,6 +94,21 @@ function App() {
           <Route path="/admin/merchandise" element={<AdminPrivateRoute Component={MerchandiseTable} />} />
           <Route path="/admin/merchandise/create" element={<AdminPrivateRoute Component={CreateMerchandise} />} />
           <Route path="/admin/merchandise/edit/:id" element={<AdminPrivateRoute Component={UpdateMerchandise} />} />
+          <Route path="/admin/donasi" element={<AdminPrivateRoute Component={DonasiTable} />} />
+          <Route path="/admin/donasi/create" element={<AdminPrivateRoute Component={CreateDonasi} />} />
+          <Route path="/admin/donasi/edit/:id" element={<AdminPrivateRoute Component={UpdateDonasi} />} />
+          <Route path="/admin/brand-lokal" element={<AdminPrivateRoute Component={BrandLokalsTable} />} />
+          <Route path="/admin/brand-lokal/create" element={<AdminPrivateRoute Component={CreateBrandLokal} />} />
+          <Route path="/admin/brand-lokal/edit/:id" element={<AdminPrivateRoute Component={UpdateBrandLokal} />} />
+          <Route path="/admin/penggerak-okoce" element={<AdminPrivateRoute Component={PenggerakOkoceTable} />} />
+          <Route path="/admin/penggerak-okoce/create" element={<AdminPrivateRoute Component={CreatePenggerakOkoce} />} />
+          <Route path="/admin/penggerak-okoce/edit/:id" element={<AdminPrivateRoute Component={UpdatePenggerakOkoce} />} />
+          <Route path="/admin/peluang-usaha" element={<AdminPrivateRoute Component={PeluangUsahaTable} />} />
+          <Route path="/admin/peluang-usaha/create" element={<AdminPrivateRoute Component={CreatePeluangUsaha} />} />
+          <Route path="/admin/peluang-usaha/edit/:id" element={<AdminPrivateRoute Component={UpdatePeluangUsaha} />} />
+          <Route path="/admin/peluang-kerja" element={<AdminPrivateRoute Component={PeluangKerjaTable} />} />
+          <Route path="/admin/peluang-kerja/create" element={<AdminPrivateRoute Component={CreatePeluangKerja} />} />
+          <Route path="/admin/peluang-kerja/edit/:id" element={<AdminPrivateRoute Component={UpdatePeluangKerja} />} />
           <Route path="/sejarah" element={<Sejarah />} />
           <Route path="/visimisi" element={<Visimisi />} />
           <Route path="/nilaiinti" element={<NilaiInti />} />
