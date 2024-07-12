@@ -277,39 +277,39 @@ const Homepage = () => {
                     </div>
                 </div>
 
-                <div class="grid grid-grid-flow-row justify-items-center items-center mobile:w-80 mobile:mx-auto sm:w-96 lg:w-full">
-                    <div class="md:pt-16 pb-8">
-                        <h2 class="text-sky-700 text-center font-poppins font-bold-700 mobile:text-xl mobile:font-bold lg:text-4xl ">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center items-center mx-auto max-w-8xl text-center">
+                    <div className="md:col-span-2">
+                        <h2 className="text-sky-700 text-center font-poppins font-bold-700 md:text-4xl">
                             Total Anggota OK OCE INDONESIA
                         </h2>
-                        <h3 className="mt-4 mb-10 text-black text-center font-poppins mobile:text-lg mobile:text-lg mobile:font-bold lg:text-xl lg:font-medium">
+                        <h3 className="mt-4 mb-10 text-black text-center font-poppins md:text-xl md:font-medium">
                             Peserta yang telah bergabung di{" "}
-                            <span className="text-red-500 font-bold">OK OCE </span>sampai saat
-                            ini
+                            <span className="text-red-500 font-bold">OK OCE </span>sampai saat ini
                         </h3>
                     </div>
-                    <div class="w-full mb-20 flex justify-around items-center text-slate-700">
-                        <div class="about-container flex flex-col lg:flex-row justify-center items-center bg-detik-milk mobile:w-3/4 lg:w-[35rem]">
-                            <div class="lg:mt-0 flex flex-col flex-grow pl-0 justify-center items-center">
+                    <div className="col-span-2 mb-20 mx-auto flex items-center justify-center text-slate-700 text-center">
+                        <div className="about-container flex flex-col justify-center items-center bg-detik-milk w-full lg:w-[35rem]">
+                            <div className="flex flex-col items-center justify-center">
                                 <AnimateAnggota />
-                                <div class="pb-5">
-                                    <h3 class="text-black text-center font-medium">
+                                <div className="mt-5">
+                                    <h3 className="text-black text-center font-medium">
                                         UMKM Anggota OK OCE Indonesia
                                     </h3>
                                 </div>
                             </div>
-                            <div class="lg:mt-0 flex flex-col flex-grow pl-0 justify-center items-center">
-                                <AnimatePenggerak />
-                                <div class="pb-5">
-                                    <h3 class="text-black text-justify font-medium">
-                                        Penggerak OK OCE Indonesia
-                                    </h3>
-                                </div>
+                        </div>
+                        <div className="flex flex-col items-center justify-center ml-0 lg:ml-8">
+                            <AnimatePenggerak />
+                            <div className="mt-5">
+                                <h3 className="text-black text-center font-medium">
+                                    Penggerak OK OCE Indonesia
+                                </h3>
                             </div>
                         </div>
                     </div>
-                    <div id="map" class="grid justify-items-center items-center w-full">
-                        <div class="w-11/12">
+
+                    <div className="w-[100vw] md:col-span-2 flex justify-center items-center">
+                        <div className="w-full h-screen">
                             <Peta />
                         </div>
                     </div>
