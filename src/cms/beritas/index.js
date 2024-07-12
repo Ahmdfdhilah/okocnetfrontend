@@ -5,15 +5,19 @@ import { useNavigate } from 'react-router-dom';
 const BeritasTable = () => {
     const [beritas, setBeritas] = useState([]);
     const [selectedBerita, setSelectedBerita] = useState(null);
+    const [query, setQuery] = useState({
+        page: 1,
+        limit: 10,
+    });
     const navigate = useNavigate();
 
     useEffect(() => {
         fetchBeritas();
-    }, []);
+    }, [query]);
 
     const fetchBeritas = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/beritas');
+            const response = await axios.get('http://localhost:3000/beritas', { params: query });
             setBeritas(response.data.data);
         } catch (error) {
             console.error('Error fetching beritas:', error);
@@ -45,6 +49,22 @@ const BeritasTable = () => {
         navigate(`/admin/berita/edit/${id}`);
     };
 
+    const handleSearchChange = (event) => {
+        setQuery({ ...query, search: event.target.value });
+    };
+
+    const handleSortChange = (event) => {
+        setQuery({ ...query, sort: event.target.value });
+    };
+
+    const handleOrderChange = (event) => {
+        setQuery({ ...query, order: event.target.value });
+    };
+
+    const handlePageChange = (newPage) => {
+        setQuery({ ...query, page: newPage });
+    };
+
     return (
         <div className="overflow-x-auto my-32 px-6">
             <div className="flex justify-between mb-6">
@@ -56,7 +76,37 @@ const BeritasTable = () => {
                     Create New
                 </button>
             </div>
+            <div className="mb-4 flex items-center">
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    value={query.search || ''}
+                    onChange={handleSearchChange}
+                    className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                />
+                <select
+                    value={query.sort || ''}
+                    onChange={handleSortChange}
+                    className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                >
+                    <option value="">Sort By...</option>
+                    <option value="judulBerita">Judul</option>
+                    <option value="tanggalBerita">Tanggal</option>
+                    <option value="authorBerita">Author</option>
+                    <option value="editorBerita">Editor</option>
+                </select>
+                <select
+                    value={query.order || ''}
+                    onChange={handleOrderChange}
+                    className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                >
+                    <option value="">Order...</option>
+                    <option value="ASC">ASC</option>
+                    <option value="DESC">DESC</option>
+                </select>
+            </div>
             <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+                {/* Table Headers */}
                 <thead className="bg-gray-800 text-white">
                     <tr>
                         <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Judul</th>
@@ -68,6 +118,7 @@ const BeritasTable = () => {
                         <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Actions</th>
                     </tr>
                 </thead>
+                {/* Table Body */}
                 <tbody className="text-gray-700">
                     {beritas.map((berita) => (
                         <React.Fragment key={berita.id}>
@@ -103,6 +154,7 @@ const BeritasTable = () => {
                             {selectedBerita && selectedBerita.id === berita.id && (
                                 <tr className="bg-gray-200">
                                     <td colSpan="7" className="py-4 px-6">
+                                        {/* Details Section */}
                                         <div className="flex justify-between">
                                             <div>
                                                 <h3 className="text-lg font-semibold mb-2">Details</h3>
@@ -110,14 +162,13 @@ const BeritasTable = () => {
                                                 <p><span className="font-semibold">Tanggal:</span> {new Date(berita.tanggalBerita).toLocaleString()}</p>
                                                 <p><span className="font-semibold">Author:</span> {berita.authorBerita}</p>
                                                 <p><span className="font-semibold">Editor:</span> {berita.editorBerita}</p>
-                                                <p><span className="font-semibold">Created By:</span> {berita.createdBy.username}</p>
-                                                <p><span className="font-semibold">Updated By:</span> {berita.updatedBy.username}</p>
-                                                <p><span className="font-semibold">Deskripsi Berita:</span></p>
                                                 <ul>
                                                     {berita.deskripsiBerita.map((deskripsi, index) => (
                                                         <li key={index} className="list-disc list-inside">{deskripsi.str}</li>
                                                     ))}
                                                 </ul>
+                                                <p><span className="font-semibold">Foto Berita:</span><br /><img src={berita.fotoBerita} alt="foto berita" className="h-40 w-auto object-contain" /></p>
+                                                <p><span className="font-semibold">Foto Content:</span><br /><img src={berita.fotoContent} alt="foto content" className="h-40 w-auto object-contain" /></p>
                                             </div>
                                             <button
                                                 onClick={handleCloseDetail}
@@ -133,6 +184,23 @@ const BeritasTable = () => {
                     ))}
                 </tbody>
             </table>
+            {/* Pagination */}
+            <div className="flex justify-end mt-4">
+                <button
+                    onClick={() => handlePageChange(query.page - 1)}
+                    disabled={query.page <= 1}
+                    className="px-4 py-2 bg-gray-300 text-gray-600 rounded-md mr-2 hover:bg-gray-400 focus:outline-none"
+                >
+                    Previous
+                </button>
+                <button
+                    onClick={() => handlePageChange(query.page + 1)}
+                    disabled={beritas.length < query.limit}
+                    className="px-4 py-2 bg-gray-300 text-gray-600 rounded-md mr-2 hover:bg-gray-400 focus:outline-none"
+                >
+                    Next
+                </button>
+            </div>
         </div>
     );
 };

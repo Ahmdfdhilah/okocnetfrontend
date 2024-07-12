@@ -237,7 +237,7 @@ const CreateEvent = () => {
                         Harga Event
                     </label>
                     <input
-                        type="text"
+                        type="number"
                         id="hargaEvent"
                         name="hargaEvent"
                         value={formData.hargaEvent}
@@ -253,7 +253,7 @@ const CreateEvent = () => {
                         Point Event
                     </label>
                     <input
-                        type="text"
+                        type="number"
                         id="pointEvent"
                         name="pointEvent"
                         value={formData.pointEvent}

@@ -13,8 +13,8 @@ const CreateBerita = () => {
         authorBerita: '',
         editorBerita: '',
         deskripsiBerita: [],
-        fotoBerita: null,
-        fotoContent: null,
+        file: null,
+        file2: null,
         publishedAt: new Date().toISOString().slice(0, 16),
     });
 
@@ -24,8 +24,6 @@ const CreateBerita = () => {
         authorBerita: '',
         editorBerita: '',
         deskripsiBerita: '',
-        fotoBerita: '',
-        fotoContent: '',
     });
 
     const handleInputChange = (e) => {
@@ -86,8 +84,6 @@ const CreateBerita = () => {
             authorBerita: '',
             editorBerita: '',
             deskripsiBerita: '',
-            fotoBerita: '',
-            fotoContent: '',
         };
 
         if (!formData.judulBerita.trim()) {
@@ -108,14 +104,6 @@ const CreateBerita = () => {
         }
         if (formData.deskripsiBerita.length === 0) {
             errors.deskripsiBerita = 'Deskripsi Berita harus diisi';
-            valid = false;
-        }
-        if (!formData.fotoBerita) {
-            errors.fotoBerita = 'Foto Berita harus diunggah';
-            valid = false;
-        }
-        if (!formData.fotoContent) {
-            errors.fotoContent = 'Foto Content harus diunggah';
             valid = false;
         }
 
@@ -139,8 +127,8 @@ const CreateBerita = () => {
             formData.deskripsiBerita.forEach((deskripsi, index) => {
                 formDataToSend.append(`deskripsiBerita[${index}]`, deskripsi);
             });
-            formDataToSend.append('file', formData.fotoBerita);
-            formDataToSend.append('file2', formData.fotoContent);
+            formDataToSend.append('file', formData.file);
+            formDataToSend.append('file2', formData.file2);
             formDataToSend.append('publishedAt', formData.publishedAt);
 
             await axios.post(`http://localhost:3000/beritas/${userId}`, formDataToSend, {
@@ -265,9 +253,9 @@ const CreateBerita = () => {
                         id="file"
                         name="file"
                         onChange={handleFileChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.fotoBerita ? 'border-red-500' : ''}`}
+                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.file ? 'border-red-500' : ''}`}
                     />
-                    {formErrors.fotoBerita && <p className="text-red-500 text-sm mt-1">{formErrors.fotoBerita}</p>}
+                    {formErrors.file && <p className="text-red-500 text-sm mt-1">{formErrors.file}</p>}
                 </div>
 
                 {/* Foto Content */}
@@ -280,9 +268,9 @@ const CreateBerita = () => {
                         id="file2"
                         name="file2"
                         onChange={handleFileChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.fotoContent ? 'border-red-500' : ''}`}
+                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.file2 ? 'border-red-500' : ''}`}
                     />
-                    {formErrors.fotoContent && <p className="text-red-500 text-sm mt-1">{formErrors.fotoContent}</p>}
+                    {formErrors.file2 && <p className="text-red-500 text-sm mt-1">{formErrors.file2}</p>}
                 </div>
 
                 {/* Submit Button */}

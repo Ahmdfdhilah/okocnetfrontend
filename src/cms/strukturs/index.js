@@ -5,15 +5,19 @@ import { Link, useNavigate } from 'react-router-dom';
 const StrukturTable = () => {
     const [data, setData] = useState([]);
     const [selectedItem, setSelectedItem] = useState(null);
+    const [query, setQuery] = useState({
+        page: 1,
+        limit: 10,
+    });
     const navigate = useNavigate();
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [query]);
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/struktur-penguruses');
+            const response = await axios.get('http://localhost:3000/struktur-penguruses', { params: query });
             setData(response.data.data);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -24,6 +28,7 @@ const StrukturTable = () => {
         try {
             await axios.delete(`http://localhost:3000/struktur-penguruses/${id}`);
             fetchData();
+            setSelectedItem(null); // Clear selected item after deletion
         } catch (error) {
             console.error('Error deleting item:', error);
         }
@@ -45,6 +50,22 @@ const StrukturTable = () => {
         navigate(`/admin/struktur/edit/${id}`);
     };
 
+    const handleSearchChange = (event) => {
+        setQuery({ ...query, search: event.target.value });
+    };
+
+    const handleSortChange = (event) => {
+        setQuery({ ...query, sort: event.target.value });
+    };
+
+    const handleOrderChange = (event) => {
+        setQuery({ ...query, order: event.target.value });
+    };
+
+    const handlePageChange = (newPage) => {
+        setQuery({ ...query, page: newPage });
+    };
+
     return (
         <div className="overflow-x-auto my-32 px-6">
             <div className="flex justify-between mb-6">
@@ -55,6 +76,34 @@ const StrukturTable = () => {
                 >
                     Create New
                 </button>
+            </div>
+            <div className="mb-4 flex items-center">
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    value={query.search || ''}
+                    onChange={handleSearchChange}
+                    className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                />
+                <select
+                    value={query.sort || ''}
+                    onChange={handleSortChange}
+                    className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                >
+                    <option value="">Sort By...</option>
+                    <option value="nama">Nama</option>
+                    <option value="jabatan">Jabatan</option>
+                    <option value="publishedAt">Published At</option>
+                </select>
+                <select
+                    value={query.order || ''}
+                    onChange={handleOrderChange}
+                    className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                >
+                    <option value="">Order...</option>
+                    <option value="ASC">ASC</option>
+                    <option value="DESC">DESC</option>
+                </select>
             </div>
             <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
                 <thead className="bg-gray-800 text-white">
@@ -71,7 +120,7 @@ const StrukturTable = () => {
                     {data.map((item) => (
                         <React.Fragment key={item.id}>
                             <tr
-                                className="hover:bg-gray-100 border-b border-gray-200 py-4 cursor-pointer"
+                                className={`hover:bg-gray-100 border-b border-gray-200 py-4 cursor-pointer ${selectedItem && selectedItem.id === item.id ? 'bg-gray-200' : ''}`}
                                 onClick={() => handleRowClick(item)}
                             >
                                 <td className="py-3 px-4">
@@ -127,6 +176,22 @@ const StrukturTable = () => {
                     ))}
                 </tbody>
             </table>
+            <div className="mt-4 flex justify-end">
+                <button
+                    onClick={() => handlePageChange(query.page - 1)}
+                    disabled={query.page <= 1}
+                    className={`px-3 py-1 bg-gray-300 text-gray-600 rounded mr-2 hover:bg-gray-400'}`}
+                >
+                    Previous
+                </button>
+                <button
+                    onClick={() => handlePageChange(query.page + 1)}
+                    disabled={data.length < query.limit}
+                    className={`px-3 py-1 bg-gray-300 text-gray-600 rounded hover:bg-gray-400'}`}
+                >
+                    Next
+                </button>
+            </div>
         </div>
     );
 };

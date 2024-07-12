@@ -5,15 +5,19 @@ import { useNavigate } from 'react-router-dom';
 const PeluangKerjaTable = () => {
     const [data, setData] = useState([]);
     const [selectedItem, setSelectedItem] = useState(null);
+    const [query, setQuery] = useState({
+        page: 1,
+        limit: 10,
+    });
     const navigate = useNavigate();
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [query]);
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/peluang-kerjas');
+            const response = await axios.get('http://localhost:3000/peluang-kerjas', { params: query });
             setData(response.data.data);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -24,7 +28,7 @@ const PeluangKerjaTable = () => {
         try {
             await axios.delete(`http://localhost:3000/peluang-kerjas/${id}`);
             fetchData();
-            setSelectedItem(null); // Clear selected item after deletion
+            setSelectedItem(null); 
         } catch (error) {
             console.error('Error deleting item:', error);
         }
@@ -39,16 +43,69 @@ const PeluangKerjaTable = () => {
         setSelectedItem(null);
     };
 
+    const handleCreateNew = () => {
+        navigate('/admin/peluang-kerja/create');
+    };
+
+    const handleEdit = (id) => {
+        navigate(`/admin/peluang-kerja/edit/${id}`);
+    };
+
+    const handleSearchChange = (event) => {
+        setQuery({ ...query, search: event.target.value });
+    };
+
+    const handleSortChange = (event) => {
+        setQuery({ ...query, sort: event.target.value });
+    };
+
+    const handleOrderChange = (event) => {
+        setQuery({ ...query, order: event.target.value });
+    };
+
+    const handlePageChange = (newPage) => {
+        setQuery({ ...query, page: newPage });
+    };
+
     return (
         <div className="overflow-x-auto my-32 px-6">
             <div className="flex justify-between mb-6">
                 <h2 className="text-2xl font-semibold text-gray-800">Peluang Kerja</h2>
                 <button
-                    onClick={() => navigate('/admin/peluang-kerja/create')}
+                    onClick={handleCreateNew}
                     className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none"
                 >
                     Create New
                 </button>
+            </div>
+            <div className="mb-4 flex items-center">
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    value={query.search || ''}
+                    onChange={handleSearchChange}
+                    className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                />
+                <select
+                    value={query.sort || ''}
+                    onChange={handleSortChange}
+                    className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                >
+                    <option value="">Sort By...</option>
+                    <option value="judulKerja">Judul Kerja</option>
+                    <option value="lokasiKerja">Lokasi Kerja</option>
+                    <option value="kategoriKerja">Kategori Kerja</option>
+                    <option value="publishedAt">Published At</option>
+                </select>
+                <select
+                    value={query.order || ''}
+                    onChange={handleOrderChange}
+                    className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                >
+                    <option value="">Order...</option>
+                    <option value="ASC">ASC</option>
+                    <option value="DESC">DESC</option>
+                </select>
             </div>
             <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
                 <thead className="bg-gray-800 text-white">
@@ -128,6 +185,22 @@ const PeluangKerjaTable = () => {
                     ))}
                 </tbody>
             </table>
+            <div className="mt-4 flex justify-end">
+                <button
+                    onClick={() => handlePageChange(query.page - 1)}
+                    disabled={query.page <= 1}
+                    className={`px-3 py-1 bg-gray-300 text-gray-600 rounded mr-2 hover:bg-gray-400'}`}
+                >
+                    Previous
+                </button>
+                <button
+                    onClick={() => handlePageChange(query.page + 1)}
+                    disabled={data.length < query.limit}
+                    className={`px-3 py-1 bg-gray-300 text-gray-600 rounded hover:bg-gray-400'}`}
+                >
+                    Next
+                </button>
+            </div>
         </div>
     );
 };
