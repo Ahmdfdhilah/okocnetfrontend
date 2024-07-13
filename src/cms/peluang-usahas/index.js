@@ -17,7 +17,7 @@ const PeluangUsahaTable = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/peluang-usahas', { params: query });
+            const response = await axios.get('https://sole-debi-crytonexa-deb22e0b.koyeb.app/peluang-usahas', { params: query });
             setData(response.data.data);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -26,9 +26,9 @@ const PeluangUsahaTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/peluang-usahas/${id}`);
+            await axios.delete(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/peluang-usahas/${id}`);
             fetchData();
-            setSelectedItem(null); 
+            setSelectedItem(null);
         } catch (error) {
             console.error('Error deleting item:', error);
         }
@@ -127,7 +127,7 @@ const PeluangUsahaTable = () => {
                             >
                                 <td className="py-3 px-4">
                                     <img
-                                        src={item.fotoUsaha}
+                                        src={`https://sole-debi-crytonexa-deb22e0b.koyeb.app${item.fotoUsaha}`}
                                         alt={item.judulUsaha}
                                         className="h-10 w-10 rounded-full object-cover"
                                     />

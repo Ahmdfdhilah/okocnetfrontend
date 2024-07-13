@@ -30,7 +30,7 @@ const JobList = ({ onJobClick }) => {
 
     const fetchDataPeluangUsaha = async () => {
         try {
-            const response = await fetch('http://localhost:3000/peluang-usahas');
+            const response = await fetch('https://sole-debi-crytonexa-deb22e0b.koyeb.app/peluang-usahas');
             if (!response.ok) {
                 throw new Error('Gagal mengambil data peluang usaha');
             }
@@ -49,7 +49,7 @@ const JobList = ({ onJobClick }) => {
                 <div className="mt-0" key={data.id}>
                     <div className="space-y-4 mt-5">
                         <JobCard
-                            logo={data.fotoUsaha}
+                            logo={`https://sole-debi-crytonexa-deb22e0b.koyeb.app${data.fotoUsaha}`}
                             title={data.judulUsaha}
                             location={data.lokasiUsaha}
                             category={data.kategoriUsaha}
@@ -74,7 +74,7 @@ const PeluangUsaha = () => {
 
     const fetchJobDetails = async (id) => {
         try {
-            const response = await fetch(`http://localhost:3000/peluang-usahas/${id}`);
+            const response = await fetch(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/peluang-usahas/${id}`);
             if (!response.ok) {
                 throw new Error('Gagal mengambil detail peluang usaha');
             }
@@ -108,7 +108,7 @@ const PeluangUsaha = () => {
                     {jobDetails ? (
                         <div className="w-full h-full text-zinc-400">
                             <div className="mobile:ml-0 mobile:px-4 lg:mt-10 lg:ml-2 lg:pr-16 lg:pl-14">
-                                <img src={jobDetails.fotoUsaha} alt="" className="w-full object-fill mobile:mt-8 h-screen"></img>
+                                <img src={`https://sole-debi-crytonexa-deb22e0b.koyeb.app${jobDetails.fotoUsaha}`} alt="" className="w-full object-fill mobile:mt-8 h-screen"></img>
                                 <h3 className="text-3xl mt-16 ml-1 font-bold text-black mb-4">{jobDetails.judulUsaha}</h3>
                                 <p className="text-lg mt-3 ml-1 font-normal text-black">Perkumpulan Gerakan OK OCE</p>
                                 <p className="text-lg ml-1 font-normal text-black">{jobDetails.lokasiUsaha}</p>

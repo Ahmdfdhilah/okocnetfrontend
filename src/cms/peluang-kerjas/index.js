@@ -17,7 +17,7 @@ const PeluangKerjaTable = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/peluang-kerjas', { params: query });
+            const response = await axios.get('https://sole-debi-crytonexa-deb22e0b.koyeb.app/peluang-kerjas', { params: query });
             setData(response.data.data);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -26,9 +26,9 @@ const PeluangKerjaTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/peluang-kerjas/${id}`);
+            await axios.delete(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/peluang-kerjas/${id}`);
             fetchData();
-            setSelectedItem(null); 
+            setSelectedItem(null);
         } catch (error) {
             console.error('Error deleting item:', error);
         }
@@ -127,7 +127,7 @@ const PeluangKerjaTable = () => {
                             >
                                 <td className="py-3 px-4">
                                     <img
-                                        src={item.fotoKerja}
+                                        src={`https://sole-debi-crytonexa-deb22e0b.koyeb.app${item.fotoKerja}`}
                                         alt={item.judulKerja}
                                         className="h-10 w-10 rounded-full object-cover"
                                     />

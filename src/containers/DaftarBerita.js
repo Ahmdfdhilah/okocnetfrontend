@@ -15,7 +15,7 @@ const DaftarBerita = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch('http://localhost:3000/beritas')
+            const response = await fetch('https://sole-debi-crytonexa-deb22e0b.koyeb.app/beritas')
             if (!response.ok) {
                 throw new Error('Gagal mengambil data berita');
             }
@@ -53,7 +53,7 @@ const DaftarBerita = () => {
                         <div key={index} className="w-full mx-auto p-4">
                             <div className="bg-blue-400 shadow-md rounded-lg lg:mr-1">
                                 <div className="p-5">
-                                    <img className="object-cover w-full mobile:h-36 lg:h-96" src={data.fotoBerita} alt="" />
+                                    <img className="object-cover w-full mobile:h-36 lg:h-96" src={`https://sole-debi-crytonexa-deb22e0b.koyeb.app${data.fotoBerita}`} alt="" />
                                     <div className="relative group mb-2 mt-6 h-20">
                                         <div className="text-base leading-7 text-white font-bold text-xl overflow-hidden line-clamp-2">
                                             {data.judulBerita}

@@ -28,7 +28,7 @@ const UpdateStrukturPengurus = () => {
 
     const fetchStrukturPengurus = async () => {
         try {
-            const response = await axios.get(`http://localhost:3000/struktur-penguruses/${id}`);
+            const response = await axios.get(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/struktur-penguruses/${id}`);
             const { nama, jabatan, tipe } = response.data;
             setFormData({
                 nama,
@@ -98,7 +98,7 @@ const UpdateStrukturPengurus = () => {
             formDataToSend.append('jabatan', formData.jabatan);
             formDataToSend.append('tipe', formData.tipe);
             formDataToSend.append('publishedAt', formData.publishedAt);
-            await axios.put(`http://localhost:3000/struktur-penguruses/${id}/${userId}`, formDataToSend, {
+            await axios.put(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/struktur-penguruses/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

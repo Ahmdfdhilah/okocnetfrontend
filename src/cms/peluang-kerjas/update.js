@@ -39,7 +39,7 @@ const UpdatePeluangKerja = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/peluang-kerjas/${id}`);
+                const response = await axios.get(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/peluang-kerjas/${id}`);
                 const data = response.data;
 
                 setFormData({
@@ -169,7 +169,7 @@ const UpdatePeluangKerja = () => {
             formDataToSend.append('sistemKerja', formData.sistemKerja);
             formDataToSend.append('publishedAt', new Date().toISOString().slice(0, 16));
             console.log(formData.sistemKerja);
-            await axios.put(`http://localhost:3000/peluang-kerjas/${id}/${userId}`, formDataToSend, {
+            await axios.put(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/peluang-kerjas/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

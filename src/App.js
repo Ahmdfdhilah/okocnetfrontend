@@ -8,7 +8,7 @@ import Struktur from './containers/Struktur';
 import Anniversary from './containers/Anniversary';
 import Penggerak from './containers/Penggerak';
 import Seventop from './containers/Seventop';
-import Merchendise from './containers/Merchendise';
+import Merchandise from './containers/Merchandise';
 import Pelatihan from './containers/Pelatihan';
 import Pendampingan from './containers/Pendampingan';
 import Faq from './containers/Faq';
@@ -116,7 +116,7 @@ function App() {
           <Route path="/penggerak" element={<Penggerak />} />
           <Route path="/anniversary" element={<Anniversary />} />
           <Route path="/7top" element={<Seventop />} />
-          <Route path="/merchendise" element={<Merchendise />} />
+          <Route path="/merchandise" element={<Merchandise />} />
           <Route path="/pendampingan" element={<Pendampingan />} />
           <Route path="/pelatihan" element={<Pelatihan />} />
           <Route path="/faq" element={<Faq />} />

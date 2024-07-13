@@ -138,7 +138,7 @@ const CreatePeluangUsaha = () => {
             formDataToSend.append('periodePendaftaran', formData.periodePendaftaran);
             formDataToSend.append('publishedAt', new Date().toISOString().slice(0, 16));
 
-            await axios.post(`http://localhost:3000/peluang-usahas/${userId}`, formDataToSend, {
+            await axios.post(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/peluang-usahas/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

@@ -12,22 +12,21 @@ const BrandLokalsTable = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('https://sole-debi-crytonexa-deb22e0b.koyeb.app/brand-lokals', { params: query });
+                setData(response.data.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
         fetchData();
     }, [query]);
 
-    const fetchData = async () => {
-        try {
-            const response = await axios.get('http://localhost:3000/brand-lokals', { params: query });
-            setData(response.data.data);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
-    };
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/brand-lokals/${id}`);
-            fetchData();
+            await axios.delete(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/brand-lokals/${id}`);
         } catch (error) {
             console.error('Error deleting item:', error);
         }
@@ -122,7 +121,7 @@ const BrandLokalsTable = () => {
                                 <td className="py-3 px-4">{item.judulBrand}</td>
                                 <td className="py-3 px-4">
                                     <img
-                                        src={item.fotoBrand}
+                                        src={`https://sole-debi-crytonexa-deb22e0b.koyeb.app${item.fotoBrand}`}
                                         alt={item.judulBrand}
                                         className="h-10 w-10 rounded-full object-cover"
                                     />

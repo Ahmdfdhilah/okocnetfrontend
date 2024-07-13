@@ -29,7 +29,7 @@ const JobList = ({ onJobClick }) => {
 
     const fetchDataMagang = async () => {
         try {
-            const response = await fetch('http://localhost:3000/magangs');
+            const response = await fetch('https://sole-debi-crytonexa-deb22e0b.koyeb.app/magangs');
             if (!response.ok) {
                 throw new Error('Gagal mengambil data magang');
             }
@@ -75,7 +75,7 @@ const Magang = () => {
 
     const fetchJobDetails = async (id) => {
         try {
-            const response = await fetch(`http://localhost:3000/magangs/${id}`);
+            const response = await fetch(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/magangs/${id}`);
             if (!response.ok) {
                 throw new Error('Gagal mengambil detail magang');
             }
@@ -109,7 +109,7 @@ const Magang = () => {
                     {jobDetails ? (
                         <div className="w-full h-full text-zinc-400">
                             <div className="mobile:ml-0 mobile:px-4 lg:mt-10 lg:ml-2 lg:pr-16 lg:pl-14">
-                                <img src={Logo} alt="" className="object-cover mobile:h-auto mobile:w-36 mobile:mt-8 lg:h-auto lg:w-40"></img>
+                                <img src={Logo} alt={jobDetails.judulMagang} className="object-cover mobile:h-auto mobile:w-36 mobile:mt-8 lg:h-auto lg:w-40"></img>
                                 <h3 className="text-3xl mt-6 ml-1 font-bold text-black mb-4">{jobDetails.judulMagang}</h3>
                                 <p className="text-lg mt-3 ml-1 font-normal text-black">{jobDetails.lokasiMagang}</p>
                                 <p className="text-lg ml-1 font-normal text-black">{jobDetails.jenisMagang}</p>

@@ -41,7 +41,7 @@ const UpdateEvent = () => {
     useEffect(() => {
         const fetchEventData = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/events/${id}`);
+                const response = await axios.get(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/events/${id}`);
                 const eventData = response.data;
 
                 const formattedDeskripsiEvent = eventData.deskripsiEvent.map(item => item.str);
@@ -206,7 +206,7 @@ const UpdateEvent = () => {
             formDataToSend.append('narasumber', formData.narasumber);
             formDataToSend.append('contactPerson', formData.contactPerson);
             console.log(formData);
-            await axios.put(`http://localhost:3000/events/${id}/${userId}`, formDataToSend, {
+            await axios.put(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/events/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

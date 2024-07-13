@@ -12,22 +12,20 @@ const DonasiTable = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('https://sole-debi-crytonexa-deb22e0b.koyeb.app/donasis', { params: query });
+                setData(response.data.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
         fetchData();
     }, [query]);
-
-    const fetchData = async () => {
-        try {
-            const response = await axios.get('http://localhost:3000/donasis', { params: query });
-            setData(response.data.data);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
-    };
-
+ 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/donasis/${id}`);
-            fetchData();
+            await axios.delete(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/donasis/${id}`);
         } catch (error) {
             console.error('Error deleting item:', error);
         }
@@ -121,7 +119,7 @@ const DonasiTable = () => {
                             >
                                 <td className="py-3 px-4">
                                     <img
-                                        src={item.fotoDonasi}
+                                        src={`https://sole-debi-crytonexa-deb22e0b.koyeb.app${item.fotoDonasi}`}
                                         alt={item.judulDonasi}
                                         className="h-10 w-10 rounded-full object-cover"
                                     />

@@ -17,7 +17,7 @@ const StrukturTable = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/struktur-penguruses', { params: query });
+            const response = await axios.get('https://sole-debi-crytonexa-deb22e0b.koyeb.app/struktur-penguruses', { params: query });
             setData(response.data.data);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -26,7 +26,7 @@ const StrukturTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/struktur-penguruses/${id}`);
+            await axios.delete(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/struktur-penguruses/${id}`);
             fetchData();
             setSelectedItem(null); // Clear selected item after deletion
         } catch (error) {
@@ -43,7 +43,7 @@ const StrukturTable = () => {
     };
 
     const handleCreateNew = () => {
-        navigate('/admin/struktur/create'); 
+        navigate('/admin/struktur/create');
     };
 
     const handleEdit = (id) => {
@@ -125,7 +125,7 @@ const StrukturTable = () => {
                             >
                                 <td className="py-3 px-4">
                                     <img
-                                        src={item.foto}
+                                        src={`https://sole-debi-crytonexa-deb22e0b.koyeb.app${item.foto}`}
                                         alt={item.nama}
                                         className="h-10 w-10 rounded-full object-cover"
                                     />

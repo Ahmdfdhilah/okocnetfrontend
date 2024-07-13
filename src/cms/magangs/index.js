@@ -17,7 +17,7 @@ const MagangTable = () => {
 
     const fetchMagangs = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/magangs', { params: query });
+            const response = await axios.get('https://sole-debi-crytonexa-deb22e0b.koyeb.app/magangs', { params: query });
             setMagangs(response.data.data);
         } catch (error) {
             console.error('Error fetching magangs:', error);
@@ -26,7 +26,7 @@ const MagangTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/magangs/${id}`);
+            await axios.delete(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/magangs/${id}`);
             fetchMagangs();
         } catch (error) {
             console.error('Error deleting magang:', error);
@@ -130,7 +130,7 @@ const MagangTable = () => {
                                 <td className="py-3 px-4">{magang.jenisMagang}</td>
                                 <td className="py-3 px-4">
                                     <img
-                                        src={magang.fotoMagang}
+                                        src={`https://sole-debi-crytonexa-deb22e0b.koyeb.app${magang.fotoMagang}`}
                                         alt={magang.judulMagang}
                                         className="h-10 w-10 rounded-full object-cover"
                                     />
