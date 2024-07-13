@@ -21,7 +21,6 @@ const DaftarBerita = () => {
             }
             const data = await response.json();
             const newsData = data.data;
-            console.log(newsData);
             setData(newsData);
         } catch (error) {
             console.error('Error fetching news:', error);

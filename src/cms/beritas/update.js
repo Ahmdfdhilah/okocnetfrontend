@@ -155,7 +155,7 @@ const UpdateBerita = () => {
             formData.deskripsiBerita.forEach((deskripsi, index) => {
                 formDataToSend.append(`deskripsiBerita[${index}]`, deskripsi);
             });
-            console.log(formData);
+ 
             await axios.put(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/beritas/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',

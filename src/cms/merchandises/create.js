@@ -125,7 +125,7 @@ const CreateMerchandise = () => {
                 },
             });
 
-            console.log('Response:', response.data);
+
             navigate('/admin/merchandise');
         } catch (error) {
             console.error('Error creating merchandise:', error);

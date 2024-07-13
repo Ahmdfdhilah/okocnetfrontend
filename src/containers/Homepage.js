@@ -89,7 +89,6 @@ const Homepage = () => {
             // Extract the data array from the response
             const newsData = data.data;
             const lastThreeData = newsData.slice(0, 3); // Mengambil 3 data terakhir
-            console.log(lastThreeData);
             setData(lastThreeData);
         } catch (error) {
             console.error("Error fetching employees:", error);
@@ -108,8 +107,7 @@ const Homepage = () => {
             }
             const data = await response.json();
             const eventData = data.data;
-            const lastThreeData = eventData.slice(0, 3); // Mengambil 3 data terakhir
-            console.log(lastThreeData);
+            const lastThreeData = eventData.slice(0, 3); 
             setEvents(lastThreeData);
         } catch (error) {
             console.error("Error fetching employees:", error);
@@ -438,7 +436,7 @@ const Homepage = () => {
                                     <div className="border-2 border-black p-2">
                                         <img
                                             class="max-h-[10rem] min-w-42"
-                                            src={event.fotoEvent}
+                                            src={`https://sole-debi-crytonexa-deb22e0b.koyeb.app${event.fotoEvent}`}
                                         />
                                     </div>
                                 ))}
@@ -451,7 +449,7 @@ const Homepage = () => {
                                     <div className="border-2 border-black p-2">
                                         <img
                                             class="object-cover h-full max-w-40"
-                                            src={data.fotoBerita}
+                                            src={`https://sole-debi-crytonexa-deb22e0b.koyeb.app${data.fotoBerita}`}
                                         />
                                     </div>
                                 ))}

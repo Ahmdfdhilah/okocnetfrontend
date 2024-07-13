@@ -84,7 +84,6 @@ const CreateStrukturPengurus = () => {
             formDataToSend.append('publishedAt', formData.publishedAt);
             formDataToSend.append('tipe', formData.tipe);
 
-            console.log(formData);
             await axios.post(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/struktur-penguruses/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',

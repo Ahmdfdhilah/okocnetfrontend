@@ -10,15 +10,13 @@ const ModalStep3 = ({ onClose }) => {
 
     const fetchEvent = async () => {
         try {
-            const response = await fetch('https://cms-okoce-a155c649b6e6.herokuapp.com/api/events?populate=*');
+            const response = await fetch('https://sole-debi-crytonexa-deb22e0b.koyeb.app/events');
             if (!response.ok) {
                 throw new Error('Gagal mengambil data event');
             }
             const data = await response.json();
             const newsData = data.data;
-            newsData.sort((a, b) => b.id - a.id);
             const singleData = newsData[0];
-            console.log(singleData);
             setData([singleData]);
         } catch (error) {
             console.error('Error fetching events:', error);

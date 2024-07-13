@@ -9,7 +9,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const { setIsAuthenticated } = useContext(AuthContext);
     const [modal, setModal] = useState({ show: false, title: '', message: '' });
-    const [consentGiven, setConsentGiven] = useState(false); // State for consent
+    const [consentGiven, setConsentGiven] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -35,8 +35,7 @@ const Login = () => {
     const handleCloseModal = () => {
         setModal({ show: false, title: '', message: '' });
         if (modal.title === 'Login Successful') {
-            window.location.reload();
-            navigate('/admin');
+            navigate('/');
         }
     };
 
@@ -68,7 +67,6 @@ const Login = () => {
                 title: 'Login Successful',
                 message: 'You have successfully logged in.'
             });
-            // Store consent in localStorage or cookie if given
             if (consentGiven) {
                 localStorage.setItem('consentGiven', 'true');
             }

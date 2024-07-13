@@ -8,7 +8,6 @@ const Modal = ({ isOpen, onClose }) => {
 
     const handleNext = () => {
         setStep(step + 1);
-        console.log('Step:', step + 1);  // Debugging log
     };
 
     if (!isOpen) return null;

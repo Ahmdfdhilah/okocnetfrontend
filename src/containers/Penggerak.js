@@ -20,7 +20,6 @@ const Penggerak = () => {
             const data = await response.json();
             // Extract the data array from the response
             const penggerakData = data.data;
-            console.log(penggerakData)
             setPenggerak(penggerakData);
         } catch (error) {
             console.error('Error fetching penggerak:', error);

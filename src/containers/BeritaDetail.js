@@ -17,7 +17,6 @@ const BeritaDetail = () => {
                     throw new Error('Gagal mengambil data berita');
                 }
                 const data = await response.json();
-                console.log(data);
                 setNewsData(data);
                 setLoading(false);
             } catch (error) {

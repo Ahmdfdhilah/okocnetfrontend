@@ -35,7 +35,6 @@ const JobList = ({ onJobClick }) => {
             }
             const data = await response.json();
             const internData = data.data;
-            console.log(internData);
             setData(internData);
         } catch (error) {
             console.error('Error fetching internship data:', error);
@@ -117,7 +116,6 @@ const Magang = () => {
                                 <div className="w-full mt-10 mr-32 mb-10">
                                     <h1 className="text-2xl text-black font-bold">Rincian Kegiatan</h1>
                                     <h2 className="mt-3 font-bold text-black text-lg">{jobDetails.tentangProgram}</h2>
-                                    {console.log(jobDetails.deskripsiMagang)}
                                     {jobDetails.deskripsiMagang.map((item) => (
                                         <p className="text-black text-normal text-lg text-justify mt-4">
                                             {item.str}

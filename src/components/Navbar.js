@@ -46,12 +46,12 @@ function Navbar() {
   ];
 
   const { role, setIsAuthenticated } = useContext(AuthContext);
-  console.log(role);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('consentGiven');
     setIsAuthenticated(false);
+    window.location.reload();
     navigate('/');
   };
 

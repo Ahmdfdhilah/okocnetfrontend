@@ -16,7 +16,6 @@ const EventDetail = () => {
                     throw new Error('Gagal mengambil data event');
                 }
                 const data = await response.json();
-                console.log(data);
                 setEventData(data);
                 setLoading(false);
             } catch (error) {

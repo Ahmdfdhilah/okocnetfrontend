@@ -168,7 +168,6 @@ const UpdatePeluangKerja = () => {
             formDataToSend.append('periodePendaftaran', formData.periodePendaftaran);
             formDataToSend.append('sistemKerja', formData.sistemKerja);
             formDataToSend.append('publishedAt', new Date().toISOString().slice(0, 16));
-            console.log(formData.sistemKerja);
             await axios.put(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/peluang-kerjas/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',

@@ -26,7 +26,6 @@ const Pelatihan = () => {
             const eventData = data.data;
             eventData.sort((a, b) => b.id - a.id);
             const lastThreeData = eventData.slice(0, 3); // Mengambil 3 data terakhir
-            console.log(lastThreeData);
             setEvents(lastThreeData);
         } catch (error) {
             console.error("Error fetching employees:", error);

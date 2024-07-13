@@ -23,7 +23,6 @@ const PengurusBaru = () => {
                 throw new Error('Gagal mengambil data pengurus');
             }
             const data = await response.json();
-            console.log(data);
             filterAndSetData(data.data);
         } catch (error) {
             console.error('Error fetching employees:', error);

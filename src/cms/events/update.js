@@ -205,7 +205,7 @@ const UpdateEvent = () => {
             formDataToSend.append('durasiEvent', formData.durasiEvent);
             formDataToSend.append('narasumber', formData.narasumber);
             formDataToSend.append('contactPerson', formData.contactPerson);
-            console.log(formData);
+
             await axios.put(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/events/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',

@@ -174,7 +174,6 @@ const UpdateMerchandise = () => {
                 },
             });
 
-            console.log('Response:', response.data);
             navigate('/admin/merchandise');
         } catch (error) {
             console.error('Error updating merchandise:', error);
