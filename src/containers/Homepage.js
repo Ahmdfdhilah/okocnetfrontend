@@ -287,9 +287,9 @@ const Homepage = () => {
                             <span className="text-red-500 font-bold">OK OCE </span>sampai saat ini
                         </h3>
                     </div>
-                    <div className="col-span-2 mb-20 mx-auto flex items-center justify-center text-slate-700 text-center">
-                        <div className="about-container flex flex-col justify-center items-center bg-detik-milk w-full lg:w-[35rem]">
-                            <div className="flex flex-col items-center justify-center">
+                    <div className="md:col-span-2 mb-20 flex text-slate-700">
+                        <div className="about-container flex flex-col justify-center items-center bg-detik-milk">
+                            <div className="flex flex-col items-center justify-center ml-0 mr-8">
                                 <AnimateAnggota />
                                 <div className="mt-5">
                                     <h3 className="text-black text-center font-medium">
@@ -298,7 +298,7 @@ const Homepage = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-col items-center justify-center ml-0 lg:ml-8">
+                        <div className="flex flex-col items-center justify-center ml-0">
                             <AnimatePenggerak />
                             <div className="mt-5">
                                 <h3 className="text-black text-center font-medium">
@@ -308,7 +308,7 @@ const Homepage = () => {
                         </div>
                     </div>
 
-                    <div className="w-[100vw] md:col-span-2 flex justify-center items-center">
+                    <div className="w-full md:col-span-2 flex justify-center items-center">
                         <div className="w-full h-screen">
                             <Peta />
                         </div>
