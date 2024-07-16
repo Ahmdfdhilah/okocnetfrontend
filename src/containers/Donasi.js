@@ -12,7 +12,7 @@ const Donasi = () => {
     const fetchData = async () => {
         try {
             const response = await fetch(
-                "https://sole-debi-crytonexa-deb22e0b.koyeb.app/donasis"
+                "http://localhost:3000/donasis"
             );
             if (!response.ok) {
                 throw new Error("Gagal mengambil data donasi");

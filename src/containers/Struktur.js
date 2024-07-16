@@ -18,7 +18,7 @@ const PengurusBaru = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/struktur-penguruses`);
+            const response = await fetch(`http://localhost:3000/struktur-penguruses`);
             if (!response.ok) {
                 throw new Error('Gagal mengambil data pengurus');
             }

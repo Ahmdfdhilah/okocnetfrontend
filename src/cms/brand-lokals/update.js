@@ -23,7 +23,7 @@ const UpdateBrandLokal = () => {
     useEffect(() => {
         const fetchBrandLokal = async () => {
             try {
-                const response = await axios.get(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/brand-lokals/${id}`);
+                const response = await axios.get(`http://localhost:3000/brand-lokals/${id}`);
                 const { judulBrand, deskripsiBrand } = response.data;
                 setFormData({
                     judulBrand,
@@ -97,7 +97,7 @@ const UpdateBrandLokal = () => {
             formDataToSend.append('judulBrand', formData.judulBrand);
             formDataToSend.append('deskripsiBrand', formData.deskripsiBrand);
 
-            await axios.put(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/brand-lokals/${id}/${userId}`, formDataToSend, {
+            await axios.put(`http://localhost:3000/brand-lokals/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

@@ -230,7 +230,7 @@ const CreateMagang = () => {
             });
             formDataToSend.append('publishedAt', formData.publishedAt);
 
-            await axios.post(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/magangs/${userId}`, formDataToSend, {
+            await axios.post(`http://localhost:3000/magangs/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

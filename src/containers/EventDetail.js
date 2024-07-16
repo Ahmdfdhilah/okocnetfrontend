@@ -11,7 +11,7 @@ const EventDetail = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/events/${id}`);
+                const response = await fetch(`http://localhost:3000/events/${id}`);
                 if (!response.ok) {
                     throw new Error('Gagal mengambil data event');
                 }

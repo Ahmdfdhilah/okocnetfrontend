@@ -37,7 +37,7 @@ const UpdateMagang = () => {
     useEffect(() => {
         const fetchMagangData = async () => {
             try {
-                const response = await axios.get(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/magangs/${id}`);
+                const response = await axios.get(`http://localhost:3000/magangs/${id}`);
                 const magangData = response.data;
 
                 const formattedDeskripsiMagang = magangData.deskripsiMagang.map(item => item.str);
@@ -251,7 +251,7 @@ const UpdateMagang = () => {
                 formDataToSend.append(`kompetensi[${index}]`, kompetensi);
             });
 
-            await axios.put(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/magangs/${id}/${userId}`, formDataToSend, {
+            await axios.put(`http://localhost:3000/magangs/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

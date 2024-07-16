@@ -33,7 +33,7 @@ const JobList = ({ onJobClick }) => {
 
     const fetchDataPeluangUsaha = async () => {
         try {
-            const response = await fetch('https://sole-debi-crytonexa-deb22e0b.koyeb.app/peluang-kerjas');
+            const response = await fetch('http://localhost:3000/peluang-kerjas');
             if (!response.ok) {
                 throw new Error('Gagal mengambil data peluang kerja');
             }
@@ -78,7 +78,7 @@ const PeluangKerja = () => {
 
     const fetchJobDetails = async (id) => {
         try {
-            const response = await fetch(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/peluang-kerjas/${id}`);
+            const response = await fetch(`http://localhost:3000/peluang-kerjas/${id}`);
             if (!response.ok) {
                 throw new Error('Gagal mengambil detail peluang kerja');
             }

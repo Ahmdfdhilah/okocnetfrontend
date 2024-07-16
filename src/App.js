@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Homepage from './containers/Homepage';
 import Sejarah from './containers/Sejarah';
 import Visimisi from './containers/VisiMisi';
@@ -14,6 +14,7 @@ import Pendampingan from './containers/Pendampingan';
 import Faq from './containers/Faq';
 import PeluangUsaha from './containers/PeluangUsaha';
 import Navbar from '@components/Navbar';
+import AdminNavbar from './components/AdminNavbar';
 import Footer from '@components/Footer';
 import PeluangKerja from './containers/PeluangKerja';
 import LokalBrand from './containers/LokalBrand';
@@ -70,83 +71,109 @@ import UpdatePeluangUsaha from './cms/peluang-usahas/update';
 import PeluangKerjaTable from './cms/peluang-kerjas';
 import CreatePeluangKerja from './cms/peluang-kerjas/create';
 import UpdatePeluangKerja from './cms/peluang-kerjas/update';
+import TotalsTable from './cms/totals';
+import CreateTotal from './cms/totals/create';
+import UpdateTotal from './cms/totals/update';
+import SosmedTable from './cms/sosmed';
+import CreateSosmed from './cms/sosmed/create';
+import UpdateSosmed from './cms/sosmed/update';
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/okoclogin" element={<Login />} />
-          <Route path="/admin/struktur" element={<AdminPrivateRoute Component={StrukturTable} />} />
-          <Route path="/admin/struktur/create" element={<AdminPrivateRoute Component={CreateStrukturPengurus} />} />
-          <Route path="/admin/struktur/edit/:id" element={<AdminPrivateRoute Component={UpdateStrukturPengurus} />} />
-          <Route path="/admin/event" element={<AdminPrivateRoute Component={EventTable} />} />
-          <Route path="/admin/event/create" element={<AdminPrivateRoute Component={CreateEvent} />} />
-          <Route path="/admin/event/edit/:id" element={<AdminPrivateRoute Component={UpdateEvent} />} />
-          <Route path="/admin/berita" element={<AdminPrivateRoute Component={BeritasTable} />} />
-          <Route path="/admin/berita/create" element={<AdminPrivateRoute Component={CreateBerita} />} />
-          <Route path="/admin/berita/edit/:id" element={<AdminPrivateRoute Component={UpdateBerita} />} />
-          <Route path="/admin/magang" element={<AdminPrivateRoute Component={MagangTable} />} />
-          <Route path="/admin/magang/create" element={<AdminPrivateRoute Component={CreateMagang} />} />
-          <Route path="/admin/magang/edit/:id" element={<AdminPrivateRoute Component={UpdateMagang} />} />
-          <Route path="/admin/merchandise" element={<AdminPrivateRoute Component={MerchandiseTable} />} />
-          <Route path="/admin/merchandise/create" element={<AdminPrivateRoute Component={CreateMerchandise} />} />
-          <Route path="/admin/merchandise/edit/:id" element={<AdminPrivateRoute Component={UpdateMerchandise} />} />
-          <Route path="/admin/donasi" element={<AdminPrivateRoute Component={DonasiTable} />} />
-          <Route path="/admin/donasi/create" element={<AdminPrivateRoute Component={CreateDonasi} />} />
-          <Route path="/admin/donasi/edit/:id" element={<AdminPrivateRoute Component={UpdateDonasi} />} />
-          <Route path="/admin/brand-lokal" element={<AdminPrivateRoute Component={BrandLokalsTable} />} />
-          <Route path="/admin/brand-lokal/create" element={<AdminPrivateRoute Component={CreateBrandLokal} />} />
-          <Route path="/admin/brand-lokal/edit/:id" element={<AdminPrivateRoute Component={UpdateBrandLokal} />} />
-          <Route path="/admin/penggerak-okoce" element={<AdminPrivateRoute Component={PenggerakOkoceTable} />} />
-          <Route path="/admin/penggerak-okoce/create" element={<AdminPrivateRoute Component={CreatePenggerakOkoce} />} />
-          <Route path="/admin/penggerak-okoce/edit/:id" element={<AdminPrivateRoute Component={UpdatePenggerakOkoce} />} />
-          <Route path="/admin/peluang-usaha" element={<AdminPrivateRoute Component={PeluangUsahaTable} />} />
-          <Route path="/admin/peluang-usaha/create" element={<AdminPrivateRoute Component={CreatePeluangUsaha} />} />
-          <Route path="/admin/peluang-usaha/edit/:id" element={<AdminPrivateRoute Component={UpdatePeluangUsaha} />} />
-          <Route path="/admin/peluang-kerja" element={<AdminPrivateRoute Component={PeluangKerjaTable} />} />
-          <Route path="/admin/peluang-kerja/create" element={<AdminPrivateRoute Component={CreatePeluangKerja} />} />
-          <Route path="/admin/peluang-kerja/edit/:id" element={<AdminPrivateRoute Component={UpdatePeluangKerja} />} />
-          <Route path="/sejarah" element={<Sejarah />} />
-          <Route path="/visimisi" element={<Visimisi />} />
-          <Route path="/nilaiinti" element={<NilaiInti />} />
-          <Route path="/struktur" element={<Struktur />} />
-          <Route path="/penggerak" element={<Penggerak />} />
-          <Route path="/anniversary" element={<Anniversary />} />
-          <Route path="/7top" element={<Seventop />} />
-          <Route path="/merchandise" element={<Merchandise />} />
-          <Route path="/pendampingan" element={<Pendampingan />} />
-          <Route path="/pelatihan" element={<Pelatihan />} />
-          <Route path="/faq" element={<Faq />} />
-          <Route path="/testimoni" element={<Testimoni />} />
-          <Route path="/peluangusaha" element={<PeluangUsaha />} />
-          <Route path="/peluangkerja" element={<PeluangKerja />} />
-          <Route path="/lokalbrand" element={<LokalBrand />} />
-          <Route path="/modalberkah" element={<Modalberkah />} />
-          <Route path="/masjidpemberdaya" element={<Masjidpemberdaya />} />
-          <Route path="/donasi" element={<Donasi />} />
-          <Route path="/magang" element={<Magang />} />
-          <Route path="/emakkece" element={<Emakkece />} />
-          <Route path="/perizinan" element={<Perizinan />} />
-          <Route path="/pelaporankeuangan" element={<PelaporanKeuangan />} />
-          <Route path="/pemasaran" element={<Pemasaran />} />
-          <Route path="/permodalan" element={<Permodalan />} />
-          <Route path="/mastermentor" element={<MasterMentor />} />
-          <Route path="/trainer" element={<Trainer />} />
-          <Route path="/event" element={<Event />} />
-          <Route path="/mentor" element={<Mentor />} />
-          <Route path="/mitrakerjasama" element={<Mitrakerjasama />} />
-          <Route path="/desapreneur" element={<Desapreneur />} />
-          <Route path="/thementor" element={<Thementor />} />
-          <Route path="/event/:id" element={<EventDetail />} />
-          <Route path="/daftarberita" element={<DaftarBerita />} />
-          <Route path="/daftarberita/:id" element={<BeritaDetail />} />
-        </Routes>
-        <Footer />
+        <AppContent />
       </BrowserRouter>
     </AuthProvider>
+  );
+}
+
+function AppContent() {
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
+  return (
+    <>
+      {isAdminRoute ? <AdminNavbar /> : <Navbar />}
+      <Routes>
+        {/* Admin routes */}
+        <Route path="/admin/struktur" element={<AdminPrivateRoute Component={StrukturTable} />} />
+        <Route path="/admin/struktur/create" element={<AdminPrivateRoute Component={CreateStrukturPengurus} />} />
+        <Route path="/admin/struktur/edit/:id" element={<AdminPrivateRoute Component={UpdateStrukturPengurus} />} />
+        <Route path="/admin/event" element={<AdminPrivateRoute Component={EventTable} />} />
+        <Route path="/admin/event/create" element={<AdminPrivateRoute Component={CreateEvent} />} />
+        <Route path="/admin/event/edit/:id" element={<AdminPrivateRoute Component={UpdateEvent} />} />
+        <Route path="/admin/berita" element={<AdminPrivateRoute Component={BeritasTable} />} />
+        <Route path="/admin/berita/create" element={<AdminPrivateRoute Component={CreateBerita} />} />
+        <Route path="/admin/berita/edit/:id" element={<AdminPrivateRoute Component={UpdateBerita} />} />
+        <Route path="/admin/magang" element={<AdminPrivateRoute Component={MagangTable} />} />
+        <Route path="/admin/magang/create" element={<AdminPrivateRoute Component={CreateMagang} />} />
+        <Route path="/admin/magang/edit/:id" element={<AdminPrivateRoute Component={UpdateMagang} />} />
+        <Route path="/admin/merchandise" element={<AdminPrivateRoute Component={MerchandiseTable} />} />
+        <Route path="/admin/merchandise/create" element={<AdminPrivateRoute Component={CreateMerchandise} />} />
+        <Route path="/admin/merchandise/edit/:id" element={<AdminPrivateRoute Component={UpdateMerchandise} />} />
+        <Route path="/admin/donasi" element={<AdminPrivateRoute Component={DonasiTable} />} />
+        <Route path="/admin/donasi/create" element={<AdminPrivateRoute Component={CreateDonasi} />} />
+        <Route path="/admin/donasi/edit/:id" element={<AdminPrivateRoute Component={UpdateDonasi} />} />
+        <Route path="/admin/brand-lokal" element={<AdminPrivateRoute Component={BrandLokalsTable} />} />
+        <Route path="/admin/brand-lokal/create" element={<AdminPrivateRoute Component={CreateBrandLokal} />} />
+        <Route path="/admin/brand-lokal/edit/:id" element={<AdminPrivateRoute Component={UpdateBrandLokal} />} />
+        <Route path="/admin/penggerak-okoce" element={<AdminPrivateRoute Component={PenggerakOkoceTable} />} />
+        <Route path="/admin/penggerak-okoce/create" element={<AdminPrivateRoute Component={CreatePenggerakOkoce} />} />
+        <Route path="/admin/penggerak-okoce/edit/:id" element={<AdminPrivateRoute Component={UpdatePenggerakOkoce} />} />
+        <Route path="/admin/peluang-usaha" element={<AdminPrivateRoute Component={PeluangUsahaTable} />} />
+        <Route path="/admin/peluang-usaha/create" element={<AdminPrivateRoute Component={CreatePeluangUsaha} />} />
+        <Route path="/admin/peluang-usaha/edit/:id" element={<AdminPrivateRoute Component={UpdatePeluangUsaha} />} />
+        <Route path="/admin/peluang-kerja" element={<AdminPrivateRoute Component={PeluangKerjaTable} />} />
+        <Route path="/admin/peluang-kerja/create" element={<AdminPrivateRoute Component={CreatePeluangKerja} />} />
+        <Route path="/admin/peluang-kerja/edit/:id" element={<AdminPrivateRoute Component={UpdatePeluangKerja} />} />
+        <Route path="/admin/total" element={<AdminPrivateRoute Component={TotalsTable} />} />
+        <Route path="/admin/total/create" element={<AdminPrivateRoute Component={CreateTotal} />} />
+        <Route path="/admin/total/edit/:id" element={<AdminPrivateRoute Component={UpdateTotal} />} />
+        <Route path="/admin/sosmed" element={<AdminPrivateRoute Component={SosmedTable} />} />
+        <Route path="/admin/sosmed/create" element={<AdminPrivateRoute Component={CreateSosmed} />} />
+        <Route path="/admin/sosmed/edit/:id" element={<AdminPrivateRoute Component={UpdateSosmed} />} />
+
+        {/* User routes */}
+        <Route path="/" element={<Homepage />} />
+        <Route path="/okoclogin" element={<Login />} />
+        <Route path="/sejarah" element={<Sejarah />} />
+        <Route path="/visimisi" element={<Visimisi />} />
+        <Route path="/nilaiinti" element={<NilaiInti />} />
+        <Route path="/struktur" element={<Struktur />} />
+        <Route path="/penggerak" element={<Penggerak />} />
+        <Route path="/anniversary" element={<Anniversary />} />
+        <Route path="/7top" element={<Seventop />} />
+        <Route path="/merchandise" element={<Merchandise />} />
+        <Route path="/pendampingan" element={<Pendampingan />} />
+        <Route path="/pelatihan" element={<Pelatihan />} />
+        <Route path="/faq" element={<Faq />} />
+        <Route path="/testimoni" element={<Testimoni />} />
+        <Route path="/peluangusaha" element={<PeluangUsaha />} />
+        <Route path="/peluangkerja" element={<PeluangKerja />} />
+        <Route path="/lokalbrand" element={<LokalBrand />} />
+        <Route path="/modalberkah" element={<Modalberkah />} />
+        <Route path="/masjidpemberdaya" element={<Masjidpemberdaya />} />
+        <Route path="/donasi" element={<Donasi />} />
+        <Route path="/magang" element={<Magang />} />
+        <Route path="/emakkece" element={<Emakkece />} />
+        <Route path="/perizinan" element={<Perizinan />} />
+        <Route path="/pelaporankeuangan" element={<PelaporanKeuangan />} />
+        <Route path="/pemasaran" element={<Pemasaran />} />
+        <Route path="/permodalan" element={<Permodalan />} />
+        <Route path="/mastermentor" element={<MasterMentor />} />
+        <Route path="/trainer" element={<Trainer />} />
+        <Route path="/event" element={<Event />} />
+        <Route path="/mentor" element={<Mentor />} />
+        <Route path="/mitrakerjasama" element={<Mitrakerjasama />} />
+        <Route path="/desapreneur" element={<Desapreneur />} />
+        <Route path="/thementor" element={<Thementor />} />
+        <Route path="/event/:id" element={<EventDetail />} />
+        <Route path="/daftarberita" element={<DaftarBerita />} />
+        <Route path="/daftarberita/:id" element={<BeritaDetail />} />
+      </Routes>
+      {!isAdminRoute && <Footer />}
+    </>
   );
 }
 

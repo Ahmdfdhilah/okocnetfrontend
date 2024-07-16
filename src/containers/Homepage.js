@@ -80,7 +80,7 @@ const Homepage = () => {
     const fetchDataNews = async () => {
         try {
             const response = await fetch(
-                "https://sole-debi-crytonexa-deb22e0b.koyeb.app/beritas"
+                "http://localhost:3000/beritas"
             );
             if (!response.ok) {
                 throw new Error("Gagal mengambil data berita");
@@ -100,7 +100,7 @@ const Homepage = () => {
     const fetchDataEvents = async () => {
         try {
             const response = await fetch(
-                "https://sole-debi-crytonexa-deb22e0b.koyeb.app/events"
+                "http://localhost:3000/events"
             );
             if (!response.ok) {
                 throw new Error("Gagal mengambil data event");

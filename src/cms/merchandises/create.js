@@ -119,7 +119,7 @@ const CreateMerchandise = () => {
                 formDataToSend.append('files', file);
             });
 
-            const response = await axios.post(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/merchandises/${userId}`, formDataToSend, {
+            const response = await axios.post(`http://localhost:3000/merchandises/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

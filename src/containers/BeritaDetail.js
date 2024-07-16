@@ -12,7 +12,7 @@ const BeritaDetail = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/beritas/${id}`);
+                const response = await fetch(`http://localhost:3000/beritas/${id}`);
                 if (!response.ok) {
                     throw new Error('Gagal mengambil data berita');
                 }

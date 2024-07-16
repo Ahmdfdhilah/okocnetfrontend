@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const PeluangKerjaTable = () => {
+const TotalsTable = () => {
     const [data, setData] = useState([]);
     const [selectedItem, setSelectedItem] = useState(null);
     const [query, setQuery] = useState({
@@ -17,7 +17,7 @@ const PeluangKerjaTable = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/peluang-kerjas', { params: query });
+            const response = await axios.get('http://localhost:3000/totals', { params: query });
             setData(response.data.data);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -26,7 +26,7 @@ const PeluangKerjaTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/peluang-kerjas/${id}`);
+            await axios.delete(`http://localhost:3000/totals/${id}`);
             fetchData();
             setSelectedItem(null);
         } catch (error) {
@@ -34,9 +34,8 @@ const PeluangKerjaTable = () => {
         }
     };
 
-    const handleRowClick = (id) => {
-        const selectedItem = data.find(item => item.id === id);
-        setSelectedItem(selectedItem);
+    const handleRowClick = (item) => {
+        setSelectedItem(item);
     };
 
     const handleCloseDetail = () => {
@@ -44,11 +43,11 @@ const PeluangKerjaTable = () => {
     };
 
     const handleCreateNew = () => {
-        navigate('/admin/peluang-kerja/create');
+        navigate('/admin/total/create');
     };
 
     const handleEdit = (id) => {
-        navigate(`/admin/peluang-kerja/edit/${id}`);
+        navigate(`/admin/total/edit/${id}`);
     };
 
     const handleSearchChange = (event) => {
@@ -70,7 +69,7 @@ const PeluangKerjaTable = () => {
     return (
         <div className="overflow-x-auto my-32 px-6">
             <div className="flex justify-between mb-6">
-                <h2 className="text-2xl font-semibold text-gray-800">Peluang Kerja</h2>
+                <h2 className="text-2xl font-semibold text-gray-800">Totals</h2>
                 <button
                     onClick={handleCreateNew}
                     className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none"
@@ -92,9 +91,7 @@ const PeluangKerjaTable = () => {
                     className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 >
                     <option value="">Sort By...</option>
-                    <option value="judulKerja">Judul Kerja</option>
-                    <option value="lokasiKerja">Lokasi Kerja</option>
-                    <option value="kategoriKerja">Kategori Kerja</option>
+                    <option value="nama">Name</option>
                     <option value="publishedAt">Published At</option>
                 </select>
                 <select
@@ -110,10 +107,8 @@ const PeluangKerjaTable = () => {
             <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
                 <thead className="bg-gray-800 text-white">
                     <tr>
-                        <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Gambar</th>
-                        <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Judul Kerja</th>
-                        <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Lokasi Kerja</th>
-                        <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Kategori Kerja</th>
+                        <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Total</th>
+                        <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Name</th>
                         <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Published At</th>
                         <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Actions</th>
                     </tr>
@@ -123,18 +118,10 @@ const PeluangKerjaTable = () => {
                         <React.Fragment key={item.id}>
                             <tr
                                 className={`hover:bg-gray-100 border-b border-gray-200 py-4 cursor-pointer ${selectedItem && selectedItem.id === item.id ? 'bg-gray-200' : ''}`}
-                                onClick={() => handleRowClick(item.id)}
+                                onClick={() => handleRowClick(item)}
                             >
-                                <td className="py-3 px-4">
-                                    <img
-                                        src={`https://sole-debi-crytonexa-deb22e0b.koyeb.app${item.fotoKerja}`}
-                                        alt={item.judulKerja}
-                                        className="h-10 w-10 rounded-full object-cover"
-                                    />
-                                </td>
-                                <td className="py-3 px-4">{item.judulKerja}</td>
-                                <td className="py-3 px-4">{item.lokasiKerja}</td>
-                                <td className="py-3 px-4">{item.kategoriKerja}</td>
+                                <td className="py-3 px-4">{item.total}</td>
+                                <td className="py-3 px-4">{item.nama}</td>
                                 <td className="py-3 px-4">{new Date(item.publishedAt).toLocaleDateString()}</td>
                                 <td className="py-3 px-4">
                                     <button
@@ -144,7 +131,7 @@ const PeluangKerjaTable = () => {
                                         Delete
                                     </button>
                                     <button
-                                        onClick={() => navigate(`/admin/peluang-kerja/edit/${item.id}`)}
+                                        onClick={() => handleEdit(item.id)}
                                         className="bg-blue-500 text-white px-4 py-1 ml-2 rounded hover:bg-blue-600 focus:outline-none"
                                     >
                                         Edit
@@ -153,23 +140,13 @@ const PeluangKerjaTable = () => {
                             </tr>
                             {selectedItem && selectedItem.id === item.id && (
                                 <tr className="bg-gray-200">
-                                    <td colSpan="6" className="py-4 px-6">
+                                    <td colSpan="4" className="py-4 px-6">
                                         <div className="flex justify-between">
                                             <div>
                                                 <h3 className="text-lg font-semibold mb-2">Details</h3>
-                                                <p><span className="font-semibold">Judul Kerja:</span> {selectedItem.judulKerja}</p>
-                                                <p><span className="font-semibold">Lokasi Kerja:</span> {selectedItem.lokasiKerja}</p>
-                                                <p><span className="font-semibold">Kategori Kerja:</span> {selectedItem.kategoriKerja}</p>
-                                                <p><span className="font-semibold">Tentang Program:</span> {selectedItem.tentangProgram}</p>
-                                                <p><span className="font-semibold">Benefit Program:</span> {selectedItem.benefitProgram}</p>
-                                                <p><span className="font-semibold">Job Description Kerja:</span> {selectedItem.jobdescKerja}</p>
-                                                <p><span className="font-semibold">Kriteria Peserta:</span> {selectedItem.kriteriaPeserta}</p>
-                                                <p><span className="font-semibold">URL Pendaftaran:</span> {selectedItem.urlPendaftaran}</p>
-                                                <p><span className="font-semibold">Sistem Kerja:</span> {selectedItem.sistemKerja}</p>
-                                                <p><span className="font-semibold">Periode Pendaftaran:</span> {selectedItem.periodePendaftaran}</p>
-                                                <p><span className="font-semibold">Published At:</span> {new Date(selectedItem.publishedAt).toLocaleString()}</p>
-                                                <p><span className="font-semibold">Created By:</span> {selectedItem.createdBy.username}</p>
-                                                <p><span className="font-semibold">Updated By:</span> {selectedItem.updatedBy.username}</p>
+                                                <p><span className="font-semibold">Total:</span> {item.total}</p>
+                                                <p><span className="font-semibold">Name:</span> {item.nama}</p>
+                                                <p><span className="font-semibold">Published At:</span> {new Date(item.publishedAt).toLocaleString()}</p>
                                             </div>
                                             <button
                                                 onClick={handleCloseDetail}
@@ -189,14 +166,14 @@ const PeluangKerjaTable = () => {
                 <button
                     onClick={() => handlePageChange(query.page - 1)}
                     disabled={query.page <= 1}
-                    className={`px-3 py-1 bg-gray-300 text-gray-600 rounded mr-2 hover:bg-gray-400'}`}
+                    className={`px-3 py-1 bg-gray-300 text-gray-600 rounded mr-2 hover:bg-gray-400 ${query.page <= 1 ? 'cursor-not-allowed' : ''}`}
                 >
                     Previous
                 </button>
                 <button
                     onClick={() => handlePageChange(query.page + 1)}
                     disabled={data.length < query.limit}
-                    className={`px-3 py-1 bg-gray-300 text-gray-600 rounded hover:bg-gray-400'}`}
+                    className={`px-3 py-1 bg-gray-300 text-gray-600 rounded hover:bg-gray-400 ${data.length < query.limit ? 'cursor-not-allowed' : ''}`}
                 >
                     Next
                 </button>
@@ -205,4 +182,4 @@ const PeluangKerjaTable = () => {
     );
 };
 
-export default PeluangKerjaTable;
+export default TotalsTable;

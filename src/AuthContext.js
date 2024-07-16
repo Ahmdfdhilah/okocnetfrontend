@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
     const validateToken = async () => {
       try {
         if (accessToken) {
-          const response = await axios.get('https://sole-debi-crytonexa-deb22e0b.koyeb.app/auth/validate-token', {
+          const response = await axios.get('http://localhost:3000/auth/validate-token', {
             headers: {
               Authorization: `Bearer ${accessToken}`
             }
@@ -23,13 +23,13 @@ export const AuthProvider = ({ children }) => {
 
           if (response.data.message === 'Token is valid') {
             setIsAuthenticated(true);
-            const userResponse = await axios.get('https://sole-debi-crytonexa-deb22e0b.koyeb.app/auth/me', {
+            const userResponse = await axios.get('http://localhost:3000/auth/me', {
               headers: {
                 Authorization: `Bearer ${accessToken}`
               }
             });
             setUserId(userResponse.data.userId);
-            const roleResponse = await axios.get(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/users/${userResponse.data.userId}`, {
+            const roleResponse = await axios.get(`http://localhost:3000/users/${userResponse.data.userId}`, {
               headers: {
                 Authorization: `Bearer ${accessToken}`
               }

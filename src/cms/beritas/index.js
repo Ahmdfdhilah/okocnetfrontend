@@ -14,7 +14,7 @@ const BeritasTable = () => {
     useEffect(() => {
         const fetchBeritas = async () => {
             try {
-                const response = await axios.get('https://sole-debi-crytonexa-deb22e0b.koyeb.app/beritas', { params: query });
+                const response = await axios.get('http://localhost:3000/beritas', { params: query });
                 setBeritas(response.data.data);
             } catch (error) {
                 console.error('Error fetching beritas:', error);
@@ -25,7 +25,7 @@ const BeritasTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/beritas/${id}`);
+            await axios.delete(`http://localhost:3000/beritas/${id}`);
         } catch (error) {
             console.error('Error deleting berita:', error);
         }

@@ -17,7 +17,7 @@ const MerchandiseTable = () => {
 
     const fetchMerchandises = async () => {
         try {
-            const response = await axios.get('https://sole-debi-crytonexa-deb22e0b.koyeb.app/merchandises', { params: query });
+            const response = await axios.get('http://localhost:3000/merchandises', { params: query });
             setMerchandises(response.data.data);
         } catch (error) {
             console.error('Error fetching merchandises:', error);
@@ -26,7 +26,7 @@ const MerchandiseTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/merchandises/${id}`);
+            await axios.delete(`http://localhost:3000/merchandises/${id}`);
             fetchMerchandises();
             setSelectedMerchandise(null);
         } catch (error) {

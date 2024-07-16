@@ -31,7 +31,7 @@ const UpdateMerchandise = () => {
     useEffect(() => {
         const fetchMerchandise = async () => {
             try {
-                const response = await axios.get(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/merchandises/${id}`);
+                const response = await axios.get(`http://localhost:3000/merchandises/${id}`);
                 const { judulMerchandise, deskripsiMerchandise, hargaMerchandise, stockMerchandise, linkMerchandise, fotoMerchandise } = response.data;
 
                 const existingFiles = fotoMerchandise.map(fileUrl => ({
@@ -168,7 +168,7 @@ const UpdateMerchandise = () => {
                 });
             }
 
-            const response = await axios.put(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/merchandises/${id}/${userId}`, formDataToSend, {
+            const response = await axios.put(`http://localhost:3000/merchandises/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

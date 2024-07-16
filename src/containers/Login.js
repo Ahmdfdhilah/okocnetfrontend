@@ -17,13 +17,13 @@ const Login = () => {
             const token = localStorage.getItem('token');
             if (token) {
                 try {
-                    await axios.get('https://sole-debi-crytonexa-deb22e0b.koyeb.app/auth/validate-token', {
+                    await axios.get('http://localhost:3000/auth/validate-token', {
                         headers: {
                             Authorization: `Bearer ${token}`
                         }
                     });
                     setIsAuthenticated(true);
-                    navigate('/');
+                    navigate('/admin/struktur');
                 } catch (error) {
                     console.error('Token verification failed:', error);
                 }
@@ -35,7 +35,7 @@ const Login = () => {
     const handleCloseModal = () => {
         setModal({ show: false, title: '', message: '' });
         if (modal.title === 'Login Successful') {
-            navigate('/');
+            navigate('/admin/struktur');
         }
     };
 
@@ -51,7 +51,7 @@ const Login = () => {
         }
 
         try {
-            const response = await axios.post('https://sole-debi-crytonexa-deb22e0b.koyeb.app/auth/login', JSON.stringify({
+            const response = await axios.post('http://localhost:3000/auth/login', JSON.stringify({
                 email,
                 password
             }), {

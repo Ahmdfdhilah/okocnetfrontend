@@ -82,7 +82,7 @@ const CreateDonasi = () => {
             formDataToSend.append('deskripsiDonasi', formData.deskripsiDonasi);
             formDataToSend.append('publishedAt', formData.publishedAt);
 
-            await axios.post(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/donasis/${userId}`, formDataToSend, {
+            await axios.post(`http://localhost:3000/donasis/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

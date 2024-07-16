@@ -14,7 +14,7 @@ const DonasiTable = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://sole-debi-crytonexa-deb22e0b.koyeb.app/donasis', { params: query });
+                const response = await axios.get('http://localhost:3000/donasis', { params: query });
                 setData(response.data.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -25,7 +25,7 @@ const DonasiTable = () => {
  
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/donasis/${id}`);
+            await axios.delete(`http://localhost:3000/donasis/${id}`);
         } catch (error) {
             console.error('Error deleting item:', error);
         }

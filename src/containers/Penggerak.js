@@ -13,7 +13,7 @@ const Penggerak = () => {
 
     const fetchPenggerak = async () => {
         try {
-            const response = await fetch('https://sole-debi-crytonexa-deb22e0b.koyeb.app/penggerak-okoces');
+            const response = await fetch('http://localhost:3000/penggerak-okoces');
             if (!response.ok) {
                 throw new Error('Gagal mengambil data penggerak');
             }

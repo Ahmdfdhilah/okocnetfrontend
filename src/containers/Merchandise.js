@@ -9,7 +9,7 @@ const Merchandise = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch('https://sole-debi-crytonexa-deb22e0b.koyeb.app/merchandises');
+            const response = await fetch('http://localhost:3000/merchandises');
             if (!response.ok) {
                 throw new Error('Gagal mengambil data merchandise');
             }

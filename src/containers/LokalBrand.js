@@ -15,7 +15,7 @@ const LokalBrand = () => {
     const fetchData = async () => {
         try {
             const response = await fetch(
-                "https://sole-debi-crytonexa-deb22e0b.koyeb.app/brand-lokals"
+                "http://localhost:3000/brand-lokals"
             );
             if (!response.ok) {
                 throw new Error("Gagal mengambil data brand");

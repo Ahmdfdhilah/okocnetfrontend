@@ -37,7 +37,7 @@ const UpdatePeluangUsaha = () => {
     useEffect(() => {
         const fetchPeluangUsaha = async () => {
             try {
-                const response = await axios.get(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/peluang-usahas/${id}`);
+                const response = await axios.get(`http://localhost:3000/peluang-usahas/${id}`);
                 const {
                     judulUsaha,
                     lokasiUsaha,
@@ -173,7 +173,7 @@ const UpdatePeluangUsaha = () => {
             formDataToSend.append('urlPendaftaran', formData.urlPendaftaran);
             formDataToSend.append('periodePendaftaran', formData.periodePendaftaran);
 
-            await axios.put(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/peluang-usahas/${id}/${userId}`, formDataToSend, {
+            await axios.put(`http://localhost:3000/peluang-usahas/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

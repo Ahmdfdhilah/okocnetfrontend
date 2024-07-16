@@ -17,7 +17,7 @@ const MagangTable = () => {
 
     const fetchMagangs = async () => {
         try {
-            const response = await axios.get('https://sole-debi-crytonexa-deb22e0b.koyeb.app/magangs', { params: query });
+            const response = await axios.get('http://localhost:3000/magangs', { params: query });
             setMagangs(response.data.data);
         } catch (error) {
             console.error('Error fetching magangs:', error);
@@ -26,7 +26,7 @@ const MagangTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/magangs/${id}`);
+            await axios.delete(`http://localhost:3000/magangs/${id}`);
             fetchMagangs();
         } catch (error) {
             console.error('Error deleting magang:', error);

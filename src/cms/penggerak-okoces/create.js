@@ -82,7 +82,7 @@ const CreatePenggerakOkoce = () => {
             formDataToSend.append('deskripsiPenggerak', formData.deskripsiPenggerak);
             formDataToSend.append('publishedAt', formData.publishedAt);
 
-            await axios.post(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/penggerak-okoces/${userId}`, formDataToSend, {
+            await axios.post(`http://localhost:3000/penggerak-okoces/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

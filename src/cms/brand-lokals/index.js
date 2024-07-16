@@ -14,7 +14,7 @@ const BrandLokalsTable = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://sole-debi-crytonexa-deb22e0b.koyeb.app/brand-lokals', { params: query });
+                const response = await axios.get('http://localhost:3000/brand-lokals', { params: query });
                 setData(response.data.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -26,7 +26,7 @@ const BrandLokalsTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/brand-lokals/${id}`);
+            await axios.delete(`http://localhost:3000/brand-lokals/${id}`);
         } catch (error) {
             console.error('Error deleting item:', error);
         }

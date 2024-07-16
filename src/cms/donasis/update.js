@@ -23,7 +23,7 @@ const UpdateDonasi = () => {
     useEffect(() => {
         const fetchDonasi = async () => {
             try {
-                const response = await axios.get(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/donasis/${id}`);
+                const response = await axios.get(`http://localhost:3000/donasis/${id}`);
                 const { judulDonasi, deskripsiDonasi } = response.data;
                 setFormData({
                     judulDonasi,
@@ -96,7 +96,7 @@ const UpdateDonasi = () => {
             formDataToSend.append('deskripsiDonasi', formData.deskripsiDonasi);
             formDataToSend.append('publishedAt', formData.publishedAt);
 
-            await axios.put(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/donasis/${id}/${userId}`, formDataToSend, {
+            await axios.put(`http://localhost:3000/donasis/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

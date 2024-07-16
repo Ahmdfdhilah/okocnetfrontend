@@ -29,7 +29,7 @@ const UpdateBerita = () => {
     useEffect(() => {
         const fetchBeritaData = async () => {
             try {
-                const response = await axios.get(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/beritas/${id}`);
+                const response = await axios.get(`http://localhost:3000/beritas/${id}`);
                 const beritaData = response.data;
 
                 const formattedDeskripsiBerita = beritaData.deskripsiBerita.map(item => item.str);
@@ -156,7 +156,7 @@ const UpdateBerita = () => {
                 formDataToSend.append(`deskripsiBerita[${index}]`, deskripsi);
             });
  
-            await axios.put(`https://sole-debi-crytonexa-deb22e0b.koyeb.app/beritas/${id}/${userId}`, formDataToSend, {
+            await axios.put(`http://localhost:3000/beritas/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
