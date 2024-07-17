@@ -8,7 +8,7 @@ const ProfileComponent = () => {
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
-        const response = await fetch("http://localhost:3000/profiles");
+        const response = await fetch("https://okocenet-72f35a89c2ef.herokuapp.com/profiles");
         if (!response.ok) {
           throw new Error("Failed to fetch profiles");
         }

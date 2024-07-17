@@ -28,7 +28,7 @@ const UpdateStrukturPengurus = () => {
 
     const fetchStrukturPengurus = async () => {
         try {
-            const response = await axios.get(`http://localhost:3000/struktur-penguruses/${id}`);
+            const response = await axios.get(`https://okocenet-72f35a89c2ef.herokuapp.com/struktur-penguruses/${id}`);
             const { nama, jabatan, tipe } = response.data;
             setFormData({
                 nama,
@@ -98,7 +98,7 @@ const UpdateStrukturPengurus = () => {
             formDataToSend.append('jabatan', formData.jabatan);
             formDataToSend.append('tipe', formData.tipe);
             formDataToSend.append('publishedAt', formData.publishedAt);
-            await axios.put(`http://localhost:3000/struktur-penguruses/${id}/${userId}`, formDataToSend, {
+            await axios.put(`https://okocenet-72f35a89c2ef.herokuapp.com/struktur-penguruses/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

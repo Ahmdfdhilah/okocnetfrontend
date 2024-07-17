@@ -12,7 +12,7 @@ const BeritaDetail = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/beritas/${id}`);
+                const response = await fetch(`https://okocenet-72f35a89c2ef.herokuapp.com/beritas/${id}`);
                 if (!response.ok) {
                     throw new Error('Gagal mengambil data berita');
                 }
@@ -61,12 +61,12 @@ const BeritaDetail = () => {
                                     </div>
                                 </div>
                             </div>
-                            <img className="mt-10 object-cover w-full h-full" src={`https://sole-debi-crytonexa-deb22e0b.koyeb.app${newsData.fotoBerita}`} alt="news" />
+                            <img className="mt-10 object-cover w-full h-full" src={`https://okocenet-72f35a89c2ef.herokuapp.com${newsData.fotoBerita}`} alt="news" />
                             <div className="w-full mt-14 mx-auto border-blue-400">
                                 {newsData.deskripsiBerita.map((item, index) => (
                                     <p key={index} className="mt-2 text-lg text-black text-justify pb-4">{item.str}</p>
                                 ))}
-                                <img className="mt-6 mb-10 object-cover w-full h-full" src={`https://sole-debi-crytonexa-deb22e0b.koyeb.app${newsData.fotoContent}`} alt="content" />
+                                <img className="mt-6 mb-10 object-cover w-full h-full" src={`https://okocenet-72f35a89c2ef.herokuapp.com${newsData.fotoContent}`} alt="content" />
                             </div>
                         </div>
                     </div>

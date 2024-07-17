@@ -7,7 +7,7 @@ const MitraList = () => {
     useEffect(() => {
         const fetchMitras = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/mitras");
+                const response = await axios.get("https://okocenet-72f35a89c2ef.herokuapp.com/mitras");
                 setMitras(response.data.data); 
             } catch (error) {
                 console.error("Error fetching mitras:", error);

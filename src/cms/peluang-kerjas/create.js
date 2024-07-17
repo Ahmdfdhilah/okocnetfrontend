@@ -146,7 +146,7 @@ const CreatePeluangKerja = () => {
             formDataToSend.append('sistemKerja', formData.sistemKerja);
             formDataToSend.append('publishedAt', new Date().toISOString().slice(0, 16));
 
-            await axios.post(`http://localhost:3000/peluang-kerjas/${userId}`, formDataToSend, {
+            await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/peluang-kerjas/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

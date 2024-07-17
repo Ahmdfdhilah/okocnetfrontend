@@ -21,7 +21,7 @@ const UpdateMitra = () => {
     useEffect(() => {
         const fetchMitra = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/mitras/${id}`);
+                const response = await axios.get(`https://okocenet-72f35a89c2ef.herokuapp.com/mitras/${id}`);
                 const mitra = response.data;
                 setFormData({
                     nama: mitra.nama,
@@ -91,7 +91,7 @@ const UpdateMitra = () => {
                 formDataToSend.append('file', formData.file);
             }
 
-            await axios.put(`http://localhost:3000/mitras/${id}/${userId}`, formDataToSend, {
+            await axios.put(`https://okocenet-72f35a89c2ef.herokuapp.com/mitras/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

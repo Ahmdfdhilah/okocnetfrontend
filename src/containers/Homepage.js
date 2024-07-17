@@ -39,7 +39,7 @@ const Homepage = () => {
     const fetchDataNews = async () => {
         try {
             const response = await fetch(
-                "http://localhost:3000/beritas"
+                "https://okocenet-72f35a89c2ef.herokuapp.com/beritas"
             );
             if (!response.ok) {
                 throw new Error("Gagal mengambil data berita");
@@ -57,7 +57,7 @@ const Homepage = () => {
     const fetchDataEvents = async () => {
         try {
             const response = await fetch(
-                "http://localhost:3000/events"
+                "https://okocenet-72f35a89c2ef.herokuapp.com/events"
             );
             if (!response.ok) {
                 throw new Error("Gagal mengambil data event");
@@ -210,7 +210,7 @@ const Homepage = () => {
                                     <div className="border-2 border-black p-2">
                                         <img
                                             class="max-h-[10rem] min-w-42"
-                                            src={`https://sole-debi-crytonexa-deb22e0b.koyeb.app${event.fotoEvent}`}
+                                            src={`https://okocenet-72f35a89c2ef.herokuapp.com${event.fotoEvent}`}
                                         />
                                     </div>
                                 ))}
@@ -223,7 +223,7 @@ const Homepage = () => {
                                     <div className="border-2 border-black p-2">
                                         <img
                                             class="object-cover h-full max-w-40"
-                                            src={`https://sole-debi-crytonexa-deb22e0b.koyeb.app${data.fotoBerita}`}
+                                            src={`https://okocenet-72f35a89c2ef.herokuapp.com${data.fotoBerita}`}
                                         />
                                     </div>
                                 ))}

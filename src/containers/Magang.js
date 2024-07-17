@@ -29,7 +29,7 @@ const JobList = ({ onJobClick }) => {
 
     const fetchDataMagang = async () => {
         try {
-            const response = await fetch('http://localhost:3000/magangs');
+            const response = await fetch('https://okocenet-72f35a89c2ef.herokuapp.com/magangs');
             if (!response.ok) {
                 throw new Error('Gagal mengambil data magang');
             }
@@ -74,7 +74,7 @@ const Magang = () => {
 
     const fetchJobDetails = async (id) => {
         try {
-            const response = await fetch(`http://localhost:3000/magangs/${id}`);
+            const response = await fetch(`https://okocenet-72f35a89c2ef.herokuapp.com/magangs/${id}`);
             if (!response.ok) {
                 throw new Error('Gagal mengambil detail magang');
             }

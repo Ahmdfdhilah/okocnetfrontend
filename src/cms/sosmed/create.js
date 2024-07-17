@@ -53,7 +53,7 @@ const CreateSosmed = () => {
 
         if (valid) {
             try {
-                const response = await axios.get('http://localhost:3000/sosmeds');
+                const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/sosmeds');
                 const existingNames = response.data.data.map((item) => item.nama);
 
                 if (existingNames.includes(formData.nama)) {
@@ -78,7 +78,7 @@ const CreateSosmed = () => {
         }
 
         try {
-            await axios.post(`http://localhost:3000/sosmeds/${userId}`, formData);
+            await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/sosmeds/${userId}`, formData);
             navigate('/admin/sosmed');
         } catch (error) {
             console.error('Error creating data:', error);

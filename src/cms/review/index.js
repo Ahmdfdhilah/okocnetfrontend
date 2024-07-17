@@ -17,7 +17,7 @@ const ReviewTable = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/reviews', { params: query });
+            const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/reviews', { params: query });
             setData(response.data.data);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -26,7 +26,7 @@ const ReviewTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/reviews/${id}`);
+            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/reviews/${id}`);
             fetchData();
             setSelectedItem(null);
         } catch (error) {

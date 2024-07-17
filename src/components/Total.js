@@ -11,7 +11,7 @@ const TotalsComponent = () => {
   useEffect(() => {
     const fetchTotals = async () => {
       try {
-        const response = await fetch('http://localhost:3000/totals');
+        const response = await fetch('https://okocenet-72f35a89c2ef.herokuapp.com/totals');
         if (!response.ok) {
           throw new Error('Failed to fetch totals');
         }

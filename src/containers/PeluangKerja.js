@@ -33,7 +33,7 @@ const JobList = ({ onJobClick }) => {
 
     const fetchDataPeluangUsaha = async () => {
         try {
-            const response = await fetch('http://localhost:3000/peluang-kerjas');
+            const response = await fetch('https://okocenet-72f35a89c2ef.herokuapp.com/peluang-kerjas');
             if (!response.ok) {
                 throw new Error('Gagal mengambil data peluang kerja');
             }
@@ -52,7 +52,7 @@ const JobList = ({ onJobClick }) => {
                 <div className="mt-0" key={data.id}>
                     <div className="space-y-4 mt-5">
                         <JobCard
-                            logo={`https://sole-debi-crytonexa-deb22e0b.koyeb.app${data.fotoKerja}`}
+                            logo={`https://okocenet-72f35a89c2ef.herokuapp.com${data.fotoKerja}`}
                             title={data.judulKerja}
                             location={data.lokasiKerja}
                             job_system={data.sistemKerja}
@@ -78,7 +78,7 @@ const PeluangKerja = () => {
 
     const fetchJobDetails = async (id) => {
         try {
-            const response = await fetch(`http://localhost:3000/peluang-kerjas/${id}`);
+            const response = await fetch(`https://okocenet-72f35a89c2ef.herokuapp.com/peluang-kerjas/${id}`);
             if (!response.ok) {
                 throw new Error('Gagal mengambil detail peluang kerja');
             }
@@ -111,7 +111,7 @@ const PeluangKerja = () => {
                     {jobDetails ? (
                         <div className="w-full h-full text-zinc-400">
                             <div className="mobile:ml-0 mobile:px-4 lg:mt-10 lg:ml-2 lg:pr-16 lg:pl-14">
-                                <img src={`https://sole-debi-crytonexa-deb22e0b.koyeb.app${jobDetails.fotoKerja}`} alt="" className="w-full object-fill mobile:mt-8 h-screen"></img>
+                                <img src={`https://okocenet-72f35a89c2ef.herokuapp.com${jobDetails.fotoKerja}`} alt="" className="w-full object-fill mobile:mt-8 h-screen"></img>
                                 <h3 className="text-3xl mt-16 ml-1 font-bold text-center text-black mb-4">{jobDetails.judulKerja}</h3>
                                 <p className="text-lg mt-3 ml-1 font-normal text-black">Perkumpulan Gerakan OK OCE</p>
                                 <p className="text-lg ml-1 font-normal text-black">{jobDetails.lokasiKerja}</p>

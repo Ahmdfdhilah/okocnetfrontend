@@ -19,7 +19,7 @@ const UpdateTotal = () => {
     useEffect(() => {
         const fetchTotal = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/totals/${id}`);
+                const response = await axios.get(`https://okocenet-72f35a89c2ef.herokuapp.com/totals/${id}`);
                 setFormData(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -64,7 +64,7 @@ const UpdateTotal = () => {
         }
 
         try {
-            await axios.put(`http://localhost:3000/totals/${id}/${userId}`, { total: formData.total });
+            await axios.put(`https://okocenet-72f35a89c2ef.herokuapp.com/totals/${id}/${userId}`, { total: formData.total });
             navigate('/admin/total');
         } catch (error) {
             console.error('Error updating data:', error);

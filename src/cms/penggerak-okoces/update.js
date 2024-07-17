@@ -23,7 +23,7 @@ const UpdatePenggerakOkoce = () => {
     useEffect(() => {
         const fetchPenggerakOkoce = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/penggerak-okoces/${id}`);
+                const response = await axios.get(`https://okocenet-72f35a89c2ef.herokuapp.com/penggerak-okoces/${id}`);
                 const { namaPenggerak, deskripsiPenggerak } = response.data;
                 setFormData({
                     namaPenggerak,
@@ -101,7 +101,7 @@ const UpdatePenggerakOkoce = () => {
             formDataToSend.append('deskripsiPenggerak', formData.deskripsiPenggerak);
             formDataToSend.append('publishedAt', formData.publishedAt);
 
-            await axios.put(`http://localhost:3000/penggerak-okoces/${id}/${userId}`, formDataToSend, {
+            await axios.put(`https://okocenet-72f35a89c2ef.herokuapp.com/penggerak-okoces/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

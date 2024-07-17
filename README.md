@@ -9,7 +9,7 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [https://sole-debi-crytonexa-deb22e0b.koyeb.app](https://sole-debi-crytonexa-deb22e0b.koyeb.app) to view it in your browser.
+Open [https://okocenet-72f35a89c2ef.herokuapp.com](https://okocenet-72f35a89c2ef.herokuapp.com) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.

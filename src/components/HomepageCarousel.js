@@ -7,7 +7,7 @@ const HomepageCarousel = ({ interval = 2000 }) => {
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const response = await fetch('http://localhost:3000/banners');
+                const response = await fetch('https://okocenet-72f35a89c2ef.herokuapp.com/banners');
                 if (!response.ok) {
                     throw new Error('Failed to fetch banners');
                 }

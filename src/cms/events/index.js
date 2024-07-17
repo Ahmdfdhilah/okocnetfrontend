@@ -17,7 +17,7 @@ const EventTable = () => {
 
     const fetchEvents = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/events', { params: query });
+            const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/events', { params: query });
             setEvents(response.data.data);
         } catch (error) {
             console.error('Error fetching events:', error);
@@ -26,7 +26,7 @@ const EventTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/events/${id}`);
+            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/events/${id}`);
             fetchEvents();
         } catch (error) {
             console.error('Error deleting event:', error);
@@ -131,7 +131,7 @@ const EventTable = () => {
                                 <td className="py-3 px-4">{event.pointEvent}</td>
                                 <td className="py-3 px-4">
                                     <img
-                                        src={`https://sole-debi-crytonexa-deb22e0b.koyeb.app${event.fotoEvent}`}
+                                        src={`https://okocenet-72f35a89c2ef.herokuapp.com${event.fotoEvent}`}
                                         alt={event.judulEvent}
                                         className="h-10 w-10 rounded-full object-cover"
                                     />

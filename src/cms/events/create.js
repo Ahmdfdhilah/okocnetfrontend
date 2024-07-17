@@ -183,7 +183,7 @@ const CreateEvent = () => {
             formDataToSend.append('contactPerson', formData.contactPerson);
             formDataToSend.append('publishedAt', formData.publishedAt);
 
-            await axios.post(`http://localhost:3000/events/${userId}`, formDataToSend, {
+            await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/events/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

@@ -23,7 +23,7 @@ const UpdateProfile = () => {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/profiles/${id}`);
+                const response = await axios.get(`https://okocenet-72f35a89c2ef.herokuapp.com/profiles/${id}`);
                 const { nama, posisi } = response.data;
                 setFormData({
                     nama,
@@ -100,7 +100,7 @@ const UpdateProfile = () => {
             formDataToSend.append('posisi', formData.posisi);
             formDataToSend.append('publishedAt', new Date().toISOString());
 
-            await axios.put(`http://localhost:3000/profiles/${id}/${userId}`, formDataToSend, {
+            await axios.put(`https://okocenet-72f35a89c2ef.herokuapp.com/profiles/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

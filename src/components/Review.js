@@ -7,7 +7,7 @@ const ReviewSection = () => {
     useEffect(() => {
         const fetchReviews = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/reviews");
+                const response = await axios.get("https://okocenet-72f35a89c2ef.herokuapp.com/reviews");
                 setReviews(response.data.data); 
             } catch (error) {
                 console.error("Error fetching reviews:", error);

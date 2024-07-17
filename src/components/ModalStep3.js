@@ -10,7 +10,7 @@ const ModalStep3 = ({ onClose }) => {
 
     const fetchEvent = async () => {
         try {
-            const response = await fetch('http://localhost:3000/events');
+            const response = await fetch('https://okocenet-72f35a89c2ef.herokuapp.com/events');
             if (!response.ok) {
                 throw new Error('Gagal mengambil data event');
             }

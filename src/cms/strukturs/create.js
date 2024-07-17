@@ -84,7 +84,7 @@ const CreateStrukturPengurus = () => {
             formDataToSend.append('publishedAt', formData.publishedAt);
             formDataToSend.append('tipe', formData.tipe);
 
-            await axios.post(`http://localhost:3000/struktur-penguruses/${userId}`, formDataToSend, {
+            await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/struktur-penguruses/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

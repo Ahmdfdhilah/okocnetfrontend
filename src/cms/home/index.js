@@ -14,7 +14,7 @@ const CMSHome = () => {
     useEffect(() => {
         const fetchDeskripsi = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/deskripsi');
+                const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/deskripsi');
                 const deskripsi = response.data;
                 if (deskripsi) {
                     setDeskripsiData({ title: deskripsi.title, deskripsi: deskripsi.deskripsi });
@@ -26,7 +26,7 @@ const CMSHome = () => {
 
         const fetchBanners = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/banners/');
+                const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/banners/');
                 setBannerData(response.data);
             } catch (error) {
                 console.error('Error fetching banner data:', error);
@@ -35,7 +35,7 @@ const CMSHome = () => {
 
         const fetchTotals = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/totals');
+                const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/totals');
                 setTotalsData(response.data.data);
             } catch (error) {
                 console.error('Error fetching totals data:', error);
@@ -50,7 +50,7 @@ const CMSHome = () => {
     const handleDeskripsiSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:3000/deskripsi', deskripsiData);
+            await axios.post('https://okocenet-72f35a89c2ef.herokuapp.com/deskripsi', deskripsiData);
             alert('Deskripsi updated successfully!');
         } catch (error) {
             console.error('Error updating deskripsi:', error);
@@ -63,7 +63,7 @@ const CMSHome = () => {
         formData.append('file', newBannerImage);
 
         try {
-            const response = await axios.post(`http://localhost:3000/banners/${userId}`, formData, {
+            const response = await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/banners/${userId}`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             setBannerData([...bannerData, response.data]);
@@ -77,7 +77,7 @@ const CMSHome = () => {
 
     const handleBannerDelete = async (bannerId) => {
         try {
-            await axios.delete(`http://localhost:3000/banners/${bannerId}`);
+            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/banners/${bannerId}`);
             setBannerData(bannerData.filter((banner) => banner.id !== bannerId));
             alert('Banner deleted successfully!');
         } catch (error) {
@@ -96,7 +96,7 @@ const CMSHome = () => {
         setBannerData(items);
 
         try {
-            await axios.put('http://localhost:3000/banners/reorder', { banners: items });
+            await axios.put('https://okocenet-72f35a89c2ef.herokuapp.com/banners/reorder', { banners: items });
             alert('Banners reordered successfully!');
         } catch (error) {
             console.error('Error reordering banners:', error);
