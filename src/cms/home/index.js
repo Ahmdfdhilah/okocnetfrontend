@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../../AuthContext';
 import { FaSchool, FaUsers, FaBuilding, FaIndustry, FaBriefcase, FaStore } from 'react-icons/fa';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 const CMSHome = () => {
     const { userId } = useContext(AuthContext);
@@ -11,7 +12,6 @@ const CMSHome = () => {
     const [totalsData, setTotalsData] = useState([]);
 
     useEffect(() => {
-        // Fetch deskripsi data
         const fetchDeskripsi = async () => {
             try {
                 const response = await axios.get('http://localhost:3000/deskripsi');
@@ -24,7 +24,6 @@ const CMSHome = () => {
             }
         };
 
-        // Fetch banner data
         const fetchBanners = async () => {
             try {
                 const response = await axios.get('http://localhost:3000/banners/');
@@ -34,7 +33,6 @@ const CMSHome = () => {
             }
         };
 
-        // Fetch totals data
         const fetchTotals = async () => {
             try {
                 const response = await axios.get('http://localhost:3000/totals');
@@ -49,7 +47,6 @@ const CMSHome = () => {
         fetchTotals();
     }, []);
 
-    // Function to handle form submission for deskripsi update
     const handleDeskripsiSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -61,33 +58,49 @@ const CMSHome = () => {
         }
     };
 
-    // Function to handle new banner creation
     const handleBannerCreate = async () => {
         const formData = new FormData();
         formData.append('file', newBannerImage);
 
         try {
-            // Create new banner
             const response = await axios.post(`http://localhost:3000/banners/${userId}`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
-            setBannerData([...bannerData, response.data]); // Add newly created banner to state
-            setNewBannerImage(null); // Clear input field after successful creation
+            setBannerData([...bannerData, response.data]);
+            setNewBannerImage(null);
             alert('Banner created successfully!');
         } catch (error) {
             console.error('Error creating banner:', error);
             alert('Failed to create banner.');
         }
     };
+
     const handleBannerDelete = async (bannerId) => {
         try {
-            // Delete banner
             await axios.delete(`http://localhost:3000/banners/${bannerId}`);
-            setBannerData(bannerData.filter((banner) => banner.id !== bannerId)); // Remove deleted banner from state
+            setBannerData(bannerData.filter((banner) => banner.id !== bannerId));
             alert('Banner deleted successfully!');
         } catch (error) {
             console.error('Error deleting banner:', error);
             alert('Failed to delete banner.');
+        }
+    };
+
+    const handleOnDragEnd = async (result) => {
+        if (!result.destination) return;
+
+        const items = Array.from(bannerData);
+        const [reorderedItem] = items.splice(result.source.index, 1);
+        items.splice(result.destination.index, 0, reorderedItem);
+
+        setBannerData(items);
+
+        try {
+            await axios.put('http://localhost:3000/banners/reorder', { banners: items });
+            alert('Banners reordered successfully!');
+        } catch (error) {
+            console.error('Error reordering banners:', error);
+            alert('Failed to reorder banners.');
         }
     };
 
@@ -157,48 +170,59 @@ const CMSHome = () => {
                             className="mt-2 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
                         />
                     </div>
-                        <button
-                            type="submit"
-                            className="inline-flex px-6 py-3 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        >
-                            Save Deskripsi
-                        </button>        
+                    <button
+                        type="submit"
+                        className="inline-flex px-6 py-3 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    >
+                        Save Deskripsi
+                    </button>
                 </form>
 
                 <h2 className="text-3xl font-semibold mb-6 text-gray-800">Manage Banners</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    {bannerData.map((banner) => (
-                        <div key={banner.id} className="relative rounded-lg overflow-hidden shadow-lg">
-                            <img src={`http://localhost:3000${banner.foto}`} alt="Banner" className="w-full h-48 object-cover" />
-                            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition duration-300">
-                                <button
-                                    onClick={() => handleBannerDelete(banner.id)}
-                                    className="text-white px-4 py-2 bg-red-500 rounded-md hover:bg-red-600 focus:outline-none"
-                                >
-                                    Delete
-                                </button>
+                <DragDropContext onDragEnd={handleOnDragEnd}>
+                    <Droppable droppableId="banners">
+                        {(provided) => (
+                            <div {...provided.droppableProps} ref={provided.innerRef} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                                {bannerData.map((banner, index) => (
+                                    <Draggable key={banner.id.toString()} draggableId={banner.id.toString()} index={index}>
+                                        {(provided) => (
+                                            <div
+                                                ref={provided.innerRef}
+                                                {...provided.draggableProps}
+                                                {...provided.dragHandleProps}
+                                                className="relative rounded-lg overflow-hidden shadow-lg"
+                                            >
+                                                <img src={`http://localhost:3000${banner.foto}`} alt="Banner" className="w-full h-48 object-cover" />
+                                                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                                                    <button
+                                                        onClick={() => handleBannerDelete(banner.id)}
+                                                        className="px-4 py-2 text-white bg-red-500 rounded-lg"
+                                                    >
+                                                        Delete
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </Draggable>
+                                ))}
+                                {provided.placeholder}
                             </div>
-                        </div>
-                    ))}
-                </div>
-                <div className="mt-6">
-                    <h3 className="text-lg font-medium mb-4 text-gray-800">Create New Banner</h3>
-                    <div className="flex  space-x-4">
-                        <input
-                            type="file"
-                            id="file"
-                            name="file"
-                            onChange={(e) => setNewBannerImage(e.target.files[0])}
-                            className="w-full sm:w-auto block border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
-                            accept="image/*"
-                        />
-                        <button
-                            onClick={handleBannerCreate}
-                            className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 focus:outline-none"
-                        >
-                            Create
-                        </button>
-                    </div>
+                        )}
+                    </Droppable>
+                </DragDropContext>
+
+                <div className="mt-8">
+                    <input
+                        type="file"
+                        onChange={(e) => setNewBannerImage(e.target.files[0])}
+                        className="mb-4"
+                    />
+                    <button
+                        onClick={handleBannerCreate}
+                        className="inline-flex px-6 py-3 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    >
+                        Create New Banner
+                    </button>
                 </div>
             </div>
         </div>
