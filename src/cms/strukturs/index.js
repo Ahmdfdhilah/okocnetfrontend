@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../AuthContext';
 
 const StrukturTable = () => {
     const [data, setData] = useState([]);
     const [selectedItem, setSelectedItem] = useState(null);
+    const { token } = useContext(AuthContext);
     const [query, setQuery] = useState({
         page: 1,
         limit: 10,
@@ -26,9 +28,13 @@ const StrukturTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/struktur-penguruses/${id}`);
+            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/struktur-penguruses/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
             fetchData();
-            setSelectedItem(null); // Clear selected item after deletion
+            setSelectedItem(null);
         } catch (error) {
             console.error('Error deleting item:', error);
         }

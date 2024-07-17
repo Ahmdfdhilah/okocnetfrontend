@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../AuthContext';
 
 const EventTable = () => {
     const [events, setEvents] = useState([]);
     const [selectedEvent, setSelectedEvent] = useState(null);
+    const { token } = useContext(AuthContext);
     const [query, setQuery] = useState({
         page: 1,
         limit: 10,
@@ -26,7 +28,11 @@ const EventTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/events/${id}`);
+            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/events/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
             fetchEvents();
         } catch (error) {
             console.error('Error deleting event:', error);

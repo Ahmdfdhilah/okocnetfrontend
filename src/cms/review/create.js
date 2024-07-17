@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthContext';
 
 const CreateReview = () => {
-    const { userId } = useContext(AuthContext);
+    const { userId, token } = useContext(AuthContext);
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         nama: '',
@@ -65,7 +65,12 @@ const CreateReview = () => {
         }
 
         try {
-            await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/reviews/${userId}`, formData);
+            await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/reviews/${userId}`, formData, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`
+                }
+            });
             navigate('/admin/review');
         } catch (error) {
             console.error('Error creating review:', error);

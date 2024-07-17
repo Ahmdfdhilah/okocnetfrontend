@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthContext';
 
 const CreateSosmed = () => {
-    const { userId } = useContext(AuthContext);
+    const { userId, token } = useContext(AuthContext);
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         nama: '',
@@ -78,7 +78,11 @@ const CreateSosmed = () => {
         }
 
         try {
-            await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/sosmeds/${userId}`, formData);
+            await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/sosmeds/${userId}`, formData, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
             navigate('/admin/sosmed');
         } catch (error) {
             console.error('Error creating data:', error);

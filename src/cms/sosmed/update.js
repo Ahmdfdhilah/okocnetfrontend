@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../AuthContext';
 
 const UpdateSosmed = () => {
-    const { userId } = useContext(AuthContext);
+    const { userId, token } = useContext(AuthContext);
     const { id } = useParams();
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
@@ -64,7 +64,11 @@ const UpdateSosmed = () => {
         }
 
         try {
-            await axios.put(`https://okocenet-72f35a89c2ef.herokuapp.com/sosmeds/${id}/${userId}`, { link: formData.link });
+            await axios.put(`https://okocenet-72f35a89c2ef.herokuapp.com/sosmeds/${id}/${userId}`, { link: formData.link }, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
             navigate('/admin/sosmed');
         } catch (error) {
             console.error('Error updating data:', error);

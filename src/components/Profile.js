@@ -48,7 +48,7 @@ const ProfileComponent = () => {
               onClick={toggleText}
             >
               <img
-                src={`http://localhost:3000${item.foto}`}
+                src={`https://okocenet-72f35a89c2ef.herokuapp.com${item.foto}`}
                 className="object-cover ml-2 w-full h-full"
                 alt={item.nama}
               />

@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../AuthContext';
 
 const BrandLokalsTable = () => {
     const [data, setData] = useState([]);
+    const { token } = useContext(AuthContext);
     const [selectedItem, setSelectedItem] = useState(null);
     const [query, setQuery] = useState({
         page: 1,
@@ -26,7 +28,11 @@ const BrandLokalsTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/brand-lokals/${id}`);
+            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/brand-lokals/${id}`,{
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
         } catch (error) {
             console.error('Error deleting item:', error);
         }

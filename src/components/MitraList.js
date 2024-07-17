@@ -23,7 +23,7 @@ const MitraList = () => {
                 <div key={mitra.id}>
                     <img
                         className="h-auto max-w-full rounded-lg shadow-md"
-                        src={`http://localhost:3000${mitra.foto}`}
+                        src={`https://okocenet-72f35a89c2ef.herokuapp.com${mitra.foto}`}
                         alt={mitra.nama} 
                     />
                 </div>

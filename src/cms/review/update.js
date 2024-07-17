@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../AuthContext';
 
 const UpdateReview = () => {
-    const { userId } = useContext(AuthContext);
+    const { userId, token } = useContext(AuthContext);
     const { id } = useParams();
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
@@ -65,7 +65,12 @@ const UpdateReview = () => {
         }
 
         try {
-            await axios.put(`https://okocenet-72f35a89c2ef.herokuapp.com/reviews/${id}/${userId}`, formData);
+            await axios.put(`https://okocenet-72f35a89c2ef.herokuapp.com/reviews/${id}/${userId}`, formData, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`
+                }
+            });
             navigate('/admin/review');
         } catch (error) {
             console.error('Error updating review:', error);

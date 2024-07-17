@@ -5,7 +5,7 @@ import { AuthContext } from '../../AuthContext';
 
 const CreateBrandLokal = () => {
     const navigate = useNavigate();
-    const { userId } = useContext(AuthContext);
+    const { userId, token } = useContext(AuthContext);
 
     const [formData, setFormData] = useState({
         judulBrand: '',
@@ -85,7 +85,8 @@ const CreateBrandLokal = () => {
             await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/brand-lokals/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                },
+                    Authorization: `Bearer ${token}`
+                }
             });
 
             navigate('/admin/brand-lokal');

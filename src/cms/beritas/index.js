@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../AuthContext';
 
 const BeritasTable = () => {
     const [beritas, setBeritas] = useState([]);
+    const { token } = useContext(AuthContext);
     const [selectedBerita, setSelectedBerita] = useState(null);
     const [query, setQuery] = useState({
         page: 1,
@@ -25,7 +27,11 @@ const BeritasTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/beritas/${id}`);
+            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/beritas/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
         } catch (error) {
             console.error('Error deleting berita:', error);
         }

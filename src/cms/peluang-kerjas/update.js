@@ -5,7 +5,7 @@ import { AuthContext } from '../../AuthContext';
 
 const UpdatePeluangKerja = () => {
     const navigate = useNavigate();
-    const { userId } = useContext(AuthContext);
+    const { userId, token } = useContext(AuthContext);
     const { id } = useParams();
 
     const [formData, setFormData] = useState({
@@ -171,7 +171,8 @@ const UpdatePeluangKerja = () => {
             await axios.put(`https://okocenet-72f35a89c2ef.herokuapp.com/peluang-kerjas/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                },
+                    Authorization: `Bearer ${token}`
+                }
             });
 
             navigate('/admin/peluang-kerja');

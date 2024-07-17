@@ -6,7 +6,7 @@ import { AuthContext } from '../../AuthContext';
 const UpdateBerita = () => {
     const navigate = useNavigate();
     const { id } = useParams();
-    const {userId} = useContext(AuthContext);
+    const { userId, token } = useContext(AuthContext);
 
     const [formData, setFormData] = useState({
         judulBerita: '',
@@ -64,10 +64,10 @@ const UpdateBerita = () => {
     };
 
     const handleFileChange = (e) => {
-        const {name, files} = e.target;
+        const { name, files } = e.target;
         setFormData({
             ...formData,
-            [name] : files[0]
+            [name]: files[0]
         });
         setFormErrors({
             ...formErrors,
@@ -155,11 +155,12 @@ const UpdateBerita = () => {
             formData.deskripsiBerita.forEach((deskripsi, index) => {
                 formDataToSend.append(`deskripsiBerita[${index}]`, deskripsi);
             });
- 
+
             await axios.put(`https://okocenet-72f35a89c2ef.herokuapp.com/beritas/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                },
+                    Authorization: `Bearer ${token}`
+                }
             });
 
             navigate('/admin/berita');

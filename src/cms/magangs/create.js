@@ -5,7 +5,7 @@ import { AuthContext } from '../../AuthContext';
 
 const CreateMagang = () => {
     const navigate = useNavigate();
-    const { userId } = useContext(AuthContext);
+    const { userId, token } = useContext(AuthContext);
 
     const [formData, setFormData] = useState({
         judulMagang: '',
@@ -233,7 +233,8 @@ const CreateMagang = () => {
             await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/magangs/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                },
+                    Authorization: `Bearer ${token}`
+                }
             });
 
             navigate('/admin/internship');

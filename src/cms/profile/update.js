@@ -6,7 +6,7 @@ import { AuthContext } from '../../AuthContext';
 const UpdateProfile = () => {
     const navigate = useNavigate();
     const { id } = useParams();
-    const { userId } = useContext(AuthContext);
+    const { userId, token } = useContext(AuthContext);
 
     const [formData, setFormData] = useState({
         nama: '',
@@ -103,7 +103,8 @@ const UpdateProfile = () => {
             await axios.put(`https://okocenet-72f35a89c2ef.herokuapp.com/profiles/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                },
+                    Authorization: `Bearer ${token}`
+                }
             });
 
             navigate('/admin/profile');

@@ -5,7 +5,7 @@ import { AuthContext } from '../../AuthContext';
 
 const CreateStrukturPengurus = () => {
     const navigate = useNavigate();
-    const { userId } = useContext(AuthContext);
+    const { userId, token } = useContext(AuthContext);
 
     const [formData, setFormData] = useState({
         nama: '',
@@ -87,7 +87,8 @@ const CreateStrukturPengurus = () => {
             await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/struktur-penguruses/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                },
+                    Authorization: `Bearer ${token}`
+                }
             });
 
             navigate('/admin/struktur');

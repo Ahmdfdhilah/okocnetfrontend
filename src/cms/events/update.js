@@ -5,7 +5,7 @@ import { AuthContext } from '../../AuthContext';
 
 const UpdateEvent = () => {
     const navigate = useNavigate();
-    const { userId } = useContext(AuthContext);
+    const { userId, token } = useContext(AuthContext);
     const { id } = useParams(); 
 
     const [formData, setFormData] = useState({
@@ -209,7 +209,8 @@ const UpdateEvent = () => {
             await axios.put(`https://okocenet-72f35a89c2ef.herokuapp.com/events/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                },
+                    Authorization: `Bearer ${token}`
+                }
             });
 
             navigate('/admin/event');

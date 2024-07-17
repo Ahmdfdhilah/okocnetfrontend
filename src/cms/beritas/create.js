@@ -5,7 +5,7 @@ import { AuthContext } from '../../AuthContext';
 
 const CreateBerita = () => {
     const navigate = useNavigate();
-    const { userId } = useContext(AuthContext);
+    const { userId, token } = useContext(AuthContext);
 
     const [formData, setFormData] = useState({
         judulBerita: '',
@@ -134,7 +134,8 @@ const CreateBerita = () => {
             await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/beritas/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                },
+                    Authorization: `Bearer ${token}`
+                }
             });
 
             navigate('/admin/berita');

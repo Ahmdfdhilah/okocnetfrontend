@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../AuthContext';
 
 const MitraTable = () => {
     const [data, setData] = useState([]);
     const [selectedItem, setSelectedItem] = useState(null);
+    const { token } = useContext(AuthContext);
     const [query, setQuery] = useState({
         page: 1,
         limit: 10,
@@ -26,7 +28,11 @@ const MitraTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/mitras/${id}`);
+            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/mitras/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
             fetchData();
             setSelectedItem(null);
         } catch (error) {
@@ -123,7 +129,7 @@ const MitraTable = () => {
                             >
                                 <td className="py-3 px-4">
                                     <img
-                                        src={`http://localhost:3000${item.foto}`}
+                                        src={`https://okocenet-72f35a89c2ef.herokuapp.com${item.foto}`}
                                         alt={item.nama}
                                         className="h-10 w-10 rounded-full object-cover"
                                     />

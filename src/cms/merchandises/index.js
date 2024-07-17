@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../AuthContext';
 
 const MerchandiseTable = () => {
     const [merchandises, setMerchandises] = useState([]);
     const [selectedMerchandise, setSelectedMerchandise] = useState(null);
+    const { token } = useContext(AuthContext);
     const [query, setQuery] = useState({
         page: 1,
         limit: 10,
@@ -26,7 +28,11 @@ const MerchandiseTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/merchandises/${id}`);
+            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/merchandises/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
             fetchMerchandises();
             setSelectedMerchandise(null);
         } catch (error) {

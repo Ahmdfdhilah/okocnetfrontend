@@ -1,20 +1,25 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../../AuthContext';
-import { FaSchool, FaUsers, FaBuilding, FaIndustry, FaBriefcase, FaStore } from 'react-icons/fa';
+import { FaSchool, FaUsers, FaBuilding, FaIndustry, FaBriefcase, FaStore, FaImage } from 'react-icons/fa';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import Toast from '../../components/Toast';
 
 const CMSHome = () => {
-    const { userId } = useContext(AuthContext);
+    const { userId, token } = useContext(AuthContext); // Mengambil userId dan token dari context
     const [deskripsiData, setDeskripsiData] = useState({ title: '', deskripsi: '' });
     const [bannerData, setBannerData] = useState([]);
     const [newBannerImage, setNewBannerImage] = useState(null);
+    const [newBannerPreview, setNewBannerPreview] = useState(null); // Untuk menampilkan preview gambar
     const [totalsData, setTotalsData] = useState([]);
+    const [toast, setToast] = useState({ show: false, type: '', message: '' });
 
     useEffect(() => {
         const fetchDeskripsi = async () => {
             try {
-                const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/deskripsi');
+                const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/deskripsi', {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
                 const deskripsi = response.data;
                 if (deskripsi) {
                     setDeskripsiData({ title: deskripsi.title, deskripsi: deskripsi.deskripsi });
@@ -26,7 +31,9 @@ const CMSHome = () => {
 
         const fetchBanners = async () => {
             try {
-                const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/banners/');
+                const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/banners/', {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
                 setBannerData(response.data);
             } catch (error) {
                 console.error('Error fetching banner data:', error);
@@ -35,7 +42,9 @@ const CMSHome = () => {
 
         const fetchTotals = async () => {
             try {
-                const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/totals');
+                const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/totals', {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
                 setTotalsData(response.data.data);
             } catch (error) {
                 console.error('Error fetching totals data:', error);
@@ -45,16 +54,18 @@ const CMSHome = () => {
         fetchDeskripsi();
         fetchBanners();
         fetchTotals();
-    }, []);
+    }, [token]);
 
     const handleDeskripsiSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('https://okocenet-72f35a89c2ef.herokuapp.com/deskripsi', deskripsiData);
-            alert('Deskripsi updated successfully!');
+            await axios.post('https://okocenet-72f35a89c2ef.herokuapp.com/deskripsi', deskripsiData, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            setToast({ show: true, type: 'success', message: 'Deskripsi updated successfully!' });
         } catch (error) {
             console.error('Error updating deskripsi:', error);
-            alert('Failed to update deskripsi.');
+            setToast({ show: true, type: 'error', message: 'Failed to update deskripsi.' });
         }
     };
 
@@ -64,25 +75,31 @@ const CMSHome = () => {
 
         try {
             const response = await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/banners/${userId}`, formData, {
-                headers: { 'Content-Type': 'multipart/form-data' },
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data'
+                },
             });
             setBannerData([...bannerData, response.data]);
             setNewBannerImage(null);
-            alert('Banner created successfully!');
+            setNewBannerPreview(null);
+            setToast({ show: true, type: 'success', message: 'Banner created successfully!' });
         } catch (error) {
             console.error('Error creating banner:', error);
-            alert('Failed to create banner.');
+            setToast({ show: true, type: 'error', message: 'Failed to create banner.' });
         }
     };
 
     const handleBannerDelete = async (bannerId) => {
         try {
-            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/banners/${bannerId}`);
+            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/banners/${bannerId}`, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
             setBannerData(bannerData.filter((banner) => banner.id !== bannerId));
-            alert('Banner deleted successfully!');
+            setToast({ show: true, type: 'success', message: 'Banner deleted successfully!' });
         } catch (error) {
             console.error('Error deleting banner:', error);
-            alert('Failed to delete banner.');
+            setToast({ show: true, type: 'error', message: 'Failed to delete banner.' });
         }
     };
 
@@ -96,11 +113,13 @@ const CMSHome = () => {
         setBannerData(items);
 
         try {
-            await axios.put('https://okocenet-72f35a89c2ef.herokuapp.com/banners/reorder', { banners: items });
-            alert('Banners reordered successfully!');
+            await axios.put('https://okocenet-72f35a89c2ef.herokuapp.com/banners/reorder', { banners: items }, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            setToast({ show: true, type: 'success', message: 'Banners reordered successfully!' });
         } catch (error) {
             console.error('Error reordering banners:', error);
-            alert('Failed to reorder banners.');
+            setToast({ show: true, type: 'error', message: 'Failed to reorder banners.' });
         }
     };
 
@@ -120,6 +139,18 @@ const CMSHome = () => {
                 return <FaStore className="text-pink-500" size={40} />;
             default:
                 return <FaUsers size={40} />;
+        }
+    };
+
+    const handleNewBannerImageChange = (e) => {
+        const file = e.target.files[0];
+        setNewBannerImage(file);
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setNewBannerPreview(reader.result);
+            };
+            reader.readAsDataURL(file);
         }
     };
 
@@ -144,9 +175,9 @@ const CMSHome = () => {
 
             <div className="bg-white shadow-md rounded-lg p-6">
                 <h2 className="text-3xl font-semibold mb-6 text-gray-800">Edit Home Page</h2>
-                <form onSubmit={handleDeskripsiSubmit} className="max-w-2xl mb-12">
+                <form onSubmit={handleDeskripsiSubmit} className="max-w-2xl mb-12 p-6">
                     <div className="mb-6">
-                        <label htmlFor="title" className="block text-lg font-medium text-gray-700">
+                        <label htmlFor="title" className="block text-lg font-medium text-gray-700 mb-2">
                             Title
                         </label>
                         <input
@@ -155,11 +186,12 @@ const CMSHome = () => {
                             name="title"
                             value={deskripsiData.title}
                             onChange={(e) => setDeskripsiData({ ...deskripsiData, title: e.target.value })}
-                            className="mt-2 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
+                            className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition-colors duration-200 ease-in-out"
+                            placeholder="Enter title"
                         />
                     </div>
                     <div className="mb-6">
-                        <label htmlFor="deskripsi" className="block text-lg font-medium text-gray-700">
+                        <label htmlFor="deskripsi" className="block text-lg font-medium text-gray-700 mb-2">
                             Deskripsi
                         </label>
                         <textarea
@@ -167,65 +199,102 @@ const CMSHome = () => {
                             name="deskripsi"
                             value={deskripsiData.deskripsi}
                             onChange={(e) => setDeskripsiData({ ...deskripsiData, deskripsi: e.target.value })}
-                            className="mt-2 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
+                            className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition-colors duration-200 ease-in-out"
+                            rows="5"
+                            placeholder="Enter deskripsi"
                         />
                     </div>
                     <button
                         type="submit"
-                        className="inline-flex px-6 py-3 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200 ease-in-out"
                     >
-                        Save Deskripsi
+                        Save
                     </button>
                 </form>
 
                 <h2 className="text-3xl font-semibold mb-6 text-gray-800">Manage Banners</h2>
-                <DragDropContext onDragEnd={handleOnDragEnd}>
-                    <Droppable droppableId="banners">
-                        {(provided) => (
-                            <div {...provided.droppableProps} ref={provided.innerRef} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                                {bannerData.map((banner, index) => (
-                                    <Draggable key={banner.id.toString()} draggableId={banner.id.toString()} index={index}>
-                                        {(provided) => (
-                                            <div
-                                                ref={provided.innerRef}
-                                                {...provided.draggableProps}
-                                                {...provided.dragHandleProps}
-                                                className="relative rounded-lg overflow-hidden shadow-lg"
-                                            >
-                                                <img src={`http://localhost:3000${banner.foto}`} alt="Banner" className="w-full h-48 object-cover" />
-                                                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                                                    <button
-                                                        onClick={() => handleBannerDelete(banner.id)}
-                                                        className="px-4 py-2 text-white bg-red-500 rounded-lg"
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="bg-white rounded-lg shadow-md p-6">
+                        <div className="mt-8">
+                            {newBannerPreview ? (
+                                <div className="flex items-center mb-4">
+                                    <img src={newBannerPreview} alt="New Banner Preview" className="w-24 h-24 object-cover rounded-lg mr-4" />
+                                    <span className="text-lg">{newBannerImage?.name}</span>
+                                </div>
+                            ) : (
+                                <div className="flex items-center mb-4">
+                                    <FaImage className="text-gray-400 mr-2" size={24} />
+                                    <span className="text-lg text-gray-400">No file selected</span>
+                                </div>
+                            )}
+                            <input
+                                type="file"
+                                onChange={handleNewBannerImageChange}
+                                className="hidden"
+                                id="newBannerImageInput"
+                            />
+                            <label
+                                htmlFor="newBannerImageInput"
+                                className="inline-flex px-6 py-3 mt-8 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer min-w-64 justify-center"
+                            >
+                                Choose Banner
+                            </label>
+                            {newBannerImage && (
+                                <button
+                                    onClick={handleBannerCreate}
+                                    className="inline-flex px-6 py-3 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer mt-4 min-w-64 justify-center"
+                                >
+                                    Create Banner
+                                </button>
+                            )}
+                        </div>
+                    </div>
+                    <div className="bg-white rounded-lg shadow-md p-6">
+                        <h3 className="text-xl font-medium mb-4">Drag and Drop to Reorder</h3>
+                        <DragDropContext onDragEnd={handleOnDragEnd}>
+                            <Droppable droppableId="banners">
+                                {(provided) => (
+                                    <div {...provided.droppableProps} ref={provided.innerRef}>
+                                        {bannerData.map((banner, index) => (
+                                            <Draggable key={banner.id} draggableId={banner.id.toString()} index={index}>
+                                                {(provided) => (
+                                                    <div
+                                                        {...provided.draggableProps}
+                                                        {...provided.dragHandleProps}
+                                                        ref={provided.innerRef}
+                                                        className="bg-gray-100 rounded-lg shadow-md p-3 mt-3 flex items-center justify-between"
                                                     >
-                                                        Delete
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        )}
-                                    </Draggable>
-                                ))}
-                                {provided.placeholder}
-                            </div>
-                        )}
-                    </Droppable>
-                </DragDropContext>
-
-                <div className="mt-8">
-                    <input
-                        type="file"
-                        onChange={(e) => setNewBannerImage(e.target.files[0])}
-                        className="mb-4"
-                    />
-                    <button
-                        onClick={handleBannerCreate}
-                        className="inline-flex px-6 py-3 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
-                        Create New Banner
-                    </button>
+                                                        <img
+                                                            src={`https://okocenet-72f35a89c2ef.herokuapp.com${banner.foto}`}
+                                                            className="w-24 h-16 rounded-lg mr-4"
+                                                        />
+                                                        <button
+                                                            onClick={() => handleBannerDelete(banner.id)}
+                                                            className="text-red-500 hover:text-red-700 focus:outline-none"
+                                                        >
+                                                            Delete
+                                                        </button>
+                                                    </div>
+                                                )}
+                                            </Draggable>
+                                        ))}
+                                        {provided.placeholder}
+                                    </div>
+                                )}
+                            </Droppable>
+                        </DragDropContext>
+                    </div>
                 </div>
             </div>
-        </div>
+
+            {/* Toast component for notifications */}
+            <Toast
+                show={toast.show}
+                type={toast.type}
+                message={toast.message}
+                onClose={() => setToast({ show: false, type: '', message: '' })}
+            />
+        </div >
     );
 };
 

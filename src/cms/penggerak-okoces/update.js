@@ -5,7 +5,7 @@ import { AuthContext } from '../../AuthContext';
 
 const UpdatePenggerakOkoce = () => {
     const navigate = useNavigate();
-    const { userId } = useContext(AuthContext);
+    const { userId, token } = useContext(AuthContext);
     const { id } = useParams();
 
     const [formData, setFormData] = useState({
@@ -78,10 +78,6 @@ const UpdatePenggerakOkoce = () => {
             errors.deskripsiPenggerak = 'Deskripsi Penggerak harus diisi';
             valid = false;
         }
-        if (!formData.file) {
-            errors.file = 'Foto Penggerak harus diunggah';
-            valid = false;
-        }
 
         setFormErrors(errors);
         return valid;
@@ -104,6 +100,7 @@ const UpdatePenggerakOkoce = () => {
             await axios.put(`https://okocenet-72f35a89c2ef.herokuapp.com/penggerak-okoces/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
+                    Authorization: `Bearer ${token}`
                 },
             });
 
@@ -157,7 +154,6 @@ const UpdatePenggerakOkoce = () => {
                         onChange={handleFileChange}
                         className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.file ? 'border-red-500' : ''}`}
                     />
-                    {formErrors.file && <p className="text-red-500 text-sm mt-1">{formErrors.file}</p>}
                 </div>
                 <div className="mt-6">
                     <button

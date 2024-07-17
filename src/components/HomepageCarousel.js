@@ -36,7 +36,7 @@ const HomepageCarousel = ({ interval = 2000 }) => {
             {images.length > 0 && (
                 <img
                     className="object-cover w-full h-auto mobile:w-[200%]"
-                    src={`http://localhost:3000${images[currentImageIndex].foto}`}
+                    src={`https://okocenet-72f35a89c2ef.herokuapp.com${images[currentImageIndex].foto}`}
                     alt={images[currentImageIndex].id}
                 />
             )}

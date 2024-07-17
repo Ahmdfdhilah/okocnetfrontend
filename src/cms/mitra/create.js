@@ -5,7 +5,7 @@ import { AuthContext } from '../../AuthContext';
 
 const CreateMitra = () => {
     const navigate = useNavigate();
-    const { userId } = useContext(AuthContext);
+    const { userId, token } = useContext(AuthContext);
 
     const [formData, setFormData] = useState({
         nama: '',
@@ -78,7 +78,8 @@ const CreateMitra = () => {
             await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/mitras/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                },
+                    Authorization: `Bearer ${token}`
+                }
             });
 
             navigate('/admin/mitra');
