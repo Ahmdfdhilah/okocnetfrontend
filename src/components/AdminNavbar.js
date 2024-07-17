@@ -7,7 +7,6 @@ import { AuthContext } from "../AuthContext";
 const AdminNavbar = () => {
     const [isAdminDropdownVisible, setAdminDropdownVisible] = useState(false);
     const [activeAdminDropdown, setActiveAdminDropdown] = useState(null);
-    const [activeSubDropdown, setActiveSubDropdown] = useState(null);
     const { setIsAuthenticated } = useContext(AuthContext);
 
     const navigate = useNavigate();
@@ -18,14 +17,22 @@ const AdminNavbar = () => {
 
     const handleAdminDropdownClick = (index) => {
         setActiveAdminDropdown(activeAdminDropdown === index ? null : index);
-        setActiveSubDropdown(null);
-    };
-
-    const handleSubDropdownClick = (index) => {
-        setActiveSubDropdown(activeSubDropdown === index ? null : index);
     };
 
     const adminMenuItems = [
+        {
+            name: "HOME",
+            subMenu: [
+                {
+                    name: "DASHBOARD",
+                    link: "/admin",
+                },
+                {
+                    name: "HOME WEBPAGE",
+                    link: "/",
+                },
+            ],
+        },
         {
             name: "TENTANG KAMI",
             subMenu: [
@@ -36,6 +43,18 @@ const AdminNavbar = () => {
                 {
                     name: "STRUKTUR",
                     link: "/admin/struktur",
+                },
+                {
+                    name: "PROFILE",
+                    link: "/admin/profile",
+                },
+                {
+                    name: "TOTAL",
+                    link: "/admin/total",
+                },
+                {
+                    name: "SOSMED",
+                    link: "/admin/sosmed",
                 },
             ],
         },
@@ -80,6 +99,10 @@ const AdminNavbar = () => {
                     name: "BERITA",
                     link: "/admin/berita",
                 },
+                {
+                    name: "REVIEW",
+                    link: "/admin/review",
+                },
             ],
         },
         {
@@ -88,6 +111,10 @@ const AdminNavbar = () => {
                 {
                     name: "BRAND LOKAL",
                     link: "/admin/brand-lokal",
+                },
+                {
+                    name: "MITRA",
+                    link: "/admin/mitra",
                 },
             ],
         },
@@ -158,8 +185,8 @@ const AdminNavbar = () => {
                                 <div className={`${activeAdminDropdown === index ? "" : "hidden"} pl-4`}>
                                     {item.subMenu.map((subItem, subIndex) => (
                                         <div key={subIndex}>
-                                            <button
-                                                onClick={() => handleSubDropdownClick(subIndex)}
+                                            <Link
+                                                to={subItem.link}
                                                 className="flex justify-between items-center w-full py-2 px-3 text-black hover:bg-gray-200 rounded-lg"
                                             >
                                                 {subItem.name}
@@ -178,15 +205,7 @@ const AdminNavbar = () => {
                                                         d="M7 7l3-3 3 3M7 13l3 3 3-3"
                                                     />
                                                 </svg>
-                                            </button>
-                                            <div className={`${activeSubDropdown === subIndex ? "" : "hidden"} pl-4`}>
-                                                <Link to={`${subItem.link}/create`} className="block py-1 px-3 text-black hover:bg-gray-200 rounded-lg">
-                                                    Create
-                                                </Link>
-                                                <Link to={subItem.link} className="block py-1 px-3 text-black hover:bg-gray-200 rounded-lg">
-                                                    View
-                                                </Link>
-                                            </div>
+                                            </Link>
                                         </div>
                                     ))}
                                 </div>

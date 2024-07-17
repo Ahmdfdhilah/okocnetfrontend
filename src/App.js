@@ -77,6 +77,16 @@ import UpdateTotal from './cms/totals/update';
 import SosmedTable from './cms/sosmed';
 import CreateSosmed from './cms/sosmed/create';
 import UpdateSosmed from './cms/sosmed/update';
+import ReviewTable from './cms/review';
+import CreateReview from './cms/review/create';
+import UpdateReview from './cms/review/update';
+import CMSHome from './cms/home';
+import MitraTable from './cms/mitra';
+import CreateMitra from './cms/mitra/create';
+import UpdateMitra from './cms/mitra/update';
+import ProfileTable from './cms/profile';
+import CreateProfile from './cms/profile/create';
+import UpdateProfile from './cms/profile/update';
 
 function App() {
   return (
@@ -97,6 +107,7 @@ function AppContent() {
       {isAdminRoute ? <AdminNavbar /> : <Navbar />}
       <Routes>
         {/* Admin routes */}
+        <Route path="/admin" element={<AdminPrivateRoute Component={CMSHome} />} />
         <Route path="/admin/struktur" element={<AdminPrivateRoute Component={StrukturTable} />} />
         <Route path="/admin/struktur/create" element={<AdminPrivateRoute Component={CreateStrukturPengurus} />} />
         <Route path="/admin/struktur/edit/:id" element={<AdminPrivateRoute Component={UpdateStrukturPengurus} />} />
@@ -133,6 +144,15 @@ function AppContent() {
         <Route path="/admin/sosmed" element={<AdminPrivateRoute Component={SosmedTable} />} />
         <Route path="/admin/sosmed/create" element={<AdminPrivateRoute Component={CreateSosmed} />} />
         <Route path="/admin/sosmed/edit/:id" element={<AdminPrivateRoute Component={UpdateSosmed} />} />
+        <Route path="/admin/review" element={<AdminPrivateRoute Component={ReviewTable} />} />
+        <Route path="/admin/review/create" element={<AdminPrivateRoute Component={CreateReview} />} />
+        <Route path="/admin/review/edit/:id" element={<AdminPrivateRoute Component={UpdateReview} />} />
+        <Route path="/admin/mitra" element={<AdminPrivateRoute Component={MitraTable} />} />
+        <Route path="/admin/mitra/create" element={<AdminPrivateRoute Component={CreateMitra} />} />
+        <Route path="/admin/mitra/edit/:id" element={<AdminPrivateRoute Component={UpdateMitra} />} />
+        <Route path="/admin/profile" element={<AdminPrivateRoute Component={ProfileTable} />} />
+        <Route path="/admin/profile/create" element={<AdminPrivateRoute Component={CreateProfile} />} />
+        <Route path="/admin/profile/edit/:id" element={<AdminPrivateRoute Component={UpdateProfile} />} />
 
         {/* User routes */}
         <Route path="/" element={<Homepage />} />

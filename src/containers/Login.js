@@ -23,7 +23,7 @@ const Login = () => {
                         }
                     });
                     setIsAuthenticated(true);
-                    navigate('/admin/struktur');
+                    navigate('/admin');
                 } catch (error) {
                     console.error('Token verification failed:', error);
                 }
@@ -35,7 +35,7 @@ const Login = () => {
     const handleCloseModal = () => {
         setModal({ show: false, title: '', message: '' });
         if (modal.title === 'Login Successful') {
-            navigate('/admin/struktur');
+            navigate('/admin');
         }
     };
 
