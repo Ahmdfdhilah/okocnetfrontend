@@ -160,11 +160,11 @@ const CreatePeluangKerja = () => {
     };
 
     return (
-        <div className="max-w-lg mx-auto my-32 p-6 bg-white shadow-md rounded-lg">
-            <h2 className="text-2xl font-semibold mb-6 text-center">Create New Peluang Kerja</h2>
-            <form onSubmit={onSubmit} encType="multipart/form-data">
-                <div className="mb-4">
-                    <label htmlFor="file" className="block text-sm font-medium text-gray-700">
+        <div className="container mx-auto py-10 mt-32">
+            <h1 className="text-4xl font-bold mb-8 text-center">Create New Peluang Kerja</h1>
+            <form onSubmit={onSubmit} encType="multipart/form-data" className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
+                <div className="mb-6">
+                    <label htmlFor="file" className="block text-lg font-medium text-gray-700 mb-2">
                         Foto Kerja
                     </label>
                     <input
@@ -173,27 +173,28 @@ const CreatePeluangKerja = () => {
                         name="file"
                         accept="image/*"
                         onChange={handleFileChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.file ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.file ? 'border-red-500' : ''}`}
                     />
                     {formErrors.file && <p className="text-red-500 text-sm mt-1">{formErrors.file}</p>}
                 </div>
-
-                <div className="mb-4">
-                    <label htmlFor="judulKerja" className="block text-sm font-medium text-gray-700">
+                <div className="mb-6">
+                    <label htmlFor="nama" className="block text-lg font-medium text-gray-700 mb-2">
                         Judul Kerja
                     </label>
                     <input
                         type="text"
-                        id="judulKerja"
-                        name="judulKerja"
+                        id="nama"
+                        name="judulKerja" // Change name to match formData key
                         value={formData.judulKerja}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.judulKerja ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.judulKerja ? 'border-red-500' : ''}`}
+                        placeholder="Masukkan judul kerja"
                     />
                     {formErrors.judulKerja && <p className="text-red-500 text-sm mt-1">{formErrors.judulKerja}</p>}
                 </div>
-                <div className="mb-4">
-                    <label htmlFor="lokasiKerja" className="block text-sm font-medium text-gray-700">
+
+                <div className="mb-6">
+                    <label htmlFor="lokasiKerja" className="block text-lg font-medium text-gray-700 mb-2">
                         Lokasi Kerja
                     </label>
                     <input
@@ -202,12 +203,14 @@ const CreatePeluangKerja = () => {
                         name="lokasiKerja"
                         value={formData.lokasiKerja}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.lokasiKerja ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.lokasiKerja ? 'border-red-500' : ''}`}
+                        placeholder="Masukkan lokasi kerja"
                     />
                     {formErrors.lokasiKerja && <p className="text-red-500 text-sm mt-1">{formErrors.lokasiKerja}</p>}
                 </div>
-                <div className="mb-4">
-                    <label htmlFor="kategoriKerja" className="block text-sm font-medium text-gray-700">
+
+                <div className="mb-6">
+                    <label htmlFor="kategoriKerja" className="block text-lg font-medium text-gray-700 mb-2">
                         Kategori Kerja
                     </label>
                     <input
@@ -216,12 +219,14 @@ const CreatePeluangKerja = () => {
                         name="kategoriKerja"
                         value={formData.kategoriKerja}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.kategoriKerja ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.kategoriKerja ? 'border-red-500' : ''}`}
+                        placeholder="Masukkan kategori kerja"
                     />
                     {formErrors.kategoriKerja && <p className="text-red-500 text-sm mt-1">{formErrors.kategoriKerja}</p>}
                 </div>
-                <div className="mb-4">
-                    <label htmlFor="tentangProgram" className="block text-sm font-medium text-gray-700">
+
+                <div className="mb-6">
+                    <label htmlFor="tentangProgram" className="block text-lg font-medium text-gray-700 mb-2">
                         Tentang Program
                     </label>
                     <textarea
@@ -230,12 +235,14 @@ const CreatePeluangKerja = () => {
                         rows="3"
                         value={formData.tentangProgram}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.tentangProgram ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.tentangProgram ? 'border-red-500' : ''}`}
+                        placeholder="Deskripsi tentang program kerja"
                     />
                     {formErrors.tentangProgram && <p className="text-red-500 text-sm mt-1">{formErrors.tentangProgram}</p>}
                 </div>
-                <div className="mb-4">
-                    <label htmlFor="benefitProgram" className="block text-sm font-medium text-gray-700">
+
+                <div className="mb-6">
+                    <label htmlFor="benefitProgram" className="block text-lg font-medium text-gray-700 mb-2">
                         Benefit Program
                     </label>
                     <textarea
@@ -244,12 +251,14 @@ const CreatePeluangKerja = () => {
                         rows="3"
                         value={formData.benefitProgram}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.benefitProgram ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.benefitProgram ? 'border-red-500' : ''}`}
+                        placeholder="Deskripsi manfaat dari program kerja"
                     />
                     {formErrors.benefitProgram && <p className="text-red-500 text-sm mt-1">{formErrors.benefitProgram}</p>}
                 </div>
-                <div className="mb-4">
-                    <label htmlFor="jobdescKerja" className="block text-sm font-medium text-gray-700">
+
+                <div className="mb-6">
+                    <label htmlFor="jobdescKerja" className="block text-lg font-medium text-gray-700 mb-2">
                         Jobdesc Kerja
                     </label>
                     <textarea
@@ -258,12 +267,14 @@ const CreatePeluangKerja = () => {
                         rows="3"
                         value={formData.jobdescKerja}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.jobdescKerja ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.jobdescKerja ? 'border-red-500' : ''}`}
+                        placeholder="Deskripsi tugas dari pekerjaan"
                     />
                     {formErrors.jobdescKerja && <p className="text-red-500 text-sm mt-1">{formErrors.jobdescKerja}</p>}
                 </div>
-                <div className="mb-4">
-                    <label htmlFor="kriteriaPeserta" className="block text-sm font-medium text-gray-700">
+
+                <div className="mb-6">
+                    <label htmlFor="kriteriaPeserta" className="block text-lg font-medium text-gray-700 mb-2">
                         Kriteria Peserta
                     </label>
                     <textarea
@@ -272,12 +283,14 @@ const CreatePeluangKerja = () => {
                         rows="3"
                         value={formData.kriteriaPeserta}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.kriteriaPeserta ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.kriteriaPeserta ? 'border-red-500' : ''}`}
+                        placeholder="Deskripsi kriteria peserta yang dibutuhkan"
                     />
                     {formErrors.kriteriaPeserta && <p className="text-red-500 text-sm mt-1">{formErrors.kriteriaPeserta}</p>}
                 </div>
-                <div className="mb-4">
-                    <label htmlFor="urlPendaftaran" className="block text-sm font-medium text-gray-700">
+
+                <div className="mb-6">
+                    <label htmlFor="urlPendaftaran" className="block text-lg font-medium text-gray-700 mb-2">
                         URL Pendaftaran
                     </label>
                     <input
@@ -286,12 +299,14 @@ const CreatePeluangKerja = () => {
                         name="urlPendaftaran"
                         value={formData.urlPendaftaran}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.urlPendaftaran ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.urlPendaftaran ? 'border-red-500' : ''}`}
+                        placeholder="Masukkan URL pendaftaran"
                     />
                     {formErrors.urlPendaftaran && <p className="text-red-500 text-sm mt-1">{formErrors.urlPendaftaran}</p>}
                 </div>
-                <div className="mb-4">
-                    <label htmlFor="periodePendaftaran" className="block text-sm font-medium text-gray-700">
+
+                <div className="mb-6">
+                    <label htmlFor="periodePendaftaran" className="block text-lg font-medium text-gray-700 mb-2">
                         Periode Pendaftaran
                     </label>
                     <input
@@ -300,12 +315,14 @@ const CreatePeluangKerja = () => {
                         name="periodePendaftaran"
                         value={formData.periodePendaftaran}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.periodePendaftaran ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.periodePendaftaran ? 'border-red-500' : ''}`}
+                        placeholder="Masukkan periode pendaftaran"
                     />
                     {formErrors.periodePendaftaran && <p className="text-red-500 text-sm mt-1">{formErrors.periodePendaftaran}</p>}
                 </div>
-                <div className="mb-4">
-                    <label htmlFor="sistemKerja" className="block text-sm font-medium text-gray-700">
+
+                <div className="mb-6">
+                    <label htmlFor="sistemKerja" className="block text-lg font-medium text-gray-700 mb-2">
                         Sistem Kerja
                     </label>
                     <select
@@ -313,9 +330,8 @@ const CreatePeluangKerja = () => {
                         name="sistemKerja"
                         value={formData.sistemKerja}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.sistemKerja ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.sistemKerja ? 'border-red-500' : ''}`}
                     >
-                        <option value="">Pilih Sistem Kerja</option>
                         <option value="Full-time">Full-time</option>
                         <option value="Part-time">Part-time</option>
                         <option value="Contract">Contract</option>
@@ -324,12 +340,12 @@ const CreatePeluangKerja = () => {
                     {formErrors.sistemKerja && <p className="text-red-500 text-sm mt-1">{formErrors.sistemKerja}</p>}
                 </div>
 
-                <div className="flex justify-center">
+                <div className="mt-6">
                     <button
                         type="submit"
-                        className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:text-sm"
                     >
-                        Submit
+                        Simpan
                     </button>
                 </div>
             </form>

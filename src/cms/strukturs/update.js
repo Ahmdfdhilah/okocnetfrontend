@@ -13,7 +13,7 @@ const UpdateStrukturPengurus = () => {
         jabatan: '',
         tipe: 'founder',
         file: null,
-        publishedAt: '', 
+        publishedAt: '',
     });
 
     const [formErrors, setFormErrors] = useState({
@@ -49,7 +49,7 @@ const UpdateStrukturPengurus = () => {
         });
         setFormErrors({
             ...formErrors,
-            [name]: '', 
+            [name]: '',
         });
     };
 
@@ -60,7 +60,7 @@ const UpdateStrukturPengurus = () => {
         });
         setFormErrors({
             ...formErrors,
-            file: '', 
+            file: '',
         });
     };
 
@@ -112,11 +112,11 @@ const UpdateStrukturPengurus = () => {
     };
 
     return (
-        <div className="max-w-lg mx-auto my-32 p-6 bg-white shadow-md rounded-lg">
-            <h2 className="text-2xl font-semibold mb-6 text-center">Update Struktur Pengurus</h2>
-            <form onSubmit={onSubmit} encType="multipart/form-data">
-                <div className="mb-4">
-                    <label htmlFor="nama" className="block text-sm font-medium text-gray-700">
+        <div className="container mx-auto py-10 mt-32">
+            <h1 className="text-4xl font-bold mb-8 text-center">Update Struktur Pengurus</h1>
+            <form onSubmit={onSubmit} className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
+                <div className="mb-6">
+                    <label htmlFor="nama" className="block text-lg font-medium text-gray-700 mb-2">
                         Nama
                     </label>
                     <input
@@ -125,12 +125,13 @@ const UpdateStrukturPengurus = () => {
                         name="nama"
                         value={formData.nama}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.nama ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.nama ? 'border-red-500' : ''}`}
                     />
                     {formErrors.nama && <p className="text-red-500 text-sm mt-1">{formErrors.nama}</p>}
                 </div>
-                <div className="mb-4">
-                    <label htmlFor="jabatan" className="block text-sm font-medium text-gray-700">
+
+                <div className="mb-6">
+                    <label htmlFor="jabatan" className="block text-lg font-medium text-gray-700 mb-2">
                         Jabatan
                     </label>
                     <input
@@ -139,12 +140,13 @@ const UpdateStrukturPengurus = () => {
                         name="jabatan"
                         value={formData.jabatan}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.jabatan ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.jabatan ? 'border-red-500' : ''}`}
                     />
                     {formErrors.jabatan && <p className="text-red-500 text-sm mt-1">{formErrors.jabatan}</p>}
                 </div>
-                <div className="mb-4">
-                    <label htmlFor="tipe" className="block text-sm font-medium text-gray-700">
+
+                <div className="mb-6">
+                    <label htmlFor="tipe" className="block text-lg font-medium text-gray-700 mb-2">
                         Tipe
                     </label>
                     <select
@@ -152,7 +154,7 @@ const UpdateStrukturPengurus = () => {
                         name="tipe"
                         value={formData.tipe}
                         onChange={handleInputChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                        className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                     >
                         <option value="founder">Founder</option>
                         <option value="eksekutif">Eksekutif</option>
@@ -162,8 +164,9 @@ const UpdateStrukturPengurus = () => {
                         <option value="direktorat">Direktorat</option>
                     </select>
                 </div>
-                <div className="mb-4">
-                    <label htmlFor="file" className="block text-sm font-medium text-gray-700">
+
+                <div className="mb-6">
+                    <label htmlFor="file" className="block text-lg font-medium text-gray-700 mb-2">
                         Foto
                     </label>
                     <input
@@ -172,19 +175,22 @@ const UpdateStrukturPengurus = () => {
                         name="file"
                         accept="image/*"
                         onChange={handleFileChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.file ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.file ? 'border-red-500' : ''}`}
                     />
+                    {formErrors.file && <p className="text-red-500 text-sm mt-1">{formErrors.file}</p>}
                 </div>
+
                 <div className="mt-6">
                     <button
                         type="submit"
-                        className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:text-sm"
                     >
-                        Update
+                        Simpan
                     </button>
                 </div>
             </form>
         </div>
+
     );
 };
 

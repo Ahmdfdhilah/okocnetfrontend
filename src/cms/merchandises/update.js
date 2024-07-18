@@ -182,9 +182,9 @@ const UpdateMerchandise = () => {
     };
 
     return (
-        <div className="max-w-lg mx-auto my-32 p-6 bg-white shadow-md rounded-lg">
-            <h2 className="text-2xl font-semibold mb-6 text-center">Update Merchandise</h2>
-            <form onSubmit={onSubmit} encType="multipart/form-data">
+        <div className="container mx-auto py-10 mt-32">
+            <h2 className="text-4xl font-bold mb-8 text-center">Update Merchandise</h2>
+            <form onSubmit={onSubmit} className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md" encType="multipart/form-data">
                 {/* Judul Merchandise */}
                 <div className="mb-4">
                     <label htmlFor="judulMerchandise" className="block text-sm font-medium text-gray-700">
@@ -196,7 +196,7 @@ const UpdateMerchandise = () => {
                         name="judulMerchandise"
                         value={formData.judulMerchandise}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.judulMerchandise ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.judulMerchandise ? 'border-red-500' : ''}`}
                     />
                     {formErrors.judulMerchandise && <p className="text-red-500 text-sm mt-1">{formErrors.judulMerchandise}</p>}
                 </div>
@@ -211,7 +211,7 @@ const UpdateMerchandise = () => {
                         name="deskripsiMerchandise"
                         value={formData.deskripsiMerchandise}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.deskripsiMerchandise ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.deskripsiMerchandise ? 'border-red-500' : ''}`}
                     />
                     {formErrors.deskripsiMerchandise && <p className="text-red-500 text-sm mt-1">{formErrors.deskripsiMerchandise}</p>}
                 </div>
@@ -227,7 +227,7 @@ const UpdateMerchandise = () => {
                         name="hargaMerchandise"
                         value={formData.hargaMerchandise}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.hargaMerchandise ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.hargaMerchandise ? 'border-red-500' : ''}`}
                     />
                     {formErrors.hargaMerchandise && <p className="text-red-500 text-sm mt-1">{formErrors.hargaMerchandise}</p>}
                 </div>
@@ -243,7 +243,7 @@ const UpdateMerchandise = () => {
                         name="stockMerchandise"
                         value={formData.stockMerchandise}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.stockMerchandise ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.stockMerchandise ? 'border-red-500' : ''}`}
                     />
                     {formErrors.stockMerchandise && <p className="text-red-500 text-sm mt-1">{formErrors.stockMerchandise}</p>}
                 </div>
@@ -259,7 +259,7 @@ const UpdateMerchandise = () => {
                         name="linkMerchandise"
                         value={formData.linkMerchandise}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.linkMerchandise ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.linkMerchandise ? 'border-red-500' : ''}`}
                     />
                     {formErrors.linkMerchandise && <p className="text-red-500 text-sm mt-1">{formErrors.linkMerchandise}</p>}
                 </div>
@@ -276,10 +276,11 @@ const UpdateMerchandise = () => {
                         accept="image/*"
                         onChange={handleFileChange}
                         multiple
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.files ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.files ? 'border-red-500' : ''}`}
                     />
                     {formErrors.files && <p className="text-red-500 text-sm mt-1">{formErrors.files}</p>}
                 </div>
+
                 {/* Display selected files for upload */}
                 {formData.files.length > 0 && (
                     <div className="mb-4">
@@ -301,27 +302,24 @@ const UpdateMerchandise = () => {
                     </div>
                 )}
 
-                {/* Display existing files */}
                 {formData.existingFiles.length > 0 && (
                     <div className="mb-4">
                         <p className="text-sm font-medium text-gray-700 mb-2">Foto yang sudah ada:</p>
                         <ul className="list-disc list-inside">
                             {formData.existingFiles.map((file, index) => (
                                 <li key={index} className="flex items-center justify-between mt-1">
-                                    <span>{file.name}</span>
-                                    {file.url && (
-                                        <a
-                                            href={`https://okocenet-72f35a89c2ef.herokuapp.com${file.url}`}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="ml-2 text-sm text-blue-500"
-                                        >
-                                            Lihat
-                                        </a>
+                                    {file.url ? (
+                                        <img
+                                            src={`https://okocenet-72f35a89c2ef.herokuapp.com${file.url}`}
+                                            alt={file.name}
+                                            className="w-20 h-20 object-cover mr-2"
+                                        />
+                                    ) : (
+                                        <span>{file.name}</span>
                                     )}
                                     <button
                                         type="button"
-                                        className="ml-2 text-sm text-red-500"
+                                        className="ml-8 text-sm text-red-500"
                                         onClick={() => handleRemoveExistingFile(index)}
                                     >
                                         Hapus

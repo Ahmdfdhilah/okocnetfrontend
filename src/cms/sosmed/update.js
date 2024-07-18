@@ -76,24 +76,33 @@ const UpdateSosmed = () => {
     };
 
     return (
-        <div className="max-w-lg mx-auto my-32 p-6 bg-white shadow-md rounded-lg">
-            <h2 className="text-2xl font-semibold mb-6 text-center">Update Social Media</h2>
-            <form onSubmit={onSubmit}>
-                <div className="mb-4">
-                    <label htmlFor="nama" className="block text-sm font-medium text-gray-700">
+        <div className="container mx-auto py-10 mt-32">
+            <h1 className="text-4xl font-bold mb-8 text-center">Update Social Media</h1>
+            <form onSubmit={onSubmit} className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
+                <div className="mb-6">
+                    <label htmlFor="nama" className="block text-lg font-medium text-gray-700 mb-2">
                         Nama
                     </label>
-                    <input
-                        type="text"
+                    <select
                         id="nama"
                         name="nama"
                         value={formData.nama}
-                        readOnly
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm sm:text-sm bg-gray-100 cursor-not-allowed"
-                    />
+                        onChange={handleInputChange}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.nama ? 'border-red-500' : ''}`}
+                    >
+                        <option value="">Pilih Nama Sosmed</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="twitter">Twitter</option>
+                        <option value="instagram">Instagram</option>
+                        <option value="linkedin">LinkedIn</option>
+                        <option value="youtube">YouTube</option>
+                        <option value="tiktok">TikTok</option>
+                    </select>
+                    {formErrors.nama && <p className="text-red-500 text-sm mt-1">{formErrors.nama}</p>}
                 </div>
-                <div className="mb-4">
-                    <label htmlFor="link" className="block text-sm font-medium text-gray-700">
+
+                <div className="mb-6">
+                    <label htmlFor="link" className="block text-lg font-medium text-gray-700 mb-2">
                         Link
                     </label>
                     <input
@@ -102,20 +111,23 @@ const UpdateSosmed = () => {
                         name="link"
                         value={formData.link}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.link ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.link ? 'border-red-500' : ''}`}
+                        placeholder="Masukkan link"
                     />
                     {formErrors.link && <p className="text-red-500 text-sm mt-1">{formErrors.link}</p>}
                 </div>
+
                 <div className="mt-6">
                     <button
                         type="submit"
-                        className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:text-sm"
                     >
-                        Update
+                        Create
                     </button>
                 </div>
             </form>
         </div>
+
     );
 };
 

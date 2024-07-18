@@ -114,61 +114,66 @@ const UpdateProfile = () => {
     };
 
     return (
-        <div className="max-w-lg mx-auto my-32 p-6 bg-white shadow-md rounded-lg">
-            <h2 className="text-2xl font-semibold mb-6 text-center">Update Profile</h2>
-            <form onSubmit={onSubmit} encType="multipart/form-data">
-                <div className="mb-4">
-                    <label htmlFor="nama" className="block text-sm font-medium text-gray-700">
-                        Nama
-                    </label>
-                    <input
-                        type="text"
-                        id="nama"
-                        name="nama"
-                        value={formData.nama}
-                        onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.nama ? 'border-red-500' : ''}`}
-                    />
-                    {formErrors.nama && <p className="text-red-500 text-sm mt-1">{formErrors.nama}</p>}
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="posisi" className="block text-sm font-medium text-gray-700">
-                        Posisi
-                    </label>
-                    <input
-                        type="text"
-                        id="posisi"
-                        name="posisi"
-                        value={formData.posisi}
-                        onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.posisi ? 'border-red-500' : ''}`}
-                    />
-                    {formErrors.posisi && <p className="text-red-500 text-sm mt-1">{formErrors.posisi}</p>}
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="foto" className="block text-sm font-medium text-gray-700">
-                        Foto
-                    </label>
-                    <input
-                        type="file"
-                        id="foto"
-                        name="foto"
-                        accept="image/*"
-                        onChange={handleFileChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.foto ? 'border-red-500' : ''}`}
-                    />
-                    {formErrors.foto && <p className="text-red-500 text-sm mt-1">{formErrors.foto}</p>}
-                </div>
-                <div className="mt-6">
-                    <button
-                        type="submit"
-                        className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                    >
-                        Update
-                    </button>
-                </div>
-            </form>
-        </div>
+        <div className="container mx-auto py-10 mt-32">
+        <h1 className="text-4xl font-bold mb-8 text-center">Update Profile</h1>
+        <form onSubmit={onSubmit} encType="multipart/form-data" className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
+            <div className="mb-6">
+                <label htmlFor="nama" className="block text-lg font-medium text-gray-700 mb-2">
+                    Nama
+                </label>
+                <input
+                    type="text"
+                    id="nama"
+                    name="nama"
+                    value={formData.nama}
+                    onChange={handleInputChange}
+                    className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.nama ? 'border-red-500' : ''}`}
+                    placeholder="Masukkan nama"
+                />
+                {formErrors.nama && <p className="text-red-500 text-sm mt-1">{formErrors.nama}</p>}
+            </div>
+
+            <div className="mb-6">
+                <label htmlFor="posisi" className="block text-lg font-medium text-gray-700 mb-2">
+                    Posisi
+                </label>
+                <input
+                    type="text"
+                    id="posisi"
+                    name="posisi"
+                    value={formData.posisi}
+                    onChange={handleInputChange}
+                    className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.posisi ? 'border-red-500' : ''}`}
+                    placeholder="Masukkan posisi"
+                />
+                {formErrors.posisi && <p className="text-red-500 text-sm mt-1">{formErrors.posisi}</p>}
+            </div>
+
+            <div className="mb-6">
+                <label htmlFor="foto" className="block text-lg font-medium text-gray-700 mb-2">
+                    Foto
+                </label>
+                <input
+                    type="file"
+                    id="foto"
+                    name="foto"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.foto ? 'border-red-500' : ''}`}
+                />
+                {formErrors.foto && <p className="text-red-500 text-sm mt-1">{formErrors.foto}</p>}
+            </div>
+
+            <div className="mt-6">
+                <button
+                    type="submit"
+                    className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:text-sm"
+                >
+                    Simpan
+                </button>
+            </div>
+        </form>
+    </div>
     );
 };
 

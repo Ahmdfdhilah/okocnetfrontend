@@ -170,6 +170,7 @@ const EventTable = () => {
                                                 <p><span className="font-semibold">Poin:</span> {event.pointEvent}</p>
                                                 <p><span className="font-semibold">Tempat:</span> {event.tempatEvent}</p>
                                                 <p><span className="font-semibold">Narasumber:</span> {event.narasumber}</p>
+                                                <p><span className="font-semibold">Link:</span> {event.urlPendaftaran}</p>
                                                 <p><span className="font-semibold">Contact Person:</span> {event.contactPerson}</p>
                                                 <p><span className="font-semibold">Created By:</span> {event.createdBy.username}</p>
                                                 <p><span className="font-semibold">Updated By:</span> {event.updatedBy.username}</p>

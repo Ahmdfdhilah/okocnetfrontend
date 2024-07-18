@@ -1,11 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthContext';
+import Toast from '../../components/Toast';
+import ConfirmationModal from '../../components/ConfirmationModal';
+import Loading from '../../components/Loading';
+
 
 const CreateBerita = () => {
-    const navigate = useNavigate();
     const { userId, token } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         judulBerita: '',
@@ -26,7 +30,15 @@ const CreateBerita = () => {
         deskripsiBerita: '',
     });
 
-    const handleInputChange = (e) => {
+    const [modalShow, setModalShow] = useState(false);
+    const [modalTitle, setModalTitle] = useState('');
+    const [modalMessage, setModalMessage] = useState('');
+    const [modalAction, setModalAction] = useState(null);
+    const [loading, setLoading] = useState(false);
+
+    const [toast, setToast] = useState({ show: false, type: '', message: '' });
+
+    const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
@@ -111,46 +123,56 @@ const CreateBerita = () => {
         return valid;
     };
 
-    const onSubmit = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (!validateForm()) {
             return;
         }
+        setModalAction(() => async () => {
+            try {
+                setLoading(true);
+                const formDataToSend = new FormData();
+                formDataToSend.append('judulBerita', formData.judulBerita);
+                formDataToSend.append('tanggalBerita', formData.tanggalBerita);
+                formDataToSend.append('authorBerita', formData.authorBerita);
+                formDataToSend.append('editorBerita', formData.editorBerita);
+                formData.deskripsiBerita.forEach((deskripsi, index) => {
+                    formDataToSend.append(`deskripsiBerita[${index}]`, deskripsi);
+                });
+                formDataToSend.append('file', formData.file);
+                formDataToSend.append('file2', formData.file2);
+                formDataToSend.append('publishedAt', formData.publishedAt);
 
-        try {
-            const formDataToSend = new FormData();
-            formDataToSend.append('judulBerita', formData.judulBerita);
-            formDataToSend.append('tanggalBerita', formData.tanggalBerita);
-            formDataToSend.append('authorBerita', formData.authorBerita);
-            formDataToSend.append('editorBerita', formData.editorBerita);
-            formData.deskripsiBerita.forEach((deskripsi, index) => {
-                formDataToSend.append(`deskripsiBerita[${index}]`, deskripsi);
-            });
-            formDataToSend.append('file', formData.file);
-            formDataToSend.append('file2', formData.file2);
-            formDataToSend.append('publishedAt', formData.publishedAt);
+                await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/beritas/${userId}`, formDataToSend, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                        Authorization: `Bearer ${token}`
+                    }
+                });
 
-            await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/beritas/${userId}`, formDataToSend, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                    Authorization: `Bearer ${token}`
-                }
-            });
-
-            navigate('/admin/berita');
-        } catch (error) {
-            console.error('Error creating data:', error);
-        }
+                navigate('/admin/berita');
+                setToast({ show: true, type: 'success', message: 'Berita berhasil dibuat' });
+            } catch (error) {
+                console.error('Error creating news article:', error);
+                setToast({ show: true, type: 'error', message: 'Terjadi kesalahan saat membuat berita' });
+            }
+            finally {
+                setLoading(false);
+            }
+        });
+        setModalTitle('Konfirmasi');
+        setModalMessage('Apakah Anda yakin ingin membuat berita ini?');
+        setModalShow(true);
     };
 
-    return (
-        <div className="max-w-lg mx-auto my-32 p-6 bg-white shadow-md rounded-lg">
-            <h2 className="text-2xl font-semibold mb-6 text-center">Create New Berita</h2>
-            <form onSubmit={onSubmit} encType="multipart/form-data">
-                {/* Judul Berita */}
-                <div className="mb-4">
-                    <label htmlFor="judulBerita" className="block text-sm font-medium text-gray-700">
+    return (<>
+        {loading && <Loading />}
+        <div className="container mx-auto py-10 mt-32">
+            <h1 className="text-4xl font-bold mb-8 text-center">Create News Article</h1>
+            <form onSubmit={handleSubmit} className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
+                <div className="mb-6">
+                    <label htmlFor="judulBerita" className="block text-lg font-medium text-gray-700 mb-2">
                         Judul Berita
                     </label>
                     <input
@@ -158,15 +180,14 @@ const CreateBerita = () => {
                         id="judulBerita"
                         name="judulBerita"
                         value={formData.judulBerita}
-                        onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.judulBerita ? 'border-red-500' : ''}`}
+                        onChange={handleChange}
+                        className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        placeholder="Masukkan judul"
                     />
                     {formErrors.judulBerita && <p className="text-red-500 text-sm mt-1">{formErrors.judulBerita}</p>}
                 </div>
-
-                {/* Tanggal Berita */}
-                <div className="mb-4">
-                    <label htmlFor="tanggalBerita" className="block text-sm font-medium text-gray-700">
+                <div className="mb-6">
+                    <label htmlFor="tanggalBerita" className="block text-lg font-medium text-gray-700 mb-2">
                         Tanggal Berita
                     </label>
                     <input
@@ -174,15 +195,13 @@ const CreateBerita = () => {
                         id="tanggalBerita"
                         name="tanggalBerita"
                         value={formData.tanggalBerita}
-                        onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.tanggalBerita ? 'border-red-500' : ''}`}
+                        onChange={handleChange}
+                        className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     />
                     {formErrors.tanggalBerita && <p className="text-red-500 text-sm mt-1">{formErrors.tanggalBerita}</p>}
                 </div>
-
-                {/* Author Berita */}
-                <div className="mb-4">
-                    <label htmlFor="authorBerita" className="block text-sm font-medium text-gray-700">
+                <div className="mb-6">
+                    <label htmlFor="authorBerita" className="block text-lg font-medium text-gray-700 mb-2">
                         Author Berita
                     </label>
                     <input
@@ -190,15 +209,14 @@ const CreateBerita = () => {
                         id="authorBerita"
                         name="authorBerita"
                         value={formData.authorBerita}
-                        onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.authorBerita ? 'border-red-500' : ''}`}
+                        onChange={handleChange}
+                        className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        placeholder="Masukkan nama author"
                     />
                     {formErrors.authorBerita && <p className="text-red-500 text-sm mt-1">{formErrors.authorBerita}</p>}
                 </div>
-
-                {/* Editor Berita */}
-                <div className="mb-4">
-                    <label htmlFor="editorBerita" className="block text-sm font-medium text-gray-700">
+                <div className="mb-6">
+                    <label htmlFor="editorBerita" className="block text-lg font-medium text-gray-700 mb-2">
                         Editor Berita
                     </label>
                     <input
@@ -206,29 +224,31 @@ const CreateBerita = () => {
                         id="editorBerita"
                         name="editorBerita"
                         value={formData.editorBerita}
-                        onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.editorBerita ? 'border-red-500' : ''}`}
+                        onChange={handleChange}
+                        className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        placeholder="Masukkan nama editor"
                     />
                     {formErrors.editorBerita && <p className="text-red-500 text-sm mt-1">{formErrors.editorBerita}</p>}
                 </div>
-
-                {/* Deskripsi Berita */}
-                <div className="mb-4">
-                    <label htmlFor="deskripsiBerita" className="block text-sm font-medium text-gray-700">
+                <div className="mb-6">
+                    <label htmlFor="deskripsiBerita" className="block text-lg font-medium text-gray-700 mb-2">
                         Deskripsi Berita
                     </label>
                     {formData.deskripsiBerita.map((deskripsi, index) => (
                         <div key={index} className="flex items-center space-x-2 mb-2">
-                            <input
-                                type="text"
+                            <textarea
+                                id={`deskripsiBerita${index}`}
+                                name="deskripsiBerita"
                                 value={deskripsi}
                                 onChange={(e) => handleDescriptionChange(index, e.target.value)}
-                                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                            />
+                                className="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                rows="3"
+                                placeholder={`Masukkan deskripsi ${index + 1}`}
+                            ></textarea>
                             <button
                                 type="button"
                                 onClick={() => handleRemoveDescription(index)}
-                                className="inline-flex items-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                                className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                             >
                                 Remove
                             </button>
@@ -237,54 +257,68 @@ const CreateBerita = () => {
                     <button
                         type="button"
                         onClick={handleAddDescription}
-                        className="inline-flex items-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        className="mt-2 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
-                        Add Description
+                        Add Deskripsi
                     </button>
                     {formErrors.deskripsiBerita && <p className="text-red-500 text-sm mt-1">{formErrors.deskripsiBerita}</p>}
                 </div>
-
-                {/* Foto Berita */}
-                <div className="mb-4">
-                    <label htmlFor="file" className="block text-sm font-medium text-gray-700">
-                        Foto Berita
+                <div className="mb-6">
+                    <label htmlFor="file" className="block text-lg font-medium text-gray-700 mb-2">
+                        File
                     </label>
                     <input
                         type="file"
                         id="file"
                         name="file"
                         onChange={handleFileChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.file ? 'border-red-500' : ''}`}
+                        className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     />
                     {formErrors.file && <p className="text-red-500 text-sm mt-1">{formErrors.file}</p>}
                 </div>
-
-                {/* Foto Content */}
-                <div className="mb-4">
-                    <label htmlFor="file2" className="block text-sm font-medium text-gray-700">
-                        Foto Content
+                <div className="mb-6">
+                    <label htmlFor="file2" className="block text-lg font-medium text-gray-700 mb-2">
+                        File 2
                     </label>
                     <input
                         type="file"
                         id="file2"
                         name="file2"
                         onChange={handleFileChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.file2 ? 'border-red-500' : ''}`}
+                        className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     />
                     {formErrors.file2 && <p className="text-red-500 text-sm mt-1">{formErrors.file2}</p>}
                 </div>
-
-                {/* Submit Button */}
-                <div className="flex justify-center">
+                <div className="mt-6">
                     <button
                         type="submit"
-                        className="px-4 py-2 bg-blue-500 text-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:text-sm"
                     >
-                        Create Berita
+                        Simpan
                     </button>
                 </div>
             </form>
+            <ConfirmationModal
+                show={modalShow}
+                title={modalTitle}
+                message={modalMessage}
+                onConfirm={() => {
+                    if (modalAction) {
+                        modalAction();
+                    }
+                    setModalShow(false);
+                }}
+                onCancel={() => setModalShow(false)}
+            />
+
+            <Toast
+                show={toast.show}
+                type={toast.type}
+                message={toast.message}
+                onClose={() => setToast({ show: false, type: '', message: '' })}
+            />
         </div>
+    </>
     );
 };
 

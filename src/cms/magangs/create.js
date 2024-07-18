@@ -237,19 +237,18 @@ const CreateMagang = () => {
                 }
             });
 
-            navigate('/admin/internship');
+            navigate('/admin/magang');
         } catch (error) {
             console.error('Error creating internship:', error);
         }
     };
 
     return (
-        <div className="max-w-lg mx-auto my-32 p-6 bg-white shadow-md rounded-lg">
-            <h2 className="text-2xl font-semibold mb-6 text-center">Create New Internship</h2>
-            <form onSubmit={onSubmit} encType="multipart/form-data">
-                {/* Judul Magang */}
-                <div className="mb-4">
-                    <label htmlFor="judulMagang" className="block text-sm font-medium text-gray-700">
+        <div className="container mx-auto py-10 mt-32">
+            <h1 className="text-4xl font-bold mb-8 text-center">Create New Internship</h1>
+            <form onSubmit={onSubmit} className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md" encType="multipart/form-data">
+                <div className="mb-6">
+                    <label htmlFor="judulMagang" className="block text-lg font-medium text-gray-700 mb-2">
                         Judul Magang
                     </label>
                     <input
@@ -258,14 +257,14 @@ const CreateMagang = () => {
                         name="judulMagang"
                         value={formData.judulMagang}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.judulMagang ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.judulMagang ? 'border-red-500' : ''}`}
+                        placeholder="Masukkan judul magang"
                     />
                     {formErrors.judulMagang && <p className="text-red-500 text-sm mt-1">{formErrors.judulMagang}</p>}
                 </div>
 
-                {/* Durasi Magang */}
-                <div className="mb-4">
-                    <label htmlFor="durasiMagang" className="block text-sm font-medium text-gray-700">
+                <div className="mb-6">
+                    <label htmlFor="durasiMagang" className="block text-lg font-medium text-gray-700 mb-2">
                         Durasi Magang
                     </label>
                     <input
@@ -274,14 +273,14 @@ const CreateMagang = () => {
                         name="durasiMagang"
                         value={formData.durasiMagang}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.durasiMagang ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.durasiMagang ? 'border-red-500' : ''}`}
+                        placeholder="Masukkan durasi magang"
                     />
                     {formErrors.durasiMagang && <p className="text-red-500 text-sm mt-1">{formErrors.durasiMagang}</p>}
                 </div>
 
-                {/* URL MSIB */}
-                <div className="mb-4">
-                    <label htmlFor="urlMsib" className="block text-sm font-medium text-gray-700">
+                <div className="mb-6">
+                    <label htmlFor="urlMsib" className="block text-lg font-medium text-gray-700 mb-2">
                         URL MSIB
                     </label>
                     <input
@@ -290,14 +289,14 @@ const CreateMagang = () => {
                         name="urlMsib"
                         value={formData.urlMsib}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.urlMsib ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.urlMsib ? 'border-red-500' : ''}`}
+                        placeholder="Masukkan URL MSIB"
                     />
                     {formErrors.urlMsib && <p className="text-red-500 text-sm mt-1">{formErrors.urlMsib}</p>}
                 </div>
 
-                {/* Tentang Program */}
-                <div className="mb-4">
-                    <label htmlFor="tentangProgram" className="block text-sm font-medium text-gray-700">
+                <div className="mb-6">
+                    <label htmlFor="tentangProgram" className="block text-lg font-medium text-gray-700 mb-2">
                         Tentang Program
                     </label>
                     <input
@@ -306,14 +305,14 @@ const CreateMagang = () => {
                         name="tentangProgram"
                         value={formData.tentangProgram}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.tentangProgram ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.tentangProgram ? 'border-red-500' : ''}`}
+                        placeholder="Masukkan tentang program"
                     />
                     {formErrors.tentangProgram && <p className="text-red-500 text-sm mt-1">{formErrors.tentangProgram}</p>}
                 </div>
 
-                {/* Jenis Magang */}
-                <div className="mb-4">
-                    <label htmlFor="jenisMagang" className="block text-sm font-medium text-gray-700">
+                <div className="mb-6">
+                    <label htmlFor="jenisMagang" className="block text-lg font-medium text-gray-700 mb-2">
                         Jenis Magang
                     </label>
                     <input
@@ -322,14 +321,14 @@ const CreateMagang = () => {
                         name="jenisMagang"
                         value={formData.jenisMagang}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.jenisMagang ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.jenisMagang ? 'border-red-500' : ''}`}
+                        placeholder="Masukkan jenis magang"
                     />
                     {formErrors.jenisMagang && <p className="text-red-500 text-sm mt-1">{formErrors.jenisMagang}</p>}
                 </div>
 
-                {/* Deskripsi Magang */}
-                <div className="mb-4">
-                    <label htmlFor="deskripsiMagang" className="block text-sm font-medium text-gray-700">
+                <div className="mb-6">
+                    <label htmlFor="deskripsiMagang" className="block text-lg font-medium text-gray-700 mb-2">
                         Deskripsi Magang
                     </label>
                     {formData.deskripsiMagang.map((deskripsi, index) => (
@@ -340,7 +339,8 @@ const CreateMagang = () => {
                                 name={`deskripsiMagang[${index}]`}
                                 value={deskripsi}
                                 onChange={(e) => handleDescriptionChange(index, e.target.value)}
-                                className={`block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.deskripsiMagang ? 'border-red-500' : ''}`}
+                                className={`block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.deskripsiMagang ? 'border-red-500' : ''}`}
+                                placeholder="Masukkan deskripsi magang"
                             />
                             <button
                                 type="button"
@@ -354,16 +354,15 @@ const CreateMagang = () => {
                     <button
                         type="button"
                         onClick={handleAddDescription}
-                        className="bg-green-500 text-white rounded-md px-3 py-1 text-sm"
+                        className="mt-2 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
                         Add Deskripsi Magang
                     </button>
                     {formErrors.deskripsiMagang && <p className="text-red-500 text-sm mt-1">{formErrors.deskripsiMagang}</p>}
                 </div>
 
-                {/* Lokasi Magang */}
-                <div className="mb-4">
-                    <label htmlFor="lokasiMagang" className="block text-sm font-medium text-gray-700">
+                <div className="mb-6">
+                    <label htmlFor="lokasiMagang" className="block text-lg font-medium text-gray-700 mb-2">
                         Lokasi Magang
                     </label>
                     <input
@@ -372,14 +371,14 @@ const CreateMagang = () => {
                         name="lokasiMagang"
                         value={formData.lokasiMagang}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.lokasiMagang ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.lokasiMagang ? 'border-red-500' : ''}`}
+                        placeholder="Masukkan lokasi magang"
                     />
                     {formErrors.lokasiMagang && <p className="text-red-500 text-sm mt-1">{formErrors.lokasiMagang}</p>}
                 </div>
 
-                {/* Benefit Magang */}
-                <div className="mb-4">
-                    <label htmlFor="benefitMagang" className="block text-sm font-medium text-gray-700">
+                <div className="mb-6">
+                    <label htmlFor="benefitMagang" className="block text-lg font-medium text-gray-700 mb-2">
                         Benefit Magang
                     </label>
                     <input
@@ -388,7 +387,8 @@ const CreateMagang = () => {
                         name="benefitMagang"
                         value={formData.benefitMagang}
                         onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.benefitMagang ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.benefitMagang ? 'border-red-500' : ''}`}
+                        placeholder="Masukkan benefit magang"
                     />
                     {formErrors.benefitMagang && <p className="text-red-500 text-sm mt-1">{formErrors.benefitMagang}</p>}
                 </div>
@@ -406,7 +406,7 @@ const CreateMagang = () => {
                                 name={`kriteriaPeserta[${index}]`}
                                 value={kriteria}
                                 onChange={(e) => handleCriteriaChange(index, e.target.value)}
-                                className={`block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.kriteriaPeserta ? 'border-red-500' : ''}`}
+                                className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.kriteriaPeserta ? 'border-red-500' : ''}`}
                             />
                             <button
                                 type="button"
@@ -420,7 +420,7 @@ const CreateMagang = () => {
                     <button
                         type="button"
                         onClick={handleAddCriteria}
-                        className="bg-green-500 text-white rounded-md px-3 py-1 text-sm"
+                        className="mt-2 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
                         Add Kriteria Peserta
                     </button>
@@ -440,7 +440,7 @@ const CreateMagang = () => {
                                 name={`kompetensi[${index}]`}
                                 value={kompetensi}
                                 onChange={(e) => handleCompetencyChange(index, e.target.value)}
-                                className={`block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.kompetensi ? 'border-red-500' : ''}`}
+                                className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.kompetensi ? 'border-red-500' : ''}`}
                             />
                             <button
                                 type="button"
@@ -454,7 +454,7 @@ const CreateMagang = () => {
                     <button
                         type="button"
                         onClick={handleAddCompetency}
-                        className="bg-green-500 text-white rounded-md px-3 py-1 text-sm"
+                        className="mt-2 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
                         Add Kompetensi
                     </button>
@@ -472,17 +472,18 @@ const CreateMagang = () => {
                         name="file"
                         accept="image/*"
                         onChange={handleFileChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.file ? 'border-red-500' : ''}`}
+                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.file ? 'border-red-500' : ''}`}
                     />
                     {formErrors.file && <p className="text-red-500 text-sm mt-1">{formErrors.file}</p>}
                 </div>
-
-                <button
-                    type="submit"
-                    className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                >
-                    Create Magang
-                </button>
+                <div className="mt-6">
+                    <button
+                        type="submit"
+                        className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:text-sm"
+                    >
+                        Simpan
+                    </button>
+                </div>
             </form>
         </div>
     );

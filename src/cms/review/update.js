@@ -78,59 +78,67 @@ const UpdateReview = () => {
     };
 
     return (
-        <div className="max-w-lg mx-auto my-32 p-6 bg-white shadow-md rounded-lg">
-            <h2 className="text-2xl font-semibold mb-6 text-center">Update Review</h2>
-            <form onSubmit={onSubmit}>
-                <div className="mb-4">
-                    <label htmlFor="nama" className="block text-sm font-medium text-gray-700">
-                        Nama
-                    </label>
-                    <input
-                        type="text"
-                        id="nama"
-                        name="nama"
-                        value={formData.nama}
-                        readOnly
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm sm:text-sm bg-gray-100 cursor-not-allowed"
-                    />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="posisi" className="block text-sm font-medium text-gray-700">
-                        Posisi
-                    </label>
-                    <input
-                        type="text"
-                        id="posisi"
-                        name="posisi"
-                        value={formData.posisi}
-                        readOnly
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm sm:text-sm bg-gray-100 cursor-not-allowed"
-                    />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="deskripsi" className="block text-sm font-medium text-gray-700">
-                        Deskripsi
-                    </label>
-                    <textarea
-                        id="deskripsi"
-                        name="deskripsi"
-                        rows="4"
-                        value={formData.deskripsi}
-                        onChange={handleInputChange}
-                        className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.deskripsi ? 'border-red-500' : ''}`}
-                    ></textarea>
-                    {formErrors.deskripsi && <p className="text-red-500 text-sm mt-1">{formErrors.deskripsi}</p>}
-                </div>
-                <div className="mt-6">
-                    <button
-                        type="submit"
-                        className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                    >
-                        Update
-                    </button>
-                </div>
-            </form>
-        </div>
+        <div className="container mx-auto py-10 mt-32">
+        <h1 className="text-4xl font-bold mb-8 text-center">Update Review</h1>
+        <form onSubmit={onSubmit} className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
+            <div className="mb-6">
+                <label htmlFor="nama" className="block text-lg font-medium text-gray-700 mb-2">
+                    Nama
+                </label>
+                <input
+                    type="text"
+                    id="nama"
+                    name="nama"
+                    value={formData.nama}
+                    onChange={handleInputChange}
+                    className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.nama ? 'border-red-500' : ''}`}
+                    placeholder="Masukkan nama"
+                />
+                {formErrors.nama && <p className="text-red-500 text-sm mt-1">{formErrors.nama}</p>}
+            </div>
+
+            <div className="mb-6">
+                <label htmlFor="posisi" className="block text-lg font-medium text-gray-700 mb-2">
+                    Posisi
+                </label>
+                <input
+                    type="text"
+                    id="posisi"
+                    name="posisi"
+                    value={formData.posisi}
+                    onChange={handleInputChange}
+                    className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.posisi ? 'border-red-500' : ''}`}
+                    placeholder="Masukkan posisi"
+                />
+                {formErrors.posisi && <p className="text-red-500 text-sm mt-1">{formErrors.posisi}</p>}
+            </div>
+
+            <div className="mb-6">
+                <label htmlFor="deskripsi" className="block text-lg font-medium text-gray-700 mb-2">
+                    Komentar
+                </label>
+                <textarea
+                    id="deskripsi"
+                    name="deskripsi"
+                    rows="4"
+                    value={formData.deskripsi}
+                    onChange={handleInputChange}
+                    className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.deskripsi ? 'border-red-500' : ''}`}
+                    placeholder="Masukkan deskripsi"
+                ></textarea>
+                {formErrors.deskripsi && <p className="text-red-500 text-sm mt-1">{formErrors.deskripsi}</p>}
+            </div>
+
+            <div className="mt-6">
+                <button
+                    type="submit"
+                    className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:text-sm"
+                >
+                    Simpan
+                </button>
+            </div>
+        </form>
+    </div>
     );
 };
 

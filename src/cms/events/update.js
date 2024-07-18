@@ -220,215 +220,214 @@ const UpdateEvent = () => {
     };
 
     return (
-        <div className="max-w-lg mx-auto my-32 p-6 bg-white shadow-md rounded-lg">
-            <h2 className="text-2xl font-semibold mb-6 text-center">Update Event</h2>
-            <form onSubmit={onSubmit} encType="multipart/form-data">
-                <div className="mb-4">
-                    <label htmlFor="judulEvent" className="block text-sm font-medium text-gray-700">
-                        Judul Event
-                    </label>
-                    <input
-                        type="text"
-                        id="judulEvent"
-                        name="judulEvent"
-                        value={formData.judulEvent}
-                        onChange={handleInputChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                    />
-                    {formErrors.judulEvent && <p className="text-red-500 text-sm mt-1">{formErrors.judulEvent}</p>}
-                </div>
-
-                <div className="mb-4">
-                    <label htmlFor="tanggalEvent" className="block text-sm font-medium text-gray-700">
-                        Tanggal Event
-                    </label>
-                    <input
-                        type="datetime-local"
-                        id="tanggalEvent"
-                        name="tanggalEvent"
-                        value={formData.tanggalEvent}
-                        onChange={handleInputChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                    />
-                    {formErrors.tanggalEvent && <p className="text-red-500 text-sm mt-1">{formErrors.tanggalEvent}</p>}
-                </div>
-
-                <div className="mb-4">
-                    <label htmlFor="hargaEvent" className="block text-sm font-medium text-gray-700">
-                        Harga Event
-                    </label>
-                    <input
-                        type="number"
-                        id="hargaEvent"
-                        name="hargaEvent"
-                        value={formData.hargaEvent}
-                        onChange={handleInputChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                    />
-                    {formErrors.hargaEvent && <p className="text-red-500 text-sm mt-1">{formErrors.hargaEvent}</p>}
-                </div>
-
-                <div className="mb-4">
-                    <label htmlFor="pointEvent" className="block text-sm font-medium text-gray-700">
-                        Point Event
-                    </label>
-                    <input
-                        type="number"
-                        id="pointEvent"
-                        name="pointEvent"
-                        value={formData.pointEvent}
-                        onChange={handleInputChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                    />
-                    {formErrors.pointEvent && <p className="text-red-500 text-sm mt-1">{formErrors.pointEvent}</p>}
-                </div>
-
-                <div className="mb-4">
-                    <label htmlFor="urlPendaftaran" className="block text-sm font-medium text-gray-700">
-                        URL Pendaftaran
-                    </label>
-                    <input
-                        type="text"
-                        id="urlPendaftaran"
-                        name="urlPendaftaran"
-                        value={formData.urlPendaftaran}
-                        onChange={handleInputChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                    />
-                    {formErrors.urlPendaftaran && <p className="text-red-500 text-sm mt-1">{formErrors.urlPendaftaran}</p>}
-                </div>
-
-                <div className="mb-4">
-                    <label htmlFor="tempatEvent" className="block text-sm font-medium text-gray-700">
-                        Tempat Event
-                    </label>
-                    <input
-                        type="text"
-                        id="tempatEvent"
-                        name="tempatEvent"
-                        value={formData.tempatEvent}
-                        onChange={handleInputChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                    />
-                    {formErrors.tempatEvent && <p className="text-red-500 text-sm mt-1">{formErrors.tempatEvent}</p>}
-                </div>
-
-                <div className="mb-4">
-                    <label htmlFor="quotaEvent" className="block text-sm font-medium text-gray-700">
-                        Quota Event
-                    </label>
-                    <input
-                        type="text"
-                        id="quotaEvent"
-                        name="quotaEvent"
-                        value={formData.quotaEvent}
-                        onChange={handleInputChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                    />
-                    {formErrors.quotaEvent && <p className="text-red-500 text-sm mt-1">{formErrors.quotaEvent}</p>}
-                </div>
-
-                <div className="mb-4">
-                    <label htmlFor="durasiEvent" className="block text-sm font-medium text-gray-700">
-                        Durasi Event
-                    </label>
-                    <input
-                        type="text"
-                        id="durasiEvent"
-                        name="durasiEvent"
-                        value={formData.durasiEvent}
-                        onChange={handleInputChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                    />
-                    {formErrors.durasiEvent && <p className="text-red-500 text-sm mt-1">{formErrors.durasiEvent}</p>}
-                </div>
-
-                <div className="mb-4">
-                    <label htmlFor="narasumber" className="block text-sm font-medium text-gray-700">
-                        Narasumber
-                    </label>
-                    <input
-                        type="text"
-                        id="narasumber"
-                        name="narasumber"
-                        value={formData.narasumber}
-                        onChange={handleInputChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                    />
-                    {formErrors.narasumber && <p className="text-red-500 text-sm mt-1">{formErrors.narasumber}</p>}
-                </div>
-
-                <div className="mb-4">
-                    <label htmlFor="contactPerson" className="block text-sm font-medium text-gray-700">
-                        Contact Person
-                    </label>
-                    <input
-                        type="text"
-                        id="contactPerson"
-                        name="contactPerson"
-                        value={formData.contactPerson}
-                        onChange={handleInputChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                    />
-                    {formErrors.contactPerson && <p className="text-red-500 text-sm mt-1">{formErrors.contactPerson}</p>}
-                </div>
-
-                <div className="mb-4">
-                    <label htmlFor="file" className="block text-sm font-medium text-gray-700">
-                        File
-                    </label>
-                    <input
-                        type="file"
-                        id="file"
-                        name="file"
-                        onChange={handleFileChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                    />
-                </div>
-
-                {/* Deskripsi Event */}
-                <div className="mb-4">
-                    <label htmlFor="deskripsiEvent" className="block text-sm font-medium text-gray-700">
-                        Deskripsi Event
-                    </label>
-                    {formData.deskripsiEvent.map((deskripsi, index) => (
-                        <div key={index} className="flex items-center space-x-2 mb-2">
-                            <input
-                                type="text"
-                                value={deskripsi}
-                                onChange={(e) => handleDescriptionChange(index, e.target.value)}
-                                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                            />
-                            <button
-                                type="button"
-                                onClick={() => handleRemoveDescription(index)}
-                                className="inline-flex items-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                            >
-                                Remove
-                            </button>
-                        </div>
-                    ))}
-                    <button
-                        type="button"
-                        onClick={handleAddDescription}
-                        className="inline-flex items-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                    >
-                        Add Description
-                    </button>
-                    {formErrors.deskripsiEvent && <p className="text-red-500 text-sm mt-1">{formErrors.deskripsiEvent}</p>}
-                </div>
-
-                {/* Submit Button */}
-                <div className="mt-6">
+        <div className="container mx-auto my-32 p-8 bg-white shadow-lg rounded-lg">
+        <h2 className="text-3xl font-semibold mb-8 text-center">Update Event</h2>
+        <form onSubmit={onSubmit} encType="multipart/form-data">
+            <div className="mb-6">
+                <label htmlFor="judulEvent" className="block text-lg font-medium text-gray-800">
+                    Judul Event
+                </label>
+                <input
+                    type="text"
+                    id="judulEvent"
+                    name="judulEvent"
+                    value={formData.judulEvent}
+                    onChange={handleInputChange}
+                    className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-base"
+                />
+                {formErrors.judulEvent && <p className="text-red-500 text-sm mt-2">{formErrors.judulEvent}</p>}
+            </div>
+    
+            <div className="mb-6">
+                <label htmlFor="tanggalEvent" className="block text-lg font-medium text-gray-800">
+                    Tanggal Event
+                </label>
+                <input
+                    type="datetime-local"
+                    id="tanggalEvent"
+                    name="tanggalEvent"
+                    value={formData.tanggalEvent}
+                    onChange={handleInputChange}
+                    className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-base"
+                />
+                {formErrors.tanggalEvent && <p className="text-red-500 text-sm mt-2">{formErrors.tanggalEvent}</p>}
+            </div>
+    
+            <div className="mb-6">
+                <label htmlFor="hargaEvent" className="block text-lg font-medium text-gray-800">
+                    Harga Event
+                </label>
+                <input
+                    type="number"
+                    id="hargaEvent"
+                    name="hargaEvent"
+                    value={formData.hargaEvent}
+                    onChange={handleInputChange}
+                    className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-base"
+                />
+                {formErrors.hargaEvent && <p className="text-red-500 text-sm mt-2">{formErrors.hargaEvent}</p>}
+            </div>
+    
+            <div className="mb-6">
+                <label htmlFor="pointEvent" className="block text-lg font-medium text-gray-800">
+                    Point Event
+                </label>
+                <input
+                    type="number"
+                    id="pointEvent"
+                    name="pointEvent"
+                    value={formData.pointEvent}
+                    onChange={handleInputChange}
+                    className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-base"
+                />
+                {formErrors.pointEvent && <p className="text-red-500 text-sm mt-2">{formErrors.pointEvent}</p>}
+            </div>
+    
+            <div className="mb-6">
+                <label htmlFor="urlPendaftaran" className="block text-lg font-medium text-gray-800">
+                    URL Pendaftaran
+                </label>
+                <input
+                    type="text"
+                    id="urlPendaftaran"
+                    name="urlPendaftaran"
+                    value={formData.urlPendaftaran}
+                    onChange={handleInputChange}
+                    className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-base"
+                />
+                {formErrors.urlPendaftaran && <p className="text-red-500 text-sm mt-2">{formErrors.urlPendaftaran}</p>}
+            </div>
+    
+            <div className="mb-6">
+                <label htmlFor="tempatEvent" className="block text-lg font-medium text-gray-800">
+                    Tempat Event
+                </label>
+                <input
+                    type="text"
+                    id="tempatEvent"
+                    name="tempatEvent"
+                    value={formData.tempatEvent}
+                    onChange={handleInputChange}
+                    className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-base"
+                />
+                {formErrors.tempatEvent && <p className="text-red-500 text-sm mt-2">{formErrors.tempatEvent}</p>}
+            </div>
+    
+            <div className="mb-6">
+                <label htmlFor="quotaEvent" className="block text-lg font-medium text-gray-800">
+                    Quota Event
+                </label>
+                <input
+                    type="text"
+                    id="quotaEvent"
+                    name="quotaEvent"
+                    value={formData.quotaEvent}
+                    onChange={handleInputChange}
+                    className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-base"
+                />
+                {formErrors.quotaEvent && <p className="text-red-500 text-sm mt-2">{formErrors.quotaEvent}</p>}
+            </div>
+    
+            <div className="mb-6">
+                <label htmlFor="durasiEvent" className="block text-lg font-medium text-gray-800">
+                    Durasi Event
+                </label>
+                <input
+                    type="text"
+                    id="durasiEvent"
+                    name="durasiEvent"
+                    value={formData.durasiEvent}
+                    onChange={handleInputChange}
+                    className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-base"
+                />
+                {formErrors.durasiEvent && <p className="text-red-500 text-sm mt-2">{formErrors.durasiEvent}</p>}
+            </div>
+    
+            <div className="mb-6">
+                <label htmlFor="narasumber" className="block text-lg font-medium text-gray-800">
+                    Narasumber
+                </label>
+                <input
+                    type="text"
+                    id="narasumber"
+                    name="narasumber"
+                    value={formData.narasumber}
+                    onChange={handleInputChange}
+                    className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-base"
+                />
+                {formErrors.narasumber && <p className="text-red-500 text-sm mt-2">{formErrors.narasumber}</p>}
+            </div>
+    
+            <div className="mb-6">
+                <label htmlFor="contactPerson" className="block text-lg font-medium text-gray-800">
+                    Contact Person
+                </label>
+                <input
+                    type="text"
+                    id="contactPerson"
+                    name="contactPerson"
+                    value={formData.contactPerson}
+                    onChange={handleInputChange}
+                    className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-base"
+                />
+                {formErrors.contactPerson && <p className="text-red-500 text-sm mt-2">{formErrors.contactPerson}</p>}
+            </div>
+    
+            <div className="mb-6">
+                <label htmlFor="file" className="block text-lg font-medium text-gray-800">
+                    File
+                </label>
+                <input
+                    type="file"
+                    id="file"
+                    name="file"
+                    onChange={handleFileChange}
+                    className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-base"
+                />
+            </div>
+    
+            {/* Deskripsi Event */}
+            <div className="mb-6">
+                <label htmlFor="deskripsiEvent" className="block text-lg font-medium text-gray-800">
+                    Deskripsi Event
+                </label>
+                {formData.deskripsiEvent.map((deskripsi, index) => (
+                    <div key={index} className="flex items-center space-x-2 mb-2">
+                        <input
+                            type="text"
+                            value={deskripsi}
+                            onChange={(e) => handleDescriptionChange(index, e.target.value)}
+                            className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-base"
+                        />
+                        <button
+                            type="button"
+                            onClick={() => handleRemoveDescription(index)}
+                            className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                        >
+                            Remove
+                        </button>
+                    </div>
+                ))}
+                <button
+                    type="button"
+                    onClick={handleAddDescription}
+                    className="mt-2 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                    Add Description
+                </button>
+            </div>
+    
+            <div className="mt-6">
                     <button
                         type="submit"
-                        className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:text-sm"
                     >
-                        Update
+                        Simpan
                     </button>
                 </div>
-            </form>
-        </div>
+        </form>
+    </div>
+    
     );
 };
 
