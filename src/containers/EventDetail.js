@@ -11,7 +11,7 @@ const EventDetail = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`https://okocenet-72f35a89c2ef.herokuapp.com/events/${id}`);
+                const response = await fetch(`http://localhost:3000/events/${id}`);
                 if (!response.ok) {
                     throw new Error('Gagal mengambil data event');
                 }
@@ -39,7 +39,7 @@ const EventDetail = () => {
         <>
             <div className="max-w-4xl mx-auto mt-24 p-4">
                 <div className="bg-white shadow-md rounded-lg lg:p-5">
-                    <img className="object-cover w-full h-full" src={`https://okocenet-72f35a89c2ef.herokuapp.com${eventData.fotoEvent}`} alt="" />
+                    <img className="object-cover w-full h-full" src={`http://localhost:3000${eventData.fotoEvent}`} alt="" />
                     <div className="grid mobile:grid-cols-1 lg:grid-cols-2">
                         <div>
                             <h2 className="font-extrabold text-3xl mb-2 mt-12 mobile:ml-4 lg:ml-10">{eventData.judulEvent}</h2>

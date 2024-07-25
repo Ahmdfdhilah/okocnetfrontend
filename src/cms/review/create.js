@@ -65,7 +65,7 @@ const CreateReview = () => {
         }
 
         try {
-            await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/reviews/${userId}`, formData, {
+            await axios.post(`http://localhost:3000/reviews/${userId}`, formData, {
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`

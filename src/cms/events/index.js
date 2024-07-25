@@ -19,7 +19,7 @@ const EventTable = () => {
 
     const fetchEvents = async () => {
         try {
-            const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/events', { params: query });
+            const response = await axios.get('http://localhost:3000/events', { params: query });
             setEvents(response.data.data);
         } catch (error) {
             console.error('Error fetching events:', error);
@@ -28,7 +28,7 @@ const EventTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/events/${id}`, {
+            await axios.delete(`http://localhost:3000/events/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -137,7 +137,7 @@ const EventTable = () => {
                                 <td className="py-3 px-4">{event.pointEvent}</td>
                                 <td className="py-3 px-4">
                                     <img
-                                        src={`https://okocenet-72f35a89c2ef.herokuapp.com${event.fotoEvent}`}
+                                        src={`http://localhost:3000${event.fotoEvent}`}
                                         alt={event.judulEvent}
                                         className="h-10 w-10 rounded-full object-cover"
                                     />

@@ -12,7 +12,7 @@ const Donasi = () => {
     const fetchData = async () => {
         try {
             const response = await fetch(
-                "https://okocenet-72f35a89c2ef.herokuapp.com/donasis"
+                "http://localhost:3000/donasis"
             );
             if (!response.ok) {
                 throw new Error("Gagal mengambil data donasi");
@@ -45,7 +45,7 @@ const Donasi = () => {
                                     <div className="flex flex-col w-[46%] max-md:ml-0 max-md:w-full">
                                         <img
                                             loading="lazy"
-                                            srcSet={`https://okocenet-72f35a89c2ef.herokuapp.com${data.fotoDonasi}`}
+                                            srcSet={`http://localhost:3000${data.fotoDonasi}`}
                                             className="grow w-full shadow-sm aspect-[0.68] max-md:max-w-full max-h-lvh"
                                         />
                                     </div>

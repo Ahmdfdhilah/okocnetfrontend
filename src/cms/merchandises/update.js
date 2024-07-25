@@ -31,7 +31,7 @@ const UpdateMerchandise = () => {
     useEffect(() => {
         const fetchMerchandise = async () => {
             try {
-                const response = await axios.get(`https://okocenet-72f35a89c2ef.herokuapp.com/merchandises/${id}`);
+                const response = await axios.get(`http://localhost:3000/merchandises/${id}`);
                 const { judulMerchandise, deskripsiMerchandise, hargaMerchandise, stockMerchandise, linkMerchandise, fotoMerchandise } = response.data;
 
                 const existingFiles = fotoMerchandise.map(fileUrl => ({
@@ -168,7 +168,7 @@ const UpdateMerchandise = () => {
                 });
             }
 
-            const response = await axios.put(`https://okocenet-72f35a89c2ef.herokuapp.com/merchandises/${id}/${userId}`, formDataToSend, {
+            const response = await axios.put(`http://localhost:3000/merchandises/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${token}`
@@ -310,7 +310,7 @@ const UpdateMerchandise = () => {
                                 <li key={index} className="flex items-center justify-between mt-1">
                                     {file.url ? (
                                         <img
-                                            src={`https://okocenet-72f35a89c2ef.herokuapp.com${file.url}`}
+                                            src={`http://localhost:3000${file.url}`}
                                             alt={file.name}
                                             className="w-20 h-20 object-cover mr-2"
                                         />

@@ -17,7 +17,7 @@ const Login = () => {
             const token = localStorage.getItem('token');
             if (token) {
                 try {
-                    await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/auth/validate-token', {
+                    await axios.get('http://localhost:3000/auth/validate-token', {
                         headers: {
                             Authorization: `Bearer ${token}`
                         }
@@ -51,7 +51,7 @@ const Login = () => {
         }
 
         try {
-            const response = await axios.post('https://okocenet-72f35a89c2ef.herokuapp.com/auth/login', JSON.stringify({
+            const response = await axios.post('http://localhost:3000/auth/login', JSON.stringify({
                 email,
                 password
             }), {

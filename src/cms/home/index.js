@@ -25,7 +25,7 @@ const CMSHome = () => {
     useEffect(() => {
         const fetchDeskripsi = async () => {
             try {
-                const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/deskripsi', {
+                const response = await axios.get('http://localhost:3000/deskripsi', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 const deskripsi = response.data;
@@ -39,7 +39,7 @@ const CMSHome = () => {
 
         const fetchBanners = async () => {
             try {
-                const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/banners/', {
+                const response = await axios.get('http://localhost:3000/banners/', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setBannerData(response.data);
@@ -50,7 +50,7 @@ const CMSHome = () => {
 
         const fetchTotals = async () => {
             try {
-                const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/totals', {
+                const response = await axios.get('http://localhost:3000/totals', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setTotalsData(response.data.data);
@@ -80,7 +80,7 @@ const CMSHome = () => {
         setModalAction(() => async () => {
             try {
                 setLoading(true); 
-                await axios.post('https://okocenet-72f35a89c2ef.herokuapp.com/deskripsi', deskripsiData, {
+                await axios.post('http://localhost:3000/deskripsi', deskripsiData, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setToast({ show: true, type: 'success', message: 'Deskripsi updated successfully!' });
@@ -103,7 +103,7 @@ const CMSHome = () => {
             formData.append('file', newBannerImage);
             setLoading(true); 
             try {
-                const response = await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/banners/${userId}`, formData, {
+                const response = await axios.post(`http://localhost:3000/banners/${userId}`, formData, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                         'Content-Type': 'multipart/form-data'
@@ -130,7 +130,7 @@ const CMSHome = () => {
         setModalAction(() => async () => {
             setLoading(true); 
             try {
-                await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/banners/${bannerId}`, {
+                await axios.delete(`http://localhost:3000/banners/${bannerId}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setBannerData(bannerData.filter((banner) => banner.id !== bannerId));
@@ -157,7 +157,7 @@ const CMSHome = () => {
         setBannerData(items);
         setLoading(true); 
         try {
-            await axios.put('https://okocenet-72f35a89c2ef.herokuapp.com/banners/reorder', { banners: items }, {
+            await axios.put('http://localhost:3000/banners/reorder', { banners: items }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setToast({ show: true, type: 'success', message: 'Banners reordered successfully!' });
@@ -314,7 +314,7 @@ const CMSHome = () => {
                                                             className="bg-gray-100 rounded-lg shadow-md p-3 mt-3 flex items-center justify-between"
                                                         >
                                                             <img
-                                                                src={`https://okocenet-72f35a89c2ef.herokuapp.com${banner.foto}`}
+                                                                src={`http://localhost:3000${banner.foto}`}
                                                                 className="w-24 h-16 rounded-lg mr-4"
                                                             />
                                                             <button

@@ -8,7 +8,7 @@ const ProfileComponent = () => {
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
-        const response = await fetch("https://okocenet-72f35a89c2ef.herokuapp.com/profiles");
+        const response = await fetch("http://localhost:3000/profiles");
         if (!response.ok) {
           throw new Error("Failed to fetch profiles");
         }
@@ -48,7 +48,7 @@ const ProfileComponent = () => {
               onClick={toggleText}
             >
               <img
-                src={`https://okocenet-72f35a89c2ef.herokuapp.com${item.foto}`}
+                src={`http://localhost:3000${item.foto}`}
                 className="object-cover ml-2 w-full h-full"
                 alt={item.nama}
               />

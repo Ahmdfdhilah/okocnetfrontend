@@ -19,7 +19,7 @@ const MerchandiseTable = () => {
 
     const fetchMerchandises = async () => {
         try {
-            const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/merchandises', { params: query });
+            const response = await axios.get('http://localhost:3000/merchandises', { params: query });
             setMerchandises(response.data.data);
         } catch (error) {
             console.error('Error fetching merchandises:', error);
@@ -28,7 +28,7 @@ const MerchandiseTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/merchandises/${id}`, {
+            await axios.delete(`http://localhost:3000/merchandises/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -67,7 +67,7 @@ const MerchandiseTable = () => {
                 {photos.slice(0, maxVisiblePhotos).map((photo, index) => (
                     <img
                         key={index}
-                        src={`https://okocenet-72f35a89c2ef.herokuapp.com${photo}`}
+                        src={`http://localhost:3000${photo}`}
                         alt={`Foto ${selectedMerchandise.judulMerchandise}`}
                         className="h-20 w-20 rounded-full object-cover -ml-4"
                         style={{ zIndex: index, marginLeft: index !== 0 ? '-12px' : '0' }}

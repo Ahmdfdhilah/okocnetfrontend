@@ -9,7 +9,7 @@ const Merchandise = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch('https://okocenet-72f35a89c2ef.herokuapp.com/merchandises');
+            const response = await fetch('http://localhost:3000/merchandises');
             if (!response.ok) {
                 throw new Error('Gagal mengambil data merchandise');
             }
@@ -71,7 +71,7 @@ const Merchandise = () => {
                                                     className={`duration-700 ease-in-out ${index === currentImageIndexes[currentItemIndex] ? 'block' : 'hidden'}`}
                                                     data-carousel-item
                                                 >
-                                                    <img src={`https://okocenet-72f35a89c2ef.herokuapp.com${imageUrl}`} className="object-cover w-full h-full" alt={item.judul} />
+                                                    <img src={`http://localhost:3000${imageUrl}`} className="object-cover w-full h-full" alt={item.judul} />
                                                 </div>
                                             ))}
                                         </div>

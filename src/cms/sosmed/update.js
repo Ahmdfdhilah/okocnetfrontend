@@ -19,7 +19,7 @@ const UpdateSosmed = () => {
     useEffect(() => {
         const fetchSosmed = async () => {
             try {
-                const response = await axios.get(`https://okocenet-72f35a89c2ef.herokuapp.com/sosmeds/${id}`);
+                const response = await axios.get(`http://localhost:3000/sosmeds/${id}`);
                 setFormData(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -64,7 +64,7 @@ const UpdateSosmed = () => {
         }
 
         try {
-            await axios.put(`https://okocenet-72f35a89c2ef.herokuapp.com/sosmeds/${id}/${userId}`, { link: formData.link }, {
+            await axios.put(`http://localhost:3000/sosmeds/${id}/${userId}`, { link: formData.link }, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

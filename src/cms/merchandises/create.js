@@ -119,7 +119,7 @@ const CreateMerchandise = () => {
                 formDataToSend.append('files', file);
             });
 
-            const response = await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/merchandises/${userId}`, formDataToSend, {
+            const response = await axios.post(`http://localhost:3000/merchandises/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${token}`

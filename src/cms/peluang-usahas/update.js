@@ -36,7 +36,7 @@ const UpdatePeluangUsaha = () => {
     useEffect(() => {
         const fetchPeluangUsaha = async () => {
             try {
-                const response = await axios.get(`https://okocenet-72f35a89c2ef.herokuapp.com/peluang-usahas/${id}`);
+                const response = await axios.get(`http://localhost:3000/peluang-usahas/${id}`);
                 const {
                     judulUsaha,
                     lokasiUsaha,
@@ -168,7 +168,7 @@ const UpdatePeluangUsaha = () => {
             formDataToSend.append('urlPendaftaran', formData.urlPendaftaran);
             formDataToSend.append('periodePendaftaran', formData.periodePendaftaran);
 
-            await axios.put(`https://okocenet-72f35a89c2ef.herokuapp.com/peluang-usahas/${id}/${userId}`, formDataToSend, {
+            await axios.put(`http://localhost:3000/peluang-usahas/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${token}`

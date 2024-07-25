@@ -7,7 +7,7 @@ const MitraList = () => {
     useEffect(() => {
         const fetchMitras = async () => {
             try {
-                const response = await axios.get("https://okocenet-72f35a89c2ef.herokuapp.com/mitras");
+                const response = await axios.get("http://localhost:3000/mitras");
                 setMitras(response.data.data); 
             } catch (error) {
                 console.error("Error fetching mitras:", error);
@@ -23,7 +23,7 @@ const MitraList = () => {
                 <div key={mitra.id}>
                     <img
                         className="h-auto max-w-full rounded-lg shadow-md"
-                        src={`https://okocenet-72f35a89c2ef.herokuapp.com${mitra.foto}`}
+                        src={`http://localhost:3000${mitra.foto}`}
                         alt={mitra.nama} 
                     />
                 </div>

@@ -23,7 +23,7 @@ const UpdateBrandLokal = () => {
     useEffect(() => {
         const fetchBrandLokal = async () => {
             try {
-                const response = await axios.get(`https://okocenet-72f35a89c2ef.herokuapp.com/brand-lokals/${id}`);
+                const response = await axios.get(`http://localhost:3000/brand-lokals/${id}`);
                 const { judulBrand, deskripsiBrand } = response.data;
                 setFormData({
                     judulBrand,
@@ -97,7 +97,7 @@ const UpdateBrandLokal = () => {
             formDataToSend.append('judulBrand', formData.judulBrand);
             formDataToSend.append('deskripsiBrand', formData.deskripsiBrand);
 
-            await axios.put(`https://okocenet-72f35a89c2ef.herokuapp.com/brand-lokals/${id}/${userId}`, formDataToSend, {
+            await axios.put(`http://localhost:3000/brand-lokals/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${token}`

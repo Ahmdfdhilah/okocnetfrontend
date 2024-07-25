@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
     const validateToken = async () => {
       try {
         if (accessToken) {
-          const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/auth/validate-token', {
+          const response = await axios.get('http://localhost:3000/auth/validate-token', {
             headers: {
               Authorization: `Bearer ${accessToken}`
             }
@@ -23,13 +23,13 @@ export const AuthProvider = ({ children }) => {
 
           if (response.data.message === 'Token is valid') {
             setIsAuthenticated(true);
-            const userResponse = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/auth/me', {
+            const userResponse = await axios.get('http://localhost:3000/auth/me', {
               headers: {
                 Authorization: `Bearer ${accessToken}`
               }
             });
             setUserId(userResponse.data.userId);
-            const roleResponse = await axios.get(`https://okocenet-72f35a89c2ef.herokuapp.com/users/${userResponse.data.userId}`, {
+            const roleResponse = await axios.get(`http://localhost:3000/users/${userResponse.data.userId}`, {
               headers: {
                 Authorization: `Bearer ${accessToken}`
               }
@@ -53,7 +53,7 @@ export const AuthProvider = ({ children }) => {
   }, [accessToken]);
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, loading, setIsAuthenticated, userId, role, accessToken }}>
+    <AuthContext.Provider value={{ isAuthenticated, loading, setIsAuthenticated, userId, role, token:accessToken }}>
       {children}
     </AuthContext.Provider>
   );

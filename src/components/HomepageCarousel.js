@@ -7,7 +7,7 @@ const HomepageCarousel = ({ interval = 2000 }) => {
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const response = await fetch('https://okocenet-72f35a89c2ef.herokuapp.com/banners');
+                const response = await fetch('http://localhost:3000/banners');
                 if (!response.ok) {
                     throw new Error('Failed to fetch banners');
                 }
@@ -36,7 +36,7 @@ const HomepageCarousel = ({ interval = 2000 }) => {
             {images.length > 0 && (
                 <img
                     className="object-cover w-full h-auto mobile:w-[200%]"
-                    src={`https://okocenet-72f35a89c2ef.herokuapp.com${images[currentImageIndex].foto}`}
+                    src={`http://localhost:3000${images[currentImageIndex].foto}`}
                     alt={images[currentImageIndex].id}
                 />
             )}

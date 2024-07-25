@@ -41,7 +41,7 @@ const UpdateEvent = () => {
     useEffect(() => {
         const fetchEventData = async () => {
             try {
-                const response = await axios.get(`https://okocenet-72f35a89c2ef.herokuapp.com/events/${id}`);
+                const response = await axios.get(`http://localhost:3000/events/${id}`);
                 const eventData = response.data;
 
                 const formattedDeskripsiEvent = eventData.deskripsiEvent.map(item => item.str);
@@ -206,7 +206,7 @@ const UpdateEvent = () => {
             formDataToSend.append('narasumber', formData.narasumber);
             formDataToSend.append('contactPerson', formData.contactPerson);
 
-            await axios.put(`https://okocenet-72f35a89c2ef.herokuapp.com/events/${id}/${userId}`, formDataToSend, {
+            await axios.put(`http://localhost:3000/events/${id}/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${token}`

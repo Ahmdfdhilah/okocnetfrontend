@@ -19,7 +19,7 @@ const TotalsTable = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/totals', { params: query });
+            const response = await axios.get('http://localhost:3000/totals', { params: query });
             setData(response.data.data);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -28,7 +28,7 @@ const TotalsTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/totals/${id}`, {
+            await axios.delete(`http://localhost:3000/totals/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

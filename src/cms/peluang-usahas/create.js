@@ -138,7 +138,7 @@ const CreatePeluangUsaha = () => {
             formDataToSend.append('periodePendaftaran', formData.periodePendaftaran);
             formDataToSend.append('publishedAt', new Date().toISOString().slice(0, 16));
 
-            await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/peluang-usahas/${userId}`, formDataToSend, {
+            await axios.post(`http://localhost:3000/peluang-usahas/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${token}`

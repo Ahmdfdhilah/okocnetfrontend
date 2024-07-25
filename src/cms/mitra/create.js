@@ -75,7 +75,7 @@ const CreateMitra = () => {
             formDataToSend.append('nama', formData.nama);
             formDataToSend.append('publishedAt', formData.publishedAt);
 
-            await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/mitras/${userId}`, formDataToSend, {
+            await axios.post(`http://localhost:3000/mitras/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${token}`

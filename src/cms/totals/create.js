@@ -52,7 +52,7 @@ const CreateTotal = () => {
 
         if (valid) {
             try {
-                const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/totals');
+                const response = await axios.get('http://localhost:3000/totals');
                 const existingNames = response.data.data.map((item) => item.nama);
 
                 if (existingNames.includes(formData.nama)) {
@@ -77,7 +77,7 @@ const CreateTotal = () => {
         }
 
         try {
-            await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/totals/${userId}`, formData, {
+            await axios.post(`http://localhost:3000/totals/${userId}`, formData, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

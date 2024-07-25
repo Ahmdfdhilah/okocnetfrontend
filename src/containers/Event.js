@@ -16,7 +16,7 @@ const Event = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch('https://okocenet-72f35a89c2ef.herokuapp.com/events');
+            const response = await fetch('http://localhost:3000/events');
             if (!response.ok) {
                 throw new Error('Gagal mengambil data event');
             }
@@ -51,7 +51,7 @@ const Event = () => {
                 {currentItems.map((data, index) =>
                     <div key={index} className="flex flex-col mx-auto w-5/6 max-md:ml-0 drop-shadow-xl max-md:w-full mobile:p-6 lg:p-0">
                         <div className="flex flex-col grow max-md:mt-10">
-                            <img src={`https://okocenet-72f35a89c2ef.herokuapp.com${data.fotoEvent}`} loading="lazy" className="w-full shadow-sm aspect-square" />
+                            <img src={`http://localhost:3000${data.fotoEvent}`} loading="lazy" className="w-full shadow-sm aspect-square" />
                             <div className="flex flex-col px-4 py-5 w-full bg-white shadow-sm">
                                 <div className="relative group mb-2 mt-2 h-10">
                                     <div className="text-base leading-7 text-black font-bold text-xl overflow-hidden line-clamp-2">

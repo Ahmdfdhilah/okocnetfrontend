@@ -15,7 +15,7 @@ const LokalBrand = () => {
     const fetchData = async () => {
         try {
             const response = await fetch(
-                "https://okocenet-72f35a89c2ef.herokuapp.com/brand-lokals"
+                "http://localhost:3000/brand-lokals"
             );
             if (!response.ok) {
                 throw new Error("Gagal mengambil data brand");
@@ -53,7 +53,7 @@ const LokalBrand = () => {
                         {/* <!-- Replace this with your grid items --> */}
                         {datas.map((data, index) =>
                             <div key={index} class="flex flex-col items-center">
-                                <img src={`https://okocenet-72f35a89c2ef.herokuapp.com${data.fotoBrand}`} alt="Placeholder Image" class="rounded-md object-cover mx-auto border lg:w-4/5 lg:h-96 " />
+                                <img src={`http://localhost:3000${data.fotoBrand}`} alt="Placeholder Image" class="rounded-md object-cover mx-auto border lg:w-4/5 lg:h-96 " />
                                 <div class="px-1 py-4 text-center">
                                     <div class="font-bold text-xl mb-2">{data.judulBrand}</div>
                                     <p class="text-gray-700 text-base">

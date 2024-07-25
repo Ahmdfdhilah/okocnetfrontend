@@ -12,7 +12,7 @@ const DeskripsiComponent = () => {
     useEffect(() => {
         const fetchDeskripsi = async () => {
             try {
-                const response = await fetch('https://okocenet-72f35a89c2ef.herokuapp.com/deskripsi');
+                const response = await fetch('http://localhost:3000/deskripsi');
                 if (!response.ok) {
                     throw new Error('Failed to fetch deskripsi');
                 }
@@ -25,7 +25,7 @@ const DeskripsiComponent = () => {
 
         const fetchSosmeds = async () => {
             try {
-                const response = await fetch('https://okocenet-72f35a89c2ef.herokuapp.com/sosmeds');
+                const response = await fetch('http://localhost:3000/sosmeds');
                 if (!response.ok) {
                     throw new Error('Failed to fetch sosmeds');
                 }

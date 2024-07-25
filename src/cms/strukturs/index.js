@@ -19,7 +19,7 @@ const StrukturTable = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/struktur-penguruses', { params: query });
+            const response = await axios.get('http://localhost:3000/struktur-penguruses', { params: query });
             setData(response.data.data);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -28,7 +28,7 @@ const StrukturTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/struktur-penguruses/${id}`, {
+            await axios.delete(`http://localhost:3000/struktur-penguruses/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -131,7 +131,7 @@ const StrukturTable = () => {
                             >
                                 <td className="py-3 px-4">
                                     <img
-                                        src={`https://okocenet-72f35a89c2ef.herokuapp.com${item.foto}`}
+                                        src={`http://localhost:3000${item.foto}`}
                                         alt={item.nama}
                                         className="h-10 w-10 rounded-full object-cover"
                                     />

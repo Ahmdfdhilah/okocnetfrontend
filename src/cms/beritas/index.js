@@ -25,7 +25,7 @@ const BeritasTable = () => {
         const fetchBeritas = async () => {
             try {
                 setLoading(true);
-                const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/beritas', { params: query });
+                const response = await axios.get('http://localhost:3000/beritas', { params: query });
                 setBeritas(response.data.data);
             } catch (error) {
                 console.error('Error fetching beritas:', error);
@@ -39,12 +39,12 @@ const BeritasTable = () => {
     const handleDelete = async (id) => {
         try {
             setLoading(true);
-            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/beritas/${id}`, {
+            await axios.delete(`http://localhost:3000/beritas/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             });
-            const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/beritas', { params: query });
+            const response = await axios.get('http://localhost:3000/beritas', { params: query });
             setBeritas(response.data.data);
             setToast({ show: true, type: 'success', message: 'Berita deleted successfully!' });
             setModalShow(false);
@@ -162,10 +162,10 @@ const BeritasTable = () => {
                                     <td className="py-3 px-4">{berita.authorBerita}</td>
                                     <td className="py-3 px-4">{berita.editorBerita}</td>
                                     <td className="py-3 px-4">
-                                        <img src={`https://okocenet-72f35a89c2ef.herokuapp.com${berita.fotoBerita}`} alt="foto" className="h-10 w-10 rounded-full object-cover" />
+                                        <img src={`http://localhost:3000${berita.fotoBerita}`} alt="foto" className="h-10 w-10 rounded-full object-cover" />
                                     </td>
                                     <td className="py-3 px-4">
-                                        <img src={`https://okocenet-72f35a89c2ef.herokuapp.com${berita.fotoContent}`} alt="content" className="h-10 w-10 rounded-full object-cover" />
+                                        <img src={`http://localhost:3000${berita.fotoContent}`} alt="content" className="h-10 w-10 rounded-full object-cover" />
                                     </td>
                                     <td className="py-3 px-4">
                                         <button

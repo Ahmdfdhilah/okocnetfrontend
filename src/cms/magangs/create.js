@@ -230,7 +230,7 @@ const CreateMagang = () => {
             });
             formDataToSend.append('publishedAt', formData.publishedAt);
 
-            await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/magangs/${userId}`, formDataToSend, {
+            await axios.post(`http://localhost:3000/magangs/${userId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${token}`

@@ -19,7 +19,7 @@ const MagangTable = () => {
 
     const fetchMagangs = async () => {
         try {
-            const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/magangs', { params: query });
+            const response = await axios.get('http://localhost:3000/magangs', { params: query });
             setMagangs(response.data.data);
         } catch (error) {
             console.error('Error fetching magangs:', error);
@@ -28,7 +28,7 @@ const MagangTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/magangs/${id}`, {
+            await axios.delete(`http://localhost:3000/magangs/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -136,7 +136,7 @@ const MagangTable = () => {
                                 <td className="py-3 px-4">{magang.jenisMagang}</td>
                                 <td className="py-3 px-4">
                                     <img
-                                        src={`https://okocenet-72f35a89c2ef.herokuapp.com${magang.fotoMagang}`}
+                                        src={`http://localhost:3000${magang.fotoMagang}`}
                                         alt={magang.judulMagang}
                                         className="h-10 w-10 rounded-full object-cover"
                                     />

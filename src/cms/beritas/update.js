@@ -41,7 +41,7 @@ const UpdateBerita = () => {
         const fetchBerita = async () => {
             try {
                 setLoading(true);
-                const response = await axios.get(`https://okocenet-72f35a89c2ef.herokuapp.com/beritas/${id}`);
+                const response = await axios.get(`http://localhost:3000/beritas/${id}`);
                 const beritaData = response.data;
 
                 const formattedDeskripsiBerita = beritaData.deskripsiBerita.map(item => item.str);
@@ -174,7 +174,7 @@ const UpdateBerita = () => {
                 formDataToSend.append('file2', formData.file2);
                 formDataToSend.append('publishedAt', formData.publishedAt);
 
-                await axios.put(`https://okocenet-72f35a89c2ef.herokuapp.com/beritas/${id}/${userId}`, formDataToSend, {
+                await axios.put(`http://localhost:3000/beritas/${id}/${userId}`, formDataToSend, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         Authorization: `Bearer ${token}`

@@ -19,7 +19,7 @@ const PeluangKerjaTable = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('https://okocenet-72f35a89c2ef.herokuapp.com/peluang-kerjas', { params: query });
+            const response = await axios.get('http://localhost:3000/peluang-kerjas', { params: query });
             setData(response.data.data);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -28,7 +28,7 @@ const PeluangKerjaTable = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://okocenet-72f35a89c2ef.herokuapp.com/peluang-kerjas/${id}`, {
+            await axios.delete(`http://localhost:3000/peluang-kerjas/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -133,7 +133,7 @@ const PeluangKerjaTable = () => {
                             >
                                 <td className="py-3 px-4">
                                     <img
-                                        src={`https://okocenet-72f35a89c2ef.herokuapp.com${item.fotoKerja}`}
+                                        src={`http://localhost:3000${item.fotoKerja}`}
                                         alt={item.judulKerja}
                                         className="h-10 w-10 rounded-full object-cover"
                                     />

@@ -144,7 +144,7 @@ const CreateBerita = () => {
                 formDataToSend.append('file2', formData.file2);
                 formDataToSend.append('publishedAt', formData.publishedAt);
 
-                await axios.post(`https://okocenet-72f35a89c2ef.herokuapp.com/beritas/${userId}`, formDataToSend, {
+                await axios.post(`http://localhost:3000/beritas/${userId}`, formDataToSend, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         Authorization: `Bearer ${token}`

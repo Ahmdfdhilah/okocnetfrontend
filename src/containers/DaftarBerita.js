@@ -15,7 +15,7 @@ const DaftarBerita = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch('https://okocenet-72f35a89c2ef.herokuapp.com/beritas')
+            const response = await fetch('http://localhost:3000/beritas')
             if (!response.ok) {
                 throw new Error('Gagal mengambil data berita');
             }
@@ -52,7 +52,7 @@ const DaftarBerita = () => {
                         <div key={index} className="w-full mx-auto p-4">
                             <div className="bg-blue-400 shadow-md rounded-lg lg:mr-1">
                                 <div className="p-5">
-                                    <img className="object-cover w-full mobile:h-36 lg:h-96" src={`https://okocenet-72f35a89c2ef.herokuapp.com${data.fotoBerita}`} alt="" />
+                                    <img className="object-cover w-full mobile:h-36 lg:h-96" src={`http://localhost:3000${data.fotoBerita}`} alt="" />
                                     <div className="relative group mb-2 mt-6 h-20">
                                         <div className="text-base leading-7 text-white font-bold text-xl overflow-hidden line-clamp-2">
                                             {data.judulBerita}
