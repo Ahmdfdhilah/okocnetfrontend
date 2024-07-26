@@ -2,10 +2,17 @@ import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthContext';
+import Loading from '../../components/Loading';
+import ConfirmationModal from '../../components/ConfirmationModal';
 
 const CreatePeluangKerja = () => {
     const navigate = useNavigate();
     const { userId, token } = useContext(AuthContext);
+    const [modalShow, setModalShow] = useState(false);
+    const [modalTitle, setModalTitle] = useState('');
+    const [modalMessage, setModalMessage] = useState('');
+    const [modalAction, setModalAction] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const [formData, setFormData] = useState({
         file: null,
@@ -16,7 +23,7 @@ const CreatePeluangKerja = () => {
         tentangProgram: '',
         benefitProgram: '',
         jobdescKerja: '',
-        kriteriaPeserta: '', // Updated field name
+        kriteriaPeserta: '',
         urlPendaftaran: '',
         periodePendaftaran: '',
         sistemKerja: '',
@@ -30,7 +37,7 @@ const CreatePeluangKerja = () => {
         tentangProgram: '',
         benefitProgram: '',
         jobdescKerja: '',
-        kriteriaPeserta: '', // Updated field name
+        kriteriaPeserta: '',
         urlPendaftaran: '',
         periodePendaftaran: '',
         sistemKerja: '',
@@ -130,36 +137,43 @@ const CreatePeluangKerja = () => {
         if (!validateForm()) {
             return;
         }
+        setModalAction(() => async () => {
+            try {
+                setLoading(true);
+                const formDataToSend = new FormData();
+                formDataToSend.append('file', formData.file);
+                formDataToSend.append('judulKerja', formData.judulKerja);
+                formDataToSend.append('lokasiKerja', formData.lokasiKerja);
+                formDataToSend.append('kategoriKerja', formData.kategoriKerja);
+                formDataToSend.append('tentangProgram', formData.tentangProgram);
+                formDataToSend.append('benefitProgram', formData.benefitProgram);
+                formDataToSend.append('jobdescKerja', formData.jobdescKerja);
+                formDataToSend.append('kriteriaPeserta', formData.kriteriaPeserta);
+                formDataToSend.append('urlPendaftaran', formData.urlPendaftaran);
+                formDataToSend.append('periodePendaftaran', formData.periodePendaftaran);
+                formDataToSend.append('sistemKerja', formData.sistemKerja);
+                formDataToSend.append('publishedAt', new Date().toISOString().slice(0, 16));
 
-        try {
-            const formDataToSend = new FormData();
-            formDataToSend.append('file', formData.file);
-            formDataToSend.append('judulKerja', formData.judulKerja);
-            formDataToSend.append('lokasiKerja', formData.lokasiKerja);
-            formDataToSend.append('kategoriKerja', formData.kategoriKerja);
-            formDataToSend.append('tentangProgram', formData.tentangProgram);
-            formDataToSend.append('benefitProgram', formData.benefitProgram);
-            formDataToSend.append('jobdescKerja', formData.jobdescKerja);
-            formDataToSend.append('kriteriaPeserta', formData.kriteriaPeserta);
-            formDataToSend.append('urlPendaftaran', formData.urlPendaftaran);
-            formDataToSend.append('periodePendaftaran', formData.periodePendaftaran);
-            formDataToSend.append('sistemKerja', formData.sistemKerja);
-            formDataToSend.append('publishedAt', new Date().toISOString().slice(0, 16));
+                await axios.post(`http://localhost:3000/peluang-kerjas/${userId}`, formDataToSend, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                        Authorization: `Bearer ${token}`
+                    }
+                });
 
-            await axios.post(`http://localhost:3000/peluang-kerjas/${userId}`, formDataToSend, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                    Authorization: `Bearer ${token}`
-                }
-            });
-
-            navigate('/admin/peluang-kerja');
-        } catch (error) {
-            console.error('Error creating data:', error);
-        }
+                navigate('/admin/peluang-kerja');
+            } catch (error) {
+                console.error('Error creating data:', error);
+            }
+        });
+        setModalTitle('Konfirmasi');
+        setModalMessage('Apakah Anda yakin ingin membuat peluang kerja ini?');
+        setModalShow(true);
     };
 
     return (
+        <>
+        {loading && <Loading />}
         <div className="container mx-auto py-10 mt-32">
             <h1 className="text-4xl font-bold mb-8 text-center">Create New Peluang Kerja</h1>
             <form onSubmit={onSubmit} encType="multipart/form-data" className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
@@ -343,13 +357,26 @@ const CreatePeluangKerja = () => {
                 <div className="mt-6">
                     <button
                         type="submit"
-                        className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:text-sm"
+                        className="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 rounded-lg text-white font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:text-sm"
                     >
                         Simpan
                     </button>
                 </div>
             </form>
         </div>
+        <ConfirmationModal
+                show={modalShow}
+                title={modalTitle}
+                message={modalMessage}
+                onConfirm={() => {
+                    if (modalAction) {
+                        modalAction();
+                    }
+                    setModalShow(false);
+                }}
+                onCancel={() => setModalShow(false)}
+            />
+        </>
     );
 };
 

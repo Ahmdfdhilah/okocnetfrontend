@@ -2,11 +2,18 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthContext';
+import ConfirmationModal from '../../components/ConfirmationModal';
+import Loading from '../../components/Loading';
 
 const UpdateMagang = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const { userId, token } = useContext(AuthContext);
+    const [modalShow, setModalShow] = useState(false);
+    const [modalTitle, setModalTitle] = useState('');
+    const [modalMessage, setModalMessage] = useState('');
+    const [modalAction, setModalAction] = useState(null);
+    const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         judulMagang: '',
         durasiMagang: '',
@@ -37,6 +44,7 @@ const UpdateMagang = () => {
     useEffect(() => {
         const fetchMagangData = async () => {
             try {
+                setLoading(true);
                 const response = await axios.get(`http://localhost:3000/magangs/${id}`);
                 const magangData = response.data;
 
@@ -58,6 +66,8 @@ const UpdateMagang = () => {
                 });
             } catch (error) {
                 console.error('Error fetching internship data:', error);
+            } finally{
+                setLoading(false);
             }
         };
 
@@ -232,234 +242,307 @@ const UpdateMagang = () => {
         if (!validateForm()) {
             return;
         }
+        setModalAction(() => async () => {
+            try {
+                setLoading(true);
+                const formDataToSend = new FormData();
+                formDataToSend.append('file', formData.file);
+                formDataToSend.append('judulMagang', formData.judulMagang);
+                formDataToSend.append('durasiMagang', formData.durasiMagang);
+                formDataToSend.append('urlMsib', formData.urlMsib);
+                formDataToSend.append('tentangProgram', formData.tentangProgram);
+                formDataToSend.append('jenisMagang', formData.jenisMagang);
+                formData.deskripsiMagang.forEach((deskripsi, index) => {
+                    formDataToSend.append(`deskripsiMagang[${index}]`, deskripsi);
+                });
+                formData.kriteriaPeserta.forEach((kriteria, index) => {
+                    formDataToSend.append(`kriteriaPeserta[${index}]`, kriteria);
+                });
+                formData.kompetensi.forEach((kompetensi, index) => {
+                    formDataToSend.append(`kompetensi[${index}]`, kompetensi);
+                });
 
-        try {
-            const formDataToSend = new FormData();
-            formDataToSend.append('file', formData.file);
-            formDataToSend.append('judulMagang', formData.judulMagang);
-            formDataToSend.append('durasiMagang', formData.durasiMagang);
-            formDataToSend.append('urlMsib', formData.urlMsib);
-            formDataToSend.append('tentangProgram', formData.tentangProgram);
-            formDataToSend.append('jenisMagang', formData.jenisMagang);
-            formData.deskripsiMagang.forEach((deskripsi, index) => {
-                formDataToSend.append(`deskripsiMagang[${index}]`, deskripsi);
-            });
-            formData.kriteriaPeserta.forEach((kriteria, index) => {
-                formDataToSend.append(`kriteriaPeserta[${index}]`, kriteria);
-            });
-            formData.kompetensi.forEach((kompetensi, index) => {
-                formDataToSend.append(`kompetensi[${index}]`, kompetensi);
-            });
+                await axios.put(`http://localhost:3000/magangs/${id}/${userId}`, formDataToSend, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                        Authorization: `Bearer ${token}`
+                    }
+                });
 
-            await axios.put(`http://localhost:3000/magangs/${id}/${userId}`, formDataToSend, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                    Authorization: `Bearer ${token}`
-                }
-            });
-
-            navigate('/admin/magang');
-        } catch (error) {
-            console.error('Error updating data:', error);
-        }
+                navigate('/admin/magang');
+            } catch (error) {
+                console.error('Error updating data:', error);
+                setLoading(false);
+            }
+        })
+        setModalTitle('Konfirmasi');
+        setModalMessage('Apakah Anda yakin ingin mengedit magang ini?');
+        setModalShow(true);
     };
 
     return (
-        <div className="container mx-auto py-10 mt-32">
-            <h1 className="text-4xl font-bold mb-8 text-center">Update Magang</h1>
-            <form onSubmit={onSubmit} className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md">
-                <div className="mb-6">
-                    <label htmlFor="judulMagang" className="block text-lg font-medium text-gray-700 mb-2">
-                        Judul Magang
-                    </label>
-                    <input
-                        type="text"
-                        id="judulMagang"
-                        name="judulMagang"
-                        value={formData.judulMagang}
-                        onChange={handleInputChange}
-                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.judulMagang ? 'border-red-500' : ''}`}
-                        placeholder="Masukkan judul magang"
-                    />
-                    {formErrors.judulMagang && <p className="text-red-500 text-sm mt-1">{formErrors.judulMagang}</p>}
-                </div>
+        <>
+            {loading && <Loading />}
+            <div className="container mx-auto py-10 mt-32">
+                <h1 className="text-4xl font-bold mb-8 text-center">Update Magang</h1>
+                <form onSubmit={onSubmit} className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md">
+                    <div className="mb-6">
+                        <label htmlFor="judulMagang" className="block text-lg font-medium text-gray-700 mb-2">
+                            Judul Magang
+                        </label>
+                        <input
+                            type="text"
+                            id="judulMagang"
+                            name="judulMagang"
+                            value={formData.judulMagang}
+                            onChange={handleInputChange}
+                            className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.judulMagang ? 'border-red-500' : ''}`}
+                            placeholder="Masukkan judul magang"
+                        />
+                        {formErrors.judulMagang && <p className="text-red-500 text-sm mt-1">{formErrors.judulMagang}</p>}
+                    </div>
 
-                <div className="mb-6">
-                    <label htmlFor="durasiMagang" className="block text-lg font-medium text-gray-700 mb-2">
-                        Durasi Magang
-                    </label>
-                    <input
-                        type="text"
-                        id="durasiMagang"
-                        name="durasiMagang"
-                        value={formData.durasiMagang}
-                        onChange={handleInputChange}
-                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.durasiMagang ? 'border-red-500' : ''}`}
-                        placeholder="Masukkan durasi magang"
-                    />
-                    {formErrors.durasiMagang && <p className="text-red-500 text-sm mt-1">{formErrors.durasiMagang}</p>}
-                </div>
+                    <div className="mb-6">
+                        <label htmlFor="durasiMagang" className="block text-lg font-medium text-gray-700 mb-2">
+                            Durasi Magang
+                        </label>
+                        <input
+                            type="text"
+                            id="durasiMagang"
+                            name="durasiMagang"
+                            value={formData.durasiMagang}
+                            onChange={handleInputChange}
+                            className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.durasiMagang ? 'border-red-500' : ''}`}
+                            placeholder="Masukkan durasi magang"
+                        />
+                        {formErrors.durasiMagang && <p className="text-red-500 text-sm mt-1">{formErrors.durasiMagang}</p>}
+                    </div>
 
-                <div className="mb-6">
-                    <label htmlFor="urlMsib" className="block text-lg font-medium text-gray-700 mb-2">
-                        URL MSIB
-                    </label>
-                    <input
-                        type="text"
-                        id="urlMsib"
-                        name="urlMsib"
-                        value={formData.urlMsib}
-                        onChange={handleInputChange}
-                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.urlMsib ? 'border-red-500' : ''}`}
-                        placeholder="Masukkan URL MSIB"
-                    />
-                    {formErrors.urlMsib && <p className="text-red-500 text-sm mt-1">{formErrors.urlMsib}</p>}
-                </div>
+                    <div className="mb-6">
+                        <label htmlFor="urlMsib" className="block text-lg font-medium text-gray-700 mb-2">
+                            URL MSIB
+                        </label>
+                        <input
+                            type="text"
+                            id="urlMsib"
+                            name="urlMsib"
+                            value={formData.urlMsib}
+                            onChange={handleInputChange}
+                            className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.urlMsib ? 'border-red-500' : ''}`}
+                            placeholder="Masukkan URL MSIB"
+                        />
+                        {formErrors.urlMsib && <p className="text-red-500 text-sm mt-1">{formErrors.urlMsib}</p>}
+                    </div>
 
-                <div className="mb-6">
-                    <label htmlFor="tentangProgram" className="block text-lg font-medium text-gray-700 mb-2">
-                        Tentang Program
-                    </label>
-                    <textarea
-                        id="tentangProgram"
-                        name="tentangProgram"
-                        value={formData.tentangProgram}
-                        onChange={handleInputChange}
-                        rows={3}
-                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.tentangProgram ? 'border-red-500' : ''}`}
-                        placeholder="Masukkan tentang program"
-                    />
-                    {formErrors.tentangProgram && <p className="text-red-500 text-sm mt-1">{formErrors.tentangProgram}</p>}
-                </div>
+                    <div className="mb-6">
+                        <label htmlFor="tentangProgram" className="block text-lg font-medium text-gray-700 mb-2">
+                            Tentang Program
+                        </label>
+                        <textarea
+                            id="tentangProgram"
+                            name="tentangProgram"
+                            value={formData.tentangProgram}
+                            onChange={handleInputChange}
+                            rows={3}
+                            className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.tentangProgram ? 'border-red-500' : ''}`}
+                            placeholder="Masukkan tentang program"
+                        />
+                        {formErrors.tentangProgram && <p className="text-red-500 text-sm mt-1">{formErrors.tentangProgram}</p>}
+                    </div>
 
-                <div className="mb-6">
-                    <label htmlFor="jenisMagang" className="block text-lg font-medium text-gray-700 mb-2">
-                        Jenis Magang
-                    </label>
-                    <input
-                        type="text"
-                        id="jenisMagang"
-                        name="jenisMagang"
-                        value={formData.jenisMagang}
-                        onChange={handleInputChange}
-                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.jenisMagang ? 'border-red-500' : ''}`}
-                        placeholder="Masukkan jenis magang"
-                    />
-                    {formErrors.jenisMagang && <p className="text-red-500 text-sm mt-1">{formErrors.jenisMagang}</p>}
-                </div>
+                    <div className="mb-6">
+                        <label htmlFor="jenisMagang" className="block text-lg font-medium text-gray-700 mb-2">
+                            Jenis Magang
+                        </label>
+                        <select
+                            id="jenisMagang"
+                            name="jenisMagang"
+                            value={formData.jenisMagang}
+                            onChange={handleInputChange}
+                            className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.jenisMagang ? 'border-red-500' : ''}`}
+                        >
+                            <option value="">Pilih jenis magang</option>
+                            <option value="Hybrid">Hybrid</option>
+                            <option value="WFO (Work From Office)">WFO (Work From Office)</option>
+                            <option value="WFH (Work From Home)">WFH (Work From Home)</option>
+                        </select>
+                        {formErrors.jenisMagang && <p className="text-red-500 text-sm mt-1">{formErrors.jenisMagang}</p>}
+                    </div>
 
-                <div className="mb-6">
-                    <label htmlFor="deskripsiMagang" className="block text-lg font-medium text-gray-700 mb-2">
-                        Deskripsi Magang
-                    </label>
-                    {formData.deskripsiMagang.map((deskripsi, index) => (
-                        <div key={index} className="flex items-center mt-2">
-                            <input
-                                type="text"
-                                id={`deskripsiMagang${index}`}
-                                name={`deskripsiMagang[${index}]`}
-                                value={deskripsi}
-                                onChange={(e) => handleDescriptionChange(index, e.target.value)}
-                                className={`block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.deskripsiMagang ? 'border-red-500' : ''}`}
-                                placeholder="Masukkan deskripsi magang"
-                            />
-                            <button
-                                type="button"
-                                onClick={() => handleRemoveDescription(index)}
-                                className="ml-2 px-2 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-600"
-                            >
-                                Remove
-                            </button>
-                        </div>
-                    ))}
-                    <button
-                        type="button"
-                        onClick={handleAddDescription}
-                        className="mt-2 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
-                        Add Deskripsi Magang
-                    </button>
-                    {formErrors.deskripsiMagang && <p className="text-red-500 text-sm mt-1">{formErrors.deskripsiMagang}</p>}
-                </div>
 
-                <div className="mb-6">
-                    <label htmlFor="lokasiMagang" className="block text-lg font-medium text-gray-700 mb-2">
-                        Lokasi Magang
-                    </label>
-                    <input
-                        type="text"
-                        id="lokasiMagang"
-                        name="lokasiMagang"
-                        value={formData.lokasiMagang}
-                        onChange={handleInputChange}
-                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.lokasiMagang ? 'border-red-500' : ''}`}
-                        placeholder="Masukkan lokasi magang"
-                    />
-                    {formErrors.lokasiMagang && <p className="text-red-500 text-sm mt-1">{formErrors.lokasiMagang}</p>}
-                </div>
+                    <div className="mb-6">
+                        <label htmlFor="deskripsiMagang" className="block text-lg font-medium text-gray-700 mb-2">
+                            Deskripsi Magang
+                        </label>
+                        {formData.deskripsiMagang.map((deskripsi, index) => (
+                            <div key={index} className="flex items-center mt-2">
+                                <input
+                                    type="text"
+                                    id={`deskripsiMagang${index}`}
+                                    name={`deskripsiMagang[${index}]`}
+                                    value={deskripsi}
+                                    onChange={(e) => handleDescriptionChange(index, e.target.value)}
+                                    className={`block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.deskripsiMagang ? 'border-red-500' : ''}`}
+                                    placeholder="Masukkan deskripsi magang"
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => handleRemoveDescription(index)}
+                                    className="ml-2 px-2 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-600"
+                                >
+                                    Remove
+                                </button>
+                            </div>
+                        ))}
+                        <button
+                            type="button"
+                            onClick={handleAddDescription}
+                            className="mt-2 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        >
+                            Add Deskripsi Magang
+                        </button>
+                        {formErrors.deskripsiMagang && <p className="text-red-500 text-sm mt-1">{formErrors.deskripsiMagang}</p>}
+                    </div>
 
-                <div className="mb-6">
-                    <label htmlFor="benefitMagang" className="block text-lg font-medium text-gray-700 mb-2">
-                        Benefit Magang
-                    </label>
-                    <input
-                        type="text"
-                        id="benefitMagang"
-                        name="benefitMagang"
-                        value={formData.benefitMagang}
-                        onChange={handleInputChange}
-                        className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.benefitMagang ? 'border-red-500' : ''}`}
-                        placeholder="Masukkan benefit magang"
-                    />
-                    {formErrors.benefitMagang && <p className="text-red-500 text-sm mt-1">{formErrors.benefitMagang}</p>}
-                </div>
+                    <div className="mb-6">
+                        <label htmlFor="lokasiMagang" className="block text-lg font-medium text-gray-700 mb-2">
+                            Lokasi Magang
+                        </label>
+                        <input
+                            type="text"
+                            id="lokasiMagang"
+                            name="lokasiMagang"
+                            value={formData.lokasiMagang}
+                            onChange={handleInputChange}
+                            className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.lokasiMagang ? 'border-red-500' : ''}`}
+                            placeholder="Masukkan lokasi magang"
+                        />
+                        {formErrors.lokasiMagang && <p className="text-red-500 text-sm mt-1">{formErrors.lokasiMagang}</p>}
+                    </div>
 
-                {/* Kriteria Peserta */}
-                <div className="mb-4">
-                    <label htmlFor="kriteriaPeserta" className="block text-sm font-medium text-gray-700">
-                        Kriteria Peserta
-                    </label>
-                    {formData.kriteriaPeserta.map((kriteria, index) => (
-                        <div key={index} className="flex items-center mt-2">
-                            <input
-                                type="text"
-                                id={`kriteriaPeserta${index}`}
-                                name={`kriteriaPeserta[${index}]`}
-                                value={kriteria}
-                                onChange={(e) => handleCriteriaChange(index, e.target.value)}
-                                className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.kriteriaPeserta ? 'border-red-500' : ''}`}
-                            />
-                            <button
-                                type="button"
-                                onClick={() => handleRemoveCriteria(index)}
-                                className="ml-2 px-2 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-600"
-                            >
-                                Remove
-                            </button>
-                        </div>
-                    ))}
-                    <button
-                        type="button"
-                        onClick={handleAddCriteria}
-                        className="mt-2 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
-                        Add Kriteria Peserta
-                    </button>
-                    {formErrors.kriteriaPeserta && <p className="text-red-500 text-sm mt-1">{formErrors.kriteriaPeserta}</p>}
-                </div>
+                    <div className="mb-6">
+                        <label htmlFor="benefitMagang" className="block text-lg font-medium text-gray-700 mb-2">
+                            Benefit Magang
+                        </label>
+                        <input
+                            type="text"
+                            id="benefitMagang"
+                            name="benefitMagang"
+                            value={formData.benefitMagang}
+                            onChange={handleInputChange}
+                            className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.benefitMagang ? 'border-red-500' : ''}`}
+                            placeholder="Masukkan benefit magang"
+                        />
+                        {formErrors.benefitMagang && <p className="text-red-500 text-sm mt-1">{formErrors.benefitMagang}</p>}
+                    </div>
 
-                {/* Button Submit */}
-                <div className="flex">
-                    <button
-                        type="submit"
-                        className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
-                        Update Magang
-                    </button>
-                </div>
-            </form>
-        </div>
+                    {/* Kriteria Peserta */}
+                    <div className="mb-4">
+                        <label htmlFor="kriteriaPeserta" className="block text-sm font-medium text-gray-700">
+                            Kriteria Peserta
+                        </label>
+                        {formData.kriteriaPeserta.map((kriteria, index) => (
+                            <div key={index} className="flex items-center mt-2">
+                                <input
+                                    type="text"
+                                    id={`kriteriaPeserta${index}`}
+                                    name={`kriteriaPeserta[${index}]`}
+                                    value={kriteria}
+                                    onChange={(e) => handleCriteriaChange(index, e.target.value)}
+                                    className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.kriteriaPeserta ? 'border-red-500' : ''}`}
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => handleRemoveCriteria(index)}
+                                    className="ml-2 px-2 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-600"
+                                >
+                                    Remove
+                                </button>
+                            </div>
+                        ))}
+                        <button
+                            type="button"
+                            onClick={handleAddCriteria}
+                            className="mt-2 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        >
+                            Add Kriteria Peserta
+                        </button>
+                        {formErrors.kriteriaPeserta && <p className="text-red-500 text-sm mt-1">{formErrors.kriteriaPeserta}</p>}
+                    </div>
 
+                    {/* Kompetensi */}
+                    <div className="mb-4">
+                        <label htmlFor="kompetensi" className="block text-sm font-medium text-gray-700">
+                            Kompetensi
+                        </label>
+                        {formData.kompetensi.map((kompetensi, index) => (
+                            <div key={index} className="flex items-center mt-2">
+                                <input
+                                    type="text"
+                                    id={`kompetensi${index}`}
+                                    name={`kompetensi[${index}]`}
+                                    value={kompetensi}
+                                    onChange={(e) => handleCompetencyChange(index, e.target.value)}
+                                    className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.kompetensi ? 'border-red-500' : ''}`}
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => handleRemoveCompetency(index)}
+                                    className="ml-2 px-2 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-600"
+                                >
+                                    Remove
+                                </button>
+                            </div>
+                        ))}
+                        <button
+                            type="button"
+                            onClick={handleAddCompetency}
+                            className="mt-2 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        >
+                            Add Kompetensi
+                        </button>
+                        {formErrors.kompetensi && <p className="text-red-500 text-sm mt-1">{formErrors.kompetensi}</p>}
+                    </div>
+
+                    {/* File Upload */}
+                    <div className="mb-4">
+                        <label htmlFor="file" className="block text-sm font-medium text-gray-700">
+                            Foto Magang
+                        </label>
+                        <input
+                            type="file"
+                            id="file"
+                            name="file"
+                            accept="image/*"
+                            onChange={handleFileChange}
+                            className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${formErrors.file ? 'border-red-500' : ''}`}
+                        />
+                        {formErrors.file && <p className="text-red-500 text-sm mt-1">{formErrors.file}</p>}
+                    </div>
+
+                    <div className="mt-6">
+                        <button
+                            type="submit"
+                            className="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 rounded-lg text-white font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:text-sm"
+                        >
+                            Simpan
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <ConfirmationModal
+                show={modalShow}
+                title={modalTitle}
+                message={modalMessage}
+                onConfirm={() => {
+                    if (modalAction) {
+                        modalAction();
+                    }
+                    setModalShow(false);
+                }}
+                onCancel={() => setModalShow(false)}
+            />
+        </>
     );
 };
 

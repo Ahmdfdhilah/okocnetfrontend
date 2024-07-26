@@ -2,10 +2,17 @@ import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthContext';
+import Loading from '../../components/Loading';
+import ConfirmationModal from '../../components/ConfirmationModal';
 
 const CreateMerchandise = () => {
     const navigate = useNavigate();
     const { userId, token } = useContext(AuthContext);
+    const [modalShow, setModalShow] = useState(false);
+    const [modalTitle, setModalTitle] = useState('');
+    const [modalMessage, setModalMessage] = useState('');
+    const [modalAction, setModalAction] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const [formData, setFormData] = useState({
         judulMerchandise: '',
@@ -105,34 +112,42 @@ const CreateMerchandise = () => {
         if (!validateForm()) {
             return;
         }
+        setModalAction(() => async () => {
+            try {
+                setLoading(true);
+                const formDataToSend = new FormData();
+                formDataToSend.append('judulMerchandise', formData.judulMerchandise);
+                formDataToSend.append('deskripsiMerchandise', formData.deskripsiMerchandise);
+                formDataToSend.append('hargaMerchandise', formData.hargaMerchandise);
+                formDataToSend.append('stockMerchandise', formData.stockMerchandise);
+                formDataToSend.append('linkMerchandise', formData.linkMerchandise);
+                formDataToSend.append('publishedAt', formData.publishedAt);
 
-        try {
-            const formDataToSend = new FormData();
-            formDataToSend.append('judulMerchandise', formData.judulMerchandise);
-            formDataToSend.append('deskripsiMerchandise', formData.deskripsiMerchandise);
-            formDataToSend.append('hargaMerchandise', formData.hargaMerchandise);
-            formDataToSend.append('stockMerchandise', formData.stockMerchandise);
-            formDataToSend.append('linkMerchandise', formData.linkMerchandise);
-            formDataToSend.append('publishedAt', formData.publishedAt);
+                formData.files.forEach((file) => {
+                    formDataToSend.append('files', file);
+                });
 
-            formData.files.forEach((file) => {
-                formDataToSend.append('files', file);
-            });
+                const response = await axios.post(`http://localhost:3000/merchandises/${userId}`, formDataToSend, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                        Authorization: `Bearer ${token}`
+                    }
+                });
 
-            const response = await axios.post(`http://localhost:3000/merchandises/${userId}`, formDataToSend, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                    Authorization: `Bearer ${token}`
-                }
-            });
-
-            navigate('/admin/merchandise');
-        } catch (error) {
-            console.error('Error creating merchandise:', error);
-        }
+                navigate('/admin/merchandise');
+            } catch (error) {
+                console.error('Error creating merchandise:', error);
+                setLoading(false);
+            }
+        })
+        setModalTitle('Konfirmasi');
+        setModalMessage('Apakah Anda yakin ingin membuat merchandise ini?');
+        setModalShow(true);
     };
 
     return (
+        <>
+            {loading && <Loading/>}
         <div className="container mx-auto py-10 mt-32">
             <h1 className="text-4xl font-bold mb-8 text-center">Create New Merchandise</h1>
             <form onSubmit={onSubmit} className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md" encType="multipart/form-data">
@@ -269,6 +284,19 @@ const CreateMerchandise = () => {
                 </div>
             </form>
         </div>
+        <ConfirmationModal
+                show={modalShow}
+                title={modalTitle}
+                message={modalMessage}
+                onConfirm={() => {
+                    if (modalAction) {
+                        modalAction();
+                    }
+                    setModalShow(false);
+                }}
+                onCancel={() => setModalShow(false)}
+            />
+        </>
     );
 };
 
