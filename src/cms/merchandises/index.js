@@ -31,7 +31,7 @@ const MerchandiseTable = () => {
             setMerchandises(response.data.data);
         } catch (error) {
             console.error('Error fetching merchandises:', error);
-            setToast({ show: true, type: 'error', message: 'Failed to fetch merchandises.' });
+            setToast({ show: true, type: 'error', message: 'Gagal mengambil merchandise.' });
         } finally {
             setLoading(false);
         }
@@ -45,11 +45,11 @@ const MerchandiseTable = () => {
                     Authorization: `Bearer ${token}`
                 }
             });
-            setToast({ show: true, type: 'success', message: 'Merchandise deleted successfully!' });
+            setToast({ show: true, type: 'success', message: 'Merchandise berhasil dihapus!' });
             fetchMerchandises();
         } catch (error) {
             console.error('Error deleting merchandise:', error);
-            setToast({ show: true, type: 'error', message: 'Failed to delete merchandise.' });
+            setToast({ show: true, type: 'error', message: 'Gagal menghapus merchandise.' });
         } finally {
             setLoading(false);
             setModalShow(false);
@@ -99,7 +99,7 @@ const MerchandiseTable = () => {
                     />
                 ))}
                 {remainingPhotos > 0 && (
-                    <span className="self-end ml-2 text-sm">+ {remainingPhotos} more</span>
+                    <span className="self-end ml-2 text-sm">+ {remainingPhotos} lainnya</span>
                 )}
             </div>
         );
@@ -136,18 +136,18 @@ const MerchandiseTable = () => {
             {loading && <Loading />}
             <div className="overflow-x-auto my-32 px-6">
                 <div className="flex justify-between mb-6">
-                    <h2 className="text-2xl font-semibold text-gray-800">Merchandises</h2>
+                    <h2 className="text-2xl font-semibold text-gray-800">Merchandise</h2>
                     <button
                         onClick={handleCreateNew}
                         className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none"
                     >
-                        Create New
+                        Buat Baru
                     </button>
                 </div>
                 <div className="mb-4 flex items-center">
                     <input
                         type="text"
-                        placeholder="Search..."
+                        placeholder="Cari..."
                         value={query.search || ''}
                         onChange={handleSearchChange}
                         className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
@@ -157,17 +157,17 @@ const MerchandiseTable = () => {
                         onChange={handleSortChange}
                         className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
                     >
-                        <option value="">Sort By...</option>
+                        <option value="">Urutkan Berdasarkan...</option>
                         <option value="judulMerchandise">Judul Merchandise</option>
                         <option value="hargaMerchandise">Harga Merchandise</option>
-                        <option value="createdAt">Created At</option>
+                        <option value="createdAt">Tanggal Dibuat</option>
                     </select>
                     <select
                         value={query.order || ''}
                         onChange={handleOrderChange}
                         className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
                     >
-                        <option value="">Order...</option>
+                        <option value="">Urutan...</option>
                         <option value="ASC">ASC</option>
                         <option value="DESC">DESC</option>
                     </select>
@@ -179,7 +179,7 @@ const MerchandiseTable = () => {
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Deskripsi</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Harga</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Link</th>
-                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Actions</th>
+                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Aksi</th>
                         </tr>
                     </thead>
                     <tbody className="text-gray-700">
@@ -198,11 +198,11 @@ const MerchandiseTable = () => {
                                             onClick={() => handleDeleteConfirmation(merchandise.id)}
                                             className="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600 focus:outline-none"
                                         >
-                                            Delete
+                                            Hapus
                                         </button>
                                         <button
                                             onClick={() => handleEdit(merchandise.id)}
-                                            className="bg-blue-500 text-white px-4 py-1 ml-2 rounded hover:bg-blue-600 focus:outline-none"
+                                            className="bg-yellow-500 text-white px-4 py-1 ml-2 mt-2 rounded hover:bg-yellow-600 focus:outline-none"
                                         >
                                             Edit
                                         </button>
@@ -213,7 +213,7 @@ const MerchandiseTable = () => {
                                         <td colSpan="5" className="py-4 px-6">
                                             <div className="flex justify-between">
                                                 <div>
-                                                    <h3 className="text-lg font-semibold mb-2">Details</h3>
+                                                    <h3 className="text-lg font-semibold mb-2">Detail</h3>
                                                     <p><span className="font-semibold">Judul:</span> {merchandise.judulMerchandise}</p>
                                                     <p><span className="font-semibold">Deskripsi:</span> {merchandise.deskripsiMerchandise}</p>
                                                     <p><span className="font-semibold">Harga:</span> {merchandise.hargaMerchandise}</p>
@@ -227,7 +227,7 @@ const MerchandiseTable = () => {
                                                     onClick={handleCloseDetail}
                                                     className="text-gray-600 hover:text-gray-800 focus:outline-none"
                                                 >
-                                                    Close
+                                                    Tutup
                                                 </button>
                                             </div>
                                         </td>
@@ -241,23 +241,23 @@ const MerchandiseTable = () => {
                     <button
                         onClick={handlePreviousPage}
                         disabled={query.page <= 1}
-                        className={`px-3 py-1 bg-gray-300 text-gray-600 rounded mr-2 hover:bg-gray-400'}`}
+                        className={`px-3 py-1 bg-gray-300 text-gray-600 rounded mr-2 hover:bg-gray-400 focus:outline-none`}
                     >
-                        Previous
+                        Sebelumnya
                     </button>
                     <button
                         onClick={handleNextPage}
                         disabled={merchandises.length < query.limit}
-                        className={`px-3 py-1 bg-gray-300 text-gray-600 rounded hover:bg-gray-400'}`}
+                        className={`px-3 py-1 bg-gray-300 text-gray-600 rounded hover:bg-gray-400 focus:outline-none`}
                     >
-                        Next
+                        Berikutnya
                     </button>
                 </div>
             </div>
             <ConfirmationModal
                 show={modalShow}
-                title="Delete Merchandise"
-                message="Are you sure you want to delete this Merchandise?"
+                title="Hapus Merchandise"
+                message="Apakah Anda yakin ingin menghapus merchandise ini?"
                 onConfirm={() => handleDelete(toBeDeletedId)}
                 onCancel={handleCancelDelete}
             />

@@ -46,7 +46,7 @@ const BeritasTable = () => {
             });
             const response = await axios.get('http://localhost:3000/beritas', { params: query });
             setBeritas(response.data.data);
-            setToast({ show: true, type: 'success', message: 'Berita deleted successfully!' });
+            setToast({ show: true, type: 'success', message: 'Berita berhasil dihapus!' });
             setModalShow(false);
         } catch (error) {
             console.error('Error deleting berita:', error);
@@ -54,6 +54,7 @@ const BeritasTable = () => {
             setLoading(false);
         }
     };
+
     const handleDeleteConfirmation = (id) => {
         setToBeDeletedId(id);
         setModalShow(true);
@@ -62,6 +63,7 @@ const BeritasTable = () => {
     const handleCancelDelete = () => {
         setModalShow(false);
     };
+
     const handleRowClick = (berita) => {
         setSelectedBerita(berita);
     };
@@ -99,18 +101,18 @@ const BeritasTable = () => {
             {loading && <Loading />}
             <div className="overflow-x-auto my-32 px-6">
                 <div className="flex justify-between mb-6">
-                    <h2 className="text-2xl font-semibold text-gray-800">Beritas</h2>
+                    <h2 className="text-2xl font-semibold text-gray-800">Berita</h2>
                     <button
                         onClick={handleCreateNew}
-                        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none"
+                        className="px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600 focus:outline-none"
                     >
-                        Create New
+                        Buat Baru
                     </button>
                 </div>
                 <div className="mb-4 flex items-center">
                     <input
                         type="text"
-                        placeholder="Search..."
+                        placeholder="Cari..."
                         value={query.search || ''}
                         onChange={handleSearchChange}
                         className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
@@ -120,10 +122,10 @@ const BeritasTable = () => {
                         onChange={handleSortChange}
                         className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
                     >
-                        <option value="">Sort By...</option>
+                        <option value="">Urutkan Berdasarkan...</option>
                         <option value="judulBerita">Judul</option>
                         <option value="tanggalBerita">Tanggal</option>
-                        <option value="authorBerita">Author</option>
+                        <option value="authorBerita">Penulis</option>
                         <option value="editorBerita">Editor</option>
                     </select>
                     <select
@@ -131,7 +133,7 @@ const BeritasTable = () => {
                         onChange={handleOrderChange}
                         className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
                     >
-                        <option value="">Order...</option>
+                        <option value="">Urutan...</option>
                         <option value="ASC">ASC</option>
                         <option value="DESC">DESC</option>
                     </select>
@@ -142,11 +144,11 @@ const BeritasTable = () => {
                         <tr>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Judul</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Tanggal</th>
-                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Author</th>
+                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Penulis</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Editor</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Foto Berita</th>
-                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Foto Content</th>
-                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Actions</th>
+                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Foto Konten</th>
+                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Aksi</th>
                         </tr>
                     </thead>
                     {/* Table Body */}
@@ -165,18 +167,18 @@ const BeritasTable = () => {
                                         <img src={`http://localhost:3000${berita.fotoBerita}`} alt="foto" className="h-10 w-10 rounded-full object-cover" />
                                     </td>
                                     <td className="py-3 px-4">
-                                        <img src={`http://localhost:3000${berita.fotoContent}`} alt="content" className="h-10 w-10 rounded-full object-cover" />
+                                        <img src={`http://localhost:3000${berita.fotoContent}`} alt="konten" className="h-10 w-10 rounded-full object-cover" />
                                     </td>
                                     <td className="py-3 px-4">
                                         <button
                                             onClick={() => handleDeleteConfirmation(berita.id)}
                                             className="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600 focus:outline-none"
                                         >
-                                            Delete
+                                            Hapus
                                         </button>
                                         <button
                                             onClick={() => handleEdit(berita.id)}
-                                            className="bg-blue-500 text-white px-4 py-1 ml-2 rounded hover:bg-blue-600 focus:outline-none"
+                                            className="bg-yellow-500 text-white px-4 py-1 ml-2 rounded hover:bg-yellow-600 focus:outline-none"
                                         >
                                             Edit
                                         </button>
@@ -188,11 +190,12 @@ const BeritasTable = () => {
                                             {/* Details Section */}
                                             <div className="flex justify-between">
                                                 <div>
-                                                    <h3 className="text-lg font-semibold mb-2">Details</h3>
+                                                    <h3 className="text-lg font-semibold mb-2">Detail</h3>
                                                     <p><span className="font-semibold">Judul:</span> {berita.judulBerita}</p>
                                                     <p><span className="font-semibold">Tanggal:</span> {new Date(berita.tanggalBerita).toLocaleString()}</p>
-                                                    <p><span className="font-semibold">Author:</span> {berita.authorBerita}</p>
+                                                    <p><span className="font-semibold">Penulis:</span> {berita.authorBerita}</p>
                                                     <p><span className="font-semibold">Editor:</span> {berita.editorBerita}</p>
+                                                    <p><span className="font-semibold">Details:</span></p>
                                                     <ul>
                                                         {berita.deskripsiBerita.map((deskripsi, index) => (
                                                             <li key={index} className="list-disc list-inside">{deskripsi.str}</li>
@@ -203,7 +206,7 @@ const BeritasTable = () => {
                                                     onClick={handleCloseDetail}
                                                     className="text-gray-600 hover:text-gray-800 focus:outline-none"
                                                 >
-                                                    Close
+                                                    Tutup
                                                 </button>
                                             </div>
                                         </td>
@@ -220,20 +223,20 @@ const BeritasTable = () => {
                         disabled={query.page <= 1}
                         className="px-4 py-2 bg-gray-300 text-gray-600 rounded-md mr-2 hover:bg-gray-400 focus:outline-none"
                     >
-                        Previous
+                        Sebelumnya
                     </button>
                     <button
                         onClick={() => handlePageChange(query.page + 1)}
                         disabled={beritas.length < query.limit}
                         className="px-4 py-2 bg-gray-300 text-gray-600 rounded-md mr-2 hover:bg-gray-400 focus:outline-none"
                     >
-                        Next
+                        Berikutnya
                     </button>
                 </div>
                 <ConfirmationModal
                     show={modalShow}
-                    title="Delete Berita"
-                    message="Are you sure you want to delete this berita?"
+                    title="Hapus Berita"
+                    message="Apakah Anda yakin ingin menghapus berita ini?"
                     onConfirm={() => handleDelete(toBeDeletedId)}
                     onCancel={handleCancelDelete}
                 />

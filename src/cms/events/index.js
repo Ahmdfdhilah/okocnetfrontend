@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthContext';
 import ConfirmationModal from '../../components/ConfirmationModal';
 import Toast from '../../components/Toast';
@@ -31,7 +31,7 @@ const EventTable = () => {
             setEvents(response.data.data);
         } catch (error) {
             console.error('Error fetching events:', error);
-            setToast({ show: true, type: 'error', message: 'Failed to fetch events.' });
+            setToast({ show: true, type: 'error', message: 'Gagal memuat acara.' });
         } finally {
             setLoading(false);
         }
@@ -46,11 +46,11 @@ const EventTable = () => {
                 }
             });
             fetchEvents();
-            setToast({ show: true, type: 'success', message: 'Event deleted successfully!' });
+            setToast({ show: true, type: 'success', message: 'Acara berhasil dihapus!' });
             setModalShow(false);
         } catch (error) {
             console.error('Error deleting event:', error);
-            setToast({ show: true, type: 'error', message: 'Failed to delete event.' });
+            setToast({ show: true, type: 'error', message: 'Gagal menghapus acara.' });
         } finally {
             setLoading(false);
         }
@@ -102,18 +102,18 @@ const EventTable = () => {
             {loading && <Loading />}
             <div className="overflow-x-auto my-32 px-6">
                 <div className="flex justify-between mb-6">
-                    <h2 className="text-2xl font-semibold text-gray-800">Events</h2>
+                    <h2 className="text-2xl font-semibold text-gray-800">Event</h2>
                     <button
                         onClick={handleCreateNew}
-                        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none"
+                        className="px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600 focus:outline-none"
                     >
-                        Create New
+                        Buat Baru
                     </button>
                 </div>
                 <div className="mb-4 flex items-center">
                     <input
                         type="text"
-                        placeholder="Search..."
+                        placeholder="Cari..."
                         value={query.search || ''}
                         onChange={handleSearchChange}
                         className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
@@ -123,7 +123,7 @@ const EventTable = () => {
                         onChange={handleSortChange}
                         className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
                     >
-                        <option value="">Sort By...</option>
+                        <option value="">Urutkan Berdasarkan...</option>
                         <option value="judulEvent">Judul Event</option>
                         <option value="tanggalEvent">Tanggal Event</option>
                         <option value="hargaEvent">Harga Event</option>
@@ -135,7 +135,7 @@ const EventTable = () => {
                         onChange={handleOrderChange}
                         className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
                     >
-                        <option value="">Order...</option>
+                        <option value="">Urutan...</option>
                         <option value="ASC">ASC</option>
                         <option value="DESC">DESC</option>
                     </select>
@@ -149,7 +149,7 @@ const EventTable = () => {
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Poin</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Foto Event</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Tempat</th>
-                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Actions</th>
+                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Aksi</th>
                         </tr>
                     </thead>
                     <tbody className="text-gray-700">
@@ -176,11 +176,11 @@ const EventTable = () => {
                                             onClick={() => handleDeleteConfirmation(event.id)}
                                             className="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600 focus:outline-none"
                                         >
-                                            Delete
+                                            Hapus
                                         </button>
                                         <button
                                             onClick={() => handleEdit(event.id)}
-                                            className="bg-blue-500 text-white px-4 py-1 ml-2 rounded hover:bg-blue-600 focus:outline-none"
+                                            className="bg-yellow-500 text-white px-4 py-1 ml-2 rounded hover:bg-yellow-600 focus:outline-none"
                                         >
                                             Edit
                                         </button>
@@ -191,7 +191,7 @@ const EventTable = () => {
                                         <td colSpan="7" className="py-4 px-6">
                                             <div className="flex justify-between">
                                                 <div>
-                                                    <h3 className="text-lg font-semibold mb-2">Details</h3>
+                                                    <h3 className="text-lg font-semibold mb-2">Detail</h3>
                                                     <p><span className="font-semibold">Judul:</span> {event.judulEvent}</p>
                                                     <p><span className="font-semibold">Tanggal:</span> {new Date(event.tanggalEvent).toLocaleString()}</p>
                                                     <p><span className="font-semibold">Harga:</span> {event.hargaEvent}</p>
@@ -200,8 +200,6 @@ const EventTable = () => {
                                                     <p><span className="font-semibold">Narasumber:</span> {event.narasumber}</p>
                                                     <p><span className="font-semibold">Link:</span> {event.urlPendaftaran}</p>
                                                     <p><span className="font-semibold">Contact Person:</span> {event.contactPerson}</p>
-                                                    <p><span className="font-semibold">Created By:</span> {event.createdBy.username}</p>
-                                                    <p><span className="font-semibold">Updated By:</span> {event.updatedBy.username}</p>
                                                     <h4 className="font-semibold mt-4">Deskripsi:</h4>
                                                     {event.deskripsiEvent.map((item, index) => (
                                                         <li key={index} className="list-disc list-inside">{item.str}</li>
@@ -211,7 +209,7 @@ const EventTable = () => {
                                                     onClick={handleCloseDetail}
                                                     className="text-gray-600 hover:text-gray-800 focus:outline-none"
                                                 >
-                                                    Close
+                                                    Tutup
                                                 </button>
                                             </div>
                                         </td>
@@ -228,30 +226,30 @@ const EventTable = () => {
                         disabled={query.page <= 1}
                         className="px-4 py-2 bg-gray-300 text-gray-600 rounded-md mr-2 hover:bg-gray-400 focus:outline-none"
                     >
-                        Previous
+                        Sebelumnya
                     </button>
                     <button
                         onClick={() => handlePageChange(query.page + 1)}
                         disabled={events.length < query.limit}
                         className="px-4 py-2 bg-gray-300 text-gray-600 rounded-md hover:bg-gray-400 focus:outline-none"
                     >
-                        Next
+                        Berikutnya
                     </button>
                 </div>
             </div>
             <ConfirmationModal
-                    show={modalShow}
-                    title="Delete Event"
-                    message="Are you sure you want to delete this event?"
-                    onConfirm={() => handleDelete(toBeDeletedId)}
-                    onCancel={handleCancelDelete}
-                />
-                <Toast
-                    show={toast.show}
-                    type={toast.type}
-                    message={toast.message}
-                    onClose={() => setToast({ show: false, type: '', message: '' })}
-                />
+                show={modalShow}
+                title="Hapus Acara"
+                message="Apakah Anda yakin ingin menghapus acara ini?"
+                onConfirm={() => handleDelete(toBeDeletedId)}
+                onCancel={handleCancelDelete}
+            />
+            <Toast
+                show={toast.show}
+                type={toast.type}
+                message={toast.message}
+                onClose={() => setToast({ show: false, type: '', message: '' })}
+            />
         </>
     );
 };

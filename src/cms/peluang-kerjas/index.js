@@ -31,7 +31,7 @@ const PeluangKerjaTable = () => {
             setData(response.data.data);
         } catch (error) {
             console.error('Error fetching data:', error);
-            setToast({ show: true, type: 'error', message: 'Failed to fetch data.' });
+            setToast({ show: true, type: 'error', message: 'Gagal memuat data.' });
         } finally {
             setLoading(false);
         }
@@ -45,12 +45,12 @@ const PeluangKerjaTable = () => {
                     Authorization: `Bearer ${token}`
                 }
             });
-            setToast({ show: true, type: 'success', message: 'Item deleted successfully!' });
+            setToast({ show: true, type: 'success', message: 'Item berhasil dihapus!' });
             fetchData();
             setSelectedItem(null);
         } catch (error) {
             console.error('Error deleting item:', error);
-            setToast({ show: true, type: 'error', message: 'Failed to delete item.' });
+            setToast({ show: true, type: 'error', message: 'Gagal menghapus item.' });
         } finally {
             setLoading(false);
             setModalShow(false);
@@ -107,15 +107,15 @@ const PeluangKerjaTable = () => {
                     <h2 className="text-2xl font-semibold text-gray-800">Peluang Kerja</h2>
                     <button
                         onClick={handleCreateNew}
-                        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none"
+                        className="px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600 focus:outline-none"
                     >
-                        Create New
+                        Buat Baru
                     </button>
                 </div>
                 <div className="mb-4 flex items-center">
                     <input
                         type="text"
-                        placeholder="Search..."
+                        placeholder="Cari..."
                         value={query.search || ''}
                         onChange={handleSearchChange}
                         className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
@@ -125,18 +125,18 @@ const PeluangKerjaTable = () => {
                         onChange={handleSortChange}
                         className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
                     >
-                        <option value="">Sort By...</option>
+                        <option value="">Urutkan Berdasarkan...</option>
                         <option value="judulKerja">Judul Kerja</option>
                         <option value="lokasiKerja">Lokasi Kerja</option>
                         <option value="kategoriKerja">Kategori Kerja</option>
-                        <option value="publishedAt">Published At</option>
+                        <option value="publishedAt">Tanggal Publish</option>
                     </select>
                     <select
                         value={query.order || ''}
                         onChange={handleOrderChange}
                         className="px-3 py-2 border border-gray-300 rounded-md mr-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
                     >
-                        <option value="">Order...</option>
+                        <option value="">Urutan...</option>
                         <option value="ASC">ASC</option>
                         <option value="DESC">DESC</option>
                     </select>
@@ -148,8 +148,8 @@ const PeluangKerjaTable = () => {
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Judul Kerja</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Lokasi Kerja</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Kategori Kerja</th>
-                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Published At</th>
-                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Actions</th>
+                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Tanggal Publish</th>
+                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Aksi</th>
                         </tr>
                     </thead>
                     <tbody className="text-gray-700">
@@ -175,11 +175,11 @@ const PeluangKerjaTable = () => {
                                             onClick={() => handleDeleteConfirmation(item.id)}
                                             className="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600 focus:outline-none"
                                         >
-                                            Delete
+                                            Hapus
                                         </button>
                                         <button
                                             onClick={() => handleEdit(item.id)}
-                                            className="bg-blue-500 text-white px-4 py-1 ml-2 rounded hover:bg-blue-600 focus:outline-none"
+                                            className="bg-yellow-500 text-white px-4 py-1 ml-2 rounded hover:bg-yellow-600 focus:outline-none"
                                         >
                                             Edit
                                         </button>
@@ -190,7 +190,7 @@ const PeluangKerjaTable = () => {
                                         <td colSpan="6" className="py-4 px-6">
                                             <div className="flex justify-between">
                                                 <div>
-                                                    <h3 className="text-lg font-semibold mb-2">Details</h3>
+                                                    <h3 className="text-lg font-semibold mb-2">Detail</h3>
                                                     <p><span className="font-semibold">Judul Kerja:</span> {selectedItem.judulKerja}</p>
                                                     <p><span className="font-semibold">Lokasi Kerja:</span> {selectedItem.lokasiKerja}</p>
                                                     <p><span className="font-semibold">Kategori Kerja:</span> {selectedItem.kategoriKerja}</p>
@@ -201,7 +201,7 @@ const PeluangKerjaTable = () => {
                                                     onClick={handleCloseDetail}
                                                     className="text-gray-600 hover:text-gray-800 focus:outline-none"
                                                 >
-                                                    Close
+                                                    Tutup
                                                 </button>
                                             </div>
                                         </td>
@@ -217,22 +217,22 @@ const PeluangKerjaTable = () => {
                         disabled={query.page === 1}
                         className="px-4 py-2 bg-gray-300 text-gray-600 rounded-md mr-2 hover:bg-gray-400 focus:outline-none"
                     >
-                        Previous
+                        Sebelumnya
                     </button>
                     <button
                         onClick={() => handlePageChange(query.page + 1)}
                         className="px-4 py-2 bg-gray-300 text-gray-600 rounded-md hover:bg-gray-400 focus:outline-none"
                         disabled={data.length < query.limit}
                     >
-                        Next
+                        Berikutnya
                     </button>
                 </div>
             </div>
 
             <ConfirmationModal
                 show={modalShow}
-                title="Delete Peluang Kerja"
-                message="Are you sure you want to delete this Peluang Kerja?"
+                title="Hapus Peluang Kerja"
+                message="Apakah Anda yakin ingin menghapus Peluang Kerja ini?"
                 onConfirm={() => handleDelete(toBeDeletedId)}
                 onCancel={handleCancelDelete}
             />
