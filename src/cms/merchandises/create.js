@@ -191,7 +191,7 @@ const CreateMerchandise = () => {
                         Harga Merchandise
                     </label>
                     <input
-                        type="text"
+                        type="number"
                         id="hargaMerchandise"
                         name="hargaMerchandise"
                         value={formData.hargaMerchandise}
@@ -208,7 +208,7 @@ const CreateMerchandise = () => {
                         Stock Merchandise
                     </label>
                     <input
-                        type="text"
+                        type="number"
                         id="stockMerchandise"
                         name="stockMerchandise"
                         value={formData.stockMerchandise}

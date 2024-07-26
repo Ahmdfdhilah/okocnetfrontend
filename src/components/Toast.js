@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react';
 
 const Toast = ({ message, type, onClose }) => {
-    const [show, setShow] = useState(true);
+    const [show, setShow] = useState(false);
 
     useEffect(() => {
-        setTimeout(() => {
-            onClose();
+        if (message) {
+            setShow(true);
+            const timer = setTimeout(() => {
+                setShow(false);
+                onClose();
+            }, 3000);
+
+            return () => clearTimeout(timer);
+        } else {
             setShow(false);
-        }, 9000);
-    }, [onClose]);
-
-    useEffect(() => {
-        setShow(true);
-    }, [message])
+        }
+    }, [message, onClose]);
 
     let bgColor = 'bg-green-500';
     if (type === 'error') {
@@ -25,7 +28,8 @@ const Toast = ({ message, type, onClose }) => {
         show && (
             <div className={`fixed bottom-10 right-10 p-4 rounded-lg text-white ${bgColor} shadow-lg z-50`}>
                 <p>{message}</p>
-            </div>)
+            </div>
+        )
     );
 };
 

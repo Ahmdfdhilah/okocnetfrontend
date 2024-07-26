@@ -79,7 +79,7 @@ const CMSHome = () => {
         setModalMessage('Are you sure you want to save this deskripsi?');
         setModalAction(() => async () => {
             try {
-                setLoading(true); 
+                setLoading(true);
                 await axios.post('http://localhost:3000/deskripsi', deskripsiData, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
@@ -88,8 +88,8 @@ const CMSHome = () => {
                 console.error('Error updating deskripsi:', error);
                 setToast({ show: true, type: 'error', message: 'Failed to update deskripsi.' });
             }
-            finally{
-                setLoading(false); 
+            finally {
+                setLoading(false);
             }
         });
         setModalShow(true);
@@ -101,7 +101,7 @@ const CMSHome = () => {
         setModalAction(() => async () => {
             const formData = new FormData();
             formData.append('file', newBannerImage);
-            setLoading(true); 
+            setLoading(true);
             try {
                 const response = await axios.post(`http://localhost:3000/banners/${userId}`, formData, {
                     headers: {
@@ -117,8 +117,8 @@ const CMSHome = () => {
                 console.error('Error creating banner:', error);
                 setToast({ show: true, type: 'error', message: 'Failed to create banner.' });
             }
-            finally{
-                setLoading(false); 
+            finally {
+                setLoading(false);
             }
         });
         setModalShow(true);
@@ -128,7 +128,7 @@ const CMSHome = () => {
         setModalTitle('Confirm Delete');
         setModalMessage('Are you sure you want to delete this banner?');
         setModalAction(() => async () => {
-            setLoading(true); 
+            setLoading(true);
             try {
                 await axios.delete(`http://localhost:3000/banners/${bannerId}`, {
                     headers: { Authorization: `Bearer ${token}` }
@@ -139,8 +139,8 @@ const CMSHome = () => {
                 console.error('Error deleting banner:', error);
                 setToast({ show: true, type: 'error', message: 'Failed to delete banner.' });
             }
-            finally{
-                setLoading(false); 
+            finally {
+                setLoading(false);
             }
         });
         setModalShow(true);
@@ -155,7 +155,7 @@ const CMSHome = () => {
         items.splice(result.destination.index, 0, reorderedItem);
 
         setBannerData(items);
-        setLoading(true); 
+        setLoading(true);
         try {
             await axios.put('http://localhost:3000/banners/reorder', { banners: items }, {
                 headers: { Authorization: `Bearer ${token}` }
@@ -164,10 +164,10 @@ const CMSHome = () => {
         } catch (error) {
             console.error('Error reordering banners:', error);
             setToast({ show: true, type: 'error', message: 'Failed to reorder banners.' });
-        }finally{
-            setLoading(false); 
+        } finally {
+            setLoading(false);
         }
-      
+
     };
 
     const getIcon = (nama) => {
