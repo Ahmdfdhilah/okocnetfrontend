@@ -69,7 +69,7 @@ const TotalsComponent = () => {
         <div key={item.id} className={`${getBackgroundColor(item.nama)} rounded-lg p-4 flex items-center ${item.nama === 'penggerak' ? 'lg:col-span-2' : ''}`}>
           {renderProfileImage(item.nama)}
           <div>
-            <div className="text-2xl font-bold">{item.total}</div>
+            <div className="text-2xl font-bold">{item.total.toLocaleString("id-ID")}</div>
             <div className="text-zinc-600">Total {capitalizeFirstLetter(item.nama)}</div>
           </div>
         </div>

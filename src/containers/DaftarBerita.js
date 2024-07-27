@@ -7,7 +7,7 @@ const ITEMS_PER_PAGE = 2;
 
 const DaftarBerita = () => {
     const [datas, setData] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1); // State untuk halaman saat ini
+    const [currentPage, setCurrentPage] = useState(1); 
 
     useEffect(() => {
         fetchData();

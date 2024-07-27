@@ -21,7 +21,6 @@ const CMSHome = () => {
     const [modalAction, setModalAction] = useState(null);
     const [loading, setLoading] = useState(true);
 
-
     useEffect(() => {
         const fetchDeskripsi = async () => {
             try {
@@ -75,18 +74,18 @@ const CMSHome = () => {
 
     const handleDeskripsiSubmit = (e) => {
         e.preventDefault();
-        setModalTitle('Confirm Save');
-        setModalMessage('Are you sure you want to save this deskripsi?');
+        setModalTitle('Konfirmasi Simpan');
+        setModalMessage('Apakah Anda yakin ingin menyimpan deskripsi ini?');
         setModalAction(() => async () => {
             try {
                 setLoading(true);
                 await axios.post('http://localhost:3000/deskripsi', deskripsiData, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
-                setToast({ show: true, type: 'success', message: 'Deskripsi updated successfully!' });
+                setToast({ show: true, type: 'success', message: 'Deskripsi berhasil diperbarui!' });
             } catch (error) {
                 console.error('Error updating deskripsi:', error);
-                setToast({ show: true, type: 'error', message: 'Failed to update deskripsi.' });
+                setToast({ show: true, type: 'error', message: 'Gagal memperbarui deskripsi.' });
             }
             finally {
                 setLoading(false);
@@ -96,8 +95,8 @@ const CMSHome = () => {
     };
 
     const handleBannerCreate = () => {
-        setModalTitle('Confirm Create');
-        setModalMessage('Are you sure you want to create this banner?');
+        setModalTitle('Konfirmasi Buat');
+        setModalMessage('Apakah Anda yakin ingin membuat banner ini?');
         setModalAction(() => async () => {
             const formData = new FormData();
             formData.append('file', newBannerImage);
@@ -112,10 +111,10 @@ const CMSHome = () => {
                 setBannerData([...bannerData, response.data]);
                 setNewBannerImage(null);
                 setNewBannerPreview(null);
-                setToast({ show: true, type: 'success', message: 'Banner created successfully!' });
+                setToast({ show: true, type: 'success', message: 'Banner berhasil dibuat!' });
             } catch (error) {
                 console.error('Error creating banner:', error);
-                setToast({ show: true, type: 'error', message: 'Failed to create banner.' });
+                setToast({ show: true, type: 'error', message: 'Gagal membuat banner.' });
             }
             finally {
                 setLoading(false);
@@ -125,8 +124,8 @@ const CMSHome = () => {
     };
 
     const handleBannerDelete = (bannerId) => {
-        setModalTitle('Confirm Delete');
-        setModalMessage('Are you sure you want to delete this banner?');
+        setModalTitle('Konfirmasi Hapus');
+        setModalMessage('Apakah Anda yakin ingin menghapus banner ini?');
         setModalAction(() => async () => {
             setLoading(true);
             try {
@@ -134,10 +133,10 @@ const CMSHome = () => {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setBannerData(bannerData.filter((banner) => banner.id !== bannerId));
-                setToast({ show: true, type: 'success', message: 'Banner deleted successfully!' });
+                setToast({ show: true, type: 'success', message: 'Banner berhasil dihapus!' });
             } catch (error) {
                 console.error('Error deleting banner:', error);
-                setToast({ show: true, type: 'error', message: 'Failed to delete banner.' });
+                setToast({ show: true, type: 'error', message: 'Gagal menghapus banner.' });
             }
             finally {
                 setLoading(false);
@@ -145,7 +144,6 @@ const CMSHome = () => {
         });
         setModalShow(true);
     };
-
 
     const handleOnDragEnd = async (result) => {
         if (!result.destination) return;
@@ -160,14 +158,13 @@ const CMSHome = () => {
             await axios.put('http://localhost:3000/banners/reorder', { banners: items }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
-            setToast({ show: true, type: 'success', message: 'Banners reordered successfully!' });
+            setToast({ show: true, type: 'success', message: 'Urutan banner berhasil diubah!' });
         } catch (error) {
             console.error('Error reordering banners:', error);
-            setToast({ show: true, type: 'error', message: 'Failed to reorder banners.' });
+            setToast({ show: true, type: 'error', message: 'Gagal mengubah urutan banner.' });
         } finally {
             setLoading(false);
         }
-
     };
 
     const getIcon = (nama) => {
@@ -205,7 +202,7 @@ const CMSHome = () => {
         <>
             {loading && <Loading />}
             <div className="container mx-auto py-10 mt-32">
-                <h1 className="text-4xl font-bold mb-8 text-center">Admin Dashboard</h1>
+                <h1 className="text-4xl font-bold mb-8 text-center">Dasbor Admin</h1>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-12">
                     {totalsData.map((total) => (
                         <div key={total.id} className="bg-white rounded-lg shadow p-6 flex items-center">
@@ -223,11 +220,11 @@ const CMSHome = () => {
                 </div>
 
                 <div className="bg-white shadow-md rounded-lg p-6">
-                    <h2 className="text-3xl font-semibold mb-6 text-gray-800">Edit Home Page</h2>
+                    <h2 className="text-3xl font-semibold mb-6 text-gray-800">Edit Halaman Utama</h2>
                     <form onSubmit={handleDeskripsiSubmit} className="max-w-2xl mb-12 p-6">
                         <div className="mb-6">
                             <label htmlFor="title" className="block text-lg font-medium text-gray-700 mb-2">
-                                Title
+                                Judul
                             </label>
                             <input
                                 type="text"
@@ -236,7 +233,7 @@ const CMSHome = () => {
                                 value={deskripsiData.title}
                                 onChange={(e) => setDeskripsiData({ ...deskripsiData, title: e.target.value })}
                                 className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition-colors duration-200 ease-in-out"
-                                placeholder="Enter title"
+                                placeholder="Masukkan judul"
                             />
                         </div>
                         <div className="mb-6">
@@ -250,30 +247,30 @@ const CMSHome = () => {
                                 onChange={(e) => setDeskripsiData({ ...deskripsiData, deskripsi: e.target.value })}
                                 className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition-colors duration-200 ease-in-out"
                                 rows="5"
-                                placeholder="Enter deskripsi"
+                                placeholder="Masukkan deskripsi"
                             />
                         </div>
                         <button
                             type="submit"
                             className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200 ease-in-out"
                         >
-                            Save
+                            Simpan
                         </button>
                     </form>
 
-                    <h2 className="text-3xl font-semibold mb-6 text-gray-800">Manage Banners</h2>
+                    <h2 className="text-3xl font-semibold mb-6 text-gray-800">Kelola Banner</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div className="bg-white rounded-lg shadow-md p-6">
                             <div className="mt-8">
                                 {newBannerPreview ? (
                                     <div className="flex items-center mb-4">
-                                        <img src={newBannerPreview} alt="New Banner Preview" className="w-24 h-24 object-cover rounded-lg mr-4" />
+                                        <img src={newBannerPreview} alt="Prabawan Banner Baru" className="w-24 h-24 object-cover rounded-lg mr-4" />
                                         <span className="text-lg">{newBannerImage?.name}</span>
                                     </div>
                                 ) : (
                                     <div className="flex items-center mb-4">
                                         <FaImage className="text-gray-400 mr-2" size={24} />
-                                        <span className="text-lg text-gray-400">No file selected</span>
+                                        <span className="text-lg text-gray-400">Belum ada file yang dipilih</span>
                                     </div>
                                 )}
                                 <input
@@ -286,20 +283,20 @@ const CMSHome = () => {
                                     htmlFor="newBannerImageInput"
                                     className="inline-flex px-6 py-3 mt-8 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer min-w-64 justify-center"
                                 >
-                                    Choose Banner
+                                    Pilih Banner
                                 </label>
                                 {newBannerImage && (
                                     <button
                                         onClick={handleBannerCreate}
                                         className="inline-flex px-6 py-3 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer mt-4 min-w-64 justify-center"
                                     >
-                                        Create Banner
+                                        Buat Banner
                                     </button>
                                 )}
                             </div>
                         </div>
                         <div className="bg-white rounded-lg shadow-md p-6">
-                            <h3 className="text-xl font-medium mb-4">Drag and Drop to Reorder</h3>
+                            <h3 className="text-xl font-medium mb-4">Seret dan Jatuhkan untuk Mengubah Urutan</h3>
                             <DragDropContext onDragEnd={handleOnDragEnd}>
                                 <Droppable droppableId="banners">
                                     {(provided) => (
@@ -321,7 +318,7 @@ const CMSHome = () => {
                                                                 onClick={() => handleBannerDelete(banner.id)}
                                                                 className="text-red-500 hover:text-red-700 focus:outline-none"
                                                             >
-                                                                Delete
+                                                                Hapus
                                                             </button>
                                                         </div>
                                                     )}
@@ -355,7 +352,7 @@ const CMSHome = () => {
                     message={toast.message}
                     onClose={() => setToast({ show: false, type: '', message: '' })}
                 />
-            </div >
+            </div>
         </>
     );
 };

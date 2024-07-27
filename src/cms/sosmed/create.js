@@ -17,11 +17,13 @@ const CreateSosmed = () => {
     const [formData, setFormData] = useState({
         nama: '',
         link: '',
+        file: null
     });
 
     const [formErrors, setFormErrors] = useState({
         nama: '',
         link: '',
+        file: ''
     });
 
     const handleInputChange = (e) => {
@@ -35,6 +37,17 @@ const CreateSosmed = () => {
             [name]: '',
         });
     };
+    const handleFileChange = (e) => {
+        setFormData({
+            ...formData,
+            foto: e.target.files[0],
+        });
+        setFormErrors({
+            ...formErrors,
+            foto: '',
+        });
+    };
+
 
     const validateForm = async () => {
         let valid = true;
@@ -56,6 +69,10 @@ const CreateSosmed = () => {
 
         if (!formData.link.trim()) {
             errors.link = 'Link harus diisi';
+            valid = false;
+        }
+        if (!formData.file) {
+            errors.link = 'Foto Icon harus diisi';
             valid = false;
         }
 
@@ -88,9 +105,14 @@ const CreateSosmed = () => {
         setModalAction(() => async () => {
             try {
                 setLoading(true);
-                await axios.post(`http://localhost:3000/sosmeds/${userId}`, formData, {
+                const formDataToSend = new FormData();
+                formDataToSend.append('file', formData.foto);
+                formDataToSend.append('nama', formData.nama);
+                formDataToSend.append('link', formData.link);
+                await axios.post(`http://localhost:3000/sosmeds/${userId}`, formDataToSend, {
                     headers: {
-                        Authorization: `Bearer ${token}`
+                        Authorization: `Bearer ${token}`,
+                        "Content-Type":'multipart/form-data'
                     }
                 });
                 navigate('/admin/sosmed');
@@ -124,11 +146,26 @@ const CreateSosmed = () => {
                             <option value="">Pilih Nama Sosmed</option>
                             <option value="facebook">Facebook</option>
                             <option value="twitter">Twitter</option>
+                            <option value="whatsapp">Whatsapp</option>
                             <option value="instagram">Instagram</option>
                             <option value="youtube">YouTube</option>
                             <option value="tiktok">TikTok</option>
                         </select>
                         {formErrors.nama && <p className="text-red-500 text-sm mt-1">{formErrors.nama}</p>}
+                    </div>
+                    <div className="mb-6">
+                        <label htmlFor="file" className="block text-lg font-medium text-gray-700 mb-2">
+                            Foto Icon
+                        </label>
+                        <input
+                            type="file"
+                            id="file"
+                            name="file"
+                            accept="image/*"
+                            onChange={handleFileChange}
+                            className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.foto ? 'border-red-500' : ''}`}
+                        />
+                        {formErrors.file && <p className="text-red-500 text-sm mt-1">{formErrors.file}</p>}
                     </div>
 
                     <div className="mb-6">

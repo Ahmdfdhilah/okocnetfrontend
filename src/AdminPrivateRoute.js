@@ -1,15 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import { AuthContext } from './AuthContext';
 
 const AdminPrivateRoute = ({ Component }) => {
   const { isAuthenticated, loading, role } = useContext(AuthContext);
-  
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  useEffect(()=>{
 
-  return isAuthenticated && role === "admin"? (
+  },[isAuthenticated, loading, role])
+  
+
+  return isAuthenticated ? (
     <Component />
   ) : (
     <Navigate to="/" replace />

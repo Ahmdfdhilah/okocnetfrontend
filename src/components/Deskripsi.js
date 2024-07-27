@@ -1,9 +1,4 @@
 import React, { useEffect, useState } from "react";
-import facebook from "@img/facebook.png";
-import instagram from "@img/instagram.png";
-import twitter from "@img/twitter.webp";
-import whatsapp from "@img/whatsapp.png";
-import tiktok from "@img/tiktokhome.png";
 
 const DeskripsiComponent = () => {
     const [deskripsi, setDeskripsi] = useState('');
@@ -58,30 +53,14 @@ const DeskripsiComponent = () => {
                 {sosmeds.map((item) => (
                     <div className="mx-2" key={item.id}>
                         <a href={item.link} target="_blank">
-                            <img src={getSocialIcon(item.nama)} className="h-7 lg:h-10" alt={item.nama} />
+                            <img src={`http://localhost:3000${item.foto}`} className="max-h-7 max-w-7 lg:max-h-12 lg:max-w-12" alt={item.nama} />
+
                         </a>
                     </div>
                 ))}
             </div>
         </div>
     );
-};
-
-const getSocialIcon = (platform) => {
-    switch (platform) {
-        case "facebook":
-            return facebook;
-        case "instagram":
-            return instagram;
-        case "twitter":
-            return twitter;
-        case "whatsapp":
-            return whatsapp;
-        case "tiktok":
-            return tiktok;
-        default:
-            return null;
-    }
 };
 
 export default DeskripsiComponent;

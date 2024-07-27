@@ -8,7 +8,7 @@ const ITEMS_PER_PAGE = 9;  // Jumlah item per halaman
 
 const Event = () => {
     const [datas, setData] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1); // State untuk halaman saat ini
+    const [currentPage, setCurrentPage] = useState(1); 
 
     useEffect(() => {
         fetchData();
@@ -29,15 +29,11 @@ const Event = () => {
         }
     }
 
-    // Fungsi untuk menangani perubahan halaman
     const handlePageChange = (page) => {
         setCurrentPage(page);
     };
-
-    // Hitung total halaman
     const totalPages = Math.ceil(datas.length / ITEMS_PER_PAGE);
 
-    // Hitung index item yang harus ditampilkan pada halaman saat ini
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
     const currentItems = datas.slice(startIndex, endIndex);
@@ -79,7 +75,6 @@ const Event = () => {
                     </div>
                 )}
             </div>
-            {/* Pagination Controls */}
             <div className="flex justify-center mt-8 py-8 mx-auto rounded-xl mobile:w-3/4 lg:w-1/2">
                 <button
                     onClick={() => handlePageChange(currentPage - 1)}

@@ -29,6 +29,7 @@ const SosmedTable = () => {
         try {
             const response = await axios.get('http://localhost:3000/sosmeds', { params: query });
             setData(response.data.data);
+            console.log(response.data.data);
         } catch (error) {
             console.error('Error fetching data:', error);
             setToast({ show: true, type: 'error', message: 'Gagal mengambil data.' });
@@ -143,6 +144,7 @@ const SosmedTable = () => {
                         <tr>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Nama</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Tautan</th>
+                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Icon</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Aksi</th>
                         </tr>
                     </thead>
@@ -158,6 +160,9 @@ const SosmedTable = () => {
                                         <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
                                             {item.link}
                                         </a>
+                                    </td>
+                                    <td className="py-3 px-4">
+                                        <img src={`http://localhost:3000${item.foto}`} className='rounded-full bg-white w-max-6 h-max-6'></img>
                                     </td>
                                     <td className="py-3 px-4">
                                         <button

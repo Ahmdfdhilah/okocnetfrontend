@@ -1,11 +1,13 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {  useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../index.css";
 import LogoOkOce from "@img/logo-okoce.webp";
+import { AuthContext } from "../AuthContext";
 
 function Navbar() {
+  const { isAuthenticated } = useContext(AuthContext);
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [programDropdownVisible, setProgramDropdownVisible] =
     useState(false); /*Menu Program*/
@@ -20,7 +22,9 @@ function Navbar() {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const navigate = useNavigate();
 
-
+  const handleAdmin = () => {
+    navigate('/admin');
+  }
 
   const handleDropdownShow = () => {
     setDropdownVisible(true);
@@ -452,6 +456,16 @@ function Navbar() {
                 Daftar
               </button>
             </a>
+            {isAuthenticated &&
+              <><div className="w-7/12 mx-auto mt-2">
+                <button
+                  onClick={handleAdmin}
+                  type="button"
+                  class="w-full text-white bg-indigo-600 mr-6 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">
+                  Dashboard
+                </button>
+              </div>
+              </>}
           </ul>
         </div>
 
@@ -785,6 +799,13 @@ function Navbar() {
               href="https://ecsys.okoce.net/register">
               Daftar
             </a>
+            {isAuthenticated && <>
+              <button
+                class="text-white bg-indigo-700 mr-6 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-base px-4 py-2 text-center bg-indigo-600 hover:bg-indigo-700 dark:focus:ring-indigo-800"
+                onClick={handleAdmin}>
+                Dashboard
+              </button>
+            </>}
           </div>
         </div>
       </div>

@@ -67,7 +67,7 @@ const AnimateAnggota = ({ nama }) => {
         className="text-center lg:text-left text-black text-2xl lg:text-5xl font-extrabold"
         ref={countUpRef}
       >
-        {totalAnggota}
+        {totalAnggota.toLocaleString("id-ID")}
       </h3>
     </div>
   );

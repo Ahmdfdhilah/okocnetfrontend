@@ -1,6 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable react/jsx-no-target-blank */
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AnimateAnggota from "../components/AnimateAnggota";
@@ -245,7 +242,7 @@ const Homepage = () => {
                                     <div className="p-5">
                                         <img
                                             className="object-cover w-full mobile:h-36 lg:h-72"
-                                            src={data.fotoBerita}
+                                            src={`http://localhost:3000${data.fotoBerita}`}
                                             alt=""
                                         />
                                         <div className="relative group mb-2 mt-6 h-20">
