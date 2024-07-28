@@ -4,7 +4,7 @@ import axios from 'axios';
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const accessToken = localStorage.getItem('token');
+  const accessToken = localStorage.getItem('token') || null;
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
   const [userId, setUserId] = useState(null);
@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     validateToken();
-  }, [accessToken]);
+  }, [accessToken, setIsAuthenticated, isAuthenticated]);
 
   return (
     <AuthContext.Provider value={{ isAuthenticated, loading, setIsAuthenticated, userId, role, token: accessToken }}>

@@ -3,12 +3,10 @@ import { Navigate } from 'react-router-dom';
 import { AuthContext } from './AuthContext';
 
 const AdminPrivateRoute = ({ Component }) => {
-  const { isAuthenticated, loading, role } = useContext(AuthContext);
+  const { isAuthenticated, loading, role, token } = useContext(AuthContext);
   useEffect(()=>{
-
-  },[isAuthenticated, loading, role])
+  },[isAuthenticated, loading, role, token])
   
-
   return isAuthenticated ? (
     <Component />
   ) : (

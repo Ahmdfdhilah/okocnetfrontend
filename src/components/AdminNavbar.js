@@ -115,7 +115,7 @@ const AdminNavbar = () => {
                         className="w-6 h-6 text-red-600 hover:text-red-800 cursor-pointer lg:hidden ml-4"
                     />
                 </div>
-                <div className={`absolute top-24 left-0 w-full bg-gray-50 ${isAdminDropdownVisible ? "block" : "hidden"} lg:hidden`}>
+                <div className={`absolute top-16 left-0 w-full bg-gray-50 ${isAdminDropdownVisible ? "block" : "hidden"} lg:hidden`}>
                     <ul className="flex flex-col p-4 space-y-2">
                         {adminMenuItems.map((item, index) => (
                             <li key={index}>
