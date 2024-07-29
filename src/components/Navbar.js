@@ -396,14 +396,7 @@ function Navbar() {
                       Master Mentor
                     </a>
                   </li>
-                  <li>
-                    <a
-                      href="/digitalisasi"
-                      className="camelcase block px-4 py-2 hover:bg-gray-100 hover:bg-gray-400 hover:text-black">
-                      Digitalisasi
-                    </a>
-                  </li>
-                  {/* Add more submenu items here */}
+              
                 </ul>
               </div>
             </li>
@@ -741,14 +734,6 @@ function Navbar() {
                       Master Mentor
                     </a>
                   </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="camelcase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                      Digitalisasi
-                    </a>
-                  </li>
-                  {/* Add more submenu items here */}
                 </ul>
               </div>
             </li>

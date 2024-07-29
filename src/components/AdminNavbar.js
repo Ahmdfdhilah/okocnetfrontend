@@ -47,6 +47,7 @@ const AdminNavbar = () => {
                 { name: "STRUKTUR", link: "/admin/struktur" },
                 { name: "PROFILE", link: "/admin/profile" },
                 { name: "TOTAL", link: "/admin/total" },
+                { name: "ANNIVERSARY", link: "/admin/anniversary" },
                 { name: "SOSMED", link: "/admin/sosmed" },
             ],
         },
@@ -58,9 +59,10 @@ const AdminNavbar = () => {
             name: "PELUANG",
             subMenu: [
                 { name: "PELUANG KERJA", link: "/admin/peluang-kerja" },
-                { name: "MAGANG", link: "/admin/magang" },
                 { name: "PELUANG USAHA", link: "/admin/peluang-usaha" },
+                { name: "MAGANG", link: "/admin/magang" },
                 { name: "DONASI", link: "/admin/donasi" },
+                { name: "MITRA", link: "/admin/mitra" },
             ],
         },
         {
@@ -75,7 +77,7 @@ const AdminNavbar = () => {
             name: "PROGRAM",
             subMenu: [
                 { name: "BRAND LOKAL", link: "/admin/brand-lokal" },
-                { name: "MITRA", link: "/admin/mitra" },
+                { name: "DESKRIPSI MENTOR", link: "/admin/thementor" },
             ],
         },
     ];

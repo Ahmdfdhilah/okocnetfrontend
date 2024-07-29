@@ -87,6 +87,12 @@ import UpdateMitra from './cms/mitra/update';
 import ProfileTable from './cms/profile';
 import CreateProfile from './cms/profile/create';
 import UpdateProfile from './cms/profile/update';
+import AnniversaryTable from './cms/anniversaries';
+import CreateAnniversary from './cms/anniversaries/create';
+import UpdateAnniversary from './cms/anniversaries/update';
+import CreateThementor from './cms/thementor/create';
+import ThementorTable from './cms/thementor';
+import UpdateThementor from './cms/thementor/update';
 
 function App() {
   return (
@@ -153,6 +159,12 @@ function AppContent() {
         <Route path="/admin/profile" element={<AdminPrivateRoute Component={ProfileTable} />} />
         <Route path="/admin/profile/create" element={<AdminPrivateRoute Component={CreateProfile} />} />
         <Route path="/admin/profile/edit/:id" element={<AdminPrivateRoute Component={UpdateProfile} />} />
+        <Route path="/admin/anniversary" element={<AdminPrivateRoute Component={AnniversaryTable} />} />
+        <Route path="/admin/anniversary/create" element={<AdminPrivateRoute Component={CreateAnniversary} />} />
+        <Route path="/admin/anniversary/edit/:id" element={<AdminPrivateRoute Component={UpdateAnniversary} />} />
+        <Route path="/admin/thementor" element={<AdminPrivateRoute Component={ThementorTable} />} />
+        <Route path="/admin/thementor/create" element={<AdminPrivateRoute Component={CreateThementor} />} />
+        <Route path="/admin/thementor/edit/:id" element={<AdminPrivateRoute Component={UpdateThementor} />} />
 
         {/* User routes */}
         <Route path="/" element={<Homepage />} />

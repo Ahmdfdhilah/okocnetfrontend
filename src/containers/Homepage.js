@@ -23,10 +23,22 @@ import MitraList from "../components/MitraList";
 import TotalsComponent from "../components/Total";
 import DeskripsiComponent from "../components/Deskripsi";
 import ProfileComponent from "../components/Profile";
+import { fetchLatestVideoUrl } from "../utils/youtubeFetch";
 
 const Homepage = () => {
     const [datas, setData] = useState([]);
     const [events, setEvents] = useState([]);
+    const [videoSrc, setVideoSrc] = useState(null);
+
+    useEffect(() => {
+        const loadVideo = async () => {
+            const channelId = 'UCfkckwZSA11Q7Q-XR7JyQfw'; 
+            const url = await fetchLatestVideoUrl(channelId);
+            setVideoSrc(url);
+        };
+
+        loadVideo();
+    }, []);
 
     useEffect(() => {
         fetchDataNews();
@@ -279,7 +291,7 @@ const Homepage = () => {
                         <img loading="lazy" srcSet={Okocetv} className="object-cover" />
                     </div>
                     <div class="flex justify-center items-center mobile:w-80 lg:w-full">
-                        <Youtube src="https://www.youtube.com/embed/5ThtiH6g0MQ?si=03pi3GAI_Gokz4X7" />
+                        <Youtube src={videoSrc} />
                     </div>
                     <div class="flex justify-center mt-7 max-md:max-w-full">
                         Tonton video lainnya di YouTube OK OCE Indonesia.
