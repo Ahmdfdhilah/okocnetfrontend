@@ -32,7 +32,7 @@ const Homepage = () => {
 
     useEffect(() => {
         const loadVideo = async () => {
-            const channelId = 'UCfkckwZSA11Q7Q-XR7JyQfw'; 
+            const channelId = 'UCrXYetY5iBgnFnNKCVYzihw'; 
             const url = await fetchLatestVideoUrl(channelId);
             setVideoSrc(url);
         };

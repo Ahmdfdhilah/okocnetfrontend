@@ -93,6 +93,12 @@ import UpdateAnniversary from './cms/anniversaries/update';
 import CreateThementor from './cms/thementor/create';
 import ThementorTable from './cms/thementor';
 import UpdateThementor from './cms/thementor/update';
+import CreateBenefitMasterMentor from './cms/benefit-master-mentor/create';
+import BenefitMasterMentorTable from './cms/benefit-master-mentor';
+import UpdateBenefitMasterMentor from './cms/benefit-master-mentor/update';
+import TujuanMasterMentorTable from './cms/tujuan-master-mentor';
+import CreateTujuanMasterMentor from './cms/tujuan-master-mentor/create';
+import UpdateTujuanMasterMentor from './cms/tujuan-master-mentor/update';
 
 function App() {
   return (
@@ -165,6 +171,12 @@ function AppContent() {
         <Route path="/admin/thementor" element={<AdminPrivateRoute Component={ThementorTable} />} />
         <Route path="/admin/thementor/create" element={<AdminPrivateRoute Component={CreateThementor} />} />
         <Route path="/admin/thementor/edit/:id" element={<AdminPrivateRoute Component={UpdateThementor} />} />
+        <Route path="/admin/benefit-master-mentor" element={<AdminPrivateRoute Component={BenefitMasterMentorTable} />} />
+        <Route path="/admin/benefit-master-mentor/create" element={<AdminPrivateRoute Component={CreateBenefitMasterMentor} />} />
+        <Route path="/admin/benefit-master-mentor/edit/:id" element={<AdminPrivateRoute Component={UpdateBenefitMasterMentor} />} />
+        <Route path="/admin/tujuan-master-mentor" element={<AdminPrivateRoute Component={TujuanMasterMentorTable} />} />
+        <Route path="/admin/tujuan-master-mentor/create" element={<AdminPrivateRoute Component={CreateTujuanMasterMentor} />} />
+        <Route path="/admin/tujuan-master-mentor/edit/:id" element={<AdminPrivateRoute Component={UpdateTujuanMasterMentor} />} />
 
         {/* User routes */}
         <Route path="/" element={<Homepage />} />

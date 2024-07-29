@@ -78,6 +78,8 @@ const AdminNavbar = () => {
             subMenu: [
                 { name: "BRAND LOKAL", link: "/admin/brand-lokal" },
                 { name: "DESKRIPSI MENTOR", link: "/admin/thementor" },
+                { name: "BENEFIT MENTOR", link: "/admin/benefit-master-mentor" },
+                { name: "TUJUAN MENTOR", link: "/admin/tujuan-master-mentor" },
             ],
         },
     ];
