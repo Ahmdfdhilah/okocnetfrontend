@@ -5,7 +5,7 @@ import { AuthContext } from '../../AuthContext';
 import Loading from '../../components/Loading';
 import ConfirmationModal from '../../components/ConfirmationModal';
 
-const CreateTujuanMasterMentor = () => {
+const CreateSyaratMasterMentor = () => {
     const navigate = useNavigate();
     const { token } = useContext(AuthContext);
     const [modalShow, setModalShow] = useState(false);
@@ -15,13 +15,11 @@ const CreateTujuanMasterMentor = () => {
     const [loading, setLoading] = useState(false);
 
     const [formData, setFormData] = useState({
-        judul: '',
         deskripsi: '',
         file: null,
     });
 
     const [formErrors, setFormErrors] = useState({
-        judul: '',
         deskripsi: '',
         file: '',
     });
@@ -52,15 +50,10 @@ const CreateTujuanMasterMentor = () => {
     const validateForm = () => {
         let valid = true;
         const errors = {
-            judul: '',
             deskripsi: '',
             file: '',
         };
 
-        if (!formData.judul.trim()) {
-            errors.judul = 'Judul harus diisi';
-            valid = false;
-        }
         if (!formData.deskripsi.trim()) {
             errors.deskripsi = 'Deskripsi harus diisi';
             valid = false;
@@ -85,23 +78,22 @@ const CreateTujuanMasterMentor = () => {
                 setLoading(true);
                 const formDataToSend = new FormData();
                 formDataToSend.append('file', formData.file);
-                formDataToSend.append('judul', formData.judul);
                 formDataToSend.append('deskripsi', formData.deskripsi);   
-                await axios.post(`http://localhost:3000/tujuan-master-mentors`, formDataToSend, {
+                await axios.post(`http://localhost:3000/syarat-master-mentors`, formDataToSend, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         Authorization: `Bearer ${token}`
                     }
                 });
 
-                navigate('/admin/tujuan-master-mentor');
+                navigate('/admin/syarat-master-mentor');
             } catch (error) {
                 console.error('Error creating data:', error);
                 setLoading(false);
             }
         });
         setModalTitle('Konfirmasi');
-        setModalMessage('Apakah Anda yakin ingin membuat tujuan master mentor ini?');
+        setModalMessage('Apakah Anda yakin ingin membuat syarat master mentor ini?');
         setModalShow(true);
     };
 
@@ -109,23 +101,8 @@ const CreateTujuanMasterMentor = () => {
         <>
             {loading && <Loading />}
             <div className="container mx-auto py-10 mt-32">
-                <h1 className="text-4xl font-bold mb-8 text-center">Create New Tujuan Master Mentor</h1>
+                <h1 className="text-4xl font-bold mb-8 text-center">Create New Syarat Master Mentor</h1>
                 <form onSubmit={onSubmit} className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
-                    <div className="mb-6">
-                        <label htmlFor="judul" className="block text-lg font-medium text-gray-700 mb-2">
-                            Judul
-                        </label>
-                        <input
-                            type="text"
-                            id="judul"
-                            name="judul"
-                            value={formData.judul}
-                            onChange={handleInputChange}
-                            className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.judul ? 'border-red-500' : ''}`}
-                        />
-                        {formErrors.judul && <p className="text-red-500 text-sm mt-1">{formErrors.judul}</p>}
-                    </div>
-
                     <div className="mb-6">
                         <label htmlFor="deskripsi" className="block text-lg font-medium text-gray-700 mb-2">
                             Deskripsi
@@ -182,4 +159,4 @@ const CreateTujuanMasterMentor = () => {
     );
 };
 
-export default CreateTujuanMasterMentor;
+export default CreateSyaratMasterMentor;

@@ -1,13 +1,14 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../AuthContext';
 import Loading from '../../components/Loading';
 import ConfirmationModal from '../../components/ConfirmationModal';
 
-const CreateSosmed = () => {
-    const { token } = useContext(AuthContext);
+const UpdateLogo = () => {
+    const { id } = useParams();
     const navigate = useNavigate();
+    const { token } = useContext(AuthContext);
     const [modalShow, setModalShow] = useState(false);
     const [modalTitle, setModalTitle] = useState('');
     const [modalMessage, setModalMessage] = useState('');
@@ -16,15 +17,32 @@ const CreateSosmed = () => {
 
     const [formData, setFormData] = useState({
         nama: '',
-        link: '',
-        file: null
+        file: null,
     });
 
     const [formErrors, setFormErrors] = useState({
         nama: '',
-        link: '',
-        file: ''
+        file: '',
     });
+
+    useEffect(() => {
+        const fetchLogo = async () => {
+            try {
+                setLoading(true);
+                const response = await axios.get(`http://localhost:3000/logos/${id}`);
+                const logo = response.data;
+                setFormData({
+                    nama: logo.nama,
+                    file: null,
+                });
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchLogo();
+    }, [id]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -37,58 +55,28 @@ const CreateSosmed = () => {
             [name]: '',
         });
     };
+
     const handleFileChange = (e) => {
         setFormData({
             ...formData,
-            foto: e.target.files[0],
+            file: e.target.files[0],
         });
         setFormErrors({
             ...formErrors,
-            foto: '',
+            file: '',
         });
     };
 
-
-    const validateForm = async () => {
+    const validateForm = () => {
         let valid = true;
         const errors = {
             nama: '',
-            link: '',
+            file: '',
         };
 
         if (!formData.nama.trim()) {
             errors.nama = 'Nama harus diisi';
             valid = false;
-        }
-
-        const validNames = ['facebook', 'twitter', 'instagram', 'linkedin', 'youtube', 'tiktok'];
-        if (!validNames.includes(formData.nama.toLowerCase())) {
-            errors.nama = 'Nama sosmed tidak valid';
-            valid = false;
-        }
-
-        if (!formData.link.trim()) {
-            errors.link = 'Link harus diisi';
-            valid = false;
-        }
-        if (!formData.file) {
-            errors.link = 'Foto Icon harus diisi';
-            valid = false;
-        }
-
-        if (valid) {
-            try {
-                const response = await axios.get('http://localhost:3000/sosmeds');
-                const existingNames = response.data.data.map((item) => item.nama);
-
-                if (existingNames.includes(formData.nama)) {
-                    errors.nama = 'Nama sosmed tidak boleh duplikat';
-                    valid = false;
-                }
-            } catch (error) {
-                console.error('Error fetching data:', error);
-                valid = false;
-            }
         }
 
         setFormErrors(errors);
@@ -98,64 +86,61 @@ const CreateSosmed = () => {
     const onSubmit = async (e) => {
         e.preventDefault();
 
-        if (!await validateForm()) {
+        if (!validateForm()) {
             return;
         }
-
         setModalAction(() => async () => {
             try {
                 setLoading(true);
                 const formDataToSend = new FormData();
-                formDataToSend.append('file', formData.foto);
                 formDataToSend.append('nama', formData.nama);
-                formDataToSend.append('link', formData.link);
-                await axios.post(`http://localhost:3000/sosmeds`, formDataToSend, {
+
+                if (formData.file) {
+                    formDataToSend.append('file', formData.file);
+                }
+
+                await axios.put(`http://localhost:3000/logos/${id}`, formDataToSend, {
                     headers: {
-                        Authorization: `Bearer ${token}`,
-                        "Content-Type":'multipart/form-data'
+                        'Content-Type': 'multipart/form-data',
+                        Authorization: `Bearer ${token}`
                     }
                 });
-                navigate('/admin/sosmed');
+
+                navigate('/admin/logo');
             } catch (error) {
-                console.error('Error creating data:', error);
-                setLoading(false);
+                console.error('Error updating data:', error);
             }
-        });
+        })
         setModalTitle('Konfirmasi');
-        setModalMessage('Apakah Anda yakin ingin membuat sosmed ini?');
+        setModalMessage('Apakah Anda yakin ingin mengedit logo ini?');
         setModalShow(true);
     };
 
     return (
         <>
             {loading && <Loading />}
-            <div className="container mx-auto py-10 mt-32">
-                <h1 className="text-4xl font-bold mb-8 text-center">Create New Social Media</h1>
-                <form onSubmit={onSubmit} className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
+            <div className="container mx-auto py-10 my-32">
+                <h1 className="text-4xl font-bold mb-8 text-center">Update Logo</h1>
+                <form onSubmit={onSubmit} encType="multipart/form-data" className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
                     <div className="mb-6">
                         <label htmlFor="nama" className="block text-lg font-medium text-gray-700 mb-2">
                             Nama
                         </label>
-                        <select
+                        <input
+                            type="text"
                             id="nama"
                             name="nama"
                             value={formData.nama}
                             onChange={handleInputChange}
                             className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.nama ? 'border-red-500' : ''}`}
-                        >
-                            <option value="">Pilih Nama Sosmed</option>
-                            <option value="facebook">Facebook</option>
-                            <option value="twitter">Twitter</option>
-                            <option value="whatsapp">Whatsapp</option>
-                            <option value="instagram">Instagram</option>
-                            <option value="youtube">YouTube</option>
-                            <option value="tiktok">TikTok</option>
-                        </select>
+                            placeholder="Masukkan nama logo"
+                        />
                         {formErrors.nama && <p className="text-red-500 text-sm mt-1">{formErrors.nama}</p>}
                     </div>
+
                     <div className="mb-6">
                         <label htmlFor="file" className="block text-lg font-medium text-gray-700 mb-2">
-                            Foto Icon
+                            Foto
                         </label>
                         <input
                             type="file"
@@ -163,25 +148,9 @@ const CreateSosmed = () => {
                             name="file"
                             accept="image/*"
                             onChange={handleFileChange}
-                            className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.foto ? 'border-red-500' : ''}`}
+                            className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.file ? 'border-red-500' : ''}`}
                         />
                         {formErrors.file && <p className="text-red-500 text-sm mt-1">{formErrors.file}</p>}
-                    </div>
-
-                    <div className="mb-6">
-                        <label htmlFor="link" className="block text-lg font-medium text-gray-700 mb-2">
-                            Link
-                        </label>
-                        <input
-                            type="text"
-                            id="link"
-                            name="link"
-                            value={formData.link}
-                            onChange={handleInputChange}
-                            className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.link ? 'border-red-500' : ''}`}
-                            placeholder="Masukkan link"
-                        />
-                        {formErrors.link && <p className="text-red-500 text-sm mt-1">{formErrors.link}</p>}
                     </div>
 
                     <div className="mt-6">
@@ -210,4 +179,4 @@ const CreateSosmed = () => {
     );
 };
 
-export default CreateSosmed;
+export default UpdateLogo;

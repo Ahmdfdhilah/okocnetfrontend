@@ -47,6 +47,7 @@ const AdminNavbar = () => {
                 { name: "STRUKTUR", link: "/admin/struktur" },
                 { name: "PROFILE", link: "/admin/profile" },
                 { name: "TOTAL", link: "/admin/total" },
+                { name: "LOGO", link: "/admin/logo" },
                 { name: "ANNIVERSARY", link: "/admin/anniversary" },
                 { name: "SOSMED", link: "/admin/sosmed" },
             ],
@@ -60,6 +61,7 @@ const AdminNavbar = () => {
             subMenu: [
                 { name: "PELUANG KERJA", link: "/admin/peluang-kerja" },
                 { name: "PELUANG USAHA", link: "/admin/peluang-usaha" },
+                { name: "BENEFIT TRAINER", link: "/admin/benefit-trainer" },
                 { name: "MAGANG", link: "/admin/magang" },
                 { name: "DONASI", link: "/admin/donasi" },
                 { name: "MITRA", link: "/admin/mitra" },
@@ -77,9 +79,11 @@ const AdminNavbar = () => {
             name: "PROGRAM",
             subMenu: [
                 { name: "BRAND LOKAL", link: "/admin/brand-lokal" },
+                { name: "EMAK KECE", link: "/admin/emak-kece" },
                 { name: "DESKRIPSI MENTOR", link: "/admin/thementor" },
                 { name: "BENEFIT MENTOR", link: "/admin/benefit-master-mentor" },
                 { name: "TUJUAN MENTOR", link: "/admin/tujuan-master-mentor" },
+                { name: "SYARAT MENTOR", link: "/admin/syarat-master-mentor" },
             ],
         },
     ];

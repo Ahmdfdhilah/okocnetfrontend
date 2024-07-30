@@ -7,7 +7,7 @@ const AdminPrivateRoute = ({ Component }) => {
   useEffect(()=>{
   },[isAuthenticated, loading, role, token])
   
-  return isAuthenticated ? (
+  return isAuthenticated && !loading ? (
     <Component />
   ) : (
     <Navigate to="/" replace />

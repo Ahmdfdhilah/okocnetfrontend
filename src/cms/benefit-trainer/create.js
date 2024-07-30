@@ -5,7 +5,7 @@ import { AuthContext } from '../../AuthContext';
 import Loading from '../../components/Loading';
 import ConfirmationModal from '../../components/ConfirmationModal';
 
-const CreateTujuanMasterMentor = () => {
+const CreateBenefitTrainer = () => {
     const navigate = useNavigate();
     const { token } = useContext(AuthContext);
     const [modalShow, setModalShow] = useState(false);
@@ -86,22 +86,23 @@ const CreateTujuanMasterMentor = () => {
                 const formDataToSend = new FormData();
                 formDataToSend.append('file', formData.file);
                 formDataToSend.append('judul', formData.judul);
-                formDataToSend.append('deskripsi', formData.deskripsi);   
-                await axios.post(`http://localhost:3000/tujuan-master-mentors`, formDataToSend, {
+                formDataToSend.append('deskripsi', formData.deskripsi);
+
+                await axios.post(`http://localhost:3000/benefit-trainers`, formDataToSend, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
-                        Authorization: `Bearer ${token}`
-                    }
+                        Authorization: `Bearer ${token}`,
+                    },
                 });
 
-                navigate('/admin/tujuan-master-mentor');
+                navigate('/admin/benefit-trainer');
             } catch (error) {
                 console.error('Error creating data:', error);
                 setLoading(false);
             }
         });
         setModalTitle('Konfirmasi');
-        setModalMessage('Apakah Anda yakin ingin membuat tujuan master mentor ini?');
+        setModalMessage('Apakah Anda yakin ingin membuat benefit trainer ini?');
         setModalShow(true);
     };
 
@@ -109,7 +110,7 @@ const CreateTujuanMasterMentor = () => {
         <>
             {loading && <Loading />}
             <div className="container mx-auto py-10 mt-32">
-                <h1 className="text-4xl font-bold mb-8 text-center">Create New Tujuan Master Mentor</h1>
+                <h1 className="text-4xl font-bold mb-8 text-center">Create New Benefit Trainer</h1>
                 <form onSubmit={onSubmit} className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
                     <div className="mb-6">
                         <label htmlFor="judul" className="block text-lg font-medium text-gray-700 mb-2">
@@ -182,4 +183,4 @@ const CreateTujuanMasterMentor = () => {
     );
 };
 
-export default CreateTujuanMasterMentor;
+export default CreateBenefitTrainer;

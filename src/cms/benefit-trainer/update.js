@@ -1,18 +1,20 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../AuthContext';
 import Loading from '../../components/Loading';
 import ConfirmationModal from '../../components/ConfirmationModal';
 
-const CreateTujuanMasterMentor = () => {
+const UpdateBenefitTrainer = () => {
     const navigate = useNavigate();
+    const { id } = useParams();
     const { token } = useContext(AuthContext);
     const [modalShow, setModalShow] = useState(false);
     const [modalTitle, setModalTitle] = useState('');
     const [modalMessage, setModalMessage] = useState('');
     const [modalAction, setModalAction] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [initialData, setInitialData] = useState(null);
 
     const [formData, setFormData] = useState({
         judul: '',
@@ -25,6 +27,31 @@ const CreateTujuanMasterMentor = () => {
         deskripsi: '',
         file: '',
     });
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                setLoading(true);
+                const response = await axios.get(`http://localhost:3000/benefit-trainers/${id}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+                setInitialData(response.data);
+                setFormData({
+                    judul: response.data.judul,
+                    deskripsi: response.data.deskripsi,
+                    file: null,
+                });
+                setLoading(false);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, [id, token]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -65,10 +92,6 @@ const CreateTujuanMasterMentor = () => {
             errors.deskripsi = 'Deskripsi harus diisi';
             valid = false;
         }
-        if (!formData.file) {
-            errors.file = 'File harus diunggah';
-            valid = false;
-        }
 
         setFormErrors(errors);
         return valid;
@@ -84,32 +107,37 @@ const CreateTujuanMasterMentor = () => {
             try {
                 setLoading(true);
                 const formDataToSend = new FormData();
-                formDataToSend.append('file', formData.file);
                 formDataToSend.append('judul', formData.judul);
-                formDataToSend.append('deskripsi', formData.deskripsi);   
-                await axios.post(`http://localhost:3000/tujuan-master-mentors`, formDataToSend, {
+                formDataToSend.append('deskripsi', formData.deskripsi);
+                if (formData.file) {
+                    formDataToSend.append('file', formData.file);
+                }
+
+                await axios.put(`http://localhost:3000/benefit-trainers/${id}`, formDataToSend, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
-                        Authorization: `Bearer ${token}`
-                    }
+                        Authorization: `Bearer ${token}`,
+                    },
                 });
 
-                navigate('/admin/tujuan-master-mentor');
+                navigate('/admin/benefit-trainer');
             } catch (error) {
-                console.error('Error creating data:', error);
+                console.error('Error updating data:', error);
                 setLoading(false);
             }
         });
         setModalTitle('Konfirmasi');
-        setModalMessage('Apakah Anda yakin ingin membuat tujuan master mentor ini?');
+        setModalMessage('Apakah Anda yakin ingin memperbarui benefit trainer ini?');
         setModalShow(true);
     };
+
+    if (loading && !initialData) return <Loading />;
 
     return (
         <>
             {loading && <Loading />}
             <div className="container mx-auto py-10 mt-32">
-                <h1 className="text-4xl font-bold mb-8 text-center">Create New Tujuan Master Mentor</h1>
+                <h1 className="text-4xl font-bold mb-8 text-center">Update Benefit Trainer</h1>
                 <form onSubmit={onSubmit} className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
                     <div className="mb-6">
                         <label htmlFor="judul" className="block text-lg font-medium text-gray-700 mb-2">
@@ -182,4 +210,4 @@ const CreateTujuanMasterMentor = () => {
     );
 };
 
-export default CreateTujuanMasterMentor;
+export default UpdateBenefitTrainer;

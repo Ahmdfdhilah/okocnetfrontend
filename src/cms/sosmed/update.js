@@ -6,7 +6,7 @@ import Loading from '../../components/Loading';
 import ConfirmationModal from '../../components/ConfirmationModal';
 
 const UpdateSosmed = () => {
-    const { userId, token } = useContext(AuthContext);
+    const { token } = useContext(AuthContext);
     const { id } = useParams();
     const navigate = useNavigate();
     const [modalShow, setModalShow] = useState(false);
@@ -92,7 +92,7 @@ const UpdateSosmed = () => {
                 formDataToSend.append('file', formData.foto);
                 formDataToSend.append('nama', formData.nama);
                 formDataToSend.append('link', formData.link);
-                await axios.put(`http://localhost:3000/sosmeds/${id}/${userId}`, formDataToSend, {
+                await axios.put(`http://localhost:3000/sosmeds/${id}`, formDataToSend, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                         "Content-Type": 'multipart/form-data'

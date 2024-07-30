@@ -99,6 +99,18 @@ import UpdateBenefitMasterMentor from './cms/benefit-master-mentor/update';
 import TujuanMasterMentorTable from './cms/tujuan-master-mentor';
 import CreateTujuanMasterMentor from './cms/tujuan-master-mentor/create';
 import UpdateTujuanMasterMentor from './cms/tujuan-master-mentor/update';
+import SyaratMasterMentorTable from './cms/syarat-master-mentor';
+import CreateSyaratMasterMentor from './cms/syarat-master-mentor/create';
+import UpdateSyaratMasterMentor from './cms/syarat-master-mentor/update';
+import BenefitTrainerTable from './cms/benefit-trainer';
+import CreateBenefitTrainer from './cms/benefit-trainer/create';
+import UpdateBenefitTrainer from './cms/benefit-trainer/update';
+import LogoTable from './cms/logo';
+import CreateLogo from './cms/logo/create';
+import UpdateLogo from './cms/logo/update';
+import EmakKeceTable from './cms/emak-kece';
+import CreateEmakKece from './cms/emak-kece/create';
+import UpdateEmakKece from './cms/emak-kece/update';
 
 function App() {
   return (
@@ -177,6 +189,18 @@ function AppContent() {
         <Route path="/admin/tujuan-master-mentor" element={<AdminPrivateRoute Component={TujuanMasterMentorTable} />} />
         <Route path="/admin/tujuan-master-mentor/create" element={<AdminPrivateRoute Component={CreateTujuanMasterMentor} />} />
         <Route path="/admin/tujuan-master-mentor/edit/:id" element={<AdminPrivateRoute Component={UpdateTujuanMasterMentor} />} />
+        <Route path="/admin/syarat-master-mentor" element={<AdminPrivateRoute Component={SyaratMasterMentorTable} />} />
+        <Route path="/admin/syarat-master-mentor/create" element={<AdminPrivateRoute Component={CreateSyaratMasterMentor} />} />
+        <Route path="/admin/syarat-master-mentor/edit/:id" element={<AdminPrivateRoute Component={UpdateSyaratMasterMentor} />} />
+        <Route path="/admin/benefit-trainer" element={<AdminPrivateRoute Component={BenefitTrainerTable} />} />
+        <Route path="/admin/benefit-trainer/create" element={<AdminPrivateRoute Component={CreateBenefitTrainer} />} />
+        <Route path="/admin/benefit-trainer/edit/:id" element={<AdminPrivateRoute Component={UpdateBenefitTrainer} />} />
+        <Route path="/admin/logo" element={<AdminPrivateRoute Component={LogoTable} />} />
+        <Route path="/admin/logo/create" element={<AdminPrivateRoute Component={CreateLogo} />} />
+        <Route path="/admin/logo/edit/:id" element={<AdminPrivateRoute Component={UpdateLogo} />} />
+        <Route path="/admin/emak-kece" element={<AdminPrivateRoute Component={EmakKeceTable} />} />
+        <Route path="/admin/emak-kece/create" element={<AdminPrivateRoute Component={CreateEmakKece} />} />
+        <Route path="/admin/emak-kece/edit/:id" element={<AdminPrivateRoute Component={UpdateEmakKece} />} />
 
         {/* User routes */}
         <Route path="/" element={<Homepage />} />
