@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MASTERMENTOR from "@img/Mastermentor/MASTERMENTOR.png";
 import TUJUAN1 from "@img/Mastermentor/TUJUAN1.png";
 import TUJUAN2 from "@img/Mastermentor/TUJUAN2.png";
@@ -15,8 +15,62 @@ import BENEFIT3 from "@img/Mastermentor/BENEFIT3.png";
 import BENEFIT4 from "@img/Mastermentor/BENEFIT4.png";
 import BENEFIT5 from "@img/Mastermentor/BENEFIT5.png";
 import FloatingMenu from "../components/FloatingMenu";
+import axios from "axios";
 
 const MasterMentor = () => {
+    const [benefits, setBenefits] = useState([]);
+    const [tujuans, setTujuans] = useState([]);
+
+    useEffect(() => {
+        const fetchBenefits = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/benefit-master-mentors');
+                setBenefits(response.data.data);
+            } catch (error) {
+                console.error("Error fetching benefits", error);
+            }
+        };
+
+        const fetchTujuans = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/tujuan-master-mentors');
+                setTujuans(response.data.data);
+            } catch (error) {
+                console.error("Error fetching tujuans", error);
+            }
+        };
+
+        fetchBenefits();
+        fetchTujuans();
+    }, []);
+
+    const splitBenefitsIntoRows = (benefits) => {
+        const rows = [];
+        let currentIndex = 0;
+
+        while (currentIndex < benefits.length) {
+            const itemsInRow = rows.length % 2 === 0 ? 2 : 3;
+            rows.push(benefits.slice(currentIndex, currentIndex + itemsInRow));
+            currentIndex += itemsInRow;
+        }
+
+        return rows;
+    };
+    const splitTujuanIntoRows = (benefits) => {
+        const rows = [];
+        let currentIndex = 0;
+
+        while (currentIndex < benefits.length) {
+            const itemsInRow = rows.length % 2 === 0 ? 3 : 2;
+            rows.push(tujuans.slice(currentIndex, currentIndex + itemsInRow));
+            currentIndex += itemsInRow;
+        }
+
+        return rows;
+    };
+
+    const benefitRows = splitBenefitsIntoRows(benefits);
+    const tujuanRows = splitTujuanIntoRows(tujuans);
     return (
         <>
             <div className="flex justify-center items-center px-16 py-20 bg-zinc-300 max-md:px-5">
@@ -71,97 +125,38 @@ const MasterMentor = () => {
                 </div>
             </div>
 
-            <div className="flex justify-center items-center px-16 py-14 bg-white max-md:px-5">
-                <div className="flex flex-col w-full max-w-[1229px] max-md:max-w-full">
-                    <div className="text-5xl font-bold text-black leading-[57.6px] max-md:max-w-full max-md:text-4xl">
-                        Tujuan Pelatihan
-                    </div>
-                    <div className="mt-6 text-lg leading-4 text-neutral-700 max-md:max-w-full">
-                        Tujuan pelatihan ini diantaranya :
-                    </div>
-                    <div className="mt-16 max-md:mt-10 max-md:max-w-full">
-                        <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-                            <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
-                                <div className="flex flex-col grow text-black max-md:mt-6">
-                                    <img className="w-16 aspect-square" src={TUJUAN1} alt="" />
-                                    <div className="mt-4 text-2xl font-bold leading-8">
-                                        Kompetensi
-                                    </div>
-                                    <div className="mt-4 text-base leading-6 text-justify">
-                                        Para Pendamping memiliki kompetensi komunikasi yang baik dalam
-                                        hal menyampaikan sesuatu dengan jelas dan tepat di depan
-                                        kelompok maupun individu.
-                                    </div>
+            <div className="flex flex-col ml-3 mr-3 mb-10 px-11 pt-2.5 pb-4 max-md:px-5">
+                <div className="text-5xl font-bold text-black leading-[57.6px] max-md:max-w-full max-md:text-4xl">
+                    Tujuan Master Mentor
+                </div>
+                <div className="mt-8 text-lg leading-4 text-neutral-700 max-md:max-w-full">
+                    Tujuan pelatihan ini diantaranya :
+                </div>
+                <div className="mt-16 max-md:mt-10 max-md:max-w-full">
+                    {tujuanRows.length > 0 && (
+                        <div className="flex flex-col gap-10 max-md:gap-5">
+                            {tujuanRows.map((row, rowIndex) => (
+                                <div
+                                    key={rowIndex}
+                                    className={`grid ${rowIndex % 2 === 0 ? 'grid-cols-3 gap-5' : 'grid-cols-2 gap-5'} max-md:gap-4`}
+                                >
+                                    {row.map(tujuan => (
+                                        <div key={tujuan.id} className="flex flex-col w-full">
+                                            <div className={`flex flex-col grow px-10 py-6 text-black bg-white rounded-3xl border border-indigo-800 border-solid shadow-sm max-md:px-5`}>
+                                                <img src={`http://localhost:3000${tujuan.img}`} className="aspect-square w-[50px]" alt={`Benefit ${tujuan.judul}`} />
+                                                <div className="mt-4 text-2xl font-bold leading-8 max-md:max-w-full">
+                                                    {tujuan.judul}
+                                                </div>
+                                                <div className="mt-4 text-base leading-6 text-justify max-md:max-w-full">
+                                                    {tujuan.deskripsi}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
-                            </div>
-                            <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-                                <div className="flex flex-col grow text-black max-md:mt-6">
-                                    <img className="w-16 aspect-square" src={TUJUAN2} alt="" />
-                                    <div className="mt-4 text-2xl font-bold leading-8">
-                                        Pengembangan
-                                    </div>
-                                    <div className="mt-4 text-base leading-6 text-justify">
-                                        Para Pendamping terampil dalam menerapkan pendekatan coaching
-                                        untuk lebih mengembangkan diri, rekan sejawat maupun para
-                                        pelaku UMKM.
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-                                <div className="flex flex-col grow text-black max-md:mt-6">
-                                    <img className="w-16 aspect-square" src={TUJUAN3} alt="" />
-                                    <div className="mt-4 text-2xl font-bold leading-8">
-                                        Pengembangan
-                                    </div>
-                                    <div className="mt-4 text-base leading-6 text-justify">
-                                        Para Pendamping terampil dalam menerapkan pendekatan coaching
-                                        untuk lebih mengembangkan diri, rekan sejawat maupun para
-                                        pelaku UMKM.
-                                    </div>
-                                </div>
-                            </div>
+                            ))}
                         </div>
-                    </div>
-                    <div className="mt-24 max-md:mt-10 max-md:max-w-full">
-                        <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-                            <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
-                                <div className="flex flex-col grow text-black max-md:mt-6">
-                                    <img className="w-16 aspect-square" src={TUJUAN4} alt="" />
-                                    <div className="mt-4 text-2xl font-bold leading-8">
-                                        Fasilitas
-                                    </div>
-                                    <div className="mt-4 text-base leading-6 text-justify">
-                                        Pendamping mampu untuk memfasilitasi para pelaku UMKM dalam
-                                        hal permodalan, pemasaran dan masalah teknis lainnya.
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-                                <div className="flex flex-col grow text-black max-md:mt-6">
-                                    <img className="w-16 aspect-square" src={TUJUAN5} alt="" />
-                                    <div className="mt-4 text-2xl font-bold leading-8">Asertif</div>
-                                    <div className="mt-4 text-base leading-6 text-justify">
-                                        Pendamping mampu untuk melakukan evaluasi dengan cara
-                                        pemberian feedback dan refleksi berdasarkan data dan hasil
-                                        capaian.
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-                                <div className="flex flex-col grow text-black max-md:mt-6">
-                                    <img className="w-16 aspect-square" src={TUJUAN6} alt="" />
-                                    <div className="mt-4 text-2xl font-bold leading-8">
-                                        Evaluasi
-                                    </div>
-                                    <div className="mt-4 text-base leading-6 text-justify">
-                                        Kemampuan kecerdasan emosi yang baik dibutuhkan dalam
-                                        menghadapi tantangan di lapangan dan mampu membangun perilaku
-                                        asertif.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    )}
                 </div>
             </div>
             <div className="flex justify-center items-center px-16 py-14 bg-white max-md:px-5">
@@ -173,88 +168,43 @@ const MasterMentor = () => {
                 </div>
             </div>
 
-            <div className="flex flex-col items-center px-16 pt-10 pb-20 bg-white max-md:px-5">
-                <div className="flex flex-col w-full max-w-[1217px] max-md:max-w-full">
-                    <div className="text-5xl font-bold text-black leading-[57.6px] max-md:max-w-full max-md:text-4xl">
-                        Benefit Pelatihan
-                    </div>
-                    <div className="mt-8 text-lg leading-4 text-neutral-700 max-md:max-w-full">
-                        Yuk upgrade diri dan usahamu dengan mengikuti pelatihan khusus
-                        Pendamping Penggerak OK OCE:
-                    </div>
-                    <div className="mt-14 max-md:mt-10 max-md:max-w-full">
-                        <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-                            <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-                                <div className="flex flex-col grow px-10 py-6 w-full text-black bg-white rounded-3xl border border-indigo-800 border-solid shadow-sm max-md:px-5 max-md:mt-10 max-md:max-w-full">
-                                    <img className="aspect-square w-[50px]" src={BENEFIT1} alt="" />
-                                    <div className="mt-4 text-2xl font-bold leading-8 max-md:max-w-full">
-                                        Jaminan Kompetensi
-                                    </div>
-                                    <div className="mt-4 text-base leading-6 text-justify max-md:max-w-full">
-                                        Para Pendamping memiliki kompetensi komunikasi yang baik dalam
-                                        hal menyampaikan sesuatu dengan jelas dan tepat di depan
-                                        kelompok maupun individu.
-                                    </div>
+            <div className="flex flex-col ml-3 mr-3 mb-10 px-11 pt-2.5 pb-4 max-md:px-5">
+                <div className="text-5xl font-bold text-black leading-[57.6px] max-md:max-w-full max-md:text-4xl">
+                    Benefit Menjadi Mentor
+                </div>
+                <div className="mt-8 text-lg leading-4 text-neutral-700 max-md:max-w-full">
+                    Menjadi trainer memberikan kesempatan untuk berbagi pengetahuan,
+                    memperluas jaringan profesional, dan merasa puas melihat perkembangan
+                    peserta.
+                </div>
+                <div className="mt-16 max-md:mt-10 max-md:max-w-full">
+                    {benefitRows.length > 0 && (
+                        <div className="flex flex-col gap-10 max-md:gap-5">
+                            {benefitRows.map((row, rowIndex) => (
+                                <div
+                                    key={rowIndex}
+                                    className={`grid ${rowIndex % 2 === 0 ? 'grid-cols-2 gap-5' : 'grid-cols-3 gap-5'} max-md:gap-4`}
+                                >
+                                    {row.map(benefit => (
+                                        <div key={benefit.id} className="flex flex-col w-full">
+                                            <div className={`flex flex-col grow px-10 py-6 text-black bg-white rounded-3xl border border-indigo-800 border-solid shadow-sm max-md:px-5`}>
+                                                <img src={`http://localhost:3000${benefit.img}`} className="aspect-square w-[50px]" alt={`Benefit ${benefit.judul}`} />
+                                                <div className="mt-4 text-2xl font-bold leading-8 max-md:max-w-full">
+                                                    {benefit.judul}
+                                                </div>
+                                                <div className="mt-4 text-base leading-6 text-justify max-md:max-w-full">
+                                                    {benefit.deskripsi}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
-                            </div>
-                            <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
-                                <div className="flex flex-col grow px-10 py-6 w-full text-black bg-white rounded-3xl border border-indigo-800 border-solid shadow-sm max-md:px-5 max-md:mt-10 max-md:max-w-full">
-                                    <img className="aspect-square w-[50px]" src={BENEFIT2} alt="" />
-                                    <div className="mt-4 text-2xl font-bold leading-8 max-md:max-w-full">
-                                        Keterampilan Coaching
-                                    </div>
-                                    <div className="mt-4 text-base leading-6 text-justify max-md:max-w-full">
-                                        Para Pendamping memiliki kompetensi komunikasi yang baik dalam
-                                        hal menyampaikan sesuatu dengan jelas dan tepat di depan
-                                        kelompok maupun individu.
-                                    </div>
-                                </div>
-                            </div>
+                            ))}
                         </div>
-                    </div>
-                    <div className="mt-12 max-md:mt-10 max-md:max-w-full">
-                        <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-                            <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
-                                <div className="flex flex-col grow px-10 pt-5 pb-20 w-full text-black bg-white rounded-3xl border border-indigo-800 border-solid shadow-sm max-md:px-5 max-md:mt-9">
-                                    <img className="aspect-square w-[50px]" src={BENEFIT3} alt="" />
-                                    <div className="mt-4 text-2xl font-bold leading-8">
-                                        Permodalan dan Pemasaran
-                                    </div>
-                                    <div className="mt-4 text-base leading-6 text-justify">
-                                        Dengan mendaftar program master mentor, usahamu akan
-                                        mendapatkan fasilitas dari para pendamping dalam hal
-                                        permodalan dan pemasaran.
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-                                <div className="flex flex-col grow px-10 pt-5 pb-20 w-full text-black bg-white rounded-3xl border border-indigo-800 border-solid shadow-sm max-md:px-5 max-md:mt-9">
-                                    <img className="aspect-square w-[50px]" src={BENEFIT4} alt="" />
-                                    <div className="mt-4 text-2xl font-bold leading-8">
-                                        Pelaku Asertif
-                                    </div>
-                                    <div className="mt-4 text-base leading-6 text-justify">
-                                        Para Pendamping memiliki kemampuan kecerdasan emosi yang baik
-                                        yang dibutuhkan dalam menghadapi tantangan di lapangan.
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-                                <div className="flex flex-col grow px-10 pt-5 pb-20 w-full text-black bg-white rounded-3xl border border-indigo-800 border-solid shadow-sm max-md:px-5 max-md:mt-9">
-                                    <img className="aspect-square w-[50px]" src={BENEFIT5} alt="" />
-                                    <div className="mt-4 text-2xl font-bold leading-8">
-                                        Feedback & Evaluasi
-                                    </div>
-                                    <div className="mt-4 text-base leading-6 text-justify">
-                                        Pendamping dalam program master mentor juga akan bertanggung
-                                        jawab dalam melakukan evaluasi pengembangan usahamu
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    )}
                 </div>
             </div>
+
             <FloatingMenu />{" "}
         </>
     );

@@ -111,6 +111,9 @@ import UpdateLogo from './cms/logo/update';
 import EmakKeceTable from './cms/emak-kece';
 import CreateEmakKece from './cms/emak-kece/create';
 import UpdateEmakKece from './cms/emak-kece/update';
+import SyaratTrainerTable from './cms/syarat-trainer';
+import CreateSyaratTrainer from './cms/syarat-trainer/create';
+import UpdateSyaratTrainer from './cms/syarat-trainer/update';
 
 function App() {
   return (
@@ -195,6 +198,9 @@ function AppContent() {
         <Route path="/admin/benefit-trainer" element={<AdminPrivateRoute Component={BenefitTrainerTable} />} />
         <Route path="/admin/benefit-trainer/create" element={<AdminPrivateRoute Component={CreateBenefitTrainer} />} />
         <Route path="/admin/benefit-trainer/edit/:id" element={<AdminPrivateRoute Component={UpdateBenefitTrainer} />} />
+        <Route path="/admin/syarat-trainer" element={<AdminPrivateRoute Component={SyaratTrainerTable} />} />
+        <Route path="/admin/syarat-trainer/create" element={<AdminPrivateRoute Component={CreateSyaratTrainer} />} />
+        <Route path="/admin/syarat-trainer/edit/:id" element={<AdminPrivateRoute Component={UpdateSyaratTrainer} />} />
         <Route path="/admin/logo" element={<AdminPrivateRoute Component={LogoTable} />} />
         <Route path="/admin/logo/create" element={<AdminPrivateRoute Component={CreateLogo} />} />
         <Route path="/admin/logo/edit/:id" element={<AdminPrivateRoute Component={UpdateLogo} />} />

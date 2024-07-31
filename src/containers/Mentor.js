@@ -1,39 +1,72 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Header from "@img/headermentor.png";
-import Syarat1 from "@img/syarat1.png";
-import Syarat2 from "@img/syarat2.png";
-import Syarat3 from "@img/syarat3.png";
-import Mentor1 from "@img/mentor1.png";
-import Mentor2 from "@img/mentor2.png";
-import Mentor3 from "@img/mentor3.png";
-import Mentor4 from "@img/mentor4.png";
-import Mentor5 from "@img/mentor5.png";
 import FloatingMenu from "../components/FloatingMenu";
 
-function Mentor() {
+const Mentor = () => {
+  const [syaratMasterMentors, setSyaratMasterMentors] = useState([]);
+  const [benefitMasterMentors, setBenefitMasterMentors] = useState([]);
+
+  useEffect(() => {
+    const fetchSyaratMasterMentors = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/syarat-master-mentors');
+        setSyaratMasterMentors(response.data.data);
+      } catch (error) {
+        console.error("Error fetching syarat master mentors", error);
+      }
+    };
+
+    const fetchBenefitMasterMentors = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/benefit-master-mentors');
+        setBenefitMasterMentors(response.data.data);
+      } catch (error) {
+        console.error("Error fetching benefit master mentors", error);
+      }
+    };
+
+    fetchSyaratMasterMentors();
+    fetchBenefitMasterMentors();
+  }, []);
+
+  const splitBenefitsIntoRows = (benefits) => {
+    const rows = [];
+    let currentIndex = 0;
+
+    while (currentIndex < benefits.length) {
+      const itemsInRow = rows.length % 2 === 0 ? 2 : 3; 
+      rows.push(benefits.slice(currentIndex, currentIndex + itemsInRow));
+      currentIndex += itemsInRow;
+    }
+
+    return rows;
+  };
+
+  const rows = splitBenefitsIntoRows(benefitMasterMentors);
+
   return (
     <>
       <section
-        class="mt-24 bg-center bg-no-repeat"
+        className="mt-24 bg-center bg-no-repeat"
         style={{
           backgroundImage: `url(${Header})`,
           width: `100%`,
           height: `100%`,
           backgroundSize: `cover`,
         }}>
-        <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
-          <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
+        <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
+          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
             Jadilah Versi Terbaik dari Diri Anda dengan Panduan Mentor
             Profesional
           </h1>
-          <p class="mt-12 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
+          <p className="mt-12 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
             Dapatkan bimbingan yang Anda butuhkan untuk mengembangkan
             keterampilan, memperluas wawasan, dan mencapai tujuan Anda.
           </p>
         </div>
       </section>
 
-      {/* Kenapa jadi mentor */}
       <div className="flex flex-col px-16 py-20 ml-10 mr-10 text-black max-md:px-5">
         <div className="mt-6 text-4xl font-bold leading-10 max-md:text-3xl">
           Kenapa harus menjadi mentor?
@@ -46,11 +79,8 @@ function Mentor() {
           meningkatkan kesejahteraan masyarakat.
         </div>
       </div>
-      {/* Kenapa jadi mentor */}
 
-      {/* syarat Menjadi mentor */}
-
-      <div className="flex flex-col ml-2 mr-3 justify-center py-5 ">
+      <div className="flex flex-col ml-2 mr-3 justify-center py-5">
         <div className="flex overflow-hidden relative flex-col items-center py-20 w-full min-h-[676px] max-md:max-w-full">
           <img
             loading="lazy"
@@ -65,45 +95,19 @@ function Mentor() {
           </div>
           <div className="relative px-5 mt-10 w-full max-w-[1314px] max-md:max-w-full">
             <div className="flex gap-8 max-md:flex-col max-md:gap-0">
-              <div className="flex flex-col items-center w-[33%] max-md:w-full max-md:items-start">
-                <div className="relative text-lg leading-7 text-justify text-white mt-5 max-md:mt-10">
-                  <img
-                    loading="lazy"
-                    src={Syarat1}
-                    className="shrink-0 aspect-square w-[50px] mb-2"
-                    alt="Icon 1"
-                  />
-                  Seorang calon mentor harus terdaftar dan aktif sebagai relawan
-                  di program OK OCE Indonesia.
+              {syaratMasterMentors.map((syarat, index) => (
+                <div key={syarat.id} className="flex flex-col items-center w-[33%] max-md:w-full max-md:items-start">
+                  <div className="relative text-lg leading-7 text-justify text-white mt-5 max-md:mt-10">
+                    <img
+                      loading="lazy"
+                      src={`http://localhost:3000${syarat.img}`}
+                      className="shrink-0 aspect-square w-[50px] mb-2"
+                      alt={`Icon ${index + 1}`}
+                    />
+                    {syarat.deskripsi}
+                  </div>
                 </div>
-              </div>
-              <div className="flex flex-col items-center ml-5 w-[33%] max-md:ml-0 max-md:w-full max-md:items-start">
-                <div className="relative text-lg leading-7 text-justify text-white mt-5 max-md:mt-10">
-                  <img
-                    loading="lazy"
-                    src={Syarat2}
-                    className="shrink-0 aspect-square w-[50px] mb-2"
-                    alt="Icon 2"
-                  />
-                  Calon mentor harus memiliki pengetahuan yang memadai dan
-                  pengalaman yang cukup dalam bidang bisnis yang akan diajarkan
-                  kepada para peserta OK OCE.
-                </div>
-              </div>
-              <div className="flex flex-col items-center ml-5 w-[33%] max-md:ml-0 max-md:w-full max-md:items-start">
-                <div className="relative text-lg leading-7 text-justify text-white mt-5 max-md:mt-10">
-                  <img
-                    loading="lazy"
-                    src={Syarat3}
-                    className="shrink-0 aspect-square w-[50px] mb-2"
-                    alt="Icon 3"
-                  />
-                  Mentor harus memiliki keterampilan dalam mendidik dan
-                  memotivasi para peserta, serta mampu memberikan dukungan yang
-                  diperlukan untuk membantu mereka meraih kesuksesan dalam usaha
-                  mereka.
-                </div>
-              </div>
+              ))}
             </div>
           </div>
           <div className="relative flex justify-center items-center px-16 py-4 mt-20 max-w-full text-xl font-semibold leading-6 text-center text-white bg-red-600 rounded-full w-[441px] max-md:px-5 max-md:mt-10">
@@ -111,9 +115,7 @@ function Mentor() {
           </div>
         </div>
       </div>
-      {/* syarat Menjadi mentor End */}
-
-      {/* Benefit menjadi mentor */}
+   
       <div className="flex flex-col ml-3 mr-3 mb-10 px-11 pt-2.5 pb-4 max-md:px-5">
         <div className="text-5xl font-bold text-black leading-[57.6px] max-md:max-w-full max-md:text-4xl">
           Benefit Menjadi Mentor
@@ -124,103 +126,35 @@ function Mentor() {
           peserta.
         </div>
         <div className="mt-16 max-md:mt-10 max-md:max-w-full">
-          <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-            <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-              <div className="flex flex-col grow px-10 py-6 w-full text-black bg-white rounded-3xl border border-indigo-800 border-solid shadow-sm max-md:px-5 max-md:mt-10 max-md:max-w-full">
-                <img
-                  loading="lazy"
-                  srcSet={Mentor1}
-                  className="aspect-square w-[50px]"
-                />
-                <div className="mt-4 text-2xl font-bold leading-8 max-md:max-w-full">
-                  Berbagi Pengetahuan dan Pengalaman
+          {rows.length > 0 && (
+            <div className="flex flex-col gap-10 max-md:gap-5">
+              {rows.map((row, rowIndex) => (
+                <div
+                  key={rowIndex}
+                  className={`grid ${rowIndex % 2 === 0 ? 'grid-cols-2 gap-5' : 'grid-cols-3 gap-5'} max-md:gap-4`}
+                >
+                  {row.map(benefit => (
+                    <div key={benefit.id} className="flex flex-col w-full">
+                      <div className={`flex flex-col grow px-10 py-6 text-black bg-white rounded-3xl border border-indigo-800 border-solid shadow-sm max-md:px-5`}>
+                        <img src={`http://localhost:3000${benefit.img}`} className="aspect-square w-[50px]" alt={`Benefit ${benefit.judul}`} />
+                        <div className="mt-4 text-2xl font-bold leading-8 max-md:max-w-full">
+                          {benefit.judul}
+                        </div>
+                        <div className="mt-4 text-base leading-6 text-justify max-md:max-w-full">
+                          {benefit.deskripsi}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <div className="mt-4 text-base leading-6 text-justify max-md:max-w-full">
-                  Sebagai trainer UMKM, Anda berbagi pengalaman bisnis untuk
-                  membimbing para pelaku UMKM, membantu mereka menghindari
-                  kesalahan umum, dan mempercepat kemajuan bisnis.
-                </div>
-              </div>
+              ))}
             </div>
-            <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
-              <div className="flex flex-col grow px-10 pt-6 pb-12 w-full text-black bg-white rounded-3xl border border-indigo-800 border-solid shadow-sm max-md:px-5 max-md:mt-10 max-md:max-w-full">
-                <img
-                  loading="lazy"
-                  srcSet={Mentor2}
-                  className="aspect-square w-[50px]"
-                />
-                <div className="mt-4 text-2xl font-bold leading-8 max-md:max-w-full">
-                  Mendapatkan Penghargaan dan Kepuasan
-                </div>
-                <div className="mt-4 text-base leading-6 text-justify max-md:max-w-full">
-                  Melihat peserta berkembang memberikan kepuasan besar, membuat
-                  Anda bangga atas kontribusi Anda pada kesuksesan mereka.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="mt-12 max-md:mt-10 max-md:max-w-full">
-          <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-            <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
-              <div className="flex flex-col grow px-10 pt-5 pb-20 w-full text-black bg-white rounded-3xl border border-indigo-800 border-solid shadow-sm max-md:px-5 max-md:mt-9">
-                <img
-                  loading="lazy"
-                  srcSet={Mentor3}
-                  className="aspect-square w-[50px]"
-                />
-                <div className="mt-4 text-2xl font-bold leading-9">
-                  Mengembangkan Kemampuan Komunikasi dan Kepemimpinan
-                </div>
-                <div className="mt-4 text-base leading-6 text-justify">
-                  Sebagai trainer, Anda terus mengasah kemampuan komunikasi,
-                  kepemimpinan, dan motivasi, keterampilan penting dalam bisnis
-                  dan kehidupan sehari-hari.
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-              <div className="flex flex-col grow px-10 pt-5 pb-12 w-full text-black bg-white rounded-3xl border border-indigo-800 border-solid shadow-sm max-md:px-5 max-md:mt-9">
-                <img
-                  loading="lazy"
-                  srcSet={Mentor4}
-                  className="aspect-square w-[50px]"
-                />
-                <div className="mt-4 text-2xl font-bold leading-9">
-                  Membentuk Jaringan Profesional yang Luas
-                </div>
-                <div className="mt-4 text-base leading-6 text-justify">
-                  Menjadi trainer UMKM membuka peluang untuk bertemu dengan
-                  berbagai kalangan industri, memperluas jaringan profesional,
-                  berkolaborasi dengan sesama, dan menemukan peluang bisnis
-                  baru.
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-              <div className="flex flex-col grow px-10 py-5 w-full text-black bg-white rounded-3xl border border-indigo-800 border-solid shadow-sm max-md:px-5 max-md:mt-9">
-                <img
-                  loading="lazy"
-                  srcSet={Mentor5}
-                  className="aspect-square w-[50px]"
-                />
-                <div className="mt-4 text-2xl font-bold leading-9">
-                  Memberikan Dampak Positif pada Komunitas Bisnis
-                </div>
-                <div className="mt-4 text-base leading-6 text-justify">
-                  Sebagai trainer UMKM, Anda memperkuat ekosistem bisnis lokal
-                  dengan membantu para pelaku UMKM berkembang, mendukung
-                  pertumbuhan ekonomi, dan memperkuat komunitas bisnis.
-                </div>
-              </div>
-            </div>
-          </div>
+          )}
         </div>
       </div>
-      {/* Benefit menjadi mentor end */}
-      <FloatingMenu />{" "}
+      <FloatingMenu />
     </>
   );
-}
+};
 
 export default Mentor;

@@ -1,22 +1,40 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-undef */
 import React, { useState, useEffect } from "react";
 import OkOceGan from "@img/galeri/okoce-gan.jpeg";
 import Sandiaga from "@img/galeri/sandiaga.jpeg";
 import OkOce from "@img/logo-okoce.webp";
-import Gerakan from "@img/gerakan-sosial.webp";
-import Mesjid from "@img/Placeholder image .png";
-import Desapreneur from "@img/Placeholder image-1.png";
-import EmakKece from "@img/Placeholder image-4.png";
-import Brand from "@img/Placeholder image-3.png";
 import FloatingMenu from "../components/FloatingMenu";
 
 const Sejarah = () => {
-
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [logo, setLogo] = useState({});
+    const [otherLogos, setOtherLogos] = useState([]);
 
     useEffect(() => {
-        const interval = setInterval(nextSlide, 3000); // Auto slide every 5 seconds
+        fetch('http://localhost:3000/logos')
+            .then(response => response.json())
+            .then(data => {
+                const logos = data.data;
+
+                const logo = {
+                    'gerakan sosial': logos.find(logo => logo.nama === 'gerakan sosial'),
+                    'okoce': logos.find(logo => logo.nama === 'okoce'),
+                };
+
+                setLogo(logo);
+
+                const filteredOtherLogos = logos.filter(
+                    logo => logo.nama !== 'okoce' && logo.nama !== 'gerakan sosial'
+                );
+
+                setLogo(logo);
+                setOtherLogos(filteredOtherLogos);
+            })
+            .catch(error => console.error('Error fetching logos:', error));
+    }, []);
+
+
+    useEffect(() => {
+        const interval = setInterval(nextSlide, 3000);
         return () => clearInterval(interval);
     }, [currentIndex]);
 
@@ -102,18 +120,21 @@ const Sejarah = () => {
             <div class="grid justify-items-center">
                 <h1 class="text-4xl font-bold text-center mt-[4rem] mobile:text-3xl mobile:px-2">Logo OK OCE Indonesia</h1>
                 <div className="w-full grid mobile:grid-cols-1 mobile:grid-flow-row mobile:justify-center mobile:items-center lg:grid-flow-col lg:grid-flow-row lg:justify-evenly">
-                    <div>
-                        <img src={Gerakan} class="mt-[7rem] mx-auto mobile:w-3/5 lg:max-w-[20rem]" alt="gerakan sosial" />
-                    </div>
-                    <div className="mobile:ml-5">
-                        <img src={OkOce} class="mx-auto mobile:w-3/5 mobile:mt-20 lg:w-1/3 lg:mt-[10rem] " alt="gerakan sosial" />
-                    </div>
+                    {logo['gerakan sosial'] && (
+                        <div>
+                            <img src={`http://localhost:3000${logo['gerakan sosial'].foto}`} className="mt-[7rem] mx-auto mobile:w-3/5 lg:max-w-[20rem]" alt="gerakan sosial" />
+                        </div>
+                    )}
+                    {logo['okoce'] && (
+                        <div className="mobile:ml-5">
+                            <img src={`http://localhost:3000${logo['okoce'].foto}`} className="mx-auto mobile:w-3/5 mobile:mt-20 lg:w-1/3 lg:mt-[10rem]" alt="okoce" />
+                        </div>
+                    )}
                 </div>
                 <div class="grid justify-items-center mobile:grid-cols-1 mobile:gap-0 lg:grid-cols-2 lg:grid-flow-col lg:gap-6">
-                    <img src={Desapreneur} class="max-w-[20rem]" alt="gerakan sosial" />
-                    <img src={Mesjid} class="max-w-[20rem]" alt="gerakan sosial" />
-                    <img src={EmakKece} class="max-w-[20rem]" alt="gerakan sosial" />
-                    <img src={Brand} class="max-w-[20rem]" alt="gerakan sosial" />
+                    {otherLogos.map((data) => (
+                        <img src={`http://localhost:3000${data.foto}`} class="max-w-[20rem]" alt={data.nama} />
+                    ))}
                 </div>
             </div>
             <FloatingMenu />

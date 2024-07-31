@@ -62,6 +62,7 @@ const AdminNavbar = () => {
                 { name: "PELUANG KERJA", link: "/admin/peluang-kerja" },
                 { name: "PELUANG USAHA", link: "/admin/peluang-usaha" },
                 { name: "BENEFIT TRAINER", link: "/admin/benefit-trainer" },
+                { name: "SYARAT TRAINER", link: "/admin/syarat-trainer" },
                 { name: "MAGANG", link: "/admin/magang" },
                 { name: "DONASI", link: "/admin/donasi" },
                 { name: "MITRA", link: "/admin/mitra" },
