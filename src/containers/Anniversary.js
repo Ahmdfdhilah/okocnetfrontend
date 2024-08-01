@@ -13,13 +13,14 @@ const convertToEmbedUrl = (watchUrl) => {
 const Anniversary = () => {
     const [timelineData, setTimelineData] = useState([]);
     const [selectedYear, setSelectedYear] = useState(null);
+    const [banners, setBanners] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
         const fetchAnniversaries = async () => {
             try {
                 const response = await axios.get('http://localhost:3000/anniversaries?sort=year&&order=DESC');
                 const data = response.data.data; 
-                console.log(data);
                 const updatedData = data.map(item => ({
                     ...item,
                     video: convertToEmbedUrl(item.videoLink)
@@ -30,8 +31,34 @@ const Anniversary = () => {
             }
         };
 
+        const fetchBanners = async () => {
+            try {
+                const response = await axios.get("http://localhost:3000/all-banners");
+                const bannersData = response.data.data.find(item => item.nama === 'Anniversary');
+                setBanners(bannersData ? bannersData.foto : []);
+            } catch (error) {
+                console.error('Error fetching banners:', error);
+            }
+        };
+
         fetchAnniversaries();
+        fetchBanners();
     }, []);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex(prevIndex => (prevIndex + 1) % banners.length);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, [banners]);
+
+    const prevSlide = () => {
+        setCurrentIndex(prevIndex => (prevIndex - 1 + banners.length) % banners.length);
+    };
+
+    const nextSlide = () => {
+        setCurrentIndex(prevIndex => (prevIndex + 1) % banners.length);
+    };
 
     const handleYearClick = (year) => {
         setSelectedYear(year);
@@ -41,15 +68,37 @@ const Anniversary = () => {
 
     return (
         <>
-            {/* Hero Section */}
-            <div className="relative mt-24 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 h-[60vh] flex flex-col justify-center items-center text-center text-white py-12 px-4">
-                <h1 className="text-4xl md:text-6xl font-extrabold mb-4">ANNIVERSARY OKOCE</h1>
-                <p className="text-xl mb-8 px-4 md:px-12 max-w-3xl">
-                    Selamat datang di momen istimewa ini, di mana kami merayakan perjalanan luar biasa yang telah kami lalui.
-                    Gerakan sosial OK OCE Indonesia mengadvokasi pertumbuhan ekonomi yang didorong oleh kreativitas dan kolaborasi.
-                    Dengan mengutamakan inovasi, kerjasama antarindividu, dan keterlibatan penuh dalam berbagai sektor ekonomi,
-                    OK OCE membuka pintu bagi kemajuan yang berkelanjutan dan inklusif bagi seluruh masyarakat Indonesia.
-                </p>
+            {/* Banner Carousel */}
+            <div id="carousel-header" className="relative w-full bg-gray-200 mt-24">
+                <div className="relative overflow-hidden rounded-lg">
+                    {banners.length > 0 ? (
+                        banners.map((banner, index) => (
+                            <div key={index} className={`duration-700 ease-in-out ${index === currentIndex ? '' : 'hidden'}`}>
+                                <img src={`http://localhost:3000${banner}`} className="object-cover block h-full w-full" alt={`Slide ${index + 1}`} />
+                            </div>
+                        ))
+                    ) : (
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                            <p>Loading slides...</p>
+                        </div>
+                    )}
+                    <button type="button" className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer" onClick={prevSlide}>
+                        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-500 text-white">
+                            <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 1 1 5l4 4" />
+                            </svg>
+                            <span className="sr-only">Previous</span>
+                        </span>
+                    </button>
+                    <button type="button" className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer" onClick={nextSlide}>
+                        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-500 text-white">
+                            <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4" />
+                            </svg>
+                            <span className="sr-only">Next</span>
+                        </span>
+                    </button>
+                </div>
             </div>
 
             {/* Timeline Section */}

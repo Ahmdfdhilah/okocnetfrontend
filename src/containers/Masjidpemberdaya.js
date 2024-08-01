@@ -1,5 +1,4 @@
-import React from "react";
-import Header from "@img/headermasjidpemberdaya.png";
+import React, { useEffect, useState } from "react";
 import Kmp from "@img/kmp.png";
 import Tujuan1 from "@img/tujuan1.png";
 import Tujuan2 from "@img/tujuan2.png";
@@ -37,54 +36,103 @@ import Key3 from "@img/key3.png";
 import Key4 from "@img/key4.png";
 import Key5 from "@img/key5.png";
 import FloatingMenu from "../components/FloatingMenu";
+import axios from "axios";
 
 const Masjidpemberdaya = () => {
+  const [banners, setBanners] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const fetchBanners = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/all-banners");
+        const bannersData = response.data.data.find(item => item.nama === 'Masjid Pemberdaya');
+        setBanners(bannersData ? bannersData.foto : []);
+      } catch (error) {
+        console.error('Error fetching banners:', error);
+      }
+    };
+
+    fetchBanners();
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex(prevIndex => (prevIndex + 1) % banners.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [banners]);
+
+  const prevSlide = () => {
+    setCurrentIndex(prevIndex => (prevIndex - 1 + banners.length) % banners.length);
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex(prevIndex => (prevIndex + 1) % banners.length);
+  };
+
   return (
     <>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-        <div className="flex overflow-hidden relative flex-col justify-center items-center px-16 py-20 w-full min-h-[678px] max-md:px-5 max-md:max-w-full shadow-lg bg-white rounded-3xl">
-          <img
-            loading="lazy"
-            src={Header}
-            className="object-cover absolute inset-0 w-full h-full" alt=""
-          />
-          <div className="relative mt-16 mb-28 w-full max-w-[1174px] max-md:my-10 max-md:max-w-full">
-            <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-              <div className="flex flex-col w-[43%] max-md:ml-0 max-md:w-full">
-                <div className="flex relative flex-col grow text-2xl font-bold leading-7 text-center text-white max-md:mt-10">
-                  <img
-                    loading="lazy"
-                    src={Kmp}
-                    className="w-full aspect-[1.92]" alt=""
-                  />
-                  <a href="https://masjidpemberdaya.org/" className="justify-center bg-green-700 rounded-3xl max-md:px-5 mobile:px-4 mobile:py-4 mobile:mt-4 lg:px-12 lg:py-7 lg:mt-7">Pelajari Selengkapnya</a>
+
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 mt-24">
+        <div id="carousel-header" className="relative w-full bg-gray-200">
+          <div className="relative overflow-hidden rounded-lg">
+            {banners.length > 0 ? (
+              banners.map((banner, index) => (
+                <div key={index} className={`duration-700 ease-in-out ${index === currentIndex ? '' : 'hidden'}`}>
+                  <img src={`http://localhost:3000${banner}`} className="object-cover block h-full w-full" alt={`Slide ${index + 1}`} />
                 </div>
+              ))
+            ) : (
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <p>Loading slides...</p>
               </div>
-              <div className="flex flex-col mt-12 mobile:w-full lg:ml-7 lg:w-[57%]">
-                <div className="flex flex-col mt-8 text-white max-md:mt-10 max-md:max-w-full">
-                  <div className="mb-3 mt-10 text-4xl font-bold leading-10 max-md:max-w-full mobile:ml-4 lg:ml-8">
-                    KOLABORASI MASJID PEMBERDAYA
-                  </div>
-                  <div className="mt-5 text-lg leading-7 text-justify mobile:ml-4 mobile:pr-4 lg:ml-10" style={{ hyphens: 'auto', wordBreak: 'break-word' }}>
-                    KMP adalah himpunan masjid- masjid yang bergabung atas dasar
-                    visi yang sama dalam mewujudkan peran masjid dalam
-                    mengentaskan KEMISKINAN. KMP adalah entitas berbadan hukum
-                    perkumpulan yang beranggotakan para perwakilan pengurus
-                    masjid pemberdaya di Indonesia
-                  </div>
+            )}
+            <button type="button" className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer" onClick={prevSlide}>
+              <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-500 text-white">
+                <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 1 1 5l4 4" />
+                </svg>
+                <span className="sr-only">Previous</span>
+              </span>
+            </button>
+            <button type="button" className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer" onClick={nextSlide}>
+              <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-500 text-white">
+                <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4" />
+                </svg>
+                <span className="sr-only">Next</span>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div className="absolute top-28 z-4 flex flex-col mt-6 mb-5 px-20 py-7 text-center rounded-3xl max-md:px-5 mobile:w-80 lg:w-4/5"
+          style={{ boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)" }}>
+          <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+            <div className="flex flex-col w-[43%] max-md:ml-0 max-md:w-full">
+              <div className="flex relative flex-col grow text-2xl font-bold leading-7 text-center text-white max-md:mt-10">
+                <img
+                  loading="lazy"
+                  src={Kmp}
+                  className="w-full aspect-[1.92]" alt=""
+                />
+                <a href="https://masjidpemberdaya.org/" className="justify-center bg-green-700 rounded-3xl max-md:px-5 mobile:px-4 mobile:py-4 mobile:mt-4 lg:px-12 lg:py-7 lg:mt-7">Pelajari Selengkapnya</a>
+              </div>
+            </div>
+            <div className="flex flex-col mt-12 mobile:w-full lg:ml-7 lg:w-[57%]">
+              <div className="flex flex-col mt-8 text-white max-md:mt-10 max-md:max-w-full">
+                <div className="mb-3 mt-10 text-4xl font-bold leading-10 max-md:max-w-full mobile:ml-4 lg:ml-8">
+                  KOLABORASI MASJID PEMBERDAYA
+                </div>
+                <div className="mt-5 text-lg leading-7 text-justify mobile:ml-4 mobile:pr-4 lg:ml-10" style={{ hyphens: 'auto', wordBreak: 'break-word' }}>
+                  KMP adalah himpunan masjid- masjid yang bergabung atas dasar
+                  visi yang sama dalam mewujudkan peran masjid dalam
+                  mengentaskan KEMISKINAN. KMP adalah entitas berbadan hukum
+                  perkumpulan yang beranggotakan para perwakilan pengurus
+                  masjid pemberdaya di Indonesia
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="flex flex-col mt-6 mb-5 px-20 py-7 text-center text-black bg-white rounded-3xl max-md:px-5 mobile:w-80 lg:w-4/5"
-          style={{ boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)" }}>
-          <div className="self-center text-5xl font-bold  max-md:max-w-full max-md:text-4xl">
-            PROGRAM MASJID PEMBERDAYA
-          </div>
-          <div className="self-end mt-4 text-xl leading-8 max-md:max-w-full">
-            Merupakan Pengembangan Kewirausahaan Terpadu Menggunakan Kurikulum 7
-            Top Berbasis Masjid
           </div>
         </div>
 
@@ -525,7 +573,7 @@ const Masjidpemberdaya = () => {
                 </div>
               </div>
             </div>
-            <br/>
+            <br />
             <div className="mt-8 max-md:max-w-full mobile:mt-0">
               <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                 <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
@@ -554,7 +602,7 @@ const Masjidpemberdaya = () => {
                 </div>
               </div>
             </div>
-            <br/>
+            <br />
             <div className="mt-8 max-md:max-w-full mobile:mt-0">
               <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                 <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
@@ -583,7 +631,7 @@ const Masjidpemberdaya = () => {
                 </div>
               </div>
             </div>
-            <br/>
+            <br />
             <div className="mt-8 max-md:max-w-full mobile:mt-0">
               <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                 <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
@@ -612,7 +660,7 @@ const Masjidpemberdaya = () => {
                 </div>
               </div>
             </div>
-            <br/>
+            <br />
             <div className="mt-8 max-md:max-w-full mobile:mt-0">
               <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                 <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
@@ -641,7 +689,7 @@ const Masjidpemberdaya = () => {
                 </div>
               </div>
             </div>
-            <br/>
+            <br />
             <div className="self-center mt-8 w-full max-w-[1190px] max-md:max-w-full mobile:mt-0">
               <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                 <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">

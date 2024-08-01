@@ -1,27 +1,86 @@
-import React from "react";
-import Header from "@img/headertestimoni.png";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import TestiFemale from "@img/profilecewe.png";
 import TestiMale from "@img/profilecowo.png";
 import FloatingMenu from "../components/FloatingMenu";
 
 const Testimoni = () => {
+  const [banners, setBanners] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const fetchBanners = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/all-banners');
+        if (response.data.data) {
+          const testimoniBanners = response.data.data.find(item => item.nama === 'Testimoni');
+          console.log(testimoniBanners);
+          setBanners(testimoniBanners ? testimoniBanners.foto : []);
+        }
+      } catch (error) {
+        console.error("Error fetching banners", error);
+        setBanners([]);
+      }
+    };
+
+    fetchBanners();
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex(prevIndex => (prevIndex + 1) % banners.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [banners]);
+
+  const prevSlide = () => {
+    setCurrentIndex(prevIndex => (prevIndex - 1 + banners.length) % banners.length);
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex(prevIndex => (prevIndex + 1) % banners.length);
+  };
   return (
     <>
-      <section
-        class="mt-[4em] bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url(${Header})`,
-          width: `100%`,
-          height: `100%`,
-          backgroundSize: `cover`,
-        }}>
-        <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
-          <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
+      {/* Banner Carousel */}
+      <section className="relative mt-24">
+        <div id="carousel-header" className="relative w-full bg-gray-200 mt-24">
+          <div className="relative overflow-hidden rounded-lg">
+            {banners.length > 0 ? (
+              banners.map((banner, index) => (
+                <div key={index} className={`duration-700 ease-in-out ${index === currentIndex ? '' : 'hidden'}`}>
+                  <img src={`http://localhost:3000${banner}`} className="object-cover block h-full w-full" alt={`Slide ${index + 1}`} />
+                </div>
+              ))
+            ) : (
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <p>Loading slides...</p>
+              </div>
+            )}
+            <button type="button" className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer" onClick={prevSlide}>
+              <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-500 text-white">
+                <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 1 1 5l4 4" />
+                </svg>
+                <span className="sr-only">Previous</span>
+              </span>
+            </button>
+            <button type="button" className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer" onClick={nextSlide}>
+              <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-500 text-white">
+                <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4" />
+                </svg>
+                <span className="sr-only">Next</span>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div className="absolute inset-0 top-64 z-20 px-4 mx-auto max-w-screen-xl text-center">
+          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
             Yuk, Mulai Gabung dan Dapatkan Hasil Tambahan dengan daftar
           </h1>
-          <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
-            Fondasi kami, idemu, bersama-sama kita maju dan berkembang untuk
-            menciptakan masa depan bersama.
+          <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
+            Fondasi kami, idemu, bersama-sama kita maju dan berkembang untuk menciptakan masa depan bersama.
           </p>
         </div>
       </section>

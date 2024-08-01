@@ -5,14 +5,16 @@ import FloatingMenu from "../components/FloatingMenu";
 
 const Thementor = () => {
   const [thementorData, setThementorData] = useState(null);
+  const [banners, setBanners] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
 
   useEffect(() => {
     const fetchThementorData = async () => {
       try {
         const response = await axios.get('http://localhost:3000/thementors');
-        const data = response.data.data[0]; 
+        const data = response.data.data[0];
         setThementorData(data);
       } catch (error) {
         setError('Error fetching data');
@@ -22,8 +24,29 @@ const Thementor = () => {
       }
     };
 
+    const fetchBanners = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/all-banners');
+        if (response.data.data) {
+          const theMentorBanners = response.data.data.find(item => item.nama === 'The Mentor');
+          setBanners(theMentorBanners ? theMentorBanners.foto : []);
+        }
+      } catch (error) {
+        console.error("Error fetching banners:", error);
+        setBanners([]);
+      }
+    };
+
     fetchThementorData();
+    fetchBanners();
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBannerIndex(prevIndex => (prevIndex + 1) % banners.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [banners]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
@@ -31,20 +54,40 @@ const Thementor = () => {
 
   return (
     <>
-      <div className="flex overflow-hidden relative flex-col justify-center items-center px-16 py-20 text-center text-white min-h-[677px] max-md:px-5">
-        <img
-          loading="lazy"
-          src={Header}
-          className="object-cover absolute inset-0 size-full"
-          alt="The Mentor Header"
-        />
-        <div className="relative self-center mt-20 mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
-          &quot;The Mentor&quot; Training Online Penggerak OK OCE Indonesia
-        </div>
-        <div className="relative mt-16 mb-8 text-lg font-normal text-gray-300 leading-7 lg:text-xl sm:px-16 lg:px-48 max-md:mt-10 max-md:mr-1.5 max-md:max-w-full">
-          &quot;The Mentor&quot; sebelumnya disebut TOT adalah program untuk
-          melatih mentor-mentor yang berkompeten dari penggerak. Yang akan
-          berjalan setiap Minggu selama satu tahun.
+      {/* Banner Carousel */}
+      <div className="relative w-full bg-white mt-24">
+        <div className="relative overflow-hidden rounded-lg">
+          {banners.length > 0 ? (
+            banners.map((banner, index) => (
+              <div key={index} className={`duration-700 ease-in-out ${index === currentBannerIndex ? '' : 'hidden'}`}>
+                <img src={`http://localhost:3000${banner}`} className="object-cover block w-full h-full" alt={`Banner ${index + 1}`} />
+              </div>
+            ))
+          ) : (
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <p>Loading slides...</p>
+            </div>
+          )}
+          <button
+            type="button"
+            className="absolute top-1/2 left-3 z-30 flex items-center justify-center w-10 h-10 bg-gray-200/50 rounded-full hover:bg-gray-300 focus:outline-none transition"
+            onClick={() => setCurrentBannerIndex(prevIndex => (prevIndex - 1 + banners.length) % banners.length)}
+          >
+            <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            <span className="sr-only">Previous</span>
+          </button>
+          <button
+            type="button"
+            className="absolute top-1/2 right-3 z-30 flex items-center justify-center w-10 h-10 bg-gray-200/50 rounded-full hover:bg-gray-300 focus:outline-none transition"
+            onClick={() => setCurrentBannerIndex(prevIndex => (prevIndex + 1) % banners.length)}
+          >
+            <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+            <span className="sr-only">Next</span>
+          </button>
         </div>
       </div>
 

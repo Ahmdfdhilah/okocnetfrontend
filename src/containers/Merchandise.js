@@ -1,40 +1,60 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState, useEffect } from "react";
-import Header from "../asset/img/Merch.png";
+import axios from "axios";
 import FloatingMenu from "../components/FloatingMenu";
 
 const Merchandise = () => {
     const [datas, setDatas] = useState([]);
+    const [banners, setBanners] = useState([]);
     const [currentImageIndexes, setCurrentImageIndexes] = useState([]);
-
-    const fetchData = async () => {
-        try {
-            const response = await fetch('http://localhost:3000/merchandises');
-            if (!response.ok) {
-                throw new Error('Gagal mengambil data merchandise');
-            }
-            const data = await response.json();
-            const merch = data.data;
-            const merchandiseData = merch.map(item => ({
-                id: item.id,
-                images: item.fotoMerchandise,
-                judul: item.judulMerchandise,
-                harga: item.hargaMerchandise,
-                stok: item.stockMerchandise,
-                deskripsi: item.deskripsiMerchandise,
-            }));
-            
-            setDatas(merchandiseData);
-            setCurrentImageIndexes(new Array(merchandiseData.length).fill(0));
-        } catch (error) {
-            console.error('Error fetching data:', error);
-            setDatas([]);
-        }
-    };
+    const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
 
     useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/merchandises');
+                if (!response.ok) {
+                    throw new Error('Gagal mengambil data merchandise');
+                }
+                const data = await response.json();
+                const merch = data.data;
+                const merchandiseData = merch.map(item => ({
+                    id: item.id,
+                    images: item.fotoMerchandise,
+                    judul: item.judulMerchandise,
+                    harga: item.hargaMerchandise,
+                    stok: item.stockMerchandise,
+                    deskripsi: item.deskripsiMerchandise,
+                }));
+
+                setDatas(merchandiseData);
+                setCurrentImageIndexes(new Array(merchandiseData.length).fill(0));
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                setDatas([]);
+            }
+        };
+
+        const fetchBanners = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/all-banners');
+                const bannersData = response.data.data.find(item => item.nama === 'Merchandise');
+                setBanners(bannersData ? bannersData.foto : []);
+            } catch (error) {
+                console.error('Error fetching banners:', error);
+                setBanners([]);
+            }
+        };
+
         fetchData();
+        fetchBanners();
     }, []);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentBannerIndex(prevIndex => (prevIndex + 1) % banners.length);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, [banners]);
 
     const goToNextImage = (itemIndex) => {
         setCurrentImageIndexes(prevIndexes => {
@@ -54,9 +74,44 @@ const Merchandise = () => {
 
     return (
         <>
-            <div className="mt-24">
-                <img className="w-full" src={Header} alt="Header" />
+            {/* Banner Carousel */}
+            <div id="carousel-header" className="relative w-full bg-gray-200 mt-24">
+                <div className="relative overflow-hidden rounded-lg">
+                    {banners.length > 0 ? (
+                        banners.map((banner, index) => (
+                            <div key={index} className={`duration-700 ease-in-out ${index === currentBannerIndex ? '' : 'hidden'}`}>
+                                <img src={`http://localhost:3000${banner}`} className="object-cover block w-full h-full" alt={`Banner ${index + 1}`} />
+                            </div>
+                        ))
+                    ) : (
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                            <p>Loading slides...</p>
+                        </div>
+                    )}
+                    <button
+                        type="button"
+                        className="absolute top-1/2 left-3 z-30 flex items-center justify-center w-10 h-10 bg-gray-200/50 rounded-full hover:bg-gray-300 focus:outline-none transition"
+                        onClick={() => setCurrentBannerIndex(prevIndex => (prevIndex - 1 + banners.length) % banners.length)}
+                    >
+                        <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        <span className="sr-only">Previous</span>
+                    </button>
+                    <button
+                        type="button"
+                        className="absolute top-1/2 right-3 z-30 flex items-center justify-center w-10 h-10 bg-gray-200/50 rounded-full hover:bg-gray-300 focus:outline-none transition"
+                        onClick={() => setCurrentBannerIndex(prevIndex => (prevIndex + 1) % banners.length)}
+                    >
+                        <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                        <span className="sr-only">Next</span>
+                    </button>
+                </div>
             </div>
+
+            {/* Merchandise Items */}
             <div id="products" className="mt-[7rem] w-full flex justify-center bg-white text-slate-700">
                 <div className="w-3/4">
                     {datas.length > 0 ? (
@@ -116,7 +171,7 @@ const Merchandise = () => {
                                             {item.judul}
                                         </a>
                                         <div className="text-xl font-semibold mobile:text-black mobile:mt-2 lg:text-gray-500">
-                                            {item.harga}
+                                            Rp. {item.harga.toLocaleString('id-ID')}
                                         </div>
                                         <div className="flex-none w-full mt-2 text-sm font-medium text-gray-500">
                                             Sisa stok: {item.stok}

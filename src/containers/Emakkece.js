@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import FloatingMenu from "../components/FloatingMenu";
+
 import PELAKSANA1 from "@img/emakkece/PELAKSANA1.png";
 import PELAKSANA2 from "@img/emakkece/PELAKSANA2.png";
 import PELAKSANA3 from "@img/emakkece/PELAKSANA3.png";
@@ -24,9 +26,10 @@ import MATERI2 from "@img/emakkece/MATERI2.png";
 import MATERI3 from "@img/emakkece/MATERI3.png";
 import MATERI4 from "@img/emakkece/MATERI4.png";
 
-
 const Emakkece = () => {
     const [dewanPenasihat, setDewanPenasihat] = useState([]);
+    const [banners, setBanners] = useState([]);
+    const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
 
     useEffect(() => {
         const fetchDewanPenasihat = async () => {
@@ -37,33 +40,71 @@ const Emakkece = () => {
                 console.error("Error fetching dewan penasihat:", error);
             }
         };
-        
+
+        const fetchBanners = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/all-banners');
+                if (response.data.data) {
+                    const emakKeceBanners = response.data.data.find(item => item.nama === 'Emak Kece');
+                    setBanners(emakKeceBanners ? emakKeceBanners.foto : []);
+                }
+            } catch (error) {
+                console.error("Error fetching banners:", error);
+                setBanners([]);
+            }
+        };
+
         fetchDewanPenasihat();
+        fetchBanners();
     }, []);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentBannerIndex(prevIndex => (prevIndex + 1) % banners.length);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, [banners]);
 
     return (
         <>
-            <div className="px-20 py-20 bg-white max-md:px-5 mobile:mt-6 lg:mt-20">
-                <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-                    <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-                        <img className="mt-2.5 w-full aspect-[1.96] max-md:mt-10 max-md:max-w-full" src={EMAKKECE} />
-                    </div>
-                    <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
-                        <div className="flex flex-col mt-2.5 font-bold text-black leading-[120%] max-md:mt-10 max-md:max-w-full">
-                            <div className="text-4xl max-md:max-w-full">EMAK KECE</div>
-                            <div className="mt-6 text-lg leading-7 text-justify max-md:max-w-full">
-                                Emak Kece adalah program inovatif yang dirancang oleh OK OCE Indonesia, khusus untuk para ibu-ibu. Program ini dijalankan oleh para penggerak dan mitra OK OCE Indonesia, dengan tujuan memberdayakan serta meningkatkan keterampilan dan potensi ekonomi para ibu dalam berbagai bidang usaha.
-                                <br />
+            {/* Banner Carousel */}
+            <div id="carousel-header" className="relative w-full bg-white mt-24">
+                <div className="relative overflow-hidden rounded-lg">
+                    {banners.length > 0 ? (
+                        banners.map((banner, index) => (
+                            <div key={index} className={`duration-700 ease-in-out ${index === currentBannerIndex ? '' : 'hidden'}`}>
+                                <img src={`http://localhost:3000${banner}`} className="object-cover block w-full h-full" alt={`Banner ${index + 1}`} />
                             </div>
-                            <div className="justify-center items-center px-16 py-6 mt-10 text-2xl text-center text-white bg-red-600 rounded-3xl max-md:px-5 max-md:max-w-full">
-                                PELAJARI SELENGKAPNYA
-                            </div>
+                        ))
+                    ) : (
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                            <p>Loading slides...</p>
                         </div>
-                    </div>
+                    )}
+                    <button
+                        type="button"
+                        className="absolute top-1/2 left-3 z-30 flex items-center justify-center w-10 h-10 bg-gray-200/50 rounded-full hover:bg-gray-300 focus:outline-none transition"
+                        onClick={() => setCurrentBannerIndex(prevIndex => (prevIndex - 1 + banners.length) % banners.length)}
+                    >
+                        <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        <span className="sr-only">Previous</span>
+                    </button>
+                    <button
+                        type="button"
+                        className="absolute top-1/2 right-3 z-30 flex items-center justify-center w-10 h-10 bg-gray-200/50 rounded-full hover:bg-gray-300 focus:outline-none transition"
+                        onClick={() => setCurrentBannerIndex(prevIndex => (prevIndex + 1) % banners.length)}
+                    >
+                        <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                        <span className="sr-only">Next</span>
+                    </button>
                 </div>
             </div>
 
-            {/* Responsive mobile diukuran 320px keatas*/}
+            {/* Sections for different categories */}
             <div className="bg-white-300 w-full h-[20rem] grid justify-center content-center mobile:mt-72 mobile:mb-[55rem] lg:mt-20 lg:mb-20">
                 <h1 className="font-extrabold text-4xl text-center">PELAKSANA</h1>
                 <div className="flex justify-center">
@@ -104,7 +145,7 @@ const Emakkece = () => {
                 </div>
             </div>
 
-            <div className="bg-white-300 w-full h-[20rem] grid justify-center content-center mobile:mt-52 mobile:mb-[55rem] lg:mt-20 lg:mb-20">
+            <div className="bg-white-300 w-full h-[20rem] grid justify-center content-center mobile:mt-52 mobile:mb-[55rem] lg:mt-10 lg:mb-10">
                 <h1 className="font-extrabold py-5 text-4xl text-center">DURASI</h1>
                 <div className="flex justify-center">
                     <div className="grid gap-4 mobile:grid-cols-1 lg:grid-cols-4">

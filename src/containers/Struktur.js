@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Header from "@img/bannernilaiinti.png";
+import axios from "axios";
 import FloatingMenu from "../components/FloatingMenu";
 
 const PengurusBaru = () => {
@@ -11,9 +11,12 @@ const PengurusBaru = () => {
         direktorat: [],
         eksekutif: []
     });
+    const [banners, setBanners] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
         fetchData();
+        fetchBanners();
     }, []);
 
     const fetchData = async () => {
@@ -29,6 +32,16 @@ const PengurusBaru = () => {
         }
     };
 
+    const fetchBanners = async () => {
+        try {
+            const response = await axios.get("http://localhost:3000/all-banners");
+            const bannersData = response.data.data.find(item => item.nama === 'Struktur Pengurus');
+            setBanners(bannersData ? bannersData.foto : []);
+        } catch (error) {
+            console.error('Error fetching banners:', error);
+        }
+    };
+
     const filterAndSetData = (data) => {
         const filteredData = {
             founder: data.filter(item => item.tipe === 'founder'),
@@ -41,13 +54,57 @@ const PengurusBaru = () => {
         setPenguruses(filteredData);
     };
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex(prevIndex => (prevIndex + 1) % banners.length);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, [banners]);
+
+    const prevSlide = () => {
+        setCurrentIndex(prevIndex => (prevIndex - 1 + banners.length) % banners.length);
+    };
+
+    const nextSlide = () => {
+        setCurrentIndex(prevIndex => (prevIndex + 1) % banners.length);
+    };
+
     return (
         <>
-            <div>
-                <div className="mt-32">
-                    <img className="w-11/12 rounded-3xl mx-auto" src={Header} alt=""></img>
+            <div id="carousel-header" className="relative w-full bg-gray-200 mt-24">
+                <div className="relative overflow-hidden rounded-lg">
+                    {banners.length > 0 ? (
+                        banners.map((banner, index) => (
+                            <div key={index} className={`duration-700 ease-in-out ${index === currentIndex ? '' : 'hidden'}`}>
+                                <img src={`http://localhost:3000${banner}`} className="object-cover block h-full w-full" alt={`Slide ${index + 1}`} />
+                            </div>
+                        ))
+                    ) : (
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                            <p>Loading slides...</p>
+                        </div>
+                    )}
+                    <button type="button" className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer" onClick={prevSlide}>
+                        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-500 text-white">
+                            <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 1 1 5l4 4" />
+                            </svg>
+                            <span className="sr-only">Previous</span>
+                        </span>
+                    </button>
+                    <button type="button" className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer" onClick={nextSlide}>
+                        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-500 text-white">
+                            <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4" />
+                            </svg>
+                            <span className="sr-only">Next</span>
+                        </span>
+                    </button>
                 </div>
-                <div className="mt-[6rem] mb-16 w-4/5 mx-auto">
+            </div>
+
+            <div>
+                <div className="mt-[6rem] mb-16 w-4/5 mx-auto ">
                     <div className="mobile:w-3/4 mobile:mx-auto lg:w-[74rem] lg:ml-[1rem]">
                         <h1 className="mb-8 text-2xl font-bold border-b mobile:text-3xl mobile:text-center lg:text-start">Founder OK OCE INDONESIA</h1>
                     </div>
@@ -148,7 +205,6 @@ const PengurusBaru = () => {
             </div>
             <FloatingMenu />
         </>
-
     );
 }
 

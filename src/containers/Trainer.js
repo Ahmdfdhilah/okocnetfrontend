@@ -6,6 +6,8 @@ import axios from "axios";
 const Trainer = () => {
     const [syaratTrainers, setSyaratTrainers] = useState([]);
     const [benefitTrainers, setBenefitTrainers] = useState([]);
+    const [banners, setBanners] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
         axios.get("http://localhost:3000/syarat-trainers")
@@ -15,7 +17,29 @@ const Trainer = () => {
         axios.get("http://localhost:3000/benefit-trainers")
             .then(response => setBenefitTrainers(response.data.data))
             .catch(error => console.error("Error fetching benefit-trainers:", error));
+
+        axios.get("http://localhost:3000/all-banners")
+            .then(response => {
+                const bannersData = response.data.data.find(item => item.nama === 'Trainer');
+                setBanners(bannersData ? bannersData.foto : []);
+            })
+            .catch(error => console.error("Error fetching banners:", error));
     }, []);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex(prevIndex => (prevIndex + 1) % banners.length);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, [banners]);
+
+    const prevSlide = () => {
+        setCurrentIndex(prevIndex => (prevIndex - 1 + banners.length) % banners.length);
+    };
+
+    const nextSlide = () => {
+        setCurrentIndex(prevIndex => (prevIndex + 1) % banners.length);
+    };
 
     const splitBenefitsIntoRows = (benefits) => {
         const rows = [];
@@ -36,24 +60,43 @@ const Trainer = () => {
         return rows;
     };
     
-
     const rows = splitBenefitsIntoRows(benefitTrainers);
 
     return (
         <>
-            <div className="relative flex flex-col items-start px-12 py-20 text-white shadow-sm min-h-[825px] max-md:px-5">
-                <img loading="lazy" src={Atas} className="object-cover absolute inset-0 size-full" alt="Trainer Background" />
-                <div className="relative text-4xl font-bold leading-10 max-md:mt-10 max-md:max-w-full mobile:mt-64 lg:mt-96">
-                    TRAINER
-                </div>
-                <div className="relative text-lg leading-7 text-justify w-[616px] max-md:max-w-full mobile:mt-0 lg:mt-6">
-                    Trainer UMKM memberikan panduan praktis dalam mengembangkan bisnis kecil
-                    dan menengah, meliputi strategi pemasaran, manajemen keuangan, dan
-                    keterampilan pengembangan produk.
+            <div id="carousel-header" className="relative w-full bg-gray-200 mt-24">
+                <div className="relative overflow-hidden rounded-lg">
+                    {banners.length > 0 ? (
+                        banners.map((banner, index) => (
+                            <div key={index} className={`duration-700 ease-in-out ${index === currentIndex ? '' : 'hidden'}`}>
+                                <img src={`http://localhost:3000${banner}`} className="object-cover block h-full w-full" alt={`Slide ${index + 1}`} />
+                            </div>
+                        ))
+                    ) : (
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                            <p>Loading slides...</p>
+                        </div>
+                    )}
+                    <button type="button" className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer" onClick={prevSlide}>
+                        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-500 text-white">
+                            <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 1 1 5l4 4" />
+                            </svg>
+                            <span className="sr-only">Previous</span>
+                        </span>
+                    </button>
+                    <button type="button" className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer" onClick={nextSlide}>
+                        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-500 text-white">
+                            <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4" />
+                            </svg>
+                            <span className="sr-only">Next</span>
+                        </span>
+                    </button>
                 </div>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col py-8">
                 <div className="flex flex-col px-16 py-20 w-full text-black bg-gray-50 max-md:px-5 max-md:max-w-full">
                     <div className="mt-8 text-4xl font-bold leading-10 max-md:max-w-full">
                         Kenapa harus menjadi trainer?

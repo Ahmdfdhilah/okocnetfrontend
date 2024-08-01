@@ -12,6 +12,7 @@ const HomepageCarousel = ({ interval = 2000 }) => {
                     throw new Error('Failed to fetch banners');
                 }
                 const data = await response.json();
+                console.log(data);
                 setImages(data);
             } catch (error) {
                 console.error('Error fetching banners:', error);
