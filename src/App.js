@@ -114,6 +114,9 @@ import UpdateEmakKece from './cms/emak-kece/update';
 import SyaratTrainerTable from './cms/syarat-trainer';
 import CreateSyaratTrainer from './cms/syarat-trainer/create';
 import UpdateSyaratTrainer from './cms/syarat-trainer/update';
+import AllBannerTable from './cms/all-banner';
+import CreateAllBanner from './cms/all-banner/create';
+import UpdateAllBanner from './cms/all-banner/update';
 
 function App() {
   return (
@@ -207,6 +210,9 @@ function AppContent() {
         <Route path="/admin/emak-kece" element={<AdminPrivateRoute Component={EmakKeceTable} />} />
         <Route path="/admin/emak-kece/create" element={<AdminPrivateRoute Component={CreateEmakKece} />} />
         <Route path="/admin/emak-kece/edit/:id" element={<AdminPrivateRoute Component={UpdateEmakKece} />} />
+        <Route path="/admin/all-banner" element={<AdminPrivateRoute Component={AllBannerTable} />} />
+        <Route path="/admin/all-banner/create" element={<AdminPrivateRoute Component={CreateAllBanner} />} />
+        <Route path="/admin/all-banner/edit/:id" element={<AdminPrivateRoute Component={UpdateAllBanner} />} />
 
         {/* User routes */}
         <Route path="/" element={<Homepage />} />

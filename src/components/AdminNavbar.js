@@ -38,6 +38,7 @@ const AdminNavbar = () => {
             subMenu: [
                 { name: "DASHBOARD", link: "/admin" },
                 { name: "HOME WEBPAGE", link: "/" },
+                { name: "ALL BANNER", link: "/admin/all-banner" },
             ],
         },
         {

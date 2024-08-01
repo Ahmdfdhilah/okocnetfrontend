@@ -9,6 +9,10 @@ const Sejarah = () => {
     const [logo, setLogo] = useState({});
     const [otherLogos, setOtherLogos] = useState([]);
 
+    const [umkm, setUmkm] = useState(0);
+    const [penggerak, setPenggerak] = useState(0);
+    const [usaha, setUsaha] = useState(0);
+
     useEffect(() => {
         fetch('http://localhost:3000/logos')
             .then(response => response.json())
@@ -26,12 +30,23 @@ const Sejarah = () => {
                     logo => logo.nama !== 'okoce' && logo.nama !== 'gerakan sosial'
                 );
 
-                setLogo(logo);
                 setOtherLogos(filteredOtherLogos);
             })
             .catch(error => console.error('Error fetching logos:', error));
     }, []);
 
+    useEffect(() => {
+        fetch('http://localhost:3000/totals')
+            .then(response => response.json())
+            .then(data => {
+                const totalData = data.data;
+
+                setUmkm(totalData.find(item => item.nama === 'umkm')?.total || 0);
+                setPenggerak(totalData.find(item => item.nama === 'penggerak')?.total || 0);
+                setUsaha(totalData.find(item => item.nama === 'usaha')?.total || 0);
+            })
+            .catch(error => console.error('Error fetching total:', error));
+    }, []);
 
     useEffect(() => {
         const interval = setInterval(nextSlide, 3000);
@@ -102,16 +117,16 @@ const Sejarah = () => {
                                 <p class="mt-4">Founded</p>
                             </div>
                             <div class="max-w-32">
-                                <h1 class="font-extrabold text-4xl">500K+</h1>
-                                <p class="mt-4">Anggota Ok Oce </p>
+                                <h1 class="font-extrabold text-4xl">{umkm.toLocaleString('id-ID')}</h1>
+                                <p class="mt-4">UMKM Anggota Ok Oce </p>
                             </div>
                             <div class="max-w-16">
-                                <h1 class="font-extrabold text-4xl">197</h1>
+                                <h1 class="font-extrabold text-4xl">{[penggerak.toLocaleString('id-ID')]}</h1>
                                 <p class="mt-4">Komunitas Penggerak</p>
                             </div>
                             <div class="max-w-16">
-                                <h1 class="font-extrabold text-4xl">200K+</h1>
-                                <p class="mt-4">wirausaha Baru</p>
+                                <h1 class="font-extrabold text-4xl">{usaha.toLocaleString('id-ID')}</h1>
+                                <p class="mt-4">Wirausaha Baru</p>
                             </div>
                         </div>
                     </aside>

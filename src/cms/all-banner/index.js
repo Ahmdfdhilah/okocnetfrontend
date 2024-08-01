@@ -5,12 +5,12 @@ import { AuthContext } from '../../AuthContext';
 import ConfirmationModal from '../../components/ConfirmationModal';
 import Toast from '../../components/Toast';
 import Loading from '../../components/Loading';
-import DocumentationManager from '../../components/DocumentationManager';
+import FotoManager from '../../components/FotoManager';
 
-const ThementorTable = () => {
-    const [thementors, setThementors] = useState([]);
+const AllBannerTable = () => {
+    const [banners, setBanners] = useState([]);
     const { token } = useContext(AuthContext);
-    const [selectedThementor, setSelectedThementor] = useState(null);
+    const [selectedBanner, setSelectedBanner] = useState(null);
     const [toast, setToast] = useState({ show: false, type: '', message: '' });
     const [modalShow, setModalShow] = useState(false);
     const [toBeDeletedId, setToBeDeletedId] = useState(null);
@@ -19,38 +19,42 @@ const ThementorTable = () => {
     const [query, setQuery] = useState({
         page: 1,
         limit: 10,
+        search: '',
+        sort: '',
+        order: ''
     });
+
     const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchThementors = async () => {
+        const fetchBanners = async () => {
             try {
                 setLoading(true);
-                const response = await axios.get('http://localhost:3000/thementors', { params: query });
-                setThementors(response.data.data);
+                const response = await axios.get('http://localhost:3000/all-banners', { params: query });
+                setBanners(response.data.data);
             } catch (error) {
-                console.error('Error fetching themenors:', error);
+                console.error('Error fetching banners:', error);
             } finally {
                 setLoading(false);
             }
         };
-        fetchThementors();
+        fetchBanners();
     }, [query]);
 
     const handleDelete = async (id) => {
         try {
             setLoading(true);
-            await axios.delete(`http://localhost:3000/thementor/${id}`, {
+            await axios.delete(`http://localhost:3000/all-banners/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             });
-            const response = await axios.get('http://localhost:3000/thementor', { params: query });
-            setThementors(response.data.data);
-            setToast({ show: true, type: 'success', message: 'Thementor berhasil dihapus!' });
+            const response = await axios.get('http://localhost:3000/all-banners', { params: query });
+            setBanners(response.data.data);
+            setToast({ show: true, type: 'success', message: 'Banner berhasil dihapus!' });
             setModalShow(false);
         } catch (error) {
-            console.error('Error deleting themenor:', error);
+            console.error('Error deleting banner:', error);
         } finally {
             setLoading(false);
         }
@@ -65,21 +69,20 @@ const ThementorTable = () => {
         setModalShow(false);
     };
 
-    const handleDocumentationUpdate = async () => {
-        const response = await axios.get('http://localhost:3000/thementors', { params: query });
-        setThementors(response.data.data);
-    };
-
-    const handleRowClick = (thementor) => {
-        setSelectedThementor(thementor);
+    const handleRowClick = (banner) => {
+        setSelectedBanner(banner);
     };
 
     const handleCloseDetail = () => {
-        setSelectedThementor(null);
+        setSelectedBanner(null);
+    };
+
+    const handleCreateNew = () => {
+        navigate('/admin/all-banner/create');
     };
 
     const handleEdit = (id) => {
-        navigate(`/admin/thementor/edit/${id}`);
+        navigate(`/admin/all-banner/edit/${id}`);
     };
 
     const handleSearchChange = (event) => {
@@ -98,12 +101,23 @@ const ThementorTable = () => {
         setQuery({ ...query, page: newPage });
     };
 
+    const handleFotoUpdate = async () => {
+        const response = await axios.get('http://localhost:3000/all-banners', { params: query });
+        setBanners(response.data.data);
+    };
+
     return (
         <>
             {loading && <Loading />}
             <div className="overflow-x-auto my-32 px-6">
                 <div className="flex justify-between mb-6">
-                    <h2 className="text-2xl font-semibold text-gray-800">Thementor</h2>
+                    <h2 className="text-2xl font-semibold text-gray-800">All Banners</h2>
+                    <button
+                        onClick={handleCreateNew}
+                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none"
+                    >
+                        Tambah Banner
+                    </button>
                 </div>
                 <div className="mb-4 flex items-center">
                     <input
@@ -137,50 +151,56 @@ const ThementorTable = () => {
                     <thead className="bg-gray-800 text-white">
                         <tr>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Judul</th>
-                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Dokumentasi</th>
+                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Gambar</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Aksi</th>
                         </tr>
                     </thead>
                     {/* Table Body */}
                     <tbody className="text-gray-700">
-                        {thementors.map((thementor) => (
-                            <React.Fragment key={thementor.id}>
+                        {banners.map((banner) => (
+                            <React.Fragment key={banner.id}>
                                 <tr
                                     className="hover:bg-gray-100 border-b border-gray-200 py-4 cursor-pointer"
-                                    onClick={() => handleRowClick(thementor)}
+                                    onClick={() => handleRowClick(banner)}
                                 >
-                                    <td className="py-3 px-4">{thementor.judul}</td>
+                                    <td className="py-3 px-4">{banner.nama}</td>
                                     <td className="py-3 px-4">
-                                        <DocumentationManager
-                                            thementorId={thementor.id}
-                                            dokumentasiUrls={thementor.dokumentasi}
-                                            onUpdate={handleDocumentationUpdate}
+                                        <FotoManager
+                                            bannerId={banner.id}
+                                            gambarUrls={banner.foto} 
+                                            onUpdate={handleFotoUpdate}
                                         />
                                     </td>
                                     <td className="py-3 px-4">
                                         <button
-                                            onClick={() => handleEdit(thementor.id)}
+                                            onClick={() => handleEdit(banner.id)}
                                             className="bg-yellow-500 text-white px-4 py-1 ml-2 rounded hover:bg-yellow-600 focus:outline-none"
                                         >
                                             Edit
                                         </button>
+                                        <button
+                                            onClick={() => handleDeleteConfirmation(banner.id)}
+                                            className="bg-red-500 text-white px-4 py-1 ml-2 rounded hover:bg-red-600 focus:outline-none"
+                                        >
+                                            Hapus
+                                        </button>
                                     </td>
                                 </tr>
-                                {selectedThementor && selectedThementor.id === thementor.id && (
+                                {selectedBanner && selectedBanner.id === banner.id && (
                                     <tr className="bg-gray-200">
                                         <td colSpan="3" className="py-4 px-6">
                                             {/* Details Section */}
                                             <div className="flex justify-between">
                                                 <div>
                                                     <h3 className="text-lg font-semibold mb-2">Detail</h3>
-                                                    <p><span className="font-semibold">Judul:</span> {thementor.judul}</p>
-                                                    <p><span className="font-semibold">Dokumentasi:</span></p>
+                                                    <p><span className="font-semibold">Judul:</span> {banner.judul}</p>
+                                                    <p><span className="font-semibold">Gambar:</span></p>
                                                     <ul>
-                                                        {thementor.dokumentasi.map((doc, index) => (
+                                                        {banner.foto.map((imgUrl, index) => (
                                                             <li key={index} className="list-disc list-inside">
                                                                 <img
-                                                                    src={`http://localhost:3000${doc}`}
-                                                                    alt={`detail-${index}`}
+                                                                    src={`http://localhost:3000${imgUrl}`}
+                                                                    alt={`banner-${index}`}
                                                                     className="h-16 w-16 rounded-full object-cover"
                                                                 />
                                                             </li>
@@ -212,7 +232,7 @@ const ThementorTable = () => {
                     </button>
                     <button
                         onClick={() => handlePageChange(query.page + 1)}
-                        disabled={thementors.length < query.limit}
+                        disabled={banners.length < query.limit}
                         className="px-4 py-2 bg-gray-300 text-gray-600 rounded-md mr-2 hover:bg-gray-400 focus:outline-none"
                     >
                         Berikutnya
@@ -220,8 +240,8 @@ const ThementorTable = () => {
                 </div>
                 <ConfirmationModal
                     show={modalShow}
-                    title="Hapus Thementor"
-                    message="Apakah Anda yakin ingin menghapus Thementor ini?"
+                    title="Hapus Banner"
+                    message="Apakah Anda yakin ingin menghapus Banner ini?"
                     onConfirm={() => handleDelete(toBeDeletedId)}
                     onCancel={handleCancelDelete}
                 />
@@ -236,4 +256,4 @@ const ThementorTable = () => {
     );
 };
 
-export default ThementorTable;
+export default AllBannerTable;
