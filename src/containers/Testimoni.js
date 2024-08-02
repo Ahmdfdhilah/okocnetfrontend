@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import TestiFemale from "@img/profilecewe.png";
 import TestiMale from "@img/profilecowo.png";
 import FloatingMenu from "../components/FloatingMenu";
 
 const Testimoni = () => {
   const [banners, setBanners] = useState([]);
+  const [testi, setTesti] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedTesti, setSelectedTesti] = useState(null);
 
   useEffect(() => {
     const fetchBanners = async () => {
@@ -14,7 +15,6 @@ const Testimoni = () => {
         const response = await axios.get('http://localhost:3000/all-banners');
         if (response.data.data) {
           const testimoniBanners = response.data.data.find(item => item.nama === 'Testimoni');
-          console.log(testimoniBanners);
           setBanners(testimoniBanners ? testimoniBanners.foto : []);
         }
       } catch (error) {
@@ -23,6 +23,19 @@ const Testimoni = () => {
       }
     };
 
+    const fetchTesti = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/reviews');
+        console.log(response.data);
+        const testimoniData = response.data.data;
+        setTesti(testimoniData);
+      } catch (error) {
+        console.error("Error fetching testimonials", error);
+        setTesti([]);
+      }
+    };
+
+    fetchTesti();
     fetchBanners();
   }, []);
 
@@ -40,6 +53,20 @@ const Testimoni = () => {
   const nextSlide = () => {
     setCurrentIndex(prevIndex => (prevIndex + 1) % banners.length);
   };
+
+  const truncateText = (text, limit) => {
+    if (text.length <= limit) return text;
+    return text.slice(0, limit) + '...';
+  };
+
+  const openModal = (testi) => {
+    setSelectedTesti(testi);
+  };
+
+  const closeModal = () => {
+    setSelectedTesti(null);
+  };
+
   return (
     <>
       {/* Banner Carousel */}
@@ -82,151 +109,61 @@ const Testimoni = () => {
         <div className="container my-10 mx-auto px-4">
           <h2 className="text-4xl font-bold my-14 text-center text-sky-700">Pendapat Mereka Tentang Kami!</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {/* Testimoni item 1 */}
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-              <div className="p-4">
-                <p className="text-gray-700 text-base">
-                  "Program OK OCE Indonesia mampu memberdayakan pengusaha kecil dan menengah melalui pelatihan kewirausahaan dan akses permodalan yang lebih mudah"
-                </p>
-              </div>
-              <div className="flex items-center justify-between p-4 bg-gray-200">
-                <div className="flex items-center">
-                  <img
-                    className="h-10 w-10 rounded-full mr-4"
-                    src={TestiFemale}
-                    alt="Testimonial"
-                  />
-                  <div>
-                    <p className="font-semibold text-gray-800">Ihsania Izzatun Nisa</p>
-                    <p className="text-xs text-gray-600">Pendamping Program
-                    </p>
-                  </div>
+            {testi.map((item, index) => (
+              <div key={index} className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col">
+                <div className="flex-1 p-4">
+                  <p className="text-gray-700 text-base">
+                    {truncateText(item.deskripsi, 100)}
+                    {item.deskripsi.length > 100 && (
+                      <button
+                        className="text-blue-500 ml-1"
+                        onClick={() => openModal(item)}
+                      >
+                        Baca Selengkapnya
+                      </button>
+                    )}
+                  </p>
                 </div>
-              </div>
-            </div>
-            {/* End Testimoni item 1 */}
-            {/* Testimoni item 2 */}
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-              <div className="p-4">
-                <p className="text-gray-700 text-base">
-                  "Program OK OCE Indonesia dipuji banyak pihak karena efektif memberdayakan pengusaha kecil dan menengah melalui pelatihan kewirausahaan dan akses permodalan yang lebih mudah"
-                </p>
-              </div>
-              <div className="flex items-center justify-between p-4 bg-gray-200">
-                <div className="flex items-center">
+                <div className="flex items-center p-4 bg-gray-200">
                   <img
-                    className="h-10 w-10 rounded-full mr-4"
+                    className="h-12 w-12 rounded-full mr-4"
                     src={TestiMale}
                     alt="Testimonial"
                   />
                   <div>
-                    <p className="font-semibold text-gray-800">Naufal Firdaus</p>
-                    <p className="text-xs text-gray-600">Pendamping UMKM
-                    </p>
+                    <p className="font-semibold text-gray-800">{item.nama}</p>
+                    <p className="text-xs text-gray-600">{item.posisi}</p>
                   </div>
                 </div>
               </div>
-            </div>
-            {/* End Testimoni item 2 */}
-            {/* Testimoni item 3 */}
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-              <div className="p-4">
-                <p className="text-gray-700 text-base">
-                  "Program OK OCE Indonesia dianggap sukses oleh banyak orang dalam membantu menciptakan lapangan kerja baru dan meningkatkan keterampilan kewirausahaan masyarakat"
-                </p>
-              </div>
-              <div className="flex items-center justify-between p-4 bg-gray-200">
-                <div className="flex items-center">
-                  <img
-                    className="h-10 w-10 rounded-full mr-4"
-                    src={TestiMale}
-                    alt="Testimonial"
-                  />
-                  <div>
-                    <p className="font-semibold text-gray-800">Rico Hadeta Putra</p>
-                    <p className="text-xs text-gray-600">Mahasiswa MSIB Batch 6</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* End Testimoni item 3 */}
-            {/* Testimoni item 4 */}
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden mobile:mt-2 lg:mt-[2rem]">
-              <div className="p-4">
-                <p className="text-gray-700 text-base">
-                  "Okoce ada dan pergerakannya sgt membantu byk rakyat salah satunya bisa membuka lapangan kerja dan pelaku UMKM pun bisa ikut bazaar dm2 dgn acara2 hebat... Espas Indonesia salah satu komunitas emak2 yg sgt terbantu dgn gerakan okoce ini.. Emak2 Espas sering ikut bazaar di acara okoce dan emak2 Espas byk yg sdh bikin usaha  rumahan .. Byk pelatihan jg dr okoce Indonesia... BRAVO OKOCE INDONESIA"
-                </p>
-              </div>
-              <div className="flex items-center justify-between p-4 bg-gray-200">
-                <div className="flex items-center">
-                  <img
-                    className="h-10 w-10 rounded-full mr-4"
-                    src={TestiFemale}
-                    alt="Testimonial"
-                  />
-                  <div>
-                    <p className="font-semibold text-gray-800">@dewiherawati8616</p>
-                    <p className="text-xs text-gray-600">
-                      Ketua Penggerak OK OCE ESPAS
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* End Testimoni item 4 */}
-            {/* Testimoni item 5 */}
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden mobile:mt-2 lg:mt-[2rem]">
-              <div className="p-4">
-                <p className="text-gray-700 text-base">
-                  "Magang di OK OCE sangat menyenangkan dan seru, Teman-teman di sini sangat ramah dan selalu siap membantu, menciptakan lingkungan yang positif dan mendukung. Selain itu, pekerjaan yang diberikan benar-benar sesuai dengan jobdesk, sehingga saya bisa belajar banyak dan mengembangkan keterampilan sesuai bidang yang saya minati. Lingkungan yang kondusif dan suasana kerja yang penuh semangat"
-                </p>
-              </div>
-              <div className="flex items-center justify-between p-4 bg-gray-200">
-                <div className="flex items-center">
-                  <img
-                    className="h-10 w-10 rounded-full mr-4"
-                    src={TestiMale}
-                    alt="Testimonial"
-                  />
-                  <div>
-                    <p className="font-semibold text-gray-800">Reza Hakim</p>
-                    <p className="text-xs text-gray-600">
-                      Mahasiswa MSIB Batch 6
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* End Testimoni item 5 */}
-            {/* Testimoni item 6 */}
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden mobile:mt-2 lg:mt-[2rem]">
-              <div className="p-4">
-                <p className="text-gray-700 text-base">
-                  "OK OCE 2018 yang saya ikuti benar-benar luar biasa dan memiliki dampak nyata. Program ini hebat karena berhasil melahirkan banyak pengusaha baru. Dengan bimbingan yang tepat dan lingkungan yang mendukung, peserta dapat mengembangkan keterampilan dan pengetahuan yang sangat berharga. Sukses selalu untuk OK OCE dan semoga terus memberikan kontribusi positif bagi masyarakat"
-                </p>
-              </div>
-              <div className="flex items-center justify-between p-4 bg-gray-200">
-                <div className="flex items-center">
-                  <img
-                    className="h-10 w-10 rounded-full mr-4"
-                    src={TestiMale}
-                    alt="Testimonial"
-                  />
-                  <div>
-                    <p className="font-semibold text-gray-800">Cheflintang</p>
-                    <p className="text-xs text-gray-600">
-                      Anggota OK OCE Indonesia
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* End Testimoni item 6 */}
+            ))}
           </div>
         </div>
-      </section >
+      </section>
       {/* End Testimoni section */}
-      < FloatingMenu />
+
+      {/* Modal */}
+      {selectedTesti && (
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg w-full max-w-md relative">
+            <button
+              type="button"
+              className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+              onClick={closeModal}
+            >
+              <svg className="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1l12 12M1 13L13 1" />
+              </svg>
+              <span className="sr-only">Close modal</span>
+            </button>
+            <h3 className="text-xl font-semibold mb-4">{selectedTesti.nama}</h3>
+            <p className="text-gray-700 text-base">{selectedTesti.deskripsi}</p>
+            <p className="mt-2 text-xs text-gray-600">{selectedTesti.posisi}</p>
+          </div>
+        </div>
+      )}
+
+      <FloatingMenu />
     </>
   );
 };
