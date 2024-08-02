@@ -53,6 +53,9 @@ const MagangTable = () => {
             setLoading(false);
         }
     };
+    const getNumber = (index) => {
+        return (query.page - 1) * query.limit + index + 1;
+    };
 
     const handleDeleteConfirmation = (id) => {
         setToBeDeletedId(id);
@@ -140,6 +143,7 @@ const MagangTable = () => {
                 <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
                     <thead className="bg-gray-800 text-white">
                         <tr>
+                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">No</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Judul</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Lokasi</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Durasi</th>
@@ -150,12 +154,13 @@ const MagangTable = () => {
                         </tr>
                     </thead>
                     <tbody className="text-gray-700">
-                        {magangs.map((magang) => (
+                        {magangs.map((magang, index) => (
                             <React.Fragment key={magang.id}>
                                 <tr
                                     className="hover:bg-gray-100 border-b border-gray-200 py-4 cursor-pointer"
                                     onClick={() => handleRowClick(magang)}
                                 >
+                                    <td className="py-3 px-4">{getNumber(index)}</td>
                                     <td className="py-3 px-4">{magang.judulMagang}</td>
                                     <td className="py-3 px-4">{magang.lokasiMagang}</td>
                                     <td className="py-3 px-4">{magang.durasiMagang}</td>

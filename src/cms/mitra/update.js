@@ -19,10 +19,13 @@ const UpdateMitra = () => {
         nama: '',
         file: null,
         publishedAt: '',
+        tipe: ''
     });
 
     const [formErrors, setFormErrors] = useState({
         nama: '',
+        file: '',
+        tipe: '' 
     });
 
     useEffect(() => {
@@ -35,6 +38,7 @@ const UpdateMitra = () => {
                     nama: mitra.nama,
                     file: null,
                     publishedAt: mitra.publishedAt,
+                    tipe: mitra.tipe // Set the 'tipe' value
                 });
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -72,12 +76,16 @@ const UpdateMitra = () => {
         let valid = true;
         const errors = {
             nama: '',
-            deskripsi: '',
             file: '',
+            tipe: '', 
         };
 
         if (!formData.nama.trim()) {
             errors.nama = 'Nama harus diisi';
+            valid = false;
+        }
+        if (!formData.tipe) {
+            errors.tipe = 'Tipe harus dipilih';
             valid = false;
         }
 
@@ -97,6 +105,7 @@ const UpdateMitra = () => {
                 const formDataToSend = new FormData();
                 formDataToSend.append('nama', formData.nama);
                 formDataToSend.append('publishedAt', formData.publishedAt);
+                formDataToSend.append('tipe', formData.tipe); // Append 'tipe' to FormData
 
                 if (formData.file) {
                     formDataToSend.append('file', formData.file);
@@ -113,7 +122,7 @@ const UpdateMitra = () => {
             } catch (error) {
                 console.error('Error updating data:', error);
             }
-        })
+        });
         setModalTitle('Konfirmasi');
         setModalMessage('Apakah Anda yakin ingin mengedit mitra ini?');
         setModalShow(true);
@@ -154,6 +163,25 @@ const UpdateMitra = () => {
                             className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.file ? 'border-red-500' : ''}`}
                         />
                         {formErrors.file && <p className="text-red-500 text-sm mt-1">{formErrors.file}</p>}
+                    </div>
+
+                    <div className="mb-6">
+                        <label htmlFor="tipe" className="block text-lg font-medium text-gray-700 mb-2">
+                            Tipe
+                        </label>
+                        <select
+                            id="tipe"
+                            name="tipe"
+                            value={formData.tipe}
+                            onChange={handleInputChange}
+                            className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.tipe ? 'border-red-500' : ''}`}
+                        >
+                            <option value="">Pilih tipe mitra</option>
+                            <option value="swasta">Swasta</option>
+                            <option value="pendidikan">Pendidikan</option>
+                            <option value="pemerintah">Pemerintah</option>
+                        </select>
+                        {formErrors.tipe && <p className="text-red-500 text-sm mt-1">{formErrors.tipe}</p>}
                     </div>
 
                     <div className="mt-6">

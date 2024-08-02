@@ -95,6 +95,9 @@ const BeritasTable = () => {
     const handlePageChange = (newPage) => {
         setQuery({ ...query, page: newPage });
     };
+    const getNumber = (index) => {
+        return (query.page - 1) * query.limit + index + 1;
+    };
 
     return (
         <>
@@ -142,6 +145,7 @@ const BeritasTable = () => {
                     {/* Table Headers */}
                     <thead className="bg-gray-800 text-white">
                         <tr>
+                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">No</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Judul</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Tanggal</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Penulis</th>
@@ -153,12 +157,13 @@ const BeritasTable = () => {
                     </thead>
                     {/* Table Body */}
                     <tbody className="text-gray-700">
-                        {beritas.map((berita) => (
+                        {beritas.map((berita, index) => (
                             <React.Fragment key={berita.id}>
                                 <tr
                                     className="hover:bg-gray-100 border-b border-gray-200 py-4 cursor-pointer"
                                     onClick={() => handleRowClick(berita)}
                                 >
+                                    <td className="py-3 px-4">{getNumber(index)}</td>
                                     <td className="py-3 px-4">{berita.judulBerita}</td>
                                     <td className="py-3 px-4">{new Date(berita.tanggalBerita).toLocaleDateString()}</td>
                                     <td className="py-3 px-4">{berita.authorBerita}</td>

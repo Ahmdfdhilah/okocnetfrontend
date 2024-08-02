@@ -96,6 +96,10 @@ const TujuanMasterMentorTable = () => {
     const handlePageChange = (newPage) => {
         setQuery({ ...query, page: newPage });
     };
+    const getNumber = (index) => {
+        return (query.page - 1) * query.limit + index + 1;
+    };
+
 
     return (
         <>
@@ -140,6 +144,7 @@ const TujuanMasterMentorTable = () => {
                 <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
                     <thead className="bg-gray-800 text-white">
                         <tr>
+                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">No</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Judul</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Deskripsi</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Icon</th>
@@ -147,12 +152,13 @@ const TujuanMasterMentorTable = () => {
                         </tr>
                     </thead>
                     <tbody className="text-gray-700">
-                        {data.map((item) => (
+                        {data.map((item, index) => (
                             <React.Fragment key={item.id}>
                                 <tr
                                     className="hover:bg-gray-100 border-b border-gray-200 py-4 cursor-pointer"
                                     onClick={() => handleRowClick(item)}
                                 >
+                                    <td className="py-3 px-4">{getNumber(index)}</td>
                                     <td className="py-3 px-4">{item.judul}</td>
                                     <td className="py-3 px-4">{item.deskripsi}</td>
                                     <td className="py-3 px-4"><img className="h-10 w-10 rounded-full object-cover" src={`http://localhost:3000${item.img}`}></img></td>

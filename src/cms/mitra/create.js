@@ -18,11 +18,13 @@ const CreateMitra = () => {
         nama: '',
         file: null,
         publishedAt: new Date().toISOString().slice(0, 16),
+        tipe: '' // Add 'tipe' field
     });
 
     const [formErrors, setFormErrors] = useState({
         nama: '',
         file: '',
+        tipe: '' // Add 'tipe' field
     });
 
     const handleInputChange = (e) => {
@@ -52,8 +54,8 @@ const CreateMitra = () => {
         let valid = true;
         const errors = {
             nama: '',
-            deskripsi: '',
             file: '',
+            tipe: '', // Validate 'tipe' field
         };
 
         if (!formData.nama.trim()) {
@@ -62,6 +64,10 @@ const CreateMitra = () => {
         }
         if (!formData.file) {
             errors.file = 'Foto harus diunggah';
+            valid = false;
+        }
+        if (!formData.tipe) {
+            errors.tipe = 'Tipe harus dipilih'; // Validate 'tipe' field
             valid = false;
         }
 
@@ -82,6 +88,7 @@ const CreateMitra = () => {
                 formDataToSend.append('file', formData.file);
                 formDataToSend.append('nama', formData.nama);
                 formDataToSend.append('publishedAt', formData.publishedAt);
+                formDataToSend.append('tipe', formData.tipe); // Append 'tipe' to FormData
 
                 await axios.post(`http://localhost:3000/mitras/${userId}`, formDataToSend, {
                     headers: {
@@ -99,6 +106,7 @@ const CreateMitra = () => {
         setModalMessage('Apakah Anda yakin ingin membuat mitra ini?');
         setModalShow(true);
     };
+
     return (
         <>
             {loading && <Loading />}
@@ -135,6 +143,26 @@ const CreateMitra = () => {
                         />
                         {formErrors.file && <p className="text-red-500 text-sm mt-1">{formErrors.file}</p>}
                     </div>
+
+                    <div className="mb-6">
+                        <label htmlFor="tipe" className="block text-lg font-medium text-gray-700 mb-2">
+                            Tipe
+                        </label>
+                        <select
+                            id="tipe"
+                            name="tipe"
+                            value={formData.tipe}
+                            onChange={handleInputChange}
+                            className={`mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${formErrors.tipe ? 'border-red-500' : ''}`}
+                        >
+                            <option value="">Pilih tipe mitra</option>
+                            <option value="swasta">Swasta</option>
+                            <option value="pendidikan">Pendidikan</option>
+                            <option value="pemerintah">Pemerintah</option>
+                        </select>
+                        {formErrors.tipe && <p className="text-red-500 text-sm mt-1">{formErrors.tipe}</p>}
+                    </div>
+
                     <div className="mt-6">
                         <button
                             type="submit"

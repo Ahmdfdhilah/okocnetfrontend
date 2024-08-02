@@ -98,6 +98,10 @@ const SosmedTable = () => {
     const handlePageChange = (newPage) => {
         setQuery({ ...query, page: newPage });
     };
+    const getNumber = (index) => {
+        return (query.page - 1) * query.limit + index + 1;
+    };
+
 
     return (
         <>
@@ -142,6 +146,7 @@ const SosmedTable = () => {
                 <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
                     <thead className="bg-gray-800 text-white">
                         <tr>
+                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">No</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Nama</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Tautan</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Icon</th>
@@ -149,12 +154,13 @@ const SosmedTable = () => {
                         </tr>
                     </thead>
                     <tbody className="text-gray-700">
-                        {data.map((item) => (
+                        {data.map((item, index) => (
                             <React.Fragment key={item.id}>
                                 <tr
                                     className={`hover:bg-gray-100 border-b border-gray-200 py-4 cursor-pointer ${selectedItem && selectedItem.id === item.id ? 'bg-gray-200' : ''}`}
                                     onClick={() => handleRowClick(item)}
                                 >
+                                    <td className="py-3 px-4">{getNumber(index)}</td>
                                     <td className="py-3 px-4">{item.nama}</td>
                                     <td className="py-3 px-4">
                                         <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">

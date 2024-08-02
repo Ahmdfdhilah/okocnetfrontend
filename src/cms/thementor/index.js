@@ -77,6 +77,9 @@ const ThementorTable = () => {
     const handleCloseDetail = () => {
         setSelectedThementor(null);
     };
+    const getNumber = (index) => {
+        return (query.page - 1) * query.limit + index + 1;
+    };
 
     const handleEdit = (id) => {
         navigate(`/admin/thementor/edit/${id}`);
@@ -120,7 +123,6 @@ const ThementorTable = () => {
                     >
                         <option value="">Urutkan Berdasarkan...</option>
                         <option value="judul">Judul</option>
-                        {/* Add other sort options if needed */}
                     </select>
                     <select
                         value={query.order || ''}
@@ -133,7 +135,6 @@ const ThementorTable = () => {
                     </select>
                 </div>
                 <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
-                    {/* Table Headers */}
                     <thead className="bg-gray-800 text-white">
                         <tr>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Judul</th>

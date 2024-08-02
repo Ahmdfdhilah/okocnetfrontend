@@ -75,14 +75,6 @@ const Testimoni = () => {
             </button>
           </div>
         </div>
-        <div className="absolute inset-0 top-64 z-20 px-4 mx-auto max-w-screen-xl text-center">
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
-            Yuk, Mulai Gabung dan Dapatkan Hasil Tambahan dengan daftar
-          </h1>
-          <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
-            Fondasi kami, idemu, bersama-sama kita maju dan berkembang untuk menciptakan masa depan bersama.
-          </p>
-        </div>
       </section>
 
       {/* Testimoni section */}

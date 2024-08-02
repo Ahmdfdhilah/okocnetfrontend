@@ -36,6 +36,10 @@ const EventTable = () => {
             setLoading(false);
         }
     };
+    const getNumber = (index) => {
+        return (query.page - 1) * query.limit + index + 1;
+    };
+
 
     const handleDelete = async (id) => {
         try {
@@ -143,6 +147,7 @@ const EventTable = () => {
                 <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
                     <thead className="bg-gray-800 text-white">
                         <tr>
+                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">No</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Judul</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Tanggal</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Harga</th>
@@ -153,12 +158,13 @@ const EventTable = () => {
                         </tr>
                     </thead>
                     <tbody className="text-gray-700">
-                        {events.map((event) => (
+                        {events.map((event, index) => (
                             <React.Fragment key={event.id}>
                                 <tr
                                     className="hover:bg-gray-100 border-b border-gray-200 py-4 cursor-pointer"
                                     onClick={() => handleRowClick(event)}
                                 >
+                                    <td className="py-3 px-4">{getNumber(index)}</td>
                                     <td className="py-3 px-4">{event.judulEvent}</td>
                                     <td className="py-3 px-4">{new Date(event.tanggalEvent).toLocaleDateString()}</td>
                                     <td className="py-3 px-4">{event.hargaEvent}</td>

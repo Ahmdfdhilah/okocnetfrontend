@@ -106,6 +106,10 @@ const AllBannerTable = () => {
         setBanners(response.data.data);
     };
 
+    const getNumber = (index) => {
+        return (query.page - 1) * query.limit + index + 1;
+    };
+
     return (
         <>
             {loading && <Loading />}
@@ -150,6 +154,7 @@ const AllBannerTable = () => {
                     {/* Table Headers */}
                     <thead className="bg-gray-800 text-white">
                         <tr>
+                            <th className="text-left py-3 px-4 uppercase font-semibold text-sm">No</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Judul</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Gambar</th>
                             <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Aksi</th>
@@ -157,17 +162,20 @@ const AllBannerTable = () => {
                     </thead>
                     {/* Table Body */}
                     <tbody className="text-gray-700">
-                        {banners.map((banner) => (
+                        {banners.map((banner, index) => (
                             <React.Fragment key={banner.id}>
                                 <tr
                                     className="hover:bg-gray-100 border-b border-gray-200 py-4 cursor-pointer"
                                     onClick={() => handleRowClick(banner)}
                                 >
+                                    <td className='py-3 px-4'>
+                                        {getNumber(index)}
+                                    </td>
                                     <td className="py-3 px-4">{banner.nama}</td>
                                     <td className="py-3 px-4">
                                         <FotoManager
                                             bannerId={banner.id}
-                                            gambarUrls={banner.foto} 
+                                            gambarUrls={banner.foto}
                                             onUpdate={handleFotoUpdate}
                                         />
                                     </td>
@@ -188,7 +196,7 @@ const AllBannerTable = () => {
                                 </tr>
                                 {selectedBanner && selectedBanner.id === banner.id && (
                                     <tr className="bg-gray-200">
-                                        <td colSpan="3" className="py-4 px-6">
+                                        <td colSpan="4" className="py-4 px-6">
                                             {/* Details Section */}
                                             <div className="flex justify-between">
                                                 <div>
