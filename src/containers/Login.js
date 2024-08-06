@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoginModal from '../components/LoginModal';
+import ForgotPassword from '../components/ForgotPassword';
 import axios from 'axios';
 import { AuthContext } from '../AuthContext';
 
@@ -10,6 +11,7 @@ const Login = () => {
     const { setIsAuthenticated } = useContext(AuthContext);
     const [modal, setModal] = useState({ show: false, title: '', message: '' });
     const [consentGiven, setConsentGiven] = useState(false);
+    const [showForgotPassword, setShowForgotPassword] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -79,6 +81,14 @@ const Login = () => {
         }
     };
 
+    const handleForgotPassword = () => {
+        setShowForgotPassword(true);
+    };
+
+    const handleCloseForgotPassword = () => {
+        setShowForgotPassword(false);
+    };
+
     return (
         <>
             <div className="bg-gray-100 flex justify-center items-center h-screen">
@@ -138,7 +148,13 @@ const Login = () => {
                         </div>
                         {/* Forgot Password Link */}
                         <div className="mb-6 text-blue-500">
-                            <a href="#" className="hover:underline">Forgot Password?</a>
+                            <button
+                                type="button"
+                                onClick={handleForgotPassword}
+                                className="hover:underline"
+                            >
+                                Forgot Password?
+                            </button>
                         </div>
                         {/* Login Button */}
                         <button
@@ -156,6 +172,7 @@ const Login = () => {
                 title={modal.title}
                 message={modal.message}
             />
+            {showForgotPassword && <ForgotPassword onClose={handleCloseForgotPassword} />}
         </>
     );
 };

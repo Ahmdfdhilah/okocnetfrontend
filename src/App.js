@@ -117,6 +117,8 @@ import UpdateSyaratTrainer from './cms/syarat-trainer/update';
 import AllBannerTable from './cms/all-banner';
 import CreateAllBanner from './cms/all-banner/create';
 import UpdateAllBanner from './cms/all-banner/update';
+import ForgotPassword from './containers/ForgotPassword';
+import ResetPasswordPage from './containers/ResetPassword';
 
 function App() {
   return (
@@ -217,6 +219,7 @@ function AppContent() {
         {/* User routes */}
         <Route path="/" element={<Homepage />} />
         <Route path="/okoclogin" element={<Login />} />
+        <Route path="/reset-password" element={<ResetPasswordPage />} />
         <Route path="/sejarah" element={<Sejarah />} />
         <Route path="/visimisi" element={<Visimisi />} />
         <Route path="/nilaiinti" element={<NilaiInti />} />
